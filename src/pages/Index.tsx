@@ -1,0 +1,23 @@
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import SafariPackages from '@/components/SafariPackages';
+import Destinations from '@/components/Destinations';
+import Experiences from '@/components/Experiences';
+import Footer from '@/components/Footer';
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <Hero />
+        <SafariPackages />
+        <Destinations />
+        <Experiences />
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Index;

@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Premium Kenya Safari Theme */
+    --background: 222 25% 5%;
+    --foreground: 40 60% 95%;
+
+    --card: 222 25% 8%;
+    --card-foreground: 40 60% 95%;
+
+    --popover: 222 25% 8%;
+    --popover-foreground: 40 60% 95%;
+
+    /* Kenya Brand Colors - Purple/Magenta gradient */
+    --primary: 295 85% 35%;
+    --primary-foreground: 40 60% 95%;
+    --primary-glow: 310 85% 55%;
+
+    /* Luxury Gold Accents */
+    --secondary: 40 85% 65%;
+    --secondary-foreground: 222 25% 5%;
+
+    --muted: 222 20% 15%;
+    --muted-foreground: 40 20% 70%;
+
+    --accent: 40 85% 65%;
+    --accent-foreground: 222 25% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 60% 95%;
+
+    --border: 222 20% 20%;
+    --input: 222 20% 15%;
+    --ring: 295 85% 35%;
+
+    --radius: 0.75rem;
+
+    /* Custom Kenya Theme Variables */
+    --kenya-purple: 295 85% 35%;
+    --kenya-magenta: 310 85% 55%;
+    --kenya-gold: 40 85% 65%;
+    --kenya-gold-light: 40 90% 75%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--kenya-purple)), hsl(var(--kenya-magenta)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--kenya-gold)), hsl(var(--kenya-gold-light)));
+    
+    /* Shadows */
+    --shadow-luxury: 0 20px 40px -10px hsl(var(--kenya-purple) / 0.3);
+    --shadow-gold: 0 8px 25px -5px hsl(var(--kenya-gold) / 0.4);
+    
+    /* Animation */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode already implemented in root */
+    --background: 222 25% 5%;
+    --foreground: 40 60% 95%;
+
+    --card: 222 25% 8%;
+    --card-foreground: 40 60% 95%;
+
+    --popover: 222 25% 8%;
+    --popover-foreground: 40 60% 95%;
+
+    --primary: 295 85% 35%;
+    --primary-foreground: 40 60% 95%;
+
+    --secondary: 40 85% 65%;
+    --secondary-foreground: 222 25% 5%;
+
+    --muted: 222 20% 15%;
+    --muted-foreground: 40 20% 70%;
+
+    --accent: 40 85% 65%;
+    --accent-foreground: 222 25% 5%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 60% 95%;
+
+    --border: 222 20% 20%;
+    --input: 222 20% 15%;
+    --ring: 295 85% 35%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
