@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,25 @@ import { Badge } from '@/components/ui/badge';
 import { MapPin, Camera, Star, Clock, Users } from 'lucide-react';
 
 const PopularDestinations = () => {
+  const navigate = useNavigate();
+
+  const handleCustomSafariClick = () => {
+    // Navigate to custom safari page and scroll to form
+    navigate('/custom-safari');
+    // Scroll to form after navigation
+    setTimeout(() => {
+      const formElement = document.getElementById('custom-safari-form');
+      if (formElement) {
+        const headerHeight = 120; // Approximate header height
+        const formTop = formElement.offsetTop;
+        window.scrollTo({
+          top: formTop - headerHeight - 20, // 20px additional spacing
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  };
+
   const destinations = [
     {
       id: 'masai-mara',
@@ -106,7 +125,7 @@ const PopularDestinations = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[70vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-magenta/20 flex items-center justify-center">
+      <section className="relative h-[70vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-magenta/20 flex items-center justify-center pt-32">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
@@ -250,11 +269,9 @@ const PopularDestinations = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/custom-safari">
-                <Button variant="luxury" size="lg">
-                  Plan Custom Multi-Park Safari
-                </Button>
-              </Link>
+              <Button variant="luxury" size="lg" onClick={handleCustomSafariClick}>
+                Plan Custom Multi-Park Safari
+              </Button>
               <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
                 View All Destinations
               </Button>

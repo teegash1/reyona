@@ -1,9 +1,18 @@
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
@@ -23,7 +32,7 @@ const Header = () => {
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="w-4 h-4" />
-              <span>info@kenyasafarivibes.com</span>
+              <span>info@reyonasafaris.com</span>
             </div>
           </div>
         </div>
@@ -37,37 +46,37 @@ const Header = () => {
             <div className="w-24 h-14 rounded-lg overflow-hidden shadow-lg ring-2 ring-kenya-gold/20">
               <img 
                 src="https://images.unsplash.com/photo-1756498017532-7e1b6fd67eec?q=80&w=2019&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Kenya Safari Vibes Logo"
+                alt="Reyona Safaris Logo"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="flex flex-col justify-center">
-              <h1 className="text-xl font-bold text-foreground">Kenya Safari Vibes</h1>
+              <h1 className="text-xl font-bold text-foreground">Reyona Safaris</h1>
               <p className="text-sm text-muted-foreground">Premium African Adventures</p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <a href="/" className="text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/" className={`transition-colors font-medium ${isActive('/') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Home
             </a>
-            <a href="/safaris" className="text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/safaris" className={`transition-colors font-medium ${isActive('/safaris') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Safaris
             </a>
-            <a href="/experiences" className="text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/experiences" className={`transition-colors font-medium ${isActive('/experiences') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Experiences
             </a>
-            <a href="/accommodations" className="text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/accommodations" className={`transition-colors font-medium ${isActive('/accommodations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Accommodations
             </a>
-            <a href="/destinations" className="text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/destinations" className={`transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Destinations
             </a>
-            <a href="/about" className="text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/about" className={`transition-colors font-medium ${isActive('/about') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               About Us
             </a>
-            <a href="/contact" className="text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/contact" className={`transition-colors font-medium ${isActive('/contact') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Contact
             </a>
           </nav>
@@ -93,22 +102,25 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-t border-border">
           <nav className="max-w-7xl mx-auto px-4 py-6 space-y-4">
-            <a href="#home" className="block text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/" className={`block transition-colors font-medium ${isActive('/') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Home
             </a>
-            <a href="#safaris" className="block text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/safaris" className={`block transition-colors font-medium ${isActive('/safaris') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Safaris
             </a>
-            <a href="#experiences" className="block text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/experiences" className={`block transition-colors font-medium ${isActive('/experiences') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Experiences
             </a>
-            <a href="#accommodations" className="block text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/accommodations" className={`block transition-colors font-medium ${isActive('/accommodations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Accommodations
             </a>
-            <a href="#about" className="block text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/destinations" className={`block transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
+              Destinations
+            </a>
+            <a href="/about" className={`block transition-colors font-medium ${isActive('/about') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               About Us
             </a>
-            <a href="#contact" className="block text-foreground hover:text-kenya-gold transition-colors font-medium">
+            <a href="/contact" className={`block transition-colors font-medium ${isActive('/contact') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Contact
             </a>
             <Button variant="luxury" size="lg" className="w-full mt-4">

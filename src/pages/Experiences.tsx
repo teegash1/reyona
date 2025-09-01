@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -6,6 +7,25 @@ import { Badge } from '@/components/ui/badge';
 import { Star, Clock, Users, Camera, Mountain, Waves, TreePine, Compass, Heart } from 'lucide-react';
 
 const Experiences = () => {
+  const navigate = useNavigate();
+
+  const handleCustomExperienceClick = () => {
+    // Navigate to custom safari page and scroll to form
+    navigate('/custom-safari');
+    // Scroll to form after navigation
+    setTimeout(() => {
+      const formElement = document.getElementById('custom-safari-form');
+      if (formElement) {
+        const headerHeight = 120; // Approximate header height
+        const formTop = formElement.offsetTop;
+        window.scrollTo({
+          top: formTop - headerHeight - 20, // 20px additional spacing
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  };
+
   const experiences = [
     {
       id: 1,
@@ -92,7 +112,7 @@ const Experiences = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-magenta/20 to-kenya-purple/20 flex items-center justify-center">
+      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-magenta/20 to-kenya-purple/20 flex items-center justify-center pt-32">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
@@ -205,7 +225,7 @@ const Experiences = () => {
               Combine multiple experiences for the ultimate Kenyan journey tailored to your dreams and preferences.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="luxury" size="lg">
+              <Button variant="luxury" size="lg" onClick={handleCustomExperienceClick}>
                 Plan Custom Experience
               </Button>
               <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">

@@ -4,8 +4,20 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Star, Wifi, Car, Utensils, Waves, TreePine, Crown, Tent } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Accommodations = () => {
+  const navigate = useNavigate();
+
+  const handlePlanYourStay = () => {
+    navigate('/contact', { 
+      state: { 
+        inquiryType: 'booking',
+        scrollToForm: true 
+      } 
+    });
+  };
+
   const accommodations = [
     {
       id: 1,
@@ -100,7 +112,7 @@ const Accommodations = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-gold/20 to-kenya-purple/20 flex items-center justify-center">
+      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-gold/20 to-kenya-purple/20 flex items-center justify-center pt-32">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
@@ -241,11 +253,8 @@ const Accommodations = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="luxury" size="lg">
+              <Button variant="luxury" size="lg" onClick={handlePlanYourStay}>
                 Plan Your Stay
-              </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
-                View All Accommodations
               </Button>
             </div>
           </div>

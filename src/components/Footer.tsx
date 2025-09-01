@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="bg-gradient-primary py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h3 className="text-3xl font-bold text-white mb-4">
-            Stay Connected with Kenya Safari Vibes
+            Stay Connected with Reyona Safaris
           </h3>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
             Get exclusive safari deals, wildlife photography tips, and Kenya travel insights delivered to your inbox.
@@ -33,11 +33,15 @@ const Footer = () => {
             {/* Company Info */}
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                  K
+                <div className="w-24 h-14 rounded-lg overflow-hidden shadow-lg ring-2 ring-kenya-gold/20">
+                  <img 
+                    src="https://images.unsplash.com/photo-1756498017532-7e1b6fd67eec?q=80&w=2019&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Reyona Safaris Logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-foreground">Kenya Safari Vibes</h1>
+                  <h1 className="text-xl font-bold text-foreground">Reyona Safaris</h1>
                   <p className="text-sm text-muted-foreground">Premium African Adventures</p>
                 </div>
               </div>
@@ -106,7 +110,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-kenya-gold flex-shrink-0" />
-                  <p className="text-muted-foreground">info@kenyasafarivibes.com</p>
+                  <p className="text-muted-foreground">info@reyonasafaris.com</p>
                 </div>
               </div>
             </div>
@@ -118,7 +122,7 @@ const Footer = () => {
       <div className="border-t border-border py-6">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground">
-            <p>&copy; 2024 Kenya Safari Vibes. All rights reserved.</p>
+            <p>&copy; 2024 Reyona Safaris. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-kenya-gold transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-kenya-gold transition-colors">Terms of Service</a>

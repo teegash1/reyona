@@ -67,11 +67,11 @@ const About = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[70vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-gold/20 flex items-center justify-center">
+      <section className="relative h-[70vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-gold/20 flex items-center justify-center pt-32">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            About Kenya Safari Vibes
+            About Reyona Safaris
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8">
             Born from a deep love for Kenya's wildlife and culture, we create authentic safari experiences that transform lives
@@ -85,13 +85,13 @@ const About = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Story</h2>
           <div className="space-y-8 text-lg leading-relaxed">
             <p className="text-muted-foreground">
-              Kenya Safari Vibes was founded in 2008 by David Kiptoo, a Maasai warrior turned conservationist who grew up in the shadow of the great Maasai Mara. As a child, David would guide his family's cattle alongside migrating wildebeest, developing an intimate understanding of Kenya's wildlife patterns and behaviors.
+              Reyona Safaris was founded in 2008 by David Kiptoo, a Maasai warrior turned conservationist who grew up in the shadow of the great Maasai Mara. As a child, David would guide his family's cattle alongside migrating wildebeest, developing an intimate understanding of Kenya's wildlife patterns and behaviors.
             </p>
             <p className="text-muted-foreground">
               After completing his education in tourism and wildlife management, David recognized that many safari companies were offering generic experiences that failed to capture the true essence of Kenya. He envisioned something different – authentic, responsible safaris that would create deep connections between travelers and the natural world while supporting local communities.
             </p>
             <p className="text-muted-foreground">
-              Today, Kenya Safari Vibes has grown into one of Kenya's most respected safari operators, known for our personalized approach, conservation focus, and commitment to authentic experiences. We've had the privilege of sharing Kenya's wonders with thousands of travelers from around the world, each carrying home not just memories, but a deeper appreciation for wildlife conservation.
+              Today, Reyona Safaris has grown into one of Kenya's most respected safari operators, known for our personalized approach, conservation focus, and commitment to authentic experiences. We've had the privilege of sharing Kenya's wonders with thousands of travelers from around the world, each carrying home not just memories, but a deeper appreciation for wildlife conservation.
             </p>
           </div>
         </div>

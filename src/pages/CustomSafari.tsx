@@ -88,7 +88,7 @@ const CustomSafari = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-magenta/20 to-kenya-gold/20 flex items-center justify-center">
+      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-magenta/20 to-kenya-gold/20 flex items-center justify-center pt-32">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
@@ -128,7 +128,7 @@ const CustomSafari = () => {
       </section>
 
       {/* Custom Safari Form */}
-      <section className="py-16">
+      <section id="custom-safari-form" className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <Card className="shadow-luxury">
             <CardHeader>
@@ -323,29 +323,39 @@ const CustomSafari = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-16 bg-gradient-primary">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Prefer to Talk Directly?</h2>
-          <p className="text-xl text-white/90 mb-8">
-            Our safari experts are available to discuss your dream safari personally
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="bg-white/10 border-white/20">
-              <CardContent className="pt-6 text-center">
-                <Phone className="w-8 h-8 mx-auto mb-4 text-kenya-gold" />
-                <h3 className="font-semibold text-white mb-2">Call Us</h3>
-                <p className="text-white/90">+254 700 123 456</p>
-                <p className="text-white/70 text-sm">Available 24/7</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white/10 border-white/20">
-              <CardContent className="pt-6 text-center">
-                <Mail className="w-8 h-8 mx-auto mb-4 text-kenya-gold" />
-                <h3 className="font-semibold text-white mb-2">Email Us</h3>
-                <p className="text-white/90">custom@kenyasafarivibes.com</p>
-                <p className="text-white/70 text-sm">Response within 2 hours</p>
-              </CardContent>
-            </Card>
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center p-8 bg-gradient-primary rounded-2xl border border-white/30 shadow-lg">
+            <h2 className="text-3xl font-bold text-white mb-6">Prefer to Talk Directly?</h2>
+            <p className="text-white/90 text-lg mb-6 max-w-2xl mx-auto">
+              Our safari experts are available to discuss your dream safari personally and create the perfect itinerary for your adventure.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <Card className="bg-white/10 border-white/20">
+                <CardContent className="pt-6 text-center">
+                  <Phone className="w-8 h-8 mx-auto mb-4 text-kenya-gold" />
+                  <h3 className="font-semibold text-white mb-2">Call Us</h3>
+                  <p className="text-white/90">+254 700 123 456</p>
+                  <p className="text-white/70 text-sm">Available 24/7</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-white/10 border-white/20">
+                <CardContent className="pt-6 text-center">
+                  <Mail className="w-8 h-8 mx-auto mb-4 text-kenya-gold" />
+                  <h3 className="font-semibold text-white mb-2">Email Us</h3>
+                  <p className="text-white/90">custom@reyonasafaris.com</p>
+                  <p className="text-white/70 text-sm">Response within 2 hours</p>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button variant="luxury" size="lg">
+                Call Now
+              </Button>
+              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+                Send Email
+              </Button>
+            </div>
           </div>
         </div>
       </section>

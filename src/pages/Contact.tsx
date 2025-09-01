@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -10,6 +11,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { MapPin, Phone, Mail, Clock, MessageCircle, Calendar, Globe } from 'lucide-react';
 
 const Contact = () => {
+  const location = useLocation();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,6 +21,29 @@ const Contact = () => {
     message: '',
     inquiryType: ''
   });
+
+  useEffect(() => {
+    // Handle navigation state from other pages
+    if (location.state?.inquiryType) {
+      setFormData(prev => ({ ...prev, inquiryType: location.state.inquiryType }));
+    }
+    
+    // Scroll to form if requested
+    if (location.state?.scrollToForm) {
+      const formElement = document.getElementById('contact-form');
+      if (formElement) {
+        // Scroll to form with precise positioning to match the image
+        setTimeout(() => {
+          const headerHeight = 120; // Approximate header height
+          const formTop = formElement.offsetTop;
+          window.scrollTo({
+            top: formTop - headerHeight - 20, // 20px additional spacing
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
+    }
+  }, [location.state]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,7 +67,7 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      details: ["info@kenyasafarivibes.com", "safaris@kenyasafarivibes.com"],
+      details: ["info@reyonasafaris.com", "safaris@reyonasafaris.com"],
       description: "We respond within 2 hours during business hours"
     },
     {
@@ -76,7 +102,7 @@ const Contact = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-gold/20 to-kenya-magenta/20 flex items-center justify-center">
+      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-gold/20 to-kenya-magenta/20 flex items-center justify-center pt-32">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
@@ -116,7 +142,7 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="shadow-luxury">
+            <Card id="contact-form" className="shadow-luxury">
               <CardHeader>
                 <CardTitle className="text-2xl">Send Us a Message</CardTitle>
                 <p className="text-muted-foreground">
@@ -217,7 +243,7 @@ const Contact = () => {
                   <div className="bg-gradient-primary rounded-lg h-48 flex items-center justify-center text-white">
                     <div className="text-center">
                       <MapPin className="w-12 h-12 mx-auto mb-4" />
-                      <h3 className="text-xl font-bold">Kenya Safari Vibes</h3>
+                      <h3 className="text-xl font-bold">Reyona Safaris</h3>
                       <p>Westlands, Nairobi</p>
                       <p>Kenya</p>
                     </div>
@@ -264,7 +290,7 @@ const Contact = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4" />
-                      <span>emergency@kenyasafarivibes.com</span>
+                      <span>emergency@reyonasafaris.com</span>
                     </div>
                   </div>
                 </CardContent>
