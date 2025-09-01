@@ -82,12 +82,12 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-bold text-foreground mb-6">Popular Destinations</h3>
               <ul className="space-y-3">
-                <li><a href="#" className="text-muted-foreground hover:text-kenya-gold transition-colors">Masai Mara</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-kenya-gold transition-colors">Amboseli National Park</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-kenya-gold transition-colors">Tsavo East & West</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Nakuru</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-kenya-gold transition-colors">Samburu Reserve</a></li>
-                <li><a href="#" className="text-muted-foreground hover:text-kenya-gold transition-colors">Mount Kenya</a></li>
+                <li><a href="/destinations/masai-mara" className="text-muted-foreground hover:text-kenya-gold transition-colors">Masai Mara</a></li>
+                <li><a href="/destinations/amboseli" className="text-muted-foreground hover:text-kenya-gold transition-colors">Amboseli National Park</a></li>
+                <li><a href="/destinations/tsavo-east" className="text-muted-foreground hover:text-kenya-gold transition-colors">Tsavo East & West</a></li>
+                <li><a href="/destinations/lake-nakuru" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Nakuru</a></li>
+                <li><a href="/destinations/samburu" className="text-muted-foreground hover:text-kenya-gold transition-colors">Samburu Reserve</a></li>
+                <li><a href="/destinations/mount-kenya" className="text-muted-foreground hover:text-kenya-gold transition-colors">Mount Kenya</a></li>
               </ul>
             </div>
 

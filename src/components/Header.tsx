@@ -1,17 +1,27 @@
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path: string) => {
     if (path === '/') {
       return location.pathname === '/';
     }
     return location.pathname.startsWith(path);
+  };
+
+  const handleBookSafari = () => {
+    navigate('/contact', { 
+      state: { 
+        inquiryType: 'safari',
+        scrollToForm: true 
+      } 
+    });
   };
 
   return (
@@ -42,7 +52,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-6">
+          <Link to="/" className="flex items-center space-x-6 hover:opacity-80 transition-opacity">
             <div className="w-24 h-14 rounded-lg overflow-hidden shadow-lg ring-2 ring-kenya-gold/20">
               <img 
                 src="https://images.unsplash.com/photo-1756498017532-7e1b6fd67eec?q=80&w=2019&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -54,7 +64,7 @@ const Header = () => {
               <h1 className="text-xl font-bold text-foreground">Reyona Safaris</h1>
               <p className="text-sm text-muted-foreground">Premium African Adventures</p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
@@ -83,7 +93,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button variant="luxury" size="lg">
+            <Button variant="luxury" size="lg" onClick={handleBookSafari}>
               Book Your Safari
             </Button>
           </div>
@@ -123,7 +133,7 @@ const Header = () => {
             <a href="/contact" className={`block transition-colors font-medium ${isActive('/contact') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Contact
             </a>
-            <Button variant="luxury" size="lg" className="w-full mt-4">
+            <Button variant="luxury" size="lg" className="w-full mt-4" onClick={handleBookSafari}>
               Book Your Safari
             </Button>
           </nav>

@@ -40,15 +40,17 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <Link to="/destinations">
+          <Link to="/safaris">
             <Button variant="hero" size="xl" className="group">
               Explore Our Safaris
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-          <Button variant="outline" size="xl">
-            Watch Our Story
-          </Button>
+          <Link to="/about">
+            <Button variant="outline" size="xl">
+              About Us
+            </Button>
+          </Link>
         </div>
 
         {/* Stats */}
