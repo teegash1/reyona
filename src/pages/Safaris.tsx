@@ -440,7 +440,15 @@ const Safaris = () => {
         {
           day: 1,
           title: "FULL DAY NAIROBI TOUR",
-          description: "6:00 AM - Personal Pickup: Private pickup from our friendly guide at your hotel of stay or airport and immediately drive to the well-known Nairobi National Park for game drives. Kickstart your adventure with exclusive game drives in the park in search for the wild animals like Lions, Cheetah, Leopards, giraffes, rhinos, impalas, crocodiles and other diverse wild animals found here. 10:30 AM – ELEPHANT ORPHANAGE: Finalise your game drives as you head to the David Sheldrick as you get to experience this unique activity of the orphaned elephants and how they are fed and get to take amazing photos. This activity takes approximately one hour. 1:00 PM - Lunch at The Carnivore Restaurant: Delight your taste buds with an unforgettable lunch at The Carnivore, famous for its authentic African barbecue experience in a rustic setting. Vegetarian options are also available. 2:30 PM - Giraffe Centre Visit: Continue your journey with a visit to the Giraffe Centre. Feed and interact with the endangered Rothschild giraffes in a picturesque setting, perfect for photos and unforgettable memories. 4:00 PM - Karen Blixen Museum Tour: Travel back in time as you explore the former home of famous author Karen Blixen, experiencing the rich history and beautiful gardens described in 'Out of Africa.' 5:30 PM - Kazuri Beads Women's Workshop: Discover handcrafted, colorful ceramic beads and pottery made by talented artisans. A wonderful opportunity to support local crafts. 6:30 PM - Return Drop-off: Your guide will safely return you to your location of choice, rounding off a day full of exploration, culture, and relaxation.",
+          activities: [
+            { time: "6:00 AM", activity: "Personal Pickup: Private pickup from our friendly guide at your hotel of stay or airport and immediately drive to the well-known Nairobi National Park for game drives. Kickstart your adventure with exclusive game drives in the park in search for the wild animals like Lions, Cheetah, Leopards, giraffes, rhinos, impalas, crocodiles and other diverse wild animals found here." },
+            { time: "10:30 AM", activity: "ELEPHANT ORPHANAGE: Finalise your game drives as you head to the David Sheldrick as you get to experience this unique activity of the orphaned elephants and how they are fed and get to take amazing photos. This activity takes approximately one hour." },
+            { time: "1:00 PM", activity: "Lunch at The Carnivore Restaurant: Delight your taste buds with an unforgettable lunch at The Carnivore, famous for its authentic African barbecue experience in a rustic setting. Vegetarian options are also available." },
+            { time: "2:30 PM", activity: "Giraffe Centre Visit: Continue your journey with a visit to the Giraffe Centre. Feed and interact with the endangered Rothschild giraffes in a picturesque setting, perfect for photos and unforgettable memories." },
+            { time: "4:00 PM", activity: "Karen Blixen Museum Tour: Travel back in time as you explore the former home of famous author Karen Blixen, experiencing the rich history and beautiful gardens described in 'Out of Africa.'" },
+            { time: "5:30 PM", activity: "Kazuri Beads Women's Workshop: Discover handcrafted, colorful ceramic beads and pottery made by talented artisans. A wonderful opportunity to support local crafts." },
+            { time: "6:30 PM", activity: "Return Drop-off: Your guide will safely return you to your location of choice, rounding off a day full of exploration, culture, and relaxation." }
+          ],
           meals: "Lunch"
         }
       ],
@@ -478,7 +486,17 @@ const Safaris = () => {
         {
           day: 1,
           title: "COFFEE/TEA FARM TOUR",
-          description: "7:30 AM - Start your day with a private pick-up from your accommodation in Nairobi. Relax and enjoy the scenic drive to the heart of Kenya's lush coffee or tea plantations. 9:00 AM - Welcome to the Plantation: Arrive at the premier coffee or tea farm, where a warm welcome awaits you. Enjoy a refreshing beverage crafted from the farm's finest harvest before embarking on your tour. Get to learn more about the history of the farm and everything about coffee/ tea farming. 9:30 AM - Immersive Farm Tour: Embark on a guided walk-through verdant field. Learn about the cultivation and harvesting process, from bean to cup or leaf to tea, with engaging talks from passionate local farmers. 11:00 AM - Hands-On Experience: Get your hands dirty with a unique opportunity to pick your own coffee berries or tea leaves, experiencing firsthand the effort and skill behind every perfect cup. 12:30 PM - Farm-to-Table Lunch: Indulge in a farm-to-table lunch featuring local specialties and seasonal produce. Pair your meal with freshly brewed tea or coffee, enhancing flavours with every sip. 2:00 PM - Coffee or Tea Tasting Workshop: Delight in a tasting session with seasoned experts. Discover the art of cupping, assessing distinct flavours notes, and aromas. Perfect for enthusiasts and newcomers alike! 3:00 PM - Behind-the-Scenes Processing Tour: Witness the journey from raw harvest to the finished product. See the intricate roasting or withering and drying processes that culminate in the exquisite beverages loved worldwide. 4:30 PM - Shopping and Souvenirs: Before you leave, visit the gift shop to purchase your favourite blends directly from the source. Take home a piece of Kenya with exclusive, farm-fresh packs. 5:00 PM - Return Journey: Enjoy a picturesque drive back to Nairobi, enriched by the day's experiences. We'll drop you off at your choice of location, ensuring your comfort and satisfaction.",
+          activities: [
+            { time: "7:30 AM", activity: "Start your day with a private pick-up from your accommodation in Nairobi. Relax and enjoy the scenic drive to the heart of Kenya's lush coffee or tea plantations." },
+            { time: "9:00 AM", activity: "Welcome to the Plantation: Arrive at the premier coffee or tea farm, where a warm welcome awaits you. Enjoy a refreshing beverage crafted from the farm's finest harvest before embarking on your tour. Get to learn more about the history of the farm and everything about coffee/tea farming." },
+            { time: "9:30 AM", activity: "Immersive Farm Tour: Embark on a guided walk-through verdant field. Learn about the cultivation and harvesting process, from bean to cup or leaf to tea, with engaging talks from passionate local farmers." },
+            { time: "11:00 AM", activity: "Hands-On Experience: Get your hands dirty with a unique opportunity to pick your own coffee berries or tea leaves, experiencing firsthand the effort and skill behind every perfect cup." },
+            { time: "12:30 PM", activity: "Farm-to-Table Lunch: Indulge in a farm-to-table lunch featuring local specialties and seasonal produce. Pair your meal with freshly brewed tea or coffee, enhancing flavours with every sip." },
+            { time: "2:00 PM", activity: "Coffee or Tea Tasting Workshop: Delight in a tasting session with seasoned experts. Discover the art of cupping, assessing distinct flavours notes, and aromas. Perfect for enthusiasts and newcomers alike!" },
+            { time: "3:00 PM", activity: "Behind-the-Scenes Processing Tour: Witness the journey from raw harvest to the finished product. See the intricate roasting or withering and drying processes that culminate in the exquisite beverages loved worldwide." },
+            { time: "4:30 PM", activity: "Shopping and Souvenirs: Before you leave, visit the gift shop to purchase your favourite blends directly from the source. Take home a piece of Kenya with exclusive, farm-fresh packs." },
+            { time: "5:00 PM", activity: "Return Journey: Enjoy a picturesque drive back to Nairobi, enriched by the day's experiences. We'll drop you off at your choice of location, ensuring your comfort and satisfaction." }
+          ],
           meals: "Lunch"
         }
       ],
@@ -683,10 +701,27 @@ const Safaris = () => {
                                 <h4 className="font-semibold text-kenya-purple">
                                   DAY {day.day}: {day.title}
                                 </h4>
-                                <p className="text-sm text-muted-foreground mt-2 mb-1">
-                                  {day.description}
-                                </p>
-                                <p className="text-xs font-medium text-kenya-gold">
+                                {day.activities ? (
+                                  // New format with activities array
+                                  <div className="space-y-3 mt-3">
+                                    {day.activities.map((activity, index) => (
+                                      <div key={index} className="flex gap-3">
+                                        <span className="font-semibold text-kenya-gold text-sm min-w-[80px]">
+                                          {activity.time}
+                                        </span>
+                                        <p className="text-sm text-muted-foreground flex-1">
+                                          {activity.activity}
+                                        </p>
+                                      </div>
+                                    ))}
+                                  </div>
+                                ) : (
+                                  // Old format with description
+                                  <p className="text-sm text-muted-foreground mt-2 mb-1">
+                                    {day.description}
+                                  </p>
+                                )}
+                                <p className="text-xs font-medium text-kenya-gold mt-3">
                                   Meals: {day.meals}
                                 </p>
                               </div>
