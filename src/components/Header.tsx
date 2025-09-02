@@ -120,7 +120,7 @@ const Header = () => {
                     <a
                       key={destination.path}
                       href={destination.path}
-                      className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors"
+                      className="block pl-6 pr-3 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors"
                     >
                       {destination.name}
                     </a>
