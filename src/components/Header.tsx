@@ -112,7 +112,7 @@ const Header = () => {
               {/* Dropdown Menu */}
               {isDestinationsOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg py-2 z-50"
+                  className="absolute top-full -left-4 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg py-2 z-50"
                   onMouseEnter={() => setIsDestinationsOpen(true)}
                   onMouseLeave={() => setIsDestinationsOpen(false)}
                 >
@@ -120,7 +120,7 @@ const Header = () => {
                     <a
                       key={destination.path}
                       href={destination.path}
-                      className="block pl-6 pr-3 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors"
+                      className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors text-center"
                     >
                       {destination.name}
                     </a>
