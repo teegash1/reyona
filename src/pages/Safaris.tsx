@@ -22,7 +22,7 @@ const Safaris = () => {
       groupSize: "2-8 People",
       location: "Amboseli, Lake Nakuru, Masai Mara",
       price: "$2,260",
-      rating: 4.9,
+
       image: kenyaLion,
       description: "Experience the best of Kenya's wildlife in three iconic parks",
       features: ["Big Five", "Elephant Herds", "Flamingoes", "Migration Views"],
@@ -94,7 +94,7 @@ const Safaris = () => {
       groupSize: "2-8 People",
       location: "Masai Mara",
       price: "$1,950",
-      rating: 4.8,
+
       image: luxuryCamp,
       description: "Perfect introduction to Kenya's most famous wildlife reserve",
       features: ["Big Five", "Migration Views", "Cultural Experience", "Luxury Tents"],
@@ -157,7 +157,7 @@ const Safaris = () => {
       groupSize: "2 People",
       location: "Masai Mara",
       price: "$3,800",
-      rating: 5.0,
+
       image: luxuryCamp,
       description: "Romantic getaway in the heart of the African wilderness",
       features: ["Private Game Drives", "Bush Meals", "Sundowners", "Luxury Accommodation"],
@@ -229,7 +229,7 @@ const Safaris = () => {
       groupSize: "6 People",
       location: "Masai Mara, Lake Naivasha",
       price: "$1,500",
-      rating: 4.7,
+
       image: kenyaLion,
       description: "Perfect group adventure for 6 people",
       features: ["Group Discount", "Private Vehicle", "Boat Ride", "Walking Safari"],
@@ -299,7 +299,7 @@ const Safaris = () => {
       groupSize: "2-8 People",
       location: "Masai Mara",
       price: "$2,120",
-      rating: 4.9,
+
       image: luxuryCamp,
       description: "Witness the spectacular wildebeest migration",
       features: ["Migration Views", "Mara River", "Big Five", "Professional Guide"],
@@ -362,7 +362,7 @@ const Safaris = () => {
       groupSize: "2-8 People",
       location: "Masai Mara",
       price: "$1,850",
-      rating: 4.8,
+
       image: kenyaLion,
       description: "Luxury air safari to Masai Mara",
       features: ["Domestic Flights", "Private Vehicle", "Luxury Lodges", "Quick Access"],
@@ -428,7 +428,7 @@ const Safaris = () => {
       groupSize: "2-8 People",
       location: "Nairobi",
       price: "$325",
-      rating: 4.6,
+
       image: luxuryCamp,
       description: "Explore Nairobi in Elegance and Comfort",
       features: ["Nairobi National Park", "Elephant Orphanage", "Giraffe Centre", "Carnivore Restaurant"],
@@ -474,7 +474,7 @@ const Safaris = () => {
       groupSize: "2-8 People",
       location: "Nairobi",
       price: "$240",
-      rating: 4.5,
+
       image: kenyaLion,
       description: "Kenya's Flavorful Journey: Coffee and Tea Farm Experience",
       features: ["Farm Tour", "Hands-on Experience", "Tasting Session", "Local Lunch"],
@@ -599,10 +599,6 @@ const Safaris = () => {
                     <Badge className="bg-kenya-purple text-white capitalize">
                       {pkg.category}
                     </Badge>
-                    <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 fill-kenya-gold text-kenya-gold" />
-                      <span className="text-sm font-medium">{pkg.rating}</span>
-                    </div>
                   </div>
                   <CardTitle className="text-lg group-hover:text-kenya-gold transition-colors line-clamp-2">
                     {pkg.title}
@@ -676,13 +672,7 @@ const Safaris = () => {
                               <span className="font-medium">Group Size:</span>
                               <p>{pkg.groupSize}</p>
                             </div>
-                            <div>
-                              <span className="font-medium">Rating:</span>
-                              <p className="flex items-center gap-1">
-                                <Star className="w-4 h-4 fill-kenya-gold text-kenya-gold" />
-                                {pkg.rating}
-                              </p>
-                            </div>
+
                             <div>
                               <span className="font-medium">Starting From:</span>
                               <p className="text-kenya-gold font-bold">{pkg.price}</p>
