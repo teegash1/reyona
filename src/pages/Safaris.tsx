@@ -797,13 +797,30 @@ const Safaris = () => {
                         </div>
 
                         {/* CTA */}
-                        <div className="text-center pt-4 border-t border-border">
-                          <Button variant="luxury" size="lg" className="mr-4">
-                            Book This Safari
-                          </Button>
-                          <Button variant="outline" size="lg">
-                            Get Quote
-                          </Button>
+                        <div className="text-center pt-6 border-t border-border">
+                          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <Button 
+                              variant="luxury" 
+                              size="lg"
+                              onClick={() => {
+                                const url = `/contact?subject=${encodeURIComponent(pkg.title)}`;
+                                window.location.href = url;
+                              }}
+                            >
+                              Book This Safari
+                            </Button>
+                            <Button 
+                              variant="outline" 
+                              size="lg"
+                              onClick={() => {
+                                const message = encodeURIComponent(`Greetings, requesting for quote of ${pkg.title}. Kindly assist.`);
+                                const whatsappUrl = `https://wa.me/254707694388?text=${message}`;
+                                window.open(whatsappUrl, '_blank');
+                              }}
+                            >
+                              Get Quote
+                            </Button>
+                          </div>
                         </div>
                       </div>
                     </DialogContent>
