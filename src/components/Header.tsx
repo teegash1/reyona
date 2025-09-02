@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, ChevronDown } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const isActive = (path: string) => {
     if (path === '/') {
@@ -23,6 +25,35 @@ const Header = () => {
       } 
     });
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDestinationsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Close dropdown when route changes
+  useEffect(() => {
+    setIsDestinationsOpen(false);
+  }, [location.pathname]);
+
+  const destinations = [
+    { name: 'Masai Mara', path: '/destinations/masai-mara' },
+    { name: 'Amboseli', path: '/destinations/amboseli' },
+    { name: 'Lake Nakuru', path: '/destinations/lake-nakuru' },
+    { name: 'Samburu', path: '/destinations/samburu' },
+    { name: 'Mount Kenya', path: '/destinations/mount-kenya' },
+    { name: 'Tsavo East', path: '/destinations/tsavo-east' },
+    { name: 'Tsavo West', path: '/destinations/tsavo-west' }
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
@@ -80,9 +111,38 @@ const Header = () => {
             <a href="/accommodations" className={`transition-colors font-medium ${isActive('/accommodations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Accommodations
             </a>
-            <a href="/destinations" className={`transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
-              Destinations
-            </a>
+            
+            {/* Destinations Dropdown */}
+            <div className="relative group" ref={dropdownRef}>
+              <button
+                onClick={() => setIsDestinationsOpen(!isDestinationsOpen)}
+                className={`flex items-center space-x-1 transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
+              >
+                <span>Destinations</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${isDestinationsOpen ? 'rotate-180' : ''}`} />
+                {/* Glowing Arrow Indicator */}
+                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2">
+                  <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse shadow-lg shadow-yellow-400/50"></div>
+                </div>
+              </button>
+              
+              {/* Dropdown Menu */}
+              {isDestinationsOpen && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg py-2 z-50">
+                  {destinations.map((destination) => (
+                    <a
+                      key={destination.path}
+                      href={destination.path}
+                      className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors"
+                      onClick={() => setIsDestinationsOpen(false)}
+                    >
+                      {destination.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+            
             <a href="/about" className={`transition-colors font-medium ${isActive('/about') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               About Us
             </a>
@@ -124,9 +184,28 @@ const Header = () => {
             <a href="/accommodations" className={`block transition-colors font-medium ${isActive('/accommodations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Accommodations
             </a>
-            <a href="/destinations" className={`block transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
-              Destinations
-            </a>
+            
+            {/* Mobile Destinations Section */}
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <span className={`font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground'}`}>
+                  Destinations
+                </span>
+                <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse shadow-lg shadow-yellow-400/50"></div>
+              </div>
+              <div className="ml-4 space-y-2">
+                {destinations.map((destination) => (
+                  <a
+                    key={destination.path}
+                    href={destination.path}
+                    className="block text-sm text-muted-foreground hover:text-kenya-gold transition-colors"
+                  >
+                    {destination.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+            
             <a href="/about" className={`block transition-colors font-medium ${isActive('/about') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               About Us
             </a>

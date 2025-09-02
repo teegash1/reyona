@@ -145,7 +145,7 @@ const TsavoEast = () => {
         />
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">
-            Tsavo East
+            Tsavo East & West
           </h1>
           <p className="text-2xl md:text-3xl text-orange-400 font-semibold mb-4">
             Land of the Red Elephants
@@ -155,7 +155,7 @@ const TsavoEast = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="luxury" size="lg">
-              Explore Tsavo East
+              Explore Tsavo East & West
             </Button>
             <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
               Download Park Guide
@@ -203,7 +203,7 @@ const TsavoEast = () => {
       {/* Park Highlights */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Visit Tsavo East</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Visit Tsavo East & West</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {highlights.map((highlight, index) => (
               <Card key={index} className="text-center hover:shadow-luxury transition-all duration-300">
@@ -339,7 +339,7 @@ const TsavoEast = () => {
               Conservation Success Story
             </h2>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              From near extinction to thriving populations - Tsavo East's wildlife recovery
+              From near extinction to thriving populations - Tsavo East & West's wildlife recovery
             </p>
           </div>
           
@@ -378,11 +378,11 @@ const TsavoEast = () => {
             Discover Kenya's Largest Wilderness
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Experience the raw beauty and untamed spirit of Tsavo East National Park
+            Experience the raw beauty and untamed spirit of Tsavo East & West National Parks
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="luxury" size="lg">
-              Book Tsavo East Safari
+              Book Tsavo East & West Safari
             </Button>
             <Button variant="outline" size="lg">
               Combine with Tsavo West
