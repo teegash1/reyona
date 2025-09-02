@@ -125,9 +125,9 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground">
             <p>&copy; 2024 Reyona Safaris. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-kenya-gold transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-kenya-gold transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-kenya-gold transition-colors">Cookie Policy</a>
+              <a href="/privacy-policy" className="hover:text-kenya-gold transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="hover:text-kenya-gold transition-colors">Terms of Service</a>
+              <a href="/cookie-policy" className="hover:text-kenya-gold transition-colors">Cookie Policy</a>
             </div>
           </div>
         </div>
