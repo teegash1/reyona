@@ -26,25 +26,6 @@ const Header = () => {
     });
   };
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsDestinationsOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  // Close dropdown when route changes
-  useEffect(() => {
-    setIsDestinationsOpen(false);
-  }, [location.pathname]);
-
   const destinations = [
     { name: 'Masai Mara', path: '/destinations/masai-mara' },
     { name: 'Amboseli', path: '/destinations/amboseli' },
@@ -115,26 +96,27 @@ const Header = () => {
             {/* Destinations Dropdown */}
             <div className="relative group" ref={dropdownRef}>
               <button
-                onClick={() => setIsDestinationsOpen(!isDestinationsOpen)}
+                onMouseEnter={() => setIsDestinationsOpen(true)}
+                onMouseLeave={() => setIsDestinationsOpen(false)}
                 className={`flex flex-col items-center space-y-1 transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
               >
                 <span>Destinations</span>
-                {/* Two Small Glowing Arrows */}
-                <div className="flex flex-col items-center space-y-0.5">
-                  <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse shadow-lg shadow-yellow-400/50"></div>
-                  <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse shadow-lg shadow-yellow-400/50"></div>
-                </div>
+                {/* Single Small Glowing Arrow */}
+                <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse shadow-lg shadow-yellow-400/50"></div>
               </button>
               
               {/* Dropdown Menu */}
               {isDestinationsOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg py-2 z-50">
+                <div 
+                  className="absolute top-full left-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg py-2 z-50"
+                  onMouseEnter={() => setIsDestinationsOpen(true)}
+                  onMouseLeave={() => setIsDestinationsOpen(false)}
+                >
                   {destinations.map((destination) => (
                     <a
                       key={destination.path}
                       href={destination.path}
                       className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors"
-                      onClick={() => setIsDestinationsOpen(false)}
                     >
                       {destination.name}
                     </a>
