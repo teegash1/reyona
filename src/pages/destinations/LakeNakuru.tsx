@@ -126,7 +126,7 @@ const LakeNakuru = () => {
       <section className="relative h-[80vh] bg-gradient-to-br from-pink-500/20 to-kenya-purple/20 flex items-center justify-center">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src="/src/assets/flamingos.jpg" 
+          src="/src/assets/kenya-lion.jpg" 
           alt="Lake Nakuru with flamingos"
           className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
         />
