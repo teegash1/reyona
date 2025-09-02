@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin, Users, Camera, Clock, Star, Mountain, Trees, Bird, Water } from 'lucide-react';
+import { Calendar, MapPin, Users, Camera, Clock, Star, Mountain, Trees, Bird, Droplets } from 'lucide-react';
 
 const LakeNakuru = () => {
   const highlights = [
@@ -25,7 +25,7 @@ const LakeNakuru = () => {
     {
       title: "Lake Views",
       description: "Stunning alkaline lake surrounded by acacia forests and grasslands.",
-      icon: <Water className="w-6 h-6" />
+      icon: <Droplets className="w-6 h-6" />
     }
   ];
 
@@ -347,7 +347,7 @@ const LakeNakuru = () => {
             </Card>
             <Card className="bg-white/10 border-white/20 text-white">
               <CardContent className="pt-6">
-                <Water className="w-8 h-8 mb-4 text-kenya-gold" />
+                <Droplets className="w-8 h-8 mb-4 text-kenya-gold" />
                 <h3 className="text-xl font-semibold mb-3">Lake Landscapes</h3>
                 <p className="text-white/80 text-sm">
                   The alkaline lake creates unique colors and textures. 
