@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, ChevronDown } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -98,11 +98,11 @@ const Header = () => {
               <button
                 onMouseEnter={() => setIsDestinationsOpen(true)}
                 onMouseLeave={() => setIsDestinationsOpen(false)}
-                className={`flex flex-col items-center space-y-1 transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
+                className={`flex items-center space-x-1 transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
               >
                 <span>Destinations</span>
-                {/* Single Small Glowing Arrow */}
-                <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse shadow-lg shadow-yellow-400/50"></div>
+                {/* Chevron Arrow */}
+                <ChevronDown className="w-3 h-3 text-yellow-400" />
               </button>
               
               {/* Dropdown Menu */}
