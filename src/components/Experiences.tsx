@@ -91,7 +91,7 @@ const Experiences = () => {
               variant="luxury" 
               size="lg"
               onClick={() => {
-                window.location.href = '/contact?scrollToForm=true';
+                window.location.href = '/contact?scrollToGetInTouch=true';
               }}
             >
               Plan My Safari

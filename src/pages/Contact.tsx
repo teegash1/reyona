@@ -31,6 +31,8 @@ const Contact = () => {
     // Handle URL search parameters
     const searchParams = new URLSearchParams(location.search);
     const subject = searchParams.get('subject');
+    const scrollToGetInTouch = searchParams.get('scrollToGetInTouch');
+    
     if (subject) {
       setFormData(prev => ({ ...prev, subject: subject }));
       
@@ -42,6 +44,21 @@ const Contact = () => {
           const formTop = formElement.offsetTop;
           window.scrollTo({
             top: formTop - headerHeight - 20, // 20px additional spacing
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+    
+    // Scroll to Get In Touch section if requested
+    if (scrollToGetInTouch) {
+      setTimeout(() => {
+        const getInTouchElement = document.getElementById('get-in-touch');
+        if (getInTouchElement) {
+          const headerHeight = 120; // Approximate header height
+          const sectionTop = getInTouchElement.offsetTop;
+          window.scrollTo({
+            top: sectionTop - headerHeight - 20, // 20px additional spacing
             behavior: 'smooth'
           });
         }
@@ -135,7 +152,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-16">
+      <section id="get-in-touch" className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
