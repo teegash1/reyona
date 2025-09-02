@@ -103,7 +103,7 @@ const Header = () => {
                 <span>Destinations</span>
                 {/* Chevron Arrow Below - Overlay */}
                 <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
-                  <ChevronDown className="w-3 h-3 text-yellow-400 animate-bounce shadow-lg shadow-yellow-400/50 bg-transparent" />
+                  <ChevronDown className="w-3 h-3 text-yellow-400 animate-bounce bg-transparent" />
                 </div>
               </button>
               
