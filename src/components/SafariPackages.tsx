@@ -80,12 +80,7 @@ const SafariPackages = () => {
                     {pkg.badge}
                   </Badge>
                 </div>
-                <div className="absolute top-4 right-4">
-                  <div className="bg-black/50 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-1">
-                    <Star className="w-4 h-4 text-kenya-gold fill-current" />
-                    <span className="text-white text-sm font-medium">{pkg.rating}</span>
-                  </div>
-                </div>
+
               </div>
 
               <CardHeader>
