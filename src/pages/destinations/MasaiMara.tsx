@@ -3,7 +3,8 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin, Users, Camera, Clock, Star, Thermometer, Droplets } from 'lucide-react';
+import { MapPin, Camera, Star, Clock, Users, Heart, TreePine, Bird, Eye, Mountain, Thermometer } from 'lucide-react';
+import heroSafari from '@/assets/hero-safari.jpg';
 
 const MasaiMara = () => {
   const highlights = [
@@ -25,7 +26,7 @@ const MasaiMara = () => {
     {
       title: "Hot Air Balloon Safari",
       description: "Soar above the savanna at sunrise for breathtaking aerial views of wildlife.",
-      icon: <Calendar className="w-6 h-6" />
+      icon: <Clock className="w-6 h-6" />
     }
   ];
 
@@ -100,7 +101,7 @@ const MasaiMara = () => {
       <section className="relative h-[80vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-gold/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src="/src/assets/hero-safari.jpg" 
+          src={heroSafari} 
           alt="Masai Mara landscape"
           className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
         />

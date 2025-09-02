@@ -2,108 +2,68 @@ import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star, Clock, Users, Camera, Mountain, Waves, TreePine, Compass, Heart } from 'lucide-react';
+import { Camera, Heart, Mountain, Users2, Tent, Utensils } from 'lucide-react';
+import heroSafari from '@/assets/hero-safari.jpg';
+import luxuryCamp from '@/assets/luxury-camp.jpg';
+import kenyaLion from '@/assets/kenya-lion.jpg';
 
 const Experiences = () => {
   const navigate = useNavigate();
 
   const handleCustomExperienceClick = () => {
-    // Navigate to custom safari page and scroll to form
-    navigate('/custom-safari');
-    // Scroll to form after navigation
-    setTimeout(() => {
-      const formElement = document.getElementById('custom-safari-form');
-      if (formElement) {
-        const headerHeight = 120; // Approximate header height
-        const formTop = formElement.offsetTop;
-        window.scrollTo({
-          top: formTop - headerHeight - 20, // 20px additional spacing
-          behavior: 'smooth'
-        });
-      }
-    }, 100);
+    navigate('/custom-safari?scrollToForm=true');
   };
 
   const experiences = [
     {
-      id: 1,
-      title: "Hot Air Balloon Safari",
-      category: "Aerial Adventure",
-      duration: "4 hours",
-      groupSize: "Max 16",
-      price: "$450",
-      rating: 4.9,
-      icon: <Compass className="w-8 h-8" />,
-      image: "/src/assets/hero-safari.jpg",
-      description: "Soar above the Masai Mara at sunrise and witness the Great Migration from a bird's eye view.",
-      highlights: ["Sunrise Flight", "Champagne Breakfast", "Certificate", "Game Viewing"]
+      icon: Camera,
+      title: "Photography Safaris",
+      description: "Capture Kenya's wildlife with expert guides and perfect lighting.",
+      image: heroSafari,
+      duration: "3-5 days",
+      price: "From $1,200"
     },
     {
-      id: 2,
-      title: "Maasai Cultural Immersion",
-      category: "Cultural",
-      duration: "Full Day",
-      groupSize: "Max 12",
-      price: "$180",
-      rating: 4.8,
-      icon: <Heart className="w-8 h-8" />,
-      image: "/src/assets/luxury-camp.jpg",
-      description: "Live with the Maasai people, learn their traditions, and participate in authentic cultural ceremonies.",
-      highlights: ["Village Visit", "Traditional Dance", "Authentic Meals", "Handicraft Workshop"]
+      icon: Heart,
+      title: "Cultural Immersion",
+      description: "Meet local Maasai communities and learn their ancient traditions.",
+      image: luxuryCamp,
+      duration: "2-3 days",
+      price: "From $800"
     },
     {
-      id: 3,
-      title: "Professional Photography Workshop",
-      category: "Photography",
-      duration: "3 days",
-      groupSize: "Max 8",
-      price: "$1,200",
-      rating: 5.0,
-      icon: <Camera className="w-8 h-8" />,
-      image: "/src/assets/kenya-lion.jpg",
-      description: "Master wildlife photography with professional guides and capture award-winning shots.",
-      highlights: ["Pro Equipment", "Golden Hour Sessions", "Post-Processing", "Portfolio Review"]
+      icon: Mountain,
+      title: "Mount Kenya Climbing",
+      description: "Conquer Africa's second highest peak with experienced guides.",
+      image: kenyaLion,
+      duration: "5-7 days",
+      price: "From $1,500"
     },
     {
-      id: 4,
-      title: "Mount Kenya Trekking",
-      category: "Adventure",
-      duration: "5 days",
-      groupSize: "Max 6",
-      price: "$850",
-      rating: 4.7,
-      icon: <Mountain className="w-8 h-8" />,
-      image: "/src/assets/luxury-camp.jpg",
-      description: "Challenge yourself with Africa's second-highest peak and experience diverse ecosystems.",
-      highlights: ["Summit Attempt", "Alpine Lakes", "Unique Flora", "Mountain Huts"]
+      icon: Users2,
+      title: "Family Adventures",
+      description: "Child-friendly safaris designed for unforgettable family memories.",
+      image: luxuryCamp,
+      duration: "4-6 days",
+      price: "From $1,800"
     },
     {
-      id: 5,
-      title: "Lake Nakuru Bird Watching",
-      category: "Birding",
-      duration: "2 days",
-      groupSize: "Max 10",
-      price: "$320",
-      rating: 4.6,
-      icon: <TreePine className="w-8 h-8" />,
-      image: "/src/assets/hero-safari.jpg",
-      description: "Witness millions of flamingos and over 400 bird species in this ornithologist's paradise.",
-      highlights: ["Flamingo Spectacle", "Rhino Sanctuary", "Expert Guide", "Bird Checklist"]
+      icon: Tent,
+      title: "Luxury Camping",
+      description: "Glamping under African stars with premium amenities.",
+      image: heroSafari,
+      duration: "2-4 days",
+      price: "From $1,000"
     },
     {
-      id: 6,
-      title: "Coastal Safari Extension",
-      category: "Beach & Wildlife",
-      duration: "4 days",
-      groupSize: "Max 8",
-      price: "$680",
-      rating: 4.8,
-      icon: <Waves className="w-8 h-8" />,
-      image: "/src/assets/kenya-lion.jpg",
-      description: "Combine wildlife adventures with pristine beaches and coral reef exploration.",
-      highlights: ["Beach Relaxation", "Snorkeling", "Coastal Wildlife", "Dhow Cruise"]
+      icon: Utensils,
+      title: "Culinary Journeys",
+      description: "Taste authentic Kenyan cuisine and bush dining experiences.",
+      image: kenyaLion,
+      duration: "3-4 days",
+      price: "From $900"
     }
   ];
 
@@ -142,8 +102,8 @@ const Experiences = () => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {experiences.map((experience) => (
-              <Card key={experience.id} className="group hover:shadow-luxury transition-all duration-500 overflow-hidden">
+            {experiences.map((experience, index) => (
+              <Card key={index} className="group hover:shadow-luxury transition-all duration-500 overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={experience.image} 
@@ -157,53 +117,24 @@ const Experiences = () => {
                   </div>
                   <div className="absolute top-4 left-4">
                     <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center text-kenya-purple">
-                      {experience.icon}
+                      <experience.icon className="w-6 h-6" />
                     </div>
                   </div>
                 </div>
                 
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge className="bg-kenya-magenta text-white">
-                      {experience.category}
-                    </Badge>
-                    <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 fill-kenya-gold text-kenya-gold" />
-                      <span className="text-sm font-medium">{experience.rating}</span>
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl group-hover:text-kenya-gold transition-colors">
-                    {experience.title}
-                  </CardTitle>
-                </CardHeader>
-
                 <CardContent className="space-y-4">
-                  <div className="flex items-center justify-between text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Clock className="w-4 h-4" />
-                      <span>{experience.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Users className="w-4 h-4" />
-                      <span>{experience.groupSize}</span>
-                    </div>
-                  </div>
-                  
+                  <h3 className="text-xl font-bold text-kenya-gold group-hover:text-kenya-purple transition-colors">
+                    {experience.title}
+                  </h3>
                   <p className="text-sm text-muted-foreground">
                     {experience.description}
                   </p>
-
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-sm">Experience Highlights:</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {experience.highlights.map((highlight, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">
-                          {highlight}
-                        </Badge>
-                      ))}
+                  <div className="flex items-center justify-between text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <span>{experience.duration}</span>
                     </div>
                   </div>
-
+                  
                   <Button className="w-full mt-4" variant="luxury">
                     Book Experience
                   </Button>

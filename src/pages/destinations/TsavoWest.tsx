@@ -3,7 +3,8 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Users, Camera, Clock, Star, Mountain, Trees, Droplets } from 'lucide-react';
+import { MapPin, Camera, Star, Clock, Users, Mountain, TreePine, Bird, Eye, Heart, Droplets, Waves } from 'lucide-react';
+import kenyaLion from '@/assets/kenya-lion.jpg';
 
 const TsavoWest = () => {
   const highlights = [
@@ -15,7 +16,7 @@ const TsavoWest = () => {
     {
       title: "Ngulia Rhino Sanctuary",
       description: "Protected area for endangered black rhinos with excellent viewing opportunities.",
-      icon: <Trees className="w-6 h-6" />
+      icon: <TreePine className="w-6 h-6" />
     },
     {
       title: "Diverse Landscapes",
@@ -126,7 +127,7 @@ const TsavoWest = () => {
       <section className="relative h-[80vh] bg-gradient-to-br from-green-500/20 to-kenya-purple/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src="/src/assets/kenya-lion.jpg" 
+          src={kenyaLion} 
           alt="Tsavo West landscape with Mzima Springs"
           className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
         />
@@ -337,7 +338,7 @@ const TsavoWest = () => {
             </Card>
             <Card className="bg-white/10 border-white/20 text-white">
               <CardContent className="pt-6">
-                <Trees className="w-8 h-8 mb-4 text-kenya-gold" />
+                <TreePine className="w-8 h-8 mb-4 text-kenya-gold" />
                 <h3 className="text-xl font-semibold mb-3">Rhino Portraits</h3>
                 <p className="text-white/80 text-sm">
                   Ngulia Sanctuary offers excellent rhino photography. 

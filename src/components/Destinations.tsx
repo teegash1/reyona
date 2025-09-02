@@ -3,6 +3,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Camera, Star, Clock, Users } from 'lucide-react';
+import heroSafari from '@/assets/hero-safari.jpg';
+import kenyaLion from '@/assets/kenya-lion.jpg';
+import luxuryCamp from '@/assets/luxury-camp.jpg';
 
 const Destinations = () => {
   const destinations = [
@@ -11,7 +14,7 @@ const Destinations = () => {
       name: 'Masai Mara National Reserve',
       tagline: 'The Great Migration',
       description: 'World-famous for the annual wildebeest migration and exceptional Big Five viewing opportunities.',
-      image: '/src/assets/hero-safari.jpg',
+      image: heroSafari,
       highlights: ['Great Migration', 'Big Five', 'Maasai Culture', 'Hot Air Balloons'],
       bestTime: 'July - October',
       duration: '3-5 days',
@@ -24,7 +27,7 @@ const Destinations = () => {
       name: 'Amboseli National Park',
       tagline: 'Land of Giants',
       description: 'Famous for large elephant herds and spectacular views of Mount Kilimanjaro.',
-      image: '/src/assets/kenya-lion.jpg',
+      image: kenyaLion,
       highlights: ['Elephant Herds', 'Kilimanjaro Views', 'Birdlife', 'Maasai Villages'],
       bestTime: 'June - October, January - March',
       duration: '2-3 days',
@@ -37,7 +40,7 @@ const Destinations = () => {
       name: 'Tsavo East National Park',
       tagline: 'The Red Elephants',
       description: 'Kenya\'s largest park known for red-dust elephants and diverse landscapes.',
-      image: '/src/assets/luxury-camp.jpg',
+      image: luxuryCamp,
       highlights: ['Red Elephants', 'Vast Wilderness', 'Yatta Plateau', 'Man-eaters Legacy'],
       bestTime: 'June - September',
       duration: '2-4 days',
@@ -50,7 +53,7 @@ const Destinations = () => {
       name: 'Lake Nakuru National Park',
       tagline: 'Pink Flamingo Paradise',
       description: 'Alkaline lake famous for millions of flamingos and successful rhino conservation.',
-      image: '/src/assets/kenya-lion.jpg',
+      image: kenyaLion,
       highlights: ['Flamingo Flocks', 'White & Black Rhinos', 'Bird Paradise', 'Baboon Cliff'],
       bestTime: 'Year-round',
       duration: '1-2 days',
@@ -63,7 +66,7 @@ const Destinations = () => {
       name: 'Samburu National Reserve',
       tagline: 'The Special Five',
       description: 'Semi-arid landscape home to unique wildlife species found nowhere else in Kenya.',
-      image: '/src/assets/luxury-camp.jpg',
+      image: luxuryCamp,
       highlights: ['Special Five', 'Samburu Culture', 'Ewaso Nyiro River', 'Unique Wildlife'],
       bestTime: 'June - September, December - March',
       duration: '2-3 days',
@@ -76,7 +79,7 @@ const Destinations = () => {
       name: 'Mount Kenya National Park',
       tagline: 'Africa\'s Second Highest Peak',
       description: 'UNESCO World Heritage site offering trekking, diverse ecosystems, and alpine landscapes.',
-      image: '/src/assets/hero-safari.jpg',
+      image: heroSafari,
       highlights: ['Mountain Climbing', 'Alpine Lakes', 'Unique Flora', 'UNESCO Heritage'],
       bestTime: 'January - February, September - October',
       duration: '3-5 days',

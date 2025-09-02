@@ -3,6 +3,9 @@ import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Star, Users, Globe, Award, Heart, Shield, Leaf, Camera } from 'lucide-react';
+import kenyaLion from '@/assets/kenya-lion.jpg';
+import luxuryCamp from '@/assets/luxury-camp.jpg';
+import heroSafari from '@/assets/hero-safari.jpg';
 
 const About = () => {
   const values = [
@@ -34,7 +37,7 @@ const About = () => {
       role: "Founder & CEO",
       experience: "12+ years",
       specialty: "Travel & Tourism",
-      image: "/src/assets/kenya-lion.jpg",
+      image: kenyaLion,
       description: "A passionate Kenyan entrepreneur, Yvonne's love for travel and deep connection to Kenya inspired her to create Reyona Safaris. She leads with vision and dedication to authentic experiences."
     },
     {
@@ -42,7 +45,7 @@ const About = () => {
       role: "Operations Manager",
       experience: "12+ years",
       specialty: "Cultural Tours",
-      image: "/src/assets/luxury-camp.jpg",
+      image: luxuryCamp,
       description: "Sarah specializes in cultural immersion experiences and manages our community partnerships across Kenya."
     },
     {
@@ -50,7 +53,7 @@ const About = () => {
       role: "Head Guide",
       experience: "18+ years",
       specialty: "Bird Watching",
-      image: "/src/assets/hero-safari.jpg",
+      image: heroSafari,
       description: "James is one of Kenya's most experienced guides with extensive knowledge of all major parks and reserves."
     }
   ];
@@ -211,7 +214,7 @@ const About = () => {
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden">
               <img 
-                src="/src/assets/kenya-lion.jpg" 
+                src={kenyaLion} 
                 alt="Conservation efforts"
                 className="w-full h-full object-cover"
               />

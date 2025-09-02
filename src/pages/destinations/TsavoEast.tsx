@@ -3,14 +3,15 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Users, Camera, Clock, Star, Trees, Mountain, Waves } from 'lucide-react';
+import { MapPin, Camera, Star, Clock, Users, Mountain, TreePine, Bird, Eye, Heart, Droplets, Waves } from 'lucide-react';
+import luxuryCamp from '@/assets/luxury-camp.jpg';
 
 const TsavoEast = () => {
   const highlights = [
     {
       title: "Red Elephants",
       description: "Famous red-dust coated elephants unique to Tsavo's red soil landscape.",
-      icon: <Trees className="w-6 h-6" />
+      icon: <TreePine className="w-6 h-6" />
     },
     {
       title: "Vast Wilderness",
@@ -139,7 +140,7 @@ const TsavoEast = () => {
       <section className="relative h-[80vh] bg-gradient-to-br from-orange-500/20 to-kenya-purple/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src="/src/assets/luxury-camp.jpg" 
+          src={luxuryCamp} 
           alt="Tsavo East red elephants"
           className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
         />
@@ -177,7 +178,7 @@ const TsavoEast = () => {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-3">
-                <Trees className="w-8 h-8 text-white" />
+                <TreePine className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold">Established</h3>
               <p className="text-muted-foreground">1948</p>
@@ -346,7 +347,7 @@ const TsavoEast = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="bg-white/10 border-white/20 text-white text-center">
               <CardContent className="pt-8 pb-6">
-                <Trees className="w-12 h-12 mx-auto mb-4 text-orange-400" />
+                <TreePine className="w-12 h-12 mx-auto mb-4 text-orange-400" />
                 <h3 className="text-2xl font-bold mb-2">1990s</h3>
                 <p className="text-white/80 text-sm">Severe poaching crisis reduced elephant population to under 6,000</p>
               </CardContent>

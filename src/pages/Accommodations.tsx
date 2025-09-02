@@ -3,99 +3,78 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star, Wifi, Car, Utensils, Waves, TreePine, Crown, Tent } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Star, MapPin, Users, Wifi, Car, Utensils, Mountain, TreePine } from 'lucide-react';
+import luxuryCamp from '@/assets/luxury-camp.jpg';
+import heroSafari from '@/assets/hero-safari.jpg';
+import kenyaLion from '@/assets/kenya-lion.jpg';
 
 const Accommodations = () => {
-  const navigate = useNavigate();
-
-  const handlePlanYourStay = () => {
-    navigate('/contact', { 
-      state: { 
-        inquiryType: 'booking',
-        scrollToForm: true 
-      } 
-    });
-  };
-
   const accommodations = [
     {
       id: 1,
-      name: "Serena Safari Lodge",
-      category: "Luxury Lodge",
-      location: "Masai Mara",
+      name: "Mara Serena Safari Lodge",
+      location: "Masai Mara National Reserve",
+      type: "Luxury Lodge",
       rating: 4.9,
-      price: "$450/night",
-      image: "/src/assets/luxury-camp.jpg",
-      icon: <Crown className="w-6 h-6" />,
-      description: "Elegant lodge overlooking the Mara River with unparalleled game viewing.",
-      amenities: ["Pool", "Spa", "Game Drives", "Fine Dining", "Wi-Fi", "Airport Transfer"],
-      features: ["River Views", "Luxury Suites", "24/7 Service", "Private Balconies"]
+      price: "From $450/night",
+      image: luxuryCamp,
+      features: ["Game Drives", "Swimming Pool", "Spa", "Fine Dining"],
+      description: "Perched on a hilltop with panoramic views of the Masai Mara, this luxury lodge offers world-class amenities and exceptional wildlife viewing opportunities."
     },
     {
       id: 2,
-      name: "Samburu Elephant Lodge",
-      category: "Eco Lodge",
-      location: "Samburu National Reserve",
-      rating: 4.7,
-      price: "$320/night",
-      image: "/src/assets/hero-safari.jpg",
-      icon: <TreePine className="w-6 h-6" />,
-      description: "Sustainable luxury in the heart of Samburu with elephant watching from your room.",
-      amenities: ["Solar Power", "Organic Meals", "Nature Walks", "Cultural Visits", "Library"],
-      features: ["Eco-Friendly", "Elephant Viewing", "Traditional Design", "Sustainable Practices"]
+      name: "Amboseli Serena Safari Lodge",
+      location: "Amboseli National Park",
+      type: "Luxury Lodge",
+      rating: 4.8,
+      price: "From $380/night",
+      image: heroSafari,
+      features: ["Kilimanjaro Views", "Elephant Watching", "Cultural Tours", "Bird Watching"],
+      description: "Set against the backdrop of Mount Kilimanjaro, this lodge provides stunning views and close encounters with Amboseli's famous elephant herds."
     },
     {
       id: 3,
-      name: "Amboseli Kilimanjaro Camp",
-      category: "Tented Camp",
-      location: "Amboseli National Park",
-      rating: 4.8,
-      price: "$280/night",
-      image: "/src/assets/kenya-lion.jpg",
-      icon: <Tent className="w-6 h-6" />,
-      description: "Luxury tented camp with spectacular views of Mount Kilimanjaro.",
-      amenities: ["Private Tents", "Campfire", "Guided Walks", "Photography Hide", "Sundowners"],
-      features: ["Kilimanjaro Views", "Canvas Luxury", "Intimate Setting", "Wildlife Corridors"]
+      name: "Tsavo East Safari Camp",
+      location: "Tsavo East National Park",
+      type: "Tented Camp",
+      rating: 4.7,
+      price: "From $320/night",
+      image: kenyaLion,
+      features: ["Wilderness Experience", "Game Drives", "Bush Walks", "Campfire Dinners"],
+      description: "An authentic tented camp experience in the heart of Tsavo East, offering intimate wildlife encounters and traditional safari atmosphere."
     },
     {
       id: 4,
-      name: "Lake Nakuru Flamingo Resort",
-      category: "Resort",
-      location: "Lake Nakuru",
+      name: "Lake Nakuru Lodge",
+      location: "Lake Nakuru National Park",
+      type: "Mid-Range Lodge",
       rating: 4.6,
-      price: "$190/night",
-      image: "/src/assets/luxury-camp.jpg",
-      icon: <Waves className="w-6 h-6" />,
-      description: "Modern resort with panoramic lake views and easy access to rhino sanctuary.",
-      amenities: ["Lake Views", "Conference Facilities", "Multiple Restaurants", "Gym", "Business Center"],
-      features: ["Modern Amenities", "Family Friendly", "Bird Watching", "Rhino Viewing"]
+      price: "From $280/night",
+      image: luxuryCamp,
+      features: ["Lake Views", "Flamingo Watching", "Rhino Sanctuary", "Bird Paradise"],
+      description: "Overlooking the famous pink flamingo lake, this lodge provides comfortable accommodation and excellent bird watching opportunities."
     },
     {
       id: 5,
-      name: "Tsavo Desert Camp",
-      category: "Adventure Camp",
-      location: "Tsavo East",
-      rating: 4.4,
-      price: "$150/night",
-      image: "/src/assets/hero-safari.jpg",
-      icon: <Tent className="w-6 h-6" />,
-      description: "Authentic camping experience in the vast wilderness of Tsavo East.",
-      amenities: ["Shared Facilities", "Campfire Meals", "Star Gazing", "Bush Walks", "Authentic Experience"],
-      features: ["Budget Friendly", "Authentic Safari", "Wilderness Setting", "Adventure Focus"]
+      name: "Samburu Game Lodge",
+      location: "Samburu National Reserve",
+      type: "Luxury Lodge",
+      rating: 4.8,
+      price: "From $420/night",
+      image: heroSafari,
+      features: ["Special Five Wildlife", "Cultural Visits", "River Views", "Luxury Tents"],
+      description: "A sophisticated lodge offering luxury tented accommodation with views of the Ewaso Nyiro River and access to Samburu's unique wildlife."
     },
     {
       id: 6,
-      name: "Mount Kenya Safari Club",
-      category: "Historic Lodge",
-      location: "Mount Kenya",
-      rating: 4.9,
-      price: "$380/night",
-      image: "/src/assets/kenya-lion.jpg",
-      icon: <Crown className="w-6 h-6" />,
-      description: "Historic luxury lodge at the foot of Mount Kenya with world-class amenities.",
-      amenities: ["Golf Course", "Spa", "Multiple Restaurants", "Equator Marker", "Historic Charm"],
-      features: ["Historic Heritage", "Mountain Views", "Championship Golf", "Luxury Heritage"]
+      name: "Mount Kenya Lodge",
+      location: "Mount Kenya National Park",
+      type: "Mountain Lodge",
+      rating: 4.7,
+      price: "From $380/night",
+      image: kenyaLion,
+      features: ["Mountain Views", "Hiking Trails", "Alpine Scenery", "Adventure Activities"],
+      description: "Nestled in the foothills of Mount Kenya, this lodge offers stunning mountain views and access to hiking and adventure activities."
     }
   ];
 
@@ -164,7 +143,11 @@ const Accommodations = () => {
                   </div>
                   <div className="absolute top-4 left-4">
                     <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-kenya-purple">
-                      {accommodation.icon}
+                      {/* Assuming an icon for each accommodation type */}
+                      {accommodation.type === "Luxury Lodge" && <MapPin className="w-6 h-6" />}
+                      {accommodation.type === "Tented Camp" && <TreePine className="w-6 h-6" />}
+                      {accommodation.type === "Mid-Range Lodge" && <Users className="w-6 h-6" />}
+                      {accommodation.type === "Mountain Lodge" && <Mountain className="w-6 h-6" />}
                     </div>
                   </div>
                 </div>
@@ -172,7 +155,7 @@ const Accommodations = () => {
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
                     <Badge className="bg-kenya-purple text-white">
-                      {accommodation.category}
+                      {accommodation.type}
                     </Badge>
                     <div className="flex items-center gap-1">
                       <Star className="w-4 h-4 fill-kenya-gold text-kenya-gold" />
@@ -205,7 +188,34 @@ const Accommodations = () => {
                     <div>
                       <h4 className="font-semibold text-sm mb-2">Amenities:</h4>
                       <div className="grid grid-cols-2 gap-1 text-xs text-muted-foreground">
-                        {accommodation.amenities.slice(0, 4).map((amenity, index) => (
+                        {/* Assuming amenities for each accommodation type */}
+                        {accommodation.type === "Luxury Lodge" && [
+                          "Pool", "Spa", "Game Drives", "Fine Dining", "Wi-Fi", "Airport Transfer"
+                        ].map((amenity, index) => (
+                          <div key={index} className="flex items-center gap-1">
+                            <div className="w-1 h-1 bg-kenya-gold rounded-full"></div>
+                            <span>{amenity}</span>
+                          </div>
+                        ))}
+                        {accommodation.type === "Tented Camp" && [
+                          "Shared Facilities", "Campfire Meals", "Star Gazing", "Bush Walks", "Authentic Experience"
+                        ].map((amenity, index) => (
+                          <div key={index} className="flex items-center gap-1">
+                            <div className="w-1 h-1 bg-kenya-gold rounded-full"></div>
+                            <span>{amenity}</span>
+                          </div>
+                        ))}
+                        {accommodation.type === "Mid-Range Lodge" && [
+                          "Lake Views", "Conference Facilities", "Multiple Restaurants", "Gym", "Business Center"
+                        ].map((amenity, index) => (
+                          <div key={index} className="flex items-center gap-1">
+                            <div className="w-1 h-1 bg-kenya-gold rounded-full"></div>
+                            <span>{amenity}</span>
+                          </div>
+                        ))}
+                        {accommodation.type === "Mountain Lodge" && [
+                          "Mountain Views", "Hiking Trails", "Alpine Scenery", "Adventure Activities"
+                        ].map((amenity, index) => (
                           <div key={index} className="flex items-center gap-1">
                             <div className="w-1 h-1 bg-kenya-gold rounded-full"></div>
                             <span>{amenity}</span>
@@ -253,7 +263,7 @@ const Accommodations = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="luxury" size="lg" onClick={handlePlanYourStay}>
+              <Button variant="luxury" size="lg">
                 Plan Your Stay
               </Button>
             </div>

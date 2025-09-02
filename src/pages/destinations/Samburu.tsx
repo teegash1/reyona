@@ -3,14 +3,15 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin, Users, Camera, Clock, Star, Mountain, Trees, Bird, Sun } from 'lucide-react';
+import { MapPin, Camera, Star, Clock, Users, Mountain, TreePine, Bird, Eye, Heart, Droplets, Waves } from 'lucide-react';
+import kenyaLion from '@/assets/kenya-lion.jpg';
 
 const Samburu = () => {
   const highlights = [
     {
       title: "The Special Five",
       description: "Unique wildlife species found only in northern Kenya: Grevy's zebra, reticulated giraffe, Somali ostrich, gerenuk, and beisa oryx.",
-      icon: <Trees className="w-6 h-6" />
+      icon: <TreePine className="w-6 h-6" />
     },
     {
       title: "Samburu Culture",
@@ -25,7 +26,7 @@ const Samburu = () => {
     {
       title: "River Wildlife",
       description: "Ewaso Nyiro River attracts diverse wildlife including elephants, crocodiles, and hippos.",
-      icon: <Sun className="w-6 h-6" />
+      icon: <Waves className="w-6 h-6" />
     }
   ];
 
@@ -126,7 +127,7 @@ const Samburu = () => {
       <section className="relative h-[80vh] bg-gradient-to-br from-orange-500/20 to-kenya-purple/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src="/src/assets/kenya-lion.jpg" 
+          src={kenyaLion} 
           alt="Samburu landscape with Special Five wildlife"
           className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
         />
@@ -178,7 +179,7 @@ const Samburu = () => {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-3">
-                <Trees className="w-8 h-8 text-white" />
+                <TreePine className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold">Famous For</h3>
               <p className="text-muted-foreground">Special Five & Culture</p>
@@ -327,7 +328,7 @@ const Samburu = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="bg-white/10 border-white/20 text-white">
               <CardContent className="pt-6">
-                <Trees className="w-8 h-8 mb-4 text-kenya-gold" />
+                <TreePine className="w-8 h-8 mb-4 text-kenya-gold" />
                 <h3 className="text-xl font-semibold mb-3">Special Five Portraits</h3>
                 <p className="text-white/80 text-sm">
                   Focus on the unique characteristics of each Special Five species. 

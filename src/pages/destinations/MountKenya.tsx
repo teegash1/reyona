@@ -3,7 +3,8 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin, Users, Camera, Clock, Star, Mountain, Trees, Bird, Snowflake } from 'lucide-react';
+import { MapPin, Camera, Star, Clock, Users, Mountain, TreePine, Bird, Eye, Heart, Snowflake, Droplets } from 'lucide-react';
+import kenyaLion from '@/assets/kenya-lion.jpg';
 
 const MountKenya = () => {
   const highlights = [
@@ -15,7 +16,7 @@ const MountKenya = () => {
     {
       title: "UNESCO Heritage",
       description: "World Heritage Site with unique equatorial glaciers and diverse ecosystems.",
-      icon: <Trees className="w-6 h-6" />
+      icon: <TreePine className="w-6 h-6" />
     },
     {
       title: "Alpine Adventures",
@@ -126,7 +127,7 @@ const MountKenya = () => {
       <section className="relative h-[80vh] bg-gradient-to-br from-blue-500/20 to-kenya-purple/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src="/src/assets/kenya-lion.jpg" 
+          src={kenyaLion} 
           alt="Mount Kenya with snow-capped peaks"
           className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
         />
@@ -337,7 +338,7 @@ const MountKenya = () => {
             </Card>
             <Card className="bg-white/10 border-white/20 text-white">
               <CardContent className="pt-6">
-                <Trees className="w-8 h-8 mb-4 text-kenya-gold" />
+                <TreePine className="w-8 h-8 mb-4 text-kenya-gold" />
                 <h3 className="text-xl font-semibold mb-3">Forest Wildlife</h3>
                 <p className="text-white/80 text-sm">
                   Focus on colobus and Sykes monkeys in their natural habitat. 
