@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, Users, MapPin, Clock, Star } from 'lucide-react';
+import { Calendar, Users, MapPin, Clock } from 'lucide-react';
 import luxuryCamp from '@/assets/luxury-camp.jpg';
 import kenyaLion from '@/assets/kenya-lion.jpg';
 
@@ -15,7 +15,7 @@ const SafariPackages = () => {
       duration: "6 Days",
       groupSize: "2-8 People",
       price: "$2,260",
-      rating: 4.9,
+
       features: ["Big Five", "Elephant Herds", "Flamingoes", "Migration Views"],
       badge: "Most Popular"
     },
@@ -27,7 +27,7 @@ const SafariPackages = () => {
       duration: "4 Days",
       groupSize: "2-8 People", 
       price: "$1,950",
-      rating: 4.8,
+
       features: ["Big Five", "Migration Views", "Cultural Experience", "Luxury Tents"],
       badge: "Best Value"
     },
@@ -39,7 +39,7 @@ const SafariPackages = () => {
       duration: "4 Days",
       groupSize: "2 People",
       price: "$3,800",
-      rating: 5.0,
+
       features: ["Private Game Drives", "Bush Meals", "Sundowners", "Luxury Accommodation"],
       badge: "Honeymoon"
     }
