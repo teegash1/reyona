@@ -33,7 +33,15 @@ const Footer = () => {
             {/* Company Info */}
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
-                <a href="/" className="hover:opacity-80 transition-opacity flex items-center space-x-3">
+                <a 
+                  href="/" 
+                  className="hover:opacity-80 transition-opacity flex items-center space-x-3"
+                  onClick={() => {
+                    if (window.location.pathname === '/') {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
+                >
                   <div className="w-24 h-14 rounded-lg overflow-hidden shadow-lg ring-2 ring-kenya-gold/20">
                     <img 
                       src="https://images.unsplash.com/photo-1756498017532-7e1b6fd67eec?q=80&w=2019&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -71,12 +79,12 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-bold text-foreground mb-6">Quick Links</h3>
               <ul className="space-y-3">
-                <li><a href="#home" className="text-muted-foreground hover:text-kenya-gold transition-colors">Home</a></li>
-                <li><a href="#safaris" className="text-muted-foreground hover:text-kenya-gold transition-colors">Safari Packages</a></li>
-                <li><a href="#experiences" className="text-muted-foreground hover:text-kenya-gold transition-colors">Experiences</a></li>
-                <li><a href="#accommodations" className="text-muted-foreground hover:text-kenya-gold transition-colors">Accommodations</a></li>
-                <li><a href="#about" className="text-muted-foreground hover:text-kenya-gold transition-colors">About Us</a></li>
-                <li><a href="#contact" className="text-muted-foreground hover:text-kenya-gold transition-colors">Contact</a></li>
+                <li><a href="/" className="text-muted-foreground hover:text-kenya-gold transition-colors">Home</a></li>
+                <li><a href="/safaris" className="text-muted-foreground hover:text-kenya-gold transition-colors">Safari Packages</a></li>
+                <li><a href="/experiences" className="text-muted-foreground hover:text-kenya-gold transition-colors">Experiences</a></li>
+                <li><a href="/accommodations" className="text-muted-foreground hover:text-kenya-gold transition-colors">Accommodations</a></li>
+                <li><a href="/about" className="text-muted-foreground hover:text-kenya-gold transition-colors">About Us</a></li>
+                <li><a href="/contact" className="text-muted-foreground hover:text-kenya-gold transition-colors">Contact</a></li>
               </ul>
             </div>
 

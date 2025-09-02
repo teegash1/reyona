@@ -87,10 +87,25 @@ const Experiences = () => {
             Let our expert team create a personalized safari experience tailored to your dreams and preferences.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="luxury" size="lg">
+            <Button 
+              variant="luxury" 
+              size="lg"
+              onClick={() => {
+                window.location.href = '/contact?scrollToForm=true';
+              }}
+            >
               Plan My Safari
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-white text-white hover:bg-white hover:text-primary"
+              onClick={() => {
+                const message = encodeURIComponent("Greetings, I am in need of assistance on planning my safari to Kenya.");
+                const whatsappUrl = `https://wa.me/254707694388?text=${message}`;
+                window.open(whatsappUrl, '_blank');
+              }}
+            >
               Get Expert Advice
             </Button>
           </div>

@@ -154,7 +154,15 @@ const Destinations = () => {
                   </div>
                 </div>
 
-                <Link to={`/destinations/${destination.id}`}>
+                <Link 
+                  to={`/destinations/${destination.id}`}
+                  onClick={() => {
+                    // Scroll to top when navigating to destination page
+                    setTimeout(() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }, 100);
+                  }}
+                >
                   <Button className="w-full mt-4" variant="luxury">
                     Explore Destination
                   </Button>
@@ -166,16 +174,27 @@ const Destinations = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <Link to="/destinations">
-            <Button variant="outline" size="lg" className="mr-4">
-              View All Destinations
-            </Button>
-          </Link>
-          <Link to="/custom-safari">
-            <Button variant="default" size="lg">
-              Plan Multi-Destination Safari
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <Link to="/destinations">
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={() => {
+                  // Scroll to top when navigating to destinations page
+                  setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }, 100);
+                }}
+              >
+                View All Destinations
+              </Button>
+            </Link>
+            <Link to="/custom-safari">
+              <Button variant="default" size="lg">
+                Plan Multi-Destination Safari
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -146,25 +146,26 @@ const SafariPackages = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <Button 
-            variant="outline" 
-            size="lg" 
-            className="mr-4"
-            onClick={() => {
-              window.location.href = '/safaris';
-            }}
-          >
-            View All Safaris
-          </Button>
-          <Button 
-            variant="default" 
-            size="lg"
-            onClick={() => {
-              window.location.href = '/custom-safari';
-            }}
-          >
-            Custom Safari Planner
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              onClick={() => {
+                window.location.href = '/safaris';
+              }}
+            >
+              View All Safaris
+            </Button>
+            <Button 
+              variant="default" 
+              size="lg"
+              onClick={() => {
+                window.location.href = '/custom-safari';
+              }}
+            >
+              Custom Safari Planner
+            </Button>
+          </div>
         </div>
       </div>
     </section>
