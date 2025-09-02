@@ -98,11 +98,13 @@ const Header = () => {
               <button
                 onMouseEnter={() => setIsDestinationsOpen(true)}
                 onMouseLeave={() => setIsDestinationsOpen(false)}
-                className={`flex flex-col items-center space-y-1 transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
+                className={`relative flex items-center transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
               >
                 <span>Destinations</span>
-                {/* Chevron Arrow Below */}
-                <ChevronDown className="w-3 h-3 text-yellow-400" />
+                {/* Chevron Arrow Below - Overlay */}
+                <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2">
+                  <ChevronDown className="w-3 h-3 text-yellow-400" />
+                </div>
               </button>
               
               {/* Dropdown Menu */}
