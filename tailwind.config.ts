@@ -108,14 +108,14 @@ export default {
 						transform: 'scale(1)'
 					},
 					'50%': {
-						transform: 'scale(1.3)'
+						transform: 'scale(1.1)'
 					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'hero-zoom': 'hero-zoom 20s ease-in-out infinite'
+				'hero-zoom': 'hero-zoom 60s ease-in-out infinite'
 			}
 		}
 	},
