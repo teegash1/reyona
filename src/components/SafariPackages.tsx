@@ -160,7 +160,7 @@ const SafariPackages = () => {
               variant="default" 
               size="lg"
               onClick={() => {
-                window.location.href = '/custom-safari';
+                window.location.href = '/custom-safari?scrollToForm=true';
               }}
             >
               Custom Safari Planner

@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -76,6 +77,28 @@ const CustomSafari = () => {
         : prev.experiences.filter(e => e !== experience)
     }));
   };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    // Handle URL search parameters for scrolling
+    const searchParams = new URLSearchParams(location.search);
+    const scrollToForm = searchParams.get('scrollToForm');
+    
+    if (scrollToForm) {
+      setTimeout(() => {
+        const formElement = document.getElementById('custom-safari-form');
+        if (formElement) {
+          const headerHeight = 120; // Approximate header height
+          const formTop = formElement.offsetTop;
+          window.scrollTo({
+            top: formTop - headerHeight - 20, // 20px additional spacing
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  }, [location.search]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

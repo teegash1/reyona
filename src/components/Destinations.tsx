@@ -189,7 +189,7 @@ const Destinations = () => {
                 View All Destinations
               </Button>
             </Link>
-            <Link to="/custom-safari">
+            <Link to="/custom-safari?scrollToForm=true">
               <Button variant="default" size="lg">
                 Plan Multi-Destination Safari
               </Button>
