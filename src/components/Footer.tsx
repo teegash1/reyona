@@ -37,9 +37,10 @@ const Footer = () => {
                   href="/" 
                   className="hover:opacity-80 transition-opacity flex items-center space-x-3"
                   onClick={() => {
-                    if (window.location.pathname === '/') {
+                    // Always scroll to top when logo is clicked, regardless of current page
+                    setTimeout(() => {
                       window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
+                    }, 100);
                   }}
                 >
                   <div className="w-24 h-14 rounded-lg overflow-hidden shadow-lg ring-2 ring-kenya-gold/20">
