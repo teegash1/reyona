@@ -301,21 +301,36 @@ const MasaiMara = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-primary">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Experience the Masai Mara?
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Let our expert guides show you the wonders of Kenya's most famous reserve
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="secondary" size="lg" className="bg-white text-kenya-purple hover:bg-white/90">
-              Book Masai Mara Safari
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              Combine with Other Parks
-            </Button>
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center p-8 bg-gradient-primary rounded-2xl border border-white/30 shadow-lg">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Ready to Experience the Masai Mara?
+            </h2>
+            <p className="text-white/90 text-lg mb-6 max-w-2xl mx-auto">
+              Let our expert guides show you the wonders of Kenya's most famous reserve
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button 
+                variant="luxury" 
+                size="lg"
+                onClick={() => {
+                  window.location.href = '/contact?subject=Masai Mara Safari';
+                }}
+              >
+                Book Masai Mara Safari
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-white text-white hover:bg-white hover:text-primary"
+                onClick={() => {
+                  window.location.href = '/custom-safari?scrollToForm=true';
+                }}
+              >
+                Combine with Other Parks
+              </Button>
+            </div>
           </div>
         </div>
       </section>
