@@ -101,6 +101,8 @@ const Header = () => {
                 className={`relative flex items-center transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
               >
                 <span>Destinations</span>
+                {/* Yellow Glow Effect Above */}
+                <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-yellow-400 opacity-[0.04] rounded-full blur-sm"></div>
                 {/* Chevron Arrow Below - Overlay */}
                 <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
                   <ChevronDown className="w-3 h-3 text-yellow-400 animate-bounce bg-transparent" />
