@@ -108,7 +108,7 @@ const Destinations = () => {
 
         {/* Destinations Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {destinations.map((destination) => (
+          {destinations.slice(0, 3).map((destination) => (
             <Card key={destination.id} className="group overflow-hidden hover:shadow-luxury transition-all duration-500 hover:-translate-y-2">
               <div className="relative h-64 overflow-hidden">
                 <img 
@@ -117,26 +117,12 @@ const Destinations = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4">
-                  <Badge variant="secondary" className="bg-kenya-gold text-black font-semibold">
-                    {destination.price}
-                  </Badge>
-                </div>
                 <div className="absolute bottom-4 left-4">
                   <h3 className="text-white font-bold text-xl">{destination.tagline}</h3>
                 </div>
               </div>
 
               <CardHeader>
-                <div className="flex items-center justify-between mb-2">
-                  <Badge className="bg-kenya-purple text-white">
-                    {destination.difficulty}
-                  </Badge>
-                  <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 fill-kenya-gold text-kenya-gold" />
-                    <span className="text-sm font-medium">{destination.rating}</span>
-                  </div>
-                </div>
                 <CardTitle className="text-xl group-hover:text-kenya-gold transition-colors">
                   {destination.name}
                 </CardTitle>

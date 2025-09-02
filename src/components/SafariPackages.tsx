@@ -9,39 +9,39 @@ const SafariPackages = () => {
   const packages = [
     {
       id: 1,
-      title: "Majestic Masai Mara Experience",
-      description: "Witness the Great Migration in Kenya's most famous reserve",
+      title: "Ultimate Safari Package",
+      description: "Experience the best of Kenya's wildlife in three iconic parks",
       image: kenyaLion,
-      duration: "5 Days",
+      duration: "6 Days",
       groupSize: "2-8 People",
-      price: "$2,450",
+      price: "$2,260",
       rating: 4.9,
-      features: ["Game Drives", "Cultural Visit", "Luxury Tents", "All Meals"],
+      features: ["Big Five", "Elephant Herds", "Flamingoes", "Migration Views"],
       badge: "Most Popular"
     },
     {
       id: 2,
-      title: "Amboseli Elephant Paradise",
-      description: "Get close to elephants with Mount Kilimanjaro backdrop",
+      title: "Masai Mara Adventure",
+      description: "Perfect introduction to Kenya's most famous wildlife reserve",
       image: luxuryCamp,
       duration: "4 Days",
-      groupSize: "2-12 People", 
-      price: "$1,890",
+      groupSize: "2-8 People", 
+      price: "$1,950",
       rating: 4.8,
-      features: ["Elephant Watching", "Mountain Views", "Bush Walks", "Photography"],
+      features: ["Big Five", "Migration Views", "Cultural Experience", "Luxury Tents"],
       badge: "Best Value"
     },
     {
       id: 3,
-      title: "Tsavo East & West Adventure",
-      description: "Explore Kenya's largest national park system",
-      image: kenyaLion,
-      duration: "6 Days",
-      groupSize: "4-10 People",
-      price: "$2,100",
-      rating: 4.7,
-      features: ["Red Elephants", "Mzima Springs", "Rock Climbing", "Night Drives"],
-      badge: "Adventure"
+      title: "Honeymoon Safari Package",
+      description: "Romantic getaway in the heart of the African wilderness",
+      image: luxuryCamp,
+      duration: "4 Days",
+      groupSize: "2 People",
+      price: "$3,800",
+      rating: 5.0,
+      features: ["Private Game Drives", "Bush Meals", "Sundowners", "Luxury Accommodation"],
+      badge: "Honeymoon"
     }
   ];
 
@@ -128,7 +128,14 @@ const SafariPackages = () => {
                     <span className="text-2xl font-bold text-kenya-gold">{pkg.price}</span>
                     <span className="text-muted-foreground"> / person</span>
                   </div>
-                  <Button variant="luxury" size="sm">
+                  <Button 
+                    variant="luxury" 
+                    size="sm"
+                    onClick={() => {
+                      const url = `/contact?subject=${encodeURIComponent(pkg.title)}`;
+                      window.location.href = url;
+                    }}
+                  >
                     Book Now
                   </Button>
                 </div>
@@ -139,10 +146,23 @@ const SafariPackages = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <Button variant="outline" size="lg" className="mr-4">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="mr-4"
+            onClick={() => {
+              window.location.href = '/safaris';
+            }}
+          >
             View All Safaris
           </Button>
-          <Button variant="default" size="lg">
+          <Button 
+            variant="default" 
+            size="lg"
+            onClick={() => {
+              window.location.href = '/custom-safari';
+            }}
+          >
             Custom Safari Planner
           </Button>
         </div>

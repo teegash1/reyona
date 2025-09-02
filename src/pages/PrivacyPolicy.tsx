@@ -28,7 +28,7 @@ const PrivacyPolicy = () => {
             {/* Last Updated */}
             <div className="bg-kenya-purple/10 border-l-4 border-kenya-purple p-4 mb-8">
               <p className="text-kenya-purple font-medium">
-                <strong>Last Updated:</strong> December 2024
+                <strong>Last Updated:</strong> December 2025
               </p>
             </div>
 

@@ -637,17 +637,15 @@ const Safaris = () => {
                     ))}
                   </div>
 
-                  {/* Price Options */}
+                  {/* Price */}
                   {pkg.options && (
                     <div className="space-y-2">
-                      <h4 className="font-semibold text-sm">Price Options:</h4>
-                      <div className="space-y-1">
-                        {pkg.options.slice(0, 2).map((option, index) => (
-                          <div key={index} className="text-sm">
-                            <span className="font-medium text-kenya-gold">{option.price}</span>
-                            <span className="text-muted-foreground"> - {option.name}</span>
-                          </div>
-                        ))}
+                      <h4 className="font-semibold text-sm">Price</h4>
+                      <div className="text-sm">
+                        <span className="text-muted-foreground">Starting from </span>
+                        <span className="font-medium text-kenya-gold">
+                          ${Math.min(...pkg.options.map(opt => parseInt(opt.price.replace(/[$,]/g, ''))))}
+                        </span>
                       </div>
                     </div>
                   )}
@@ -729,12 +727,22 @@ const Safaris = () => {
                           </div>
                         </div>
 
-                        {/* Price Options */}
+                        {/* Price */}
                         {pkg.options && (
                           <div>
-                            <h3 className="font-semibold text-lg mb-4">PRICE OPTIONS</h3>
+                            <h3 className="font-semibold text-lg mb-4">PRICE</h3>
                             <div className="space-y-4">
-                              {pkg.options.map((option, index) => (
+                              <div className="bg-muted/30 p-4 rounded-lg">
+                                <div className="text-center mb-4">
+                                  <span className="text-muted-foreground text-lg">Starting from</span>
+                                  <div className="text-3xl font-bold text-kenya-gold mt-1">
+                                    ${Math.min(...pkg.options.map(opt => parseInt(opt.price.replace(/[$,]/g, ''))))}
+                                  </div>
+                                </div>
+                              </div>
+                              {pkg.options
+                                .sort((a, b) => parseInt(b.price.replace(/[$,]/g, '')) - parseInt(a.price.replace(/[$,]/g, '')))
+                                .map((option, index) => (
                                 <div key={index} className="border border-border rounded-lg p-4">
                                   <div className="flex items-center justify-between mb-2">
                                     <h4 className="font-semibold text-kenya-purple">{option.name}</h4>
@@ -744,7 +752,14 @@ const Safaris = () => {
                                     {option.lodges.map((lodge, lodgeIndex) => (
                                       <div key={lodgeIndex} className="flex items-center gap-2 text-sm">
                                         <span className="text-muted-foreground">•</span>
-                                        <span>{lodge}</span>
+                                        <a 
+                                          href={`https://www.google.com/search?q=${encodeURIComponent(lodge + ' Kenya safari lodge')}`}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="text-kenya-gold hover:text-kenya-purple hover:underline transition-colors"
+                                        >
+                                          {lodge}
+                                        </a>
                                         <ExternalLink className="w-3 h-3 text-kenya-gold" />
                                       </div>
                                     ))}

@@ -213,7 +213,7 @@ const CustomSafari = () => {
                         id="travelDates"
                         value={formData.travelDates}
                         onChange={(e) => setFormData(prev => ({ ...prev, travelDates: e.target.value }))}
-                        placeholder="e.g., June 2024"
+                        placeholder="e.g., June 2025"
                       />
                     </div>
                   </div>

@@ -172,19 +172,19 @@ const Header = () => {
             </a>
             
             {/* Mobile Destinations Section */}
-            <div className="space-y-2">
+            <div className="space-y-3">
               <div className="flex items-center space-x-2">
                 <span className={`font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground'}`}>
                   Destinations
                 </span>
                 <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse shadow-lg shadow-yellow-400/50"></div>
               </div>
-              <div className="ml-4 space-y-2">
+              <div className="ml-6 space-y-3 bg-muted/30 rounded-lg p-3">
                 {destinations.map((destination) => (
                   <a
                     key={destination.path}
                     href={destination.path}
-                    className="block text-sm text-muted-foreground hover:text-kenya-gold transition-colors"
+                    className="block text-base font-medium text-foreground hover:text-kenya-gold transition-colors py-1"
                   >
                     {destination.name}
                   </a>

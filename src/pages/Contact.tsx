@@ -28,6 +28,26 @@ const Contact = () => {
       setFormData(prev => ({ ...prev, inquiryType: location.state.inquiryType }));
     }
     
+    // Handle URL search parameters
+    const searchParams = new URLSearchParams(location.search);
+    const subject = searchParams.get('subject');
+    if (subject) {
+      setFormData(prev => ({ ...prev, subject: subject }));
+      
+      // Scroll to form when subject is pre-filled
+      setTimeout(() => {
+        const formElement = document.getElementById('contact-form');
+        if (formElement) {
+          const headerHeight = 120; // Approximate header height
+          const formTop = formElement.offsetTop;
+          window.scrollTo({
+            top: formTop - headerHeight - 20, // 20px additional spacing
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+    
     // Scroll to form if requested
     if (location.state?.scrollToForm) {
       const formElement = document.getElementById('contact-form');
@@ -43,7 +63,7 @@ const Contact = () => {
         }, 100);
       }
     }
-  }, [location.state]);
+  }, [location.state, location.search]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

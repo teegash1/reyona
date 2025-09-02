@@ -33,17 +33,19 @@ const Footer = () => {
             {/* Company Info */}
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
-                <div className="w-24 h-14 rounded-lg overflow-hidden shadow-lg ring-2 ring-kenya-gold/20">
-                  <img 
-                    src="https://images.unsplash.com/photo-1756498017532-7e1b6fd67eec?q=80&w=2019&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Reyona Safaris Logo"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold text-foreground">Reyona Safaris</h1>
-                  <p className="text-sm text-muted-foreground">Premium African Adventures</p>
-                </div>
+                <a href="/" className="hover:opacity-80 transition-opacity flex items-center space-x-3">
+                  <div className="w-24 h-14 rounded-lg overflow-hidden shadow-lg ring-2 ring-kenya-gold/20">
+                    <img 
+                      src="https://images.unsplash.com/photo-1756498017532-7e1b6fd67eec?q=80&w=2019&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt="Reyona Safaris Logo"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h1 className="text-xl font-bold text-foreground">Reyona Safaris</h1>
+                    <p className="text-sm text-muted-foreground">Premium African Adventures</p>
+                  </div>
+                </a>
               </div>
               <p className="text-muted-foreground leading-relaxed">
                 Experience the magic of Kenya through expertly crafted safari adventures. 
@@ -123,7 +125,7 @@ const Footer = () => {
       <div className="border-t border-border py-6">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground">
-            <p>&copy; 2024 Reyona Safaris. All rights reserved.</p>
+                            <p>&copy; 2025 Reyona Safaris. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="/privacy-policy" className="hover:text-kenya-gold transition-colors">Privacy Policy</a>
               <a href="/terms-of-service" className="hover:text-kenya-gold transition-colors">Terms of Service</a>
