@@ -8,13 +8,15 @@ const Hero = () => {
     <section 
       id="home" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${heroImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
     >
+      {/* Background Image with Zoom Effect */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-hero-zoom"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${heroImage})`,
+          backgroundAttachment: 'fixed'
+        }}
+      />
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60" />
       
