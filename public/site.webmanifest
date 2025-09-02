@@ -1,0 +1,25 @@
+{
+  "name": "Reyona Safaris",
+  "short_name": "Reyona Safaris",
+  "description": "Premium African Safari Adventures in Kenya",
+  "icons": [
+    {
+      "src": "/favicon-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-64.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-64.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#7c3aed",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

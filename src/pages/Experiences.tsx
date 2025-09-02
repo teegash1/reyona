@@ -122,7 +122,7 @@ const Experiences = () => {
                   </div>
                 </div>
                 
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-4 pt-6">
                   <h3 className="text-xl font-bold text-kenya-gold group-hover:text-kenya-purple transition-colors">
                     {experience.title}
                   </h3>
