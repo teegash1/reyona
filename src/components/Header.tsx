@@ -98,10 +98,10 @@ const Header = () => {
               <button
                 onMouseEnter={() => setIsDestinationsOpen(true)}
                 onMouseLeave={() => setIsDestinationsOpen(false)}
-                className={`flex items-center space-x-1 transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
+                className={`flex flex-col items-center space-y-1 transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
               >
                 <span>Destinations</span>
-                {/* Chevron Arrow */}
+                {/* Chevron Arrow Below */}
                 <ChevronDown className="w-3 h-3 text-yellow-400" />
               </button>
               
