@@ -118,11 +118,21 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-kenya-gold flex-shrink-0" />
-                  <p className="text-muted-foreground">+254 700 123 456</p>
+                  <a 
+                    href="tel:+254707694388" 
+                    className="text-muted-foreground hover:text-kenya-gold transition-colors"
+                  >
+                    +254 707 694 388
+                  </a>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-kenya-gold flex-shrink-0" />
-                  <p className="text-muted-foreground">info@reyonasafaris.com</p>
+                  <a 
+                    href="mailto:booking@reyonasafaris.com" 
+                    className="text-muted-foreground hover:text-kenya-gold transition-colors"
+                  >
+                    booking@reyonasafaris.com
+                  </a>
                 </div>
               </div>
             </div>

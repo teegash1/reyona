@@ -49,12 +49,22 @@ const Header = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
-                <span>+254 700 123 456</span>
+                <a 
+                  href="tel:+254707694388" 
+                  className="hover:text-kenya-gold transition-colors"
+                >
+                  +254 707 694 388
+                </a>
               </div>
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="w-4 h-4" />
-              <span>info@reyonasafaris.com</span>
+              <a 
+                href="mailto:booking@reyonasafaris.com" 
+                className="hover:text-kenya-gold transition-colors"
+              >
+                booking@reyonasafaris.com
+              </a>
             </div>
           </div>
         </div>

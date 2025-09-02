@@ -93,25 +93,31 @@ const Contact = () => {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Our Office",
       details: ["Westlands, Nairobi", "Kenya"],
-      description: "Come see us for personalized safari planning"
+      description: "Come see us for personalized safari planning",
+      clickable: false
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      details: ["+254 700 123 456", "+254 722 987 654"],
-      description: "Available 24/7 for emergency support"
+      details: ["+254 707 694 388"],
+      description: "Available 24/7 for emergency support",
+      clickable: true,
+      action: "tel:+254707694388"
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      details: ["info@reyonasafaris.com", "safaris@reyonasafaris.com"],
-      description: "We respond within 2 hours during business hours"
+      details: ["booking@reyonasafaris.com"],
+      description: "We respond within 2 hours during business hours",
+      clickable: true,
+      action: "mailto:booking@reyonasafaris.com"
     },
     {
       icon: <Clock className="w-6 h-6" />,
       title: "Business Hours",
       details: ["Mon - Fri: 8:00 AM - 6:00 PM", "Sat - Sun: 9:00 AM - 4:00 PM"],
-      description: "East Africa Time (GMT+3)"
+      description: "East Africa Time (GMT+3)",
+      clickable: false
     }
   ];
 
@@ -157,7 +163,15 @@ const Contact = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {contactInfo.map((info, index) => (
-              <Card key={index} className="text-center hover:shadow-luxury transition-all duration-300">
+              <Card 
+                key={index} 
+                className={`text-center transition-all duration-300 ${
+                  info.clickable 
+                    ? 'hover:shadow-luxury hover:scale-105 cursor-pointer' 
+                    : 'hover:shadow-luxury'
+                }`}
+                onClick={info.clickable ? () => window.open(info.action, '_blank') : undefined}
+              >
                 <CardContent className="pt-8 pb-6">
                   <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white">
                     {info.icon}
@@ -167,6 +181,9 @@ const Contact = () => {
                     <p key={i} className="text-muted-foreground font-medium">{detail}</p>
                   ))}
                   <p className="text-sm text-muted-foreground mt-2">{info.description}</p>
+                  {info.clickable && (
+                    <p className="text-xs text-kenya-gold mt-2 font-medium">Click to {info.title === "Call Us" ? "call" : "email"}</p>
+                  )}
                 </CardContent>
               </Card>
             ))}
