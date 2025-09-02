@@ -30,12 +30,12 @@ const About = () => {
 
   const team = [
     {
-      name: "David Kiptoo",
-      role: "Founder & Safari Director",
-      experience: "15+ years",
-      specialty: "Big Five Photography",
+      name: "Yvonne Agala",
+      role: "Founder & CEO",
+      experience: "12+ years",
+      specialty: "Travel & Tourism",
       image: "/src/assets/kenya-lion.jpg",
-      description: "Born and raised in the Maasai Mara, David's passion for wildlife started in childhood. He's a certified Kenya Professional Safari Guide."
+      description: "A passionate Kenyan entrepreneur, Yvonne's love for travel and deep connection to Kenya inspired her to create Reyona Safaris. She leads with vision and dedication to authentic experiences."
     },
     {
       name: "Sarah Wanjiku",
@@ -85,13 +85,16 @@ const About = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Story</h2>
           <div className="space-y-8 text-lg leading-relaxed">
             <p className="text-muted-foreground">
-              Reyona Safaris was founded in 2008 by David Kiptoo, a Maasai warrior turned conservationist who grew up in the shadow of the great Maasai Mara. As a child, David would guide his family's cattle alongside migrating wildebeest, developing an intimate understanding of Kenya's wildlife patterns and behaviors.
+              Reyona Safaris was born from the vision of Yvonne Agala, a passionate Kenyan entrepreneur whose love for travel and deep connection to her homeland inspired her to create something extraordinary. Growing up in Nairobi, Yvonne was captivated by the stories of Kenya's magnificent wildlife and the rich cultural heritage that surrounded her.
             </p>
             <p className="text-muted-foreground">
-              After completing his education in tourism and wildlife management, David recognized that many safari companies were offering generic experiences that failed to capture the true essence of Kenya. He envisioned something different – authentic, responsible safaris that would create deep connections between travelers and the natural world while supporting local communities.
+              After exploring various corners of the world and experiencing different cultures, Yvonne realized that Kenya possessed something truly unique – a perfect blend of breathtaking landscapes, diverse wildlife, and warm hospitality that could create life-changing experiences for travelers. She noticed that many safari companies were offering standardized tours that missed the authentic essence of what makes Kenya special.
             </p>
             <p className="text-muted-foreground">
-              Today, Reyona Safaris has grown into one of Kenya's most respected safari operators, known for our personalized approach, conservation focus, and commitment to authentic experiences. We've had the privilege of sharing Kenya's wonders with thousands of travelers from around the world, each carrying home not just memories, but a deeper appreciation for wildlife conservation.
+              Driven by her passion for travel and her desire to showcase Kenya's beauty to the world, Yvonne founded Reyona Safaris with a simple yet powerful mission: to create personalized, authentic safari experiences that would not only showcase Kenya's natural wonders but also support local communities and conservation efforts. She believed that every traveler deserved to experience the magic of Kenya in a way that was meaningful, responsible, and unforgettable.
+            </p>
+            <p className="text-muted-foreground">
+              Today, Reyona Safaris stands as a testament to Yvonne's vision – a company that has transformed the lives of thousands of travelers while maintaining the highest standards of service, sustainability, and authenticity. Her passion for travel continues to inspire every aspect of our operations, ensuring that every safari experience is crafted with the same love and dedication that inspired her to start this incredible journey.
             </p>
           </div>
         </div>
