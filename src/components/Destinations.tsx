@@ -86,6 +86,19 @@ const Destinations = () => {
       difficulty: 'Challenging',
       rating: 4.6,
       price: 'From $380/day'
+    },
+    {
+      id: 'diani-beach',
+      name: 'Diani Beach',
+      tagline: 'Paradise Found',
+      description: 'Pristine white sand beaches with crystal clear turquoise waters and world-class water sports.',
+      image: "https://cdn.pixabay.com/photo/2021/05/29/03/00/beach-6292382_1280.jpg",
+      highlights: ['White Sand Beaches', 'Coral Reefs', 'Water Sports', 'Marine Life'],
+      bestTime: 'June - October, December - March',
+      duration: '3-7 days',
+      difficulty: 'Easy',
+      rating: 4.9,
+      price: 'From $250/day'
     }
   ];
 
