@@ -37,7 +37,9 @@ const CustomSafari = () => {
     'Mount Kenya National Park',
     'Aberdare National Park',
     'Hell\'s Gate National Park',
-    'Lake Naivasha'
+    'Lake Naivasha',
+    'Diani Beach',
+    'The Serengeti'
   ];
 
   const experiences = [
