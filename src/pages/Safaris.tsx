@@ -877,7 +877,7 @@ const Safaris = () => {
       location: "Masai Mara",
       price: "$1,850",
 
-      image: kenyaLion,
+      image: "https://cdn.pixabay.com/photo/2020/05/05/16/21/lion-5133788_1280.jpg",
       description: "Luxury air safari to Masai Mara",
       features: ["Domestic Flights", "Private Vehicle", "Luxury Lodges", "Quick Access"],
       badge: "Fly-In",
@@ -939,7 +939,7 @@ const Safaris = () => {
       groupSize: "2-8 People",
       location: "Masai Mara, Amboseli",
       price: "$3,200",
-      image: heroSafari,
+      image: "https://cdn.pixabay.com/photo/2020/01/02/00/49/amboseli-national-park-4734711_1280.jpg",
       description: "Luxury fly-in safari combining Masai Mara migration with Amboseli elephants",
       features: ["Domestic Flights", "Wildebeest Migration", "Elephant Views", "Private Game Drives", "Professional Guide"],
       badge: "Fly-In",
@@ -1017,7 +1017,7 @@ const Safaris = () => {
       location: "Nairobi",
       price: "$325",
 
-      image: luxuryCamp,
+      image: "https://cdn.pixabay.com/photo/2013/04/14/17/44/elephant-103588_1280.jpg",
       description: "Explore Nairobi in Elegance and Comfort",
       features: ["Nairobi National Park", "Elephant Orphanage", "Giraffe Centre", "Carnivore Restaurant"],
       badge: "Day Tour",
@@ -1063,7 +1063,7 @@ const Safaris = () => {
       location: "Nairobi",
       price: "$240",
 
-      image: kenyaLion,
+      image: "https://cdn.pixabay.com/photo/2019/10/23/12/49/tea-4571536_1280.jpg",
       description: "Kenya's Flavorful Journey: Coffee and Tea Farm Experience",
       features: ["Farm Tour", "Hands-on Experience", "Tasting Session", "Local Lunch"],
       badge: "Cultural",
