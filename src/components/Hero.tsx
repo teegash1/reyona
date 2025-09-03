@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-40"
     >
       {/* Background Image with Zoom Effect */}
       <div 
