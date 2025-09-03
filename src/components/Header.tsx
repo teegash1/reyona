@@ -177,7 +177,7 @@ const Header = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-t border-border">
-          <nav className="max-w-7xl mx-auto px-4 py-4 space-y-3">
+          <nav className="max-w-7xl mx-auto px-4 py-6 space-y-4">
             <a href="/" className={`block transition-colors font-medium ${isActive('/') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Home
             </a>
@@ -192,19 +192,19 @@ const Header = () => {
             </a>
             
             {/* Mobile Destinations Section */}
-            <div className="space-y-2">
+            <div className="space-y-3">
               <div className="flex items-center space-x-2">
-                <span className={`font-medium text-sm ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground'}`}>
+                <span className={`font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground'}`}>
                   Destinations
                 </span>
                 <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse shadow-lg shadow-yellow-400/50"></div>
               </div>
-              <div className="ml-4 space-y-1 bg-muted/30 rounded-lg p-2">
+              <div className="ml-6 space-y-3 bg-muted/30 rounded-lg p-3">
                 {destinations.map((destination) => (
                   <a
                     key={destination.path}
                     href={destination.path}
-                    className="block text-xs font-medium text-foreground hover:text-kenya-gold transition-colors py-0.5"
+                    className="block text-base font-medium text-foreground hover:text-kenya-gold transition-colors py-1"
                   >
                     {destination.name}
                   </a>
@@ -218,7 +218,7 @@ const Header = () => {
             <a href="/contact" className={`block transition-colors font-medium ${isActive('/contact') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Contact
             </a>
-            <Button variant="luxury" size="lg" className="w-full mt-3" onClick={handleBookSafari}>
+            <Button variant="luxury" size="lg" className="w-full mt-4" onClick={handleBookSafari}>
               Book Your Safari
             </Button>
           </nav>
