@@ -793,12 +793,83 @@ const Safaris = () => {
         "Travel insurance",
         "Other personal items"
       ]
+    },
+    {
+      id: 12,
+      title: "6 DAYS MASAI MARA MIGRATION SAFARI PACKAGE",
+      category: "migration",
+      duration: "6 Days",
+      groupSize: "2-8 People",
+      location: "Masai Mara, Lake Nakuru",
+      price: "$3,190",
+      image: heroSafari,
+      description: "Extended migration safari with Masai Mara focus and Lake Nakuru finale",
+      features: ["Wildebeest Migration", "Big Five", "Mara River Views", "Private Game Drives", "Professional Guide"],
+      badge: "Migration",
+      options: [
+        { name: "Option 1", price: "$4,500", lodges: ["Entim Main Camp", "The Cliff"] },
+        { name: "Option 2", price: "$3,955", lodges: ["Mara Maisha Camp", "Nakuru Sopa Lodge"] },
+        { name: "Option 3", price: "$3,190", lodges: ["Mara Sopa Lodge", "Nakuru Sopa Lodge"] }
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "NAIROBI - MASAI MARA",
+          description: "Pickup from your hotel of stay or airport at 7am and drive to Masai Mara. Quick stop over at the scenic great rift valley as you enjoy the beautiful views as you take pictures. Arrive in Masai Mara check in at your lodge/camp have lunch and relax. Game drives begin at 4pm in the reserve in search of the big 5, cheetahs, hippos, giraffes, impalas and other diverse wildlife found in the park.",
+          meals: "Lunch & Dinner"
+        },
+        {
+          day: 2,
+          title: "MASAI MARA - FULL DAY",
+          description: "Early morning breakfast and leave the lodge/camp with packed lunches. Enjoy full game drives in the reserve. During game drives you will have the chance to pass by the mara river where migration of the wildebeests takes place, every year millions of wildebeests and thousands of zebras and antelopes migrate from serengeti to Masai Mara in search of fresh grazing.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 3,
+          title: "MASAI MARA - FULL DAY",
+          description: "Early morning breakfast and leave the lodge/camp with packed lunches. Enjoy full game drives in the reserve. During game drives you will have the chance to pass by the mara river where migration of the wildebeests takes place, every year millions of wildebeests and thousands of zebras and antelopes migrate from serengeti to Masai Mara in search of fresh grazing.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 4,
+          title: "MASAI MARA - FULL DAY",
+          description: "Early morning breakfast and leave the lodge/camp with packed lunches. Enjoy full game drives in the reserve. During game drives you will have the chance to pass by the mara river where migration of the wildebeests takes place, every year millions of wildebeests and thousands of zebras and antelopes migrate from serengeti to Masai Mara in search of fresh grazing.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 5,
+          title: "MASAI MARA - LAKE NAKURU",
+          description: "Early morning breakfast at your lodge/camp, check out and immediately depart Masai Mara for Lake Nakuru national park, check in and have lunch at the lodge/camp. Game drives will begin at 3pm till 6pm.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 6,
+          title: "LAKE NAKURU - NAIROBI",
+          description: "Enjoy your breakfast at the lodge/camp, check out and have short morning game drives in the park as you depart Lake Nakuru for Nairobi. Upon arrival in Nairobi, you will be dropped off at your respective hotel or airport.",
+          meals: "Breakfast"
+        }
+      ],
+      inclusions: [
+        "All government taxes/VAT",
+        "Park fees",
+        "Accommodation on full board basis (Double Room)",
+        "Bottled drinking water in the vehicle",
+        "All game drives are PRIVATE in a 4/4 Land Cruiser",
+        "Services of professional tour driver/guide (s)"
+      ],
+      exclusions: [
+        "International flights",
+        "Tips & porterage",
+        "Visa fees (if applicable)",
+        "Travel insurance",
+        "Other personal items"
+      ]
     }
   ];
 
   const flyInPackages = [
     {
-      id: 12,
+      id: 13,
       title: "4 DAYS FLY IN SAFARI PRIVATE PACKAGE",
       category: "flyin",
       duration: "4 Days",
@@ -864,7 +935,7 @@ const Safaris = () => {
 
   const nairobiExcursions = [
     {
-      id: 13,
+      id: 14,
       title: "FULL DAY NAIROBI PRIVATE EXCURSIONS",
       category: "nairobi",
       duration: "1 Day",
