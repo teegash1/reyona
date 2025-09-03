@@ -142,6 +142,19 @@ const CustomSafari = () => {
         accommodation: '',
         specialRequests: ''
       });
+      
+      // Scroll to the success message
+      setTimeout(() => {
+        const formSection = document.getElementById('custom-safari-form');
+        if (formSection) {
+          const headerHeight = 120; // Approximate header height
+          const formTop = formSection.offsetTop;
+          window.scrollTo({
+            top: formTop - headerHeight - 20, // 20px additional spacing
+            behavior: 'smooth'
+          });
+        }
+      }, 100); // Small delay to ensure state update and re-render
     })
     .catch((error) => {
       console.error('Error:', error);
