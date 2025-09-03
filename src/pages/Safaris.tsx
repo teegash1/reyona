@@ -23,7 +23,7 @@ const Safaris = () => {
       location: "Amboseli, Lake Nakuru, Masai Mara",
       price: "$2,260",
 
-      image: kenyaLion,
+      image: "https://cdn.pixabay.com/photo/2013/05/17/07/21/buffalo-111703_1280.jpg",
       description: "Experience the best of Kenya's wildlife in three iconic parks",
       features: ["Big Five", "Elephant Herds", "Flamingoes", "Migration Views"],
       badge: "Most Popular",
@@ -95,7 +95,7 @@ const Safaris = () => {
       location: "Masai Mara",
       price: "$1,950",
 
-      image: luxuryCamp,
+      image: "https://cdn.pixabay.com/photo/2022/06/01/11/49/lion-female-7235535_1280.jpg",
       description: "Perfect introduction to Kenya's most famous wildlife reserve",
       features: ["Big Five", "Migration Views", "Cultural Experience", "Luxury Tents"],
       badge: "Best Value",
