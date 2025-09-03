@@ -307,14 +307,13 @@ const Contact = () => {
                             <SelectTrigger>
                               <SelectValue placeholder="Select inquiry type" />
                             </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="general">General Information</SelectItem>
-                              <SelectItem value="booking">Safari Booking</SelectItem>
-                              <SelectItem value="custom">Custom Safari</SelectItem>
-                              <SelectItem value="group">Group Travel</SelectItem>
-                              <SelectItem value="corporate">Corporate Events</SelectItem>
-                              <SelectItem value="support">Customer Support</SelectItem>
-                            </SelectContent>
+                                                    <SelectContent>
+                          <SelectItem value="general">General Information</SelectItem>
+                          <SelectItem value="booking">Safari Booking</SelectItem>
+                          <SelectItem value="custom">Custom Safari</SelectItem>
+                          <SelectItem value="group">Group Travel</SelectItem>
+                          <SelectItem value="support">Customer Support</SelectItem>
+                        </SelectContent>
                           </Select>
                         </div>
                       </div>
