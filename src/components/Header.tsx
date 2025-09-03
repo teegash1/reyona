@@ -33,7 +33,8 @@ const Header = () => {
     { name: 'Samburu', path: '/destinations/samburu' },
     { name: 'Mount Kenya', path: '/destinations/mount-kenya' },
     { name: 'Tsavo East', path: '/destinations/tsavo-east' },
-    { name: 'Tsavo West', path: '/destinations/tsavo-west' }
+    { name: 'Tsavo West', path: '/destinations/tsavo-west' },
+    { name: 'Diani Beach', path: '/destinations/diani-beach' }
   ];
 
   return (

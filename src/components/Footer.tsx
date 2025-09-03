@@ -100,6 +100,7 @@ const Footer = () => {
                 <li><a href="/destinations/lake-nakuru" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Nakuru</a></li>
                 <li><a href="/destinations/samburu" className="text-muted-foreground hover:text-kenya-gold transition-colors">Samburu Reserve</a></li>
                 <li><a href="/destinations/mount-kenya" className="text-muted-foreground hover:text-kenya-gold transition-colors">Mount Kenya</a></li>
+                <li><a href="/destinations/diani-beach" className="text-muted-foreground hover:text-kenya-gold transition-colors">Diani Beach</a></li>
               </ul>
             </div>
 
