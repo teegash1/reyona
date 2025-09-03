@@ -1059,6 +1059,23 @@ const Safaris = () => {
                           </div>
                         )}
 
+                        {/* Optional Activities */}
+                        {pkg.category === 'group' && (
+                          <div>
+                            <h3 className="font-semibold text-lg mb-4 text-kenya-purple">OPTIONAL ACTIVITIES</h3>
+                            <div className="bg-muted/30 p-4 rounded-lg space-y-3">
+                              <div className="flex items-center justify-between">
+                                <span className="font-medium">Balloon Safari:</span>
+                                <span className="text-kenya-gold font-bold">$495 per person</span>
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <span className="font-medium">Masai Village Visit:</span>
+                                <span className="text-kenya-gold font-bold">$20 per person</span>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
                         {/* Inclusions & Exclusions */}
                         <div className="grid md:grid-cols-2 gap-6">
                           <div>
