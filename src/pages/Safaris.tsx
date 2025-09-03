@@ -1128,6 +1128,14 @@ const Safaris = () => {
       
       {/* Hero Section */}
       <section className="relative h-[60vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-magenta/20 flex items-center justify-center pt-32">
+        {/* Background Image with 50% opacity */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://cdn.pixabay.com/photo/2016/12/05/11/39/zebras-1883654_1280.jpg')`,
+            opacity: '0.5'
+          }}
+        ></div>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
