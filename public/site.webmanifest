@@ -1,40 +1,66 @@
 {
-  "name": "Reyona Safaris",
+  "name": "Reyona Safaris - Premium African Safari Adventures",
   "short_name": "Reyona Safaris",
-  "description": "Premium African Safari Adventures in Kenya",
+  "description": "Experience the magic of Kenya through expertly crafted safari adventures. Luxury accommodations, wildlife viewing, and cultural immersion in Africa's most spectacular destinations.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#7c3aed",
+  "background_color": "#ffffff",
+  "categories": ["travel", "lifestyle", "business"],
+  "lang": "en",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/favicon-16.png",
       "sizes": "16x16",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/favicon-32.png",
       "sizes": "32x32",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/favicon-64.png",
       "sizes": "64x64",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/favicon-64.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/favicon-64.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "theme_color": "#7c3aed",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-narrow.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
 }

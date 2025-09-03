@@ -4,6 +4,7 @@ import SafariPackages from '@/components/SafariPackages';
 import Destinations from '@/components/Destinations';
 import Experiences from '@/components/Experiences';
 import Footer from '@/components/Footer';
+import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
         <Experiences />
       </main>
       <Footer />
+      <PWAInstallPrompt />
     </div>
   );
 };
