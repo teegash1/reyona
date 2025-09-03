@@ -106,8 +106,46 @@ const CustomSafari = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Custom Safari Request:', formData);
-    // Handle form submission
+    
+    // Update hidden fields with current form data
+    const form = e.target;
+    form.querySelector('input[name="destinations"]').value = formData.destinations.join(', ');
+    form.querySelector('input[name="experiences"]').value = formData.experiences.join(', ');
+    form.querySelector('input[name="budget"]').value = formData.budget || '';
+    form.querySelector('input[name="duration"]').value = formData.duration || '';
+    form.querySelector('input[name="groupSize"]').value = formData.groupSize || '';
+    form.querySelector('input[name="accommodation"]').value = formData.accommodation || '';
+    
+    // Submit the form to Netlify
+    const formDataToSubmit = new FormData(form);
+    
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formDataToSubmit).toString()
+    })
+    .then(() => {
+      // Show success message
+      alert('Thank you! Your custom safari request has been submitted successfully. We will contact you within 24 hours to discuss your dream safari.');
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        duration: '',
+        groupSize: '',
+        travelDates: '',
+        budget: '',
+        destinations: [],
+        experiences: [],
+        accommodation: '',
+        specialRequests: ''
+      });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('There was an error submitting your request. Please try again or contact us directly.');
+    });
   };
 
   return (
@@ -165,7 +203,25 @@ const CustomSafari = () => {
               </p>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form 
+                name="custom-safari" 
+                method="POST" 
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit} 
+                className="space-y-8"
+              >
+                {/* Netlify Forms Hidden Fields */}
+                <input type="hidden" name="form-name" value="custom-safari" />
+                <div className="hidden">
+                  <input name="bot-field" />
+                  <input name="destinations" value={formData.destinations.join(', ')} />
+                  <input name="experiences" value={formData.experiences.join(', ')} />
+                  <input name="budget" value={formData.budget} />
+                  <input name="duration" value={formData.duration} />
+                  <input name="groupSize" value={formData.groupSize} />
+                  <input name="accommodation" value={formData.accommodation} />
+                </div>
                 {/* Personal Information */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold border-b border-border pb-2">Personal Information</h3>
@@ -174,6 +230,7 @@ const CustomSafari = () => {
                       <Label htmlFor="name">Full Name *</Label>
                       <Input
                         id="name"
+                        name="name"
                         value={formData.name}
                         onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
                         required
@@ -183,6 +240,7 @@ const CustomSafari = () => {
                       <Label htmlFor="email">Email Address *</Label>
                       <Input
                         id="email"
+                        name="email"
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
@@ -194,6 +252,7 @@ const CustomSafari = () => {
                     <Label htmlFor="phone">Phone Number</Label>
                     <Input
                       id="phone"
+                      name="phone"
                       value={formData.phone}
                       onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                     />
@@ -236,12 +295,13 @@ const CustomSafari = () => {
                     </div>
                     <div>
                       <Label htmlFor="travelDates">Preferred Travel Dates</Label>
-                      <Input
-                        id="travelDates"
-                        value={formData.travelDates}
-                        onChange={(e) => setFormData(prev => ({ ...prev, travelDates: e.target.value }))}
-                        placeholder="e.g., June 2025"
-                      />
+                                              <Input
+                          id="travelDates"
+                          name="travelDates"
+                          value={formData.travelDates}
+                          onChange={(e) => setFormData(prev => ({ ...prev, travelDates: e.target.value }))}
+                          placeholder="e.g., June 2025"
+                        />
                     </div>
                   </div>
                 </div>
@@ -332,12 +392,13 @@ const CustomSafari = () => {
                 {/* Special Requests */}
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold border-b border-border pb-2">Special Requests or Requirements</h3>
-                  <Textarea
-                    value={formData.specialRequests}
-                    onChange={(e) => setFormData(prev => ({ ...prev, specialRequests: e.target.value }))}
-                    placeholder="Any special dietary requirements, accessibility needs, photography focus, celebration occasions, or other specific requests..."
-                    rows={4}
-                  />
+                                      <Textarea
+                      name="specialRequests"
+                      value={formData.specialRequests}
+                      onChange={(e) => setFormData(prev => ({ ...prev, specialRequests: e.target.value }))}
+                      placeholder="Any special dietary requirements, accessibility needs, photography focus, celebration occasions, or other specific requests..."
+                      rows={4}
+                    />
                 </div>
 
                 <Button type="submit" className="w-full" variant="luxury" size="lg">
