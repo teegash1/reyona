@@ -586,12 +586,90 @@ const Safaris = () => {
         "Travel insurance",
         "Other personal items"
       ]
+    },
+    {
+      id: 9,
+      title: "7 DAYS 6NIGHTS MASAI MARA, LAKE NAKURU AND AMBOSELI GROUP SAFARI PACKAGE",
+      category: "group",
+      duration: "7 Days",
+      groupSize: "7 People",
+      location: "Masai Mara, Lake Nakuru, Amboseli",
+      price: "$1,820",
+      image: heroSafari,
+      description: "Comprehensive multi-park group adventure for 7 people",
+      features: ["Group Discount", "Private Vehicle", "Big Five", "Flamingoes", "Elephant Herds", "Professional Guide"],
+      badge: "Group",
+      options: [
+        { name: "Option 1", price: "$3,380", lodges: ["Ilkeliani Camp", "The Cliff", "Elephant Gorge Amboseli"] },
+        { name: "Option 2", price: "$2,200", lodges: ["Sarova Mara Game Camp", "Sarova LionHill Game Lodge", "Oltukai Lodge"] },
+        { name: "Option 3", price: "$2,140", lodges: ["Pride Inn Mara Camp", "Flamingoe Hill Camp", "Kibo Safari Camp"] },
+        { name: "Option 4", price: "$1,820", lodges: ["Mara Sopa Lodge", "Lake Nakuru Sopa Lodge", "Amboseli Sopa Lodge"] }
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "NAIROBI - MASAI MARA (Approx 5hrs - 6hrs)",
+          description: "Pickup from your respective hotel/ airport at 7am and proceed to Masai Mara. Arrive in time for lunch at your lodge/camp, check in have lunch and later start off your game drives in the famous Masai land in search of the big 5 and other wildlife found here. Later dinner and overnight at your booked lodge/camp.",
+          meals: "Lunch & Dinner"
+        },
+        {
+          day: 2,
+          title: "MASAI MARA - FULL DAY",
+          description: "On this day, you can opt to do a full day game drive in the reserve with your picnic lunch boxes or alternatively you can decide to do morning and afternoon game drives with hot lunch in the lodge.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 3,
+          title: "MASAI MARA - FULL DAY",
+          description: "On this day, you can opt to do a full day game drive in the reserve with your picnic lunch boxes or alternatively you can decide to do morning and afternoon game drives with hot lunch in the lodge.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 4,
+          title: "MASAI MARA - LAKE NAKURU (Approx 5hrs)",
+          description: "Early morning breakfast at your lodge/camp, check out and drive to Lake Nakuru national park. Arrive in time for lunch, check in, have lunch and relax for some time. Start off your game drives around 4pm in the park in search of the rhinos, lions, leopards, flamingoes, giraffes and other diverse wildlife found in the park. Later drive back to the lodge/camp overnight.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 5,
+          title: "LAKE NAKURU - AMBOSELI (Approx 6hrs)",
+          description: "Enjoy an early morning breakfast at the lodge/camp, check out and immediately depart Lake Nakuru for Amboseli national park. Arrive in time for late lunch, relax abit then kickstart your game drives in the park in search of lions, elephants, leopards, cheetahs and other diverse wildlife found in the park. Later dinner and overnight at your lodge/camp.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 6,
+          title: "AMBOSELI - FULL DAY",
+          description: "On this day you can opt for a full day game drive with packed lunches in the park or alternatively do a morning and afternoon game drive with hot lunch at the lodge/camp.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 7,
+          title: "AMBOSELI - NAIROBI (Approx 4hrs)",
+          description: "Early morning breakfast, check out and depart Amboseli for Nairobi. Drop off at your respective hotel or airport.",
+          meals: "Breakfast only"
+        }
+      ],
+      inclusions: [
+        "All government taxes/VAT",
+        "Park fees",
+        "Accommodation on full board basis (3 Double Rooms, 1 Single)",
+        "Bottled drinking water in the vehicle",
+        "All game drives are PRIVATE in a 4/4 Land Cruiser",
+        "Services of English professional tour driver/guide (s)"
+      ],
+      exclusions: [
+        "International flights",
+        "Tips & porterage",
+        "Visa fees (if applicable)",
+        "Travel insurance",
+        "Other personal items"
+      ]
     }
   ];
 
   const migrationPackages = [
     {
-      id: 9,
+      id: 10,
       title: "4 DAYS MASAI MARA MIGRATION PRIVATE SAFARI PACKAGE",
       category: "migration",
       duration: "4 Days",
@@ -654,7 +732,7 @@ const Safaris = () => {
 
   const flyInPackages = [
     {
-      id: 10,
+      id: 11,
       title: "4 DAYS FLY IN SAFARI PRIVATE PACKAGE",
       category: "flyin",
       duration: "4 Days",
@@ -720,7 +798,7 @@ const Safaris = () => {
 
   const nairobiExcursions = [
     {
-      id: 11,
+      id: 12,
       title: "FULL DAY NAIROBI PRIVATE EXCURSIONS",
       category: "nairobi",
       duration: "1 Day",
