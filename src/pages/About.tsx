@@ -71,6 +71,14 @@ const About = () => {
       
       {/* Hero Section */}
       <section className="relative h-[70vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-gold/20 flex items-center justify-center pt-32">
+        {/* Background Image with 30% opacity */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://cdn.pixabay.com/photo/2017/03/13/13/19/crocus-2139773_1280.jpg')`,
+            opacity: '0.3'
+          }}
+        ></div>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
