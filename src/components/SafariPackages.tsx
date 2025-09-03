@@ -2,8 +2,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Users, MapPin, Clock } from 'lucide-react';
-import luxuryCamp from '@/assets/luxury-camp.jpg';
-import kenyaLion from '@/assets/kenya-lion.jpg';
 
 const SafariPackages = () => {
   const packages = [
@@ -11,7 +9,7 @@ const SafariPackages = () => {
       id: 1,
       title: "Ultimate Safari Package",
       description: "Experience the best of Kenya's wildlife in three iconic parks",
-      image: kenyaLion,
+      image: "https://cdn.pixabay.com/photo/2013/05/17/07/21/buffalo-111703_1280.jpg",
       duration: "6 Days",
       groupSize: "2-8 People",
       price: "$2,260",
@@ -23,7 +21,7 @@ const SafariPackages = () => {
       id: 2,
       title: "Masai Mara Adventure",
       description: "Perfect introduction to Kenya's most famous wildlife reserve",
-      image: luxuryCamp,
+      image: "https://cdn.pixabay.com/photo/2022/06/01/11/49/lion-female-7235535_1280.jpg",
       duration: "4 Days",
       groupSize: "2-8 People", 
       price: "$1,950",
@@ -35,7 +33,7 @@ const SafariPackages = () => {
       id: 3,
       title: "Kenya & Tanzania Safari",
       description: "Cross-border adventure through Kenya and Tanzania's most iconic parks",
-      image: luxuryCamp,
+      image: "https://cdn.pixabay.com/photo/2016/11/21/12/38/nature-1845134_1280.jpg",
       duration: "8 Days",
       groupSize: "2 People",
       price: "$4,400",
