@@ -26,6 +26,7 @@ const CustomSafari = () => {
     travelDates: '',
     specialRequests: ''
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const destinations = [
     'Masai Mara National Reserve',
@@ -125,9 +126,9 @@ const CustomSafari = () => {
       body: new URLSearchParams(formDataToSubmit).toString()
     })
     .then(() => {
-      // Show success message
-      alert('Thank you! Your custom safari request has been submitted successfully. We will contact you within 24 hours to discuss your dream safari.');
-      // Reset form
+      // Set success state
+      setIsSubmitted(true);
+      // Reset form data
       setFormData({
         name: '',
         email: '',
@@ -146,6 +147,10 @@ const CustomSafari = () => {
       console.error('Error:', error);
       alert('There was an error submitting your request. Please try again or contact us directly.');
     });
+  };
+
+  const handleSendAnother = () => {
+    setIsSubmitted(false);
   };
 
   return (
@@ -195,7 +200,8 @@ const CustomSafari = () => {
       {/* Custom Safari Form */}
       <section id="custom-safari-form" className="py-16">
         <div className="max-w-4xl mx-auto px-4">
-          <Card className="shadow-luxury">
+          {!isSubmitted ? (
+            <Card className="shadow-luxury">
             <CardHeader>
               <CardTitle className="text-2xl text-center">Plan Your Custom Safari</CardTitle>
               <p className="text-center text-muted-foreground">
@@ -407,6 +413,34 @@ const CustomSafari = () => {
               </form>
             </CardContent>
           </Card>
+          ) : (
+            <Card className="shadow-luxury">
+              <CardContent className="py-16 text-center">
+                <div className="w-24 h-24 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-8">
+                  <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h2 className="text-3xl font-bold text-kenya-purple mb-4">Successfully Sent!</h2>
+                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                  Thank you for your custom safari request! Our safari experts have received your details and will contact you within 24 hours to discuss your dream safari and create a personalized itinerary.
+                </p>
+                <div className="space-y-4">
+                  <Button 
+                    onClick={handleSendAnother} 
+                    variant="luxury" 
+                    size="lg"
+                    className="px-8"
+                  >
+                    Send Another Message
+                  </Button>
+                  <div className="text-sm text-muted-foreground">
+                    Or <a href="/contact" className="text-kenya-purple hover:underline">contact us directly</a> if you prefer
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </section>
 
