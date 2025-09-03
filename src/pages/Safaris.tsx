@@ -930,12 +930,86 @@ const Safaris = () => {
         "Travel insurance",
         "Other personal items"
       ]
+    },
+    {
+      id: 14,
+      title: "6 DAYS MASAI MARA, AMBOSELI SAFARI FLY-IN PACKAGE",
+      category: "flyin",
+      duration: "6 Days",
+      groupSize: "2-8 People",
+      location: "Masai Mara, Amboseli",
+      price: "$3,200",
+      image: heroSafari,
+      description: "Luxury fly-in safari combining Masai Mara migration with Amboseli elephants",
+      features: ["Domestic Flights", "Wildebeest Migration", "Elephant Views", "Private Game Drives", "Professional Guide"],
+      badge: "Fly-In",
+      options: [
+        { name: "Option 1", price: "$4,600", lodges: ["Entim Main Camp", "Elephant Gorge Amboseli"] },
+        { name: "Option 2", price: "$3,806", lodges: ["Ilkeliani Camp", "Tawi Lodge"] },
+        { name: "Option 3", price: "$3,555", lodges: ["Mara Maisha Camp", "Oltukai Lodge"] },
+        { name: "Option 4", price: "$3,200", lodges: ["Mara Sopa", "Amboseli Sopa"] }
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "NAIROBI - MASAI MARA VIA FLIGHT",
+          description: "Pick up from your hotel and transfer to Wilson airport for your flight to Mara. Upon arrival in the mara you will be met by your guide who will brief as you begin your game drives in the reserve. Check in at the lodge in time for lunch, relax then later at 4pm begin your game drives in search of the diverse wildlife found in the park.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 2,
+          title: "MASAI MARA - FULL DAY",
+          description: "Enjoy delicious breakfast in the lodge/camp and leave with packed lunches. You will get to have full day game drives in the park as you get to experience the migration along the mara river then later finalise the day with game drives as you head to your lodge/camp.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 3,
+          title: "MASAI MARA - FULL DAY",
+          description: "Enjoy delicious breakfast in the lodge/camp and leave with packed lunches. You will get to have full day game drives in the park as you get to experience the migration along the mara river then later finalise the day with game drives as you head to your lodge/camp.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 4,
+          title: "MASAI MARA - AMBOSELI (Approx 1hr)",
+          description: "Early morning breakfast at your lodge/camp, check out and transfer to the airstrip for your next flight to amboseli. Upon arrival in amboseli you will be picked up by your guide and transferred to the camp for lunch. After lunch, start off your game drives in Amboseli in search of elephants, lions, cheetahs, giraffes and other diverse animals.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 5,
+          title: "AMBOSELI",
+          description: "Kickstart the day with either full day game drives in the park with your picnic lunch boxes or alternatively morning and afternoon game drives with hot lunch at the lodge/camp.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 6,
+          title: "AMBOSELI - NAIROBI",
+          description: "Early morning breakfast from the lodge/camp and transfer to the airstrip for your flight back to Nairobi. Upon arrival you will be transfered to the airport or respective hotel.",
+          meals: "Breakfast"
+        }
+      ],
+      inclusions: [
+        "All government taxes/VAT",
+        "Domestic Flights as per itinerary",
+        "Park fees",
+        "Accommodation on full board basis (1 Double Room)",
+        "Bottled drinking water in the vehicle during game drives",
+        "All game drives are PRIVATE in a 4/4 Land Cruiser",
+        "Services of professional tour driver/guide (s)",
+        "Airport Transfers"
+      ],
+      exclusions: [
+        "International flights",
+        "Tips & porterage",
+        "Visa fees (if applicable)",
+        "Travel insurance",
+        "Other personal items"
+      ]
     }
   ];
 
   const nairobiExcursions = [
     {
-      id: 14,
+      id: 15,
       title: "FULL DAY NAIROBI PRIVATE EXCURSIONS",
       category: "nairobi",
       duration: "1 Day",
