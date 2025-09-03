@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Star, Clock, Users, MapPin, Heart, Plane, Car, Calendar, ExternalLink, X } from 'lucide-react';
+import { Star, Clock, Users, MapPin, Heart, Plane, Car, Calendar, ExternalLink } from 'lucide-react';
 import kenyaLion from '@/assets/kenya-lion.jpg';
 import luxuryCamp from '@/assets/luxury-camp.jpg';
 import heroSafari from '@/assets/hero-safari.jpg';
@@ -1248,23 +1248,7 @@ const Safaris = () => {
                         View Details
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto relative">
-                      {/* Custom Floating Close Button */}
-                      <button
-                        onClick={() => {
-                          // Find the closest dialog and close it
-                          const dialog = document.querySelector('[data-state="open"]');
-                          if (dialog) {
-                            const closeButton = dialog.querySelector('[data-radix-dialog-close]') as HTMLButtonElement;
-                            if (closeButton) closeButton.click();
-                          }
-                        }}
-                        className="fixed top-4 right-4 z-[70] rounded-full bg-background/95 backdrop-blur-sm border border-border shadow-lg p-3 opacity-90 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all duration-200 hover:scale-110 hover:bg-background"
-                        aria-label="Close modal"
-                      >
-                        <X className="h-5 w-5 text-foreground" />
-                      </button>
-                      
+                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
                       <DialogHeader>
                         <DialogTitle className="text-2xl font-bold text-kenya-purple">
                           {pkg.title}
