@@ -154,7 +154,7 @@ const Safaris = () => {
       groupSize: "2 People",
       location: "Masai Mara, Serengeti",
       price: "$4,400",
-      image: heroSafari,
+      image: "https://cdn.pixabay.com/photo/2016/11/21/12/38/nature-1845134_1280.jpg",
       description: "Cross-border adventure through Kenya and Tanzania's most iconic parks",
       features: ["Big Five", "Wildebeest Migration", "Cross-Border Safari", "Private Game Drives"],
       badge: "Cross-Border",
