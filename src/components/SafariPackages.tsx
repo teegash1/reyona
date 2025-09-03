@@ -33,15 +33,15 @@ const SafariPackages = () => {
     },
     {
       id: 3,
-      title: "Honeymoon Safari Package",
-      description: "Romantic getaway in the heart of the African wilderness",
+      title: "Kenya & Tanzania Safari",
+      description: "Cross-border adventure through Kenya and Tanzania's most iconic parks",
       image: luxuryCamp,
-      duration: "4 Days",
+      duration: "8 Days",
       groupSize: "2 People",
-      price: "$3,800",
+      price: "$4,400",
 
-      features: ["Private Game Drives", "Bush Meals", "Sundowners", "Luxury Accommodation"],
-      badge: "Honeymoon"
+      features: ["Big Five", "Wildebeest Migration", "Cross-Border Safari", "Private Game Drives"],
+      badge: "Cross-Border"
     }
   ];
 

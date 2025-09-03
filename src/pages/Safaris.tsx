@@ -145,12 +145,96 @@ const Safaris = () => {
         "Travel insurance",
         "Other personal items"
       ]
+    },
+    {
+      id: 3,
+      title: "8 DAYS KENYA & TANZANIA PRIVATE SAFARI PACKAGE",
+      category: "popular",
+      duration: "8 Days",
+      groupSize: "2 People",
+      location: "Masai Mara, Serengeti",
+      price: "$4,400",
+      image: heroSafari,
+      description: "Cross-border adventure through Kenya and Tanzania's most iconic parks",
+      features: ["Big Five", "Wildebeest Migration", "Cross-Border Safari", "Private Game Drives"],
+      badge: "Cross-Border",
+      options: [
+        { name: "Option 1", price: "$6,202", lodges: ["Mara Ngenche Safari Camp", "KubuKubu Tented Camp"] },
+        { name: "Option 2", price: "$5,785", lodges: ["Sarova Mara Game Camp", "Ilkeliani Camp", "Serena Serengeti Safari Lodge"] },
+        { name: "Option 3", price: "$5,198", lodges: ["Zebra River Camp", "Mara Elaita Camp", "Mbuzi Mawe Safari Camp"] },
+        { name: "Option 4", price: "$4,400", lodges: ["Osero Camp", "KatiKati Camp"] }
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "NAIROBI - MASAI MARA (Approx 5hrs)",
+          description: "Pick up from your Nairobi hotel or airport and immediately transfer to Masai Mara. Quick stop over at the unique great rift valley then proceed on to Masai Mara. Arrive at your camp/lodge for lunch. Game drives begin at 4pm in the main reserve in search of the big 5 and other wild animals found in the reserve like cheetahs, giraffes, antelopes and other wild species. Dinner and overnight at your lodge/camp.",
+          meals: "Lunch & Dinner"
+        },
+        {
+          day: 2,
+          title: "MASAI MARA - FULL DAY",
+          description: "On this day, you will have full day game drives in the reserve with your picnic lunches. This being migration season which is perfect timing to spot the famous wildebeests migration whereby millions of wildebeests, and thousands of zebras, antelopes migrate from Serengeti to Masai in search of fresh grazing. Get to enjoy game drives as you get to spot the big 5, cheetahs, hippos, giraffes, bird species and other diverse wild animals found in the reserve.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 3,
+          title: "MASAI MARA - FULL DAY",
+          description: "On this day, you will have full day game drives in the reserve with your picnic lunches. This being migration season which is perfect timing to spot the famous wildebeests migration whereby millions of wildebeests, and thousands of zebras, antelopes migrate from Serengeti to Masai in search of fresh grazing. Get to enjoy game drives as you get to spot the big 5, cheetahs, hippos, giraffes, bird species and other diverse wild animals found in the reserve.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 4,
+          title: "MASAI MARA - SERENGETI VIA ISEBANIA BORDER (Approx 3hrs-4hrs)",
+          description: "Early morning breakfast at your lodge/camp, check out with your packed lunches and immediately depart Masai mara for Isebania border. Drop off at Isebania border by 10AM.",
+          meals: "Breakfast & Packed Lunch"
+        },
+        {
+          day: 5,
+          title: "ISEBANIA - SERENGETI (Approx 3hrs)",
+          description: "Pickup from Isebania border at 10AM, you will be met by your guide who will do a short briefing for you and then drive to Serengeti national park. Arrive with game drives, have lunch in the park and continue with game drives till late in the evening and later drive to your lodge/camp of stay for dinner and overnight.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 6,
+          title: "SERENGETI - FULL DAY",
+          description: "Early morning breakfast at your lodge/camp and immediately leave with your picnic lunches for game drives in Serengeti national park. On this day, you will be having full day game drives in the reserve as well get to enjoy the scenic wildebeests migration along the river which is an unforgettable experience you can ever have. Later dinner and overnight.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 7,
+          title: "SERENGETI - FULL DAY",
+          description: "Early morning breakfast at your lodge/camp and immediately leave with your picnic lunches for game drives in Serengeti national park. On this day, you will be having full day game drives in the reserve as well get to enjoy the scenic wildebeests migration along the river which is an unforgettable experience you can ever have. Later dinner and overnight.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 8,
+          title: "SERENGETI - ARUSHA",
+          description: "Early morning breakfast at your lodge/camp, check out and depart Serengeti national park with a game enroute for Arusha. Drop off at your respective lodge/camp.",
+          meals: "Breakfast"
+        }
+      ],
+      inclusions: [
+        "All government taxes/VAT",
+        "Park fees/Concession Fees",
+        "Accommodation on full board basis (1 Double Room)",
+        "Bottled drinking water in the vehicle",
+        "All game drives are PRIVATE in a 4/4 Land Cruiser in both Kenya & Tanzania",
+        "Services of professional tour driver/guide (s)"
+      ],
+      exclusions: [
+        "International flights",
+        "Tips & porterage",
+        "Visa fees (if applicable)",
+        "Travel insurance",
+        "Other personal items"
+      ]
     }
   ];
 
   const honeymoonPackages = [
     {
-      id: 3,
+      id: 4,
       title: "4 DAYS EXCLUSIVE MASAI MARA HONEYMOON SAFARI PACKAGE",
       category: "honeymoon",
       duration: "4 Days",
@@ -222,7 +306,7 @@ const Safaris = () => {
 
   const groupPackages = [
     {
-      id: 4,
+      id: 5,
       title: "5 DAYS MASAI MARA & LAKE NAIVASHA PRIVATE SAFARI PACKAGE",
       category: "group",
       duration: "5 Days",
@@ -292,7 +376,7 @@ const Safaris = () => {
 
   const migrationPackages = [
     {
-      id: 5,
+      id: 6,
       title: "4 DAYS MASAI MARA MIGRATION PRIVATE SAFARI PACKAGE",
       category: "migration",
       duration: "4 Days",
@@ -355,7 +439,7 @@ const Safaris = () => {
 
   const flyInPackages = [
     {
-      id: 6,
+      id: 7,
       title: "4 DAYS FLY IN SAFARI PRIVATE PACKAGE",
       category: "flyin",
       duration: "4 Days",
@@ -421,7 +505,7 @@ const Safaris = () => {
 
   const nairobiExcursions = [
     {
-      id: 7,
+      id: 8,
       title: "FULL DAY NAIROBI PRIVATE EXCURSIONS",
       category: "nairobi",
       duration: "1 Day",
