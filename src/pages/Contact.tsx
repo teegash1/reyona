@@ -21,6 +21,7 @@ const Contact = () => {
     message: '',
     inquiryType: ''
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     // Handle navigation state from other pages
@@ -84,8 +85,53 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Contact form submitted:', formData);
-    // Handle form submission
+    
+    // Update hidden fields with current form data
+    const form = e.target;
+    form.querySelector('input[name="inquiryType"]').value = formData.inquiryType || '';
+    
+    // Submit the form to Netlify
+    const formDataToSubmit = new FormData(form);
+    
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formDataToSubmit).toString()
+    })
+    .then(() => {
+      // Set success state
+      setIsSubmitted(true);
+      // Reset form data
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+        inquiryType: ''
+      });
+      
+      // Scroll to the success message
+      setTimeout(() => {
+        const formSection = document.getElementById('contact-form');
+        if (formSection) {
+          const headerHeight = 120; // Approximate header height
+          const formTop = formSection.offsetTop;
+          window.scrollTo({
+            top: formTop - headerHeight - 20, // 20px additional spacing
+            behavior: 'smooth'
+          });
+        }
+      }, 100); // Small delay to ensure state update and re-render
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('There was an error submitting your message. Please try again or contact us directly.');
+    });
+  };
+
+  const handleSendAnother = () => {
+    setIsSubmitted(false);
   };
 
   const contactInfo = [
@@ -197,90 +243,138 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <Card id="contact-form" className="shadow-luxury">
-              <CardHeader>
-                <CardTitle className="text-2xl">Send Us a Message</CardTitle>
-                <p className="text-muted-foreground">
-                  Fill out the form below and we'll get back to you within 2 hours during business hours
-                </p>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="name">Full Name *</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="email">Email Address *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input
-                        id="phone"
-                        value={formData.phone}
-                        onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="inquiryType">Inquiry Type</Label>
-                      <Select onValueChange={(value) => setFormData(prev => ({ ...prev, inquiryType: value }))}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select inquiry type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="general">General Information</SelectItem>
-                          <SelectItem value="booking">Safari Booking</SelectItem>
-                          <SelectItem value="custom">Custom Safari</SelectItem>
-                          <SelectItem value="group">Group Travel</SelectItem>
-                          <SelectItem value="corporate">Corporate Events</SelectItem>
-                          <SelectItem value="support">Customer Support</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
+              {!isSubmitted ? (
+                <>
+                  <CardHeader>
+                    <CardTitle className="text-2xl">Send Us a Message</CardTitle>
+                    <p className="text-muted-foreground">
+                      Fill out the form below and we'll get back to you within 2 hours during business hours
+                    </p>
+                  </CardHeader>
+                  <CardContent>
+                    <form 
+                      name="contact-form" 
+                      method="POST" 
+                      data-netlify="true"
+                      data-netlify-honeypot="bot-field"
+                      onSubmit={handleSubmit} 
+                      className="space-y-6"
+                    >
+                      {/* Netlify Forms Hidden Fields */}
+                      <input type="hidden" name="form-name" value="contact-form" />
+                      <div className="hidden">
+                        <input name="bot-field" />
+                        <input name="inquiryType" value={formData.inquiryType} />
+                      </div>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="name">Full Name *</Label>
+                          <Input
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                            required
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="email">Email Address *</Label>
+                          <Input
+                            id="email"
+                            name="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                            required
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="phone">Phone Number</Label>
+                          <Input
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
+                          />
+                        </div>
+                        <div>
+                          <Label htmlFor="inquiryType">Inquiry Type</Label>
+                          <Select onValueChange={(value) => setFormData(prev => ({ ...prev, inquiryType: value }))}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select inquiry type" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="general">General Information</SelectItem>
+                              <SelectItem value="booking">Safari Booking</SelectItem>
+                              <SelectItem value="custom">Custom Safari</SelectItem>
+                              <SelectItem value="group">Group Travel</SelectItem>
+                              <SelectItem value="corporate">Corporate Events</SelectItem>
+                              <SelectItem value="support">Customer Support</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
 
-                  <div>
-                    <Label htmlFor="subject">Subject *</Label>
-                    <Input
-                      id="subject"
-                      value={formData.subject}
-                      onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
-                      required
-                    />
-                  </div>
+                      <div>
+                        <Label htmlFor="subject">Subject *</Label>
+                        <Input
+                          id="subject"
+                          name="subject"
+                          value={formData.subject}
+                          onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
+                          required
+                        />
+                      </div>
 
-                  <div>
-                    <Label htmlFor="message">Message *</Label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                      rows={6}
-                      placeholder="Tell us about your safari interests, preferred dates, group size, or any questions you have..."
-                      required
-                    />
-                  </div>
+                      <div>
+                        <Label htmlFor="message">Message *</Label>
+                        <Textarea
+                          id="message"
+                          name="message"
+                          value={formData.message}
+                          onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                          rows={6}
+                          placeholder="Tell us about your safari interests, preferred dates, group size, or any questions you have..."
+                          required
+                        />
+                      </div>
 
-                  <Button type="submit" className="w-full" variant="luxury" size="lg">
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
+                      <Button type="submit" className="w-full" variant="luxury" size="lg">
+                        Send Message
+                      </Button>
+                    </form>
+                  </CardContent>
+                </>
+              ) : (
+                <CardContent className="py-16 text-center">
+                  <div className="w-24 h-24 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-8">
+                    <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h2 className="text-3xl font-bold text-kenya-purple mb-4">Successfully Sent!</h2>
+                  <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                    Thank you for your message! We have received your inquiry and will get back to you within 2 hours during business hours.
+                  </p>
+                  <div className="space-y-4">
+                    <Button 
+                      onClick={handleSendAnother} 
+                      variant="luxury" 
+                      size="lg"
+                      className="px-8"
+                    >
+                      Send Another Message
+                    </Button>
+                    <div className="text-sm text-muted-foreground">
+                      Or <a href="/safaris" className="text-kenya-purple hover:underline">browse our safari packages</a> while you wait
+                    </div>
+                  </div>
+                </CardContent>
+              )}
             </Card>
 
             {/* Office Info & Quick Actions */}
