@@ -310,7 +310,7 @@ const Safaris = () => {
       groupSize: "2 People",
       location: "Masai Mara, Lake Nakuru, Amboseli",
       price: "$3,050",
-      image: heroSafari,
+      image: "https://cdn.pixabay.com/photo/2020/01/05/20/58/amboseli-4744085_1280.jpg",
       description: "Romantic multi-park adventure through Kenya's most iconic destinations",
       features: ["Private Game Drives", "Big Five", "Flamingoes", "Elephant Herds", "Luxury Accommodation"],
       badge: "Honeymoon",
