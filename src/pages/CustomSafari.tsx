@@ -52,7 +52,9 @@ const CustomSafari = () => {
     'Photography Workshops',
     'Horseback Riding',
     'Fishing',
-    'Mountain Climbing'
+    'Mountain Climbing',
+    'Beach Activities',
+    'Snorkeling'
   ];
 
   const budgetRanges = [
