@@ -1133,7 +1133,7 @@ const Safaris = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('https://cdn.pixabay.com/photo/2016/12/05/11/39/zebras-1883654_1280.jpg')`,
-            opacity: '0.5'
+            opacity: '0.3'
           }}
         ></div>
         <div className="absolute inset-0 bg-black/40"></div>
