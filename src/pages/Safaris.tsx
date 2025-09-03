@@ -1055,7 +1055,7 @@ const Safaris = () => {
       ]
     },
     {
-      id: 8,
+      id: 16,
       title: "COFFEE FARM/TEA FARM VISIT",
       category: "nairobi",
       duration: "1 Day",
