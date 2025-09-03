@@ -727,12 +727,78 @@ const Safaris = () => {
         "Travel insurance",
         "Other personal items"
       ]
+    },
+    {
+      id: 11,
+      title: "5 DAYS LAKE NAKURU, MASAI MARA SAFARI PACKAGE",
+      category: "migration",
+      duration: "5 Days",
+      groupSize: "2-8 People",
+      location: "Lake Nakuru, Masai Mara",
+      price: "$2,540",
+      image: heroSafari,
+      description: "Multi-park adventure combining Lake Nakuru's wildlife with Masai Mara's migration",
+      features: ["Big Five", "Flamingoes", "Migration Views", "Private Game Drives", "Professional Guide"],
+      badge: "Migration",
+      options: [
+        { name: "Option 1", price: "$3,830", lodges: ["Ilkeliani Camp", "The Cliff"] },
+        { name: "Option 2", price: "$3,050", lodges: ["Mara Elaita", "Sarova Lion Hill"] },
+        { name: "Option 3", price: "$2,610", lodges: ["Osero Camp", "Flamingo Hill Camp"] },
+        { name: "Option 4", price: "$2,540", lodges: ["Oldarpoi Mara Camp", "Sopa Nakuru"] }
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "NAIROBI - LAKE NAKURU (Approx 3hrs)",
+          description: "Pickup from your hotel/airport at 7am and transfer to Lake Nakuru. Arrive with enroute game drives to your booked lodge/camp. Check in, have lunch and relax for a while. Begin your game drives at 4pm in search of the lions, leopards, cheetahs, rhinos, buffalos, flamingoes and other diverse wild animals found in the park.",
+          meals: "Lunch & Dinner"
+        },
+        {
+          day: 2,
+          title: "LAKE NAKURU - MASAI MARA (Approx 5hrs)",
+          description: "Early morning breakfast at the lodge, check out and immediately depart Lake Nakuru for Masai Mara with an enroute game drive. Arrive in time for lunch, check in then later game drives in the reserve in search of the big 5, impalas, giraffes, hippos, wildebeests, warthogs, different bird species and other wild species found in the reserve.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 3,
+          title: "MASAI MARA - FULL DAY",
+          description: "Enjoy delicious breakfast in the lodge/camp and leave with packed lunches. You will get to have full day game drives in the park as you get to experience the migration along the mara river then later finalise the day with game drives as you head to your lodge/camp.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 4,
+          title: "MASAI MARA - FULL DAY",
+          description: "Enjoy delicious breakfast in the lodge/camp and leave with packed lunches. You will get to have full day game drives in the park as you get to experience the migration along the mara river then later finalise the day with game drives as you head to your lodge/camp.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 5,
+          title: "MASAI MARA - NAIROBI (Approx 5hrs)",
+          description: "Early morning breakfast at your lodge/camp, check out and depart Masai Mara for Nairobi. Drop off at your respective hotel of stay or airport.",
+          meals: "Breakfast"
+        }
+      ],
+      inclusions: [
+        "All government taxes/VAT",
+        "Park fees",
+        "Accommodation on full board basis (Double Room)",
+        "Bottled drinking water in the vehicle",
+        "All game drives are PRIVATE in a 4/4 Land Cruiser",
+        "Services of professional tour driver/guide (s)"
+      ],
+      exclusions: [
+        "International flights",
+        "Tips & porterage",
+        "Visa fees (if applicable)",
+        "Travel insurance",
+        "Other personal items"
+      ]
     }
   ];
 
   const flyInPackages = [
     {
-      id: 11,
+      id: 12,
       title: "4 DAYS FLY IN SAFARI PRIVATE PACKAGE",
       category: "flyin",
       duration: "4 Days",
@@ -798,7 +864,7 @@ const Safaris = () => {
 
   const nairobiExcursions = [
     {
-      id: 12,
+      id: 13,
       title: "FULL DAY NAIROBI PRIVATE EXCURSIONS",
       category: "nairobi",
       duration: "1 Day",
