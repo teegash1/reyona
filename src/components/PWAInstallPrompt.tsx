@@ -40,6 +40,14 @@ const PWAInstallPrompt = () => {
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
       setShowInstallPrompt(true);
+      
+      // Auto-hide after 5 seconds
+      const timeoutId = setTimeout(() => {
+        setShowInstallPrompt(false);
+      }, 5000);
+      
+      // Cleanup timeout if component unmounts
+      return () => clearTimeout(timeoutId);
     };
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
@@ -95,7 +103,7 @@ const PWAInstallPrompt = () => {
   const getInstallText = () => {
     switch (deviceType) {
       case 'mobile':
-        return 'Install Reyona Safaris App';
+        return 'Install';
       case 'tablet':
         return 'Add to Home Screen';
       default:
@@ -124,7 +132,9 @@ const PWAInstallPrompt = () => {
           <Button
             onClick={handleInstallClick}
             size="sm"
-            className="bg-white text-kenya-purple hover:bg-white/90 text-xs px-3 py-1"
+            className={`bg-white text-kenya-purple hover:bg-white/90 text-xs py-1 ${
+              deviceType === 'mobile' ? 'px-2' : 'px-3'
+            }`}
           >
             <Download className="w-3 h-3 mr-1" />
             {getInstallText()}
