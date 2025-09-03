@@ -104,17 +104,20 @@ const PWAInstallPrompt = () => {
   };
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 z-50 bg-gradient-primary rounded-lg shadow-lg border border-white/30 p-4 text-white">
-      <div className="flex items-center justify-between">
+    <div className="fixed bottom-4 left-4 right-4 z-50 bg-gradient-primary rounded-lg shadow-lg border border-white/30 text-white">
+      <div className={`flex items-center justify-between ${deviceType === 'mobile' ? 'p-3' : 'p-4'}`}>
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
             {getDeviceIcon()}
           </div>
           <div>
             <h3 className="font-semibold text-sm">Install Reyona Safaris</h3>
-            <p className="text-xs text-white/80">
-              Get quick access and offline features
-            </p>
+            {/* Only show description for non-mobile devices */}
+            {deviceType !== 'mobile' && (
+              <p className="text-xs text-white/80">
+                Get quick access and offline features
+              </p>
+            )}
           </div>
         </div>
         <div className="flex items-center space-x-2">
@@ -126,14 +129,17 @@ const PWAInstallPrompt = () => {
             <Download className="w-3 h-3 mr-1" />
             {getInstallText()}
           </Button>
-          <Button
-            onClick={handleDismiss}
-            size="sm"
-            variant="ghost"
-            className="text-white hover:bg-white/10 p-1"
-          >
-            <X className="w-4 h-4" />
-          </Button>
+          {/* Only show dismiss button for non-mobile devices */}
+          {deviceType !== 'mobile' && (
+            <Button
+              onClick={handleDismiss}
+              size="sm"
+              variant="ghost"
+              className="text-white hover:bg-white/10 p-1"
+            >
+              <X className="w-4 h-4" />
+            </Button>
+          )}
         </div>
       </div>
     </div>
