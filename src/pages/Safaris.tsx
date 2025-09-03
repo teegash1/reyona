@@ -604,12 +604,72 @@ const Safaris = () => {
         "Travel insurance",
         "Other personal items"
       ]
+    },
+    {
+      id: 9,
+      title: "4 DAYS 3NIGHTS MASAI MARA GROUP SAFARI PACKAGE",
+      category: "group",
+      duration: "4 Days",
+      groupSize: "6 People",
+      location: "Masai Mara",
+      price: "$1,330",
+      image: kenyaLion,
+      description: "Perfect group adventure for 6 people in the iconic Masai Mara",
+      features: ["Group Discount", "Private Vehicle", "Big Five", "Migration Views", "Professional Guide"],
+      badge: "Group",
+      options: [
+        { name: "Option 1", price: "$1,987", lodges: ["Entim Main Camp"] },
+        { name: "Option 2", price: "$1,755", lodges: ["Ilkeliani Camp", "Sarova Mara Game Camp"] },
+        { name: "Option 3", price: "$1,547", lodges: ["Pride Inn Mara Camp"] },
+        { name: "Option 4", price: "$1,330", lodges: ["Mara Kimana", "Oldarpoi Mara Camp"] }
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "NAIROBI - MASAI MARA (Approx 5hrs)",
+          description: "Pickup from your hotel of stay or airport at 7am and drive to Masai Mara. Quick stop over at the scenic great rift valley as you enjoy the beautiful views as you take pictures. Arrive in Masai Mara check in at your lodge/camp have lunch and relax. Game drives begin at 4pm in the reserve in search of the big 5, cheetahs, hippos, giraffes, impalas and other diverse wildlife found in the park.",
+          meals: "Lunch & Dinner"
+        },
+        {
+          day: 2,
+          title: "MASAI MARA - FULL DAY",
+          description: "Early morning breakfast and leave the lodge/camp with packed lunches. Enjoy full game drives in the reserve. Alternatively you can have morning and afternoon game drives in the reserve with hot lunch in the lodge/camp.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 3,
+          title: "MASAI MARA - FULL DAY",
+          description: "Early morning breakfast and leave the lodge/camp with packed lunches. Enjoy full game drives in the reserve. During game drives you will have the chance to pass by the mara river where migration of the wildebeests takes place, every year millions of wildebeests and thousands of zebras and antelopes migrate from serengeti to Masai Mara in search of fresh grazing.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 4,
+          title: "MASAI MARA - NAIROBI (Approx 5hrs)",
+          description: "Early morning breakfast at your lodge/camp, check out and immediately depart Masai Mara for Nairobi. Drop off at your respective hotel/airport.",
+          meals: "Breakfast"
+        }
+      ],
+      inclusions: [
+        "All government taxes/VAT",
+        "Park fees",
+        "Accommodation on full board basis (3 Double Rooms)",
+        "Bottled drinking water in the vehicle",
+        "All game drives are PRIVATE in a 4/4 Land Cruiser",
+        "Services of English professional tour driver/guide (s)"
+      ],
+      exclusions: [
+        "International flights",
+        "Tips & porterage",
+        "Visa fees (if applicable)",
+        "Travel insurance",
+        "Other personal items"
+      ]
     }
   ];
 
   const migrationPackages = [
     {
-      id: 9,
+      id: 10,
       title: "4 DAYS MASAI MARA MIGRATION PRIVATE SAFARI PACKAGE",
       category: "migration",
       duration: "4 Days",
@@ -672,7 +732,7 @@ const Safaris = () => {
 
   const flyInPackages = [
     {
-      id: 10,
+      id: 11,
       title: "4 DAYS FLY IN SAFARI PRIVATE PACKAGE",
       category: "flyin",
       duration: "4 Days",
@@ -738,7 +798,7 @@ const Safaris = () => {
 
   const nairobiExcursions = [
     {
-      id: 11,
+      id: 12,
       title: "FULL DAY NAIROBI PRIVATE EXCURSIONS",
       category: "nairobi",
       duration: "1 Day",
