@@ -378,12 +378,90 @@ const Safaris = () => {
         "Travel insurance",
         "Other personal items"
       ]
+    },
+    {
+      id: 6,
+      title: "7 DAYS 6NIGHTS MASAI MARA & DIANI HONEYMOON PACKAGE",
+      category: "honeymoon",
+      duration: "7 Days",
+      groupSize: "2 People",
+      location: "Masai Mara, Diani Beach",
+      price: "$3,315",
+      image: luxuryCamp,
+      description: "Perfect blend of wildlife adventure and beach relaxation for honeymooners",
+      features: ["Private Game Drives", "Beach Relaxation", "Domestic Flights", "Luxury Accommodation", "Big Five"],
+      badge: "Honeymoon",
+      options: [
+        { name: "Option 1", price: "$3,710", lodges: ["Entim Main Camp", "Swahili Beach Resort"] },
+        { name: "Option 2", price: "$3,315", lodges: ["Ilkeliani Camp", "Sarova Mara Game Camp", "Baobab Beach Resort"] }
+      ],
+      itinerary: [
+        {
+          day: 1,
+          title: "NAIROBI - MASAI MARA VIA FLIGHT (Approx 45min)",
+          description: "Pickup from your hotel and transfer to Wilson airport for your flight to the mara. Upon arrival you will be met by your guide who will take you through game drives till lunch time when you head to the hotel for check in. After a bit of relaxation, you will start off game drives in the park in search of the big five, giraffes, antelopes, hippos and other wildlife found in the park.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 2,
+          title: "MASAI MARA - FULL DAY",
+          description: "Enjoy full day game drives in the park with your picnic lunch boxes alternatively do morning game drives then head back to the hotel for hot lunch and later in the afternoon continue on with your game drives.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 3,
+          title: "MASAI MARA - FULL DAY",
+          description: "Enjoy full day game drives in the park with your picnic lunch boxes alternatively do morning game drives then head back to the hotel for hot lunch and later in the afternoon continue on with your game drives.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 4,
+          title: "MASAI MARA - DIANI VIA FLIGHT",
+          description: "Early morning game drives in the camp/lodge, check out and immediately transfer to the airstrip for your flight to Diani. Upon arrival in Diani, you will be transferred to your hotel of stay, check in and relax for the day.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 5,
+          title: "DIANI - FULL DAY",
+          description: "Enjoy the beach and hotel facilities.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 6,
+          title: "DIANI - FULL DAY",
+          description: "Enjoy the beach and hotel facilities.",
+          meals: "Breakfast, Lunch & Dinner"
+        },
+        {
+          day: 7,
+          title: "DIANI - MOMBASA AIRPORT",
+          description: "Early morning breakfast at your hotel, check out and transfer from Diani to Mombasa airport.",
+          meals: "Breakfast only"
+        }
+      ],
+      inclusions: [
+        "All government taxes/VAT",
+        "Park fees",
+        "Domestic flight",
+        "Airport transfers",
+        "Accommodation on full board basis (1 Double Room)",
+        "Bottled drinking water in the vehicle",
+        "All game drives are PRIVATE in a 4/4 Land Cruiser",
+        "Services of English professional tour driver/guide (s)"
+      ],
+      exclusions: [
+        "International flights",
+        "Tips & porterage",
+        "Visa fees (if applicable)",
+        "Travel insurance",
+        "Other personal items"
+      ]
     }
   ];
 
   const groupPackages = [
     {
-      id: 6,
+      id: 7,
       title: "5 DAYS MASAI MARA & LAKE NAIVASHA PRIVATE SAFARI PACKAGE",
       category: "group",
       duration: "5 Days",
@@ -453,7 +531,7 @@ const Safaris = () => {
 
   const migrationPackages = [
     {
-      id: 7,
+      id: 8,
       title: "4 DAYS MASAI MARA MIGRATION PRIVATE SAFARI PACKAGE",
       category: "migration",
       duration: "4 Days",
@@ -516,7 +594,7 @@ const Safaris = () => {
 
   const flyInPackages = [
     {
-      id: 8,
+      id: 9,
       title: "4 DAYS FLY IN SAFARI PRIVATE PACKAGE",
       category: "flyin",
       duration: "4 Days",
@@ -582,7 +660,7 @@ const Safaris = () => {
 
   const nairobiExcursions = [
     {
-      id: 9,
+      id: 10,
       title: "FULL DAY NAIROBI PRIVATE EXCURSIONS",
       category: "nairobi",
       duration: "1 Day",
