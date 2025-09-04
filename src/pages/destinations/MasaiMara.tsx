@@ -120,10 +120,10 @@ const MasaiMara = () => {
       price: "$350-500 per night",
       description: "Located in the heart of the Masai Mara, Sarova Mara Game Camp offers an authentic safari experience with modern comforts. The camp features spacious tents and cottages set in a natural forest environment, providing a perfect blend of adventure and relaxation. Each accommodation is tastefully decorated with local materials and offers en-suite facilities. The camp's central location ensures excellent game viewing opportunities, with the famous Mara River just a short drive away. Guests can enjoy traditional safari activities including game drives, bush walks, and cultural visits to local Maasai communities. The camp's restaurant serves both international and local cuisine, and the bar offers a perfect spot to unwind after a day of safari adventures.",
       images: [
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop"
+        "https://i.pinimg.com/736x/3f/ba/f5/3fbaf5a85cf956301537a68ccfd37bc5.jpg",
+        "https://i.pinimg.com/736x/a9/42/bc/a942bc2735fcd880bf9695b02d36f6bc.jpg",
+        "https://i.pinimg.com/736x/a7/bf/9d/a7bf9d98c0ff42414f69011e28b38452.jpg",
+        "https://i.pinimg.com/736x/3c/e9/8e/3ce98e0d2cb8731326569f47a620abef.jpg"
       ],
       amenities: ["Tented accommodation", "En-suite bathrooms", "Restaurant & bar", "Game drives", "Cultural visits", "Bush walks", "Swimming pool", "Gift shop"]
     },
