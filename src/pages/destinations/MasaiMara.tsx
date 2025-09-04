@@ -105,10 +105,10 @@ const MasaiMara = () => {
       price: "$1,200+ per night",
       description: "Perched dramatically on the edge of the Oloololo Escarpment, Angama Mara offers one of the most spectacular views in Africa. This ultra-luxury tented camp combines contemporary elegance with authentic safari charm, featuring spacious glass-fronted tents that seem to float above the endless plains below. Each tent boasts floor-to-ceiling windows, private decks, and en-suite bathrooms with freestanding bathtubs. The camp's location provides front-row seats to the Great Migration and offers unparalleled game viewing opportunities. With world-class cuisine, personalized service, and a focus on conservation, Angama Mara delivers an unforgettable luxury safari experience.",
       images: [
-        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop"
+        "https://i.pinimg.com/736x/bf/3c/15/bf3c15ac2e1b8dd14ef25443fe819aa9.jpg",
+        "https://i.pinimg.com/1200x/3d/a3/77/3da37751015c769c320c0d99cea1ff69.jpg",
+        "https://i.pinimg.com/1200x/95/18/c9/9518c9524a089e0e4381f502b5f89fb7.jpg",
+        "https://i.pinimg.com/1200x/cf/c3/54/cfc354a8fc98e2d73ec7f9f3037cdf05.jpg"
       ],
       amenities: ["Luxury tented suites", "Private decks", "En-suite bathrooms", "World-class dining", "Game drives", "Cultural experiences", "Spa services", "WiFi"]
     },
