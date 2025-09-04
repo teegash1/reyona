@@ -94,11 +94,17 @@ const Contact = () => {
     
     // Submit the form to Netlify
     const formDataToSubmit = new FormData(form);
+    const urlSearchParams = new URLSearchParams();
+    
+    // Convert FormData to URLSearchParams
+    for (const [key, value] of formDataToSubmit.entries()) {
+      urlSearchParams.append(key, value as string);
+    }
     
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formDataToSubmit).toString()
+      body: urlSearchParams.toString()
     })
     .then(() => {
       // Set success state
