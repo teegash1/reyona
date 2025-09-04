@@ -117,7 +117,7 @@ const MasaiMara = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="luxury" size="lg">
-              Plan Your Visit
+              Book Masai Mara Safari
             </Button>
           </div>
         </div>
