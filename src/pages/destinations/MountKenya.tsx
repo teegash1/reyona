@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,13 @@ import { MapPin, Camera, Star, Clock, Users, Mountain, TreePine, Bird, Eye, Hear
 import kenyaLion from '@/assets/kenya-lion.jpg';
 
 const MountKenya = () => {
+  const navigate = useNavigate();
+
+  const handleBookSafariClick = (safariType) => {
+    // Navigate to contact page with subject parameter and scroll to form
+    navigate(`/contact?subject=${encodeURIComponent(safariType)}`);
+  };
+
   const highlights = [
     {
       title: "Second Highest Peak",
@@ -142,7 +150,11 @@ const MountKenya = () => {
             Where equatorial glaciers meet alpine adventures in Kenya's highest wilderness
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="luxury" size="lg">
+            <Button 
+              variant="luxury" 
+              size="lg"
+              onClick={() => handleBookSafariClick("Book Mount Kenya Trek")}
+            >
               Book Mount Kenya Trek
             </Button>
           </div>

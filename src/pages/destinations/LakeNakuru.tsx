@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -6,6 +7,13 @@ import { Badge } from '@/components/ui/badge';
 import { MapPin, Camera, Star, Clock, Users, Mountain, TreePine, Bird, Eye, Heart, Droplets, Waves } from 'lucide-react';
 
 const LakeNakuru = () => {
+  const navigate = useNavigate();
+
+  const handleBookSafariClick = (safariType) => {
+    // Navigate to contact page with subject parameter and scroll to form
+    navigate(`/contact?subject=${encodeURIComponent(safariType)}`);
+  };
+
   const highlights = [
     {
       title: "Flamingo Spectacle",
@@ -141,7 +149,11 @@ const LakeNakuru = () => {
             Where millions of flamingos paint the sky pink and rhinos roam free
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="luxury" size="lg">
+            <Button 
+              variant="luxury" 
+              size="lg"
+              onClick={() => handleBookSafariClick("Book Lake Nakuru Safari")}
+            >
               Book Lake Nakuru Safari
             </Button>
           </div>

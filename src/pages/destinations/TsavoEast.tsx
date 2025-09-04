@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,13 @@ import { MapPin, Camera, Star, Clock, Users, Mountain, TreePine, Bird, Eye, Hear
 import luxuryCamp from '@/assets/luxury-camp.jpg';
 
 const TsavoEast = () => {
+  const navigate = useNavigate();
+
+  const handleBookSafariClick = (safariType) => {
+    // Navigate to contact page with subject parameter and scroll to form
+    navigate(`/contact?subject=${encodeURIComponent(safariType)}`);
+  };
+
   const highlights = [
     {
       title: "Red Elephants",
@@ -155,7 +163,11 @@ const TsavoEast = () => {
             Kenya's largest national park - a vast wilderness of red earth and untamed wildlife
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="luxury" size="lg">
+            <Button 
+              variant="luxury" 
+              size="lg"
+              onClick={() => handleBookSafariClick("Book Tsavo East Safari")}
+            >
               Book Tsavo East Safari
             </Button>
           </div>

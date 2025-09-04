@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -6,6 +7,13 @@ import { Badge } from '@/components/ui/badge';
 import { Calendar, MapPin, Users, Camera, Clock, Star, Mountain, Trees } from 'lucide-react';
 
 const Amboseli = () => {
+  const navigate = useNavigate();
+
+  const handleBookSafariClick = (safariType) => {
+    // Navigate to contact page with subject parameter and scroll to form
+    navigate(`/contact?subject=${encodeURIComponent(safariType)}`);
+  };
+
   const highlights = [
     {
       title: "Elephant Paradise",
@@ -141,7 +149,11 @@ const Amboseli = () => {
             Where elephants roam free beneath the majestic Mount Kilimanjaro
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="luxury" size="lg">
+            <Button 
+              variant="luxury" 
+              size="lg"
+              onClick={() => handleBookSafariClick("Book Amboseli Safari")}
+            >
               Book Amboseli Safari
             </Button>
           </div>

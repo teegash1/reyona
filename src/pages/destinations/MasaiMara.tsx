@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,13 @@ import { MapPin, Camera, Star, Clock, Users, Heart, TreePine, Bird, Eye, Mountai
 import heroSafari from '@/assets/hero-safari.jpg';
 
 const MasaiMara = () => {
+  const navigate = useNavigate();
+
+  const handleBookSafariClick = (safariType) => {
+    // Navigate to contact page with subject parameter and scroll to form
+    navigate(`/contact?subject=${encodeURIComponent(safariType)}`);
+  };
+
   const highlights = [
     {
       title: "The Great Migration",
@@ -116,7 +124,11 @@ const MasaiMara = () => {
             Home to the Great Migration and Africa's highest concentration of big cats
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="luxury" size="lg">
+            <Button 
+              variant="luxury" 
+              size="lg"
+              onClick={() => handleBookSafariClick("Book Masai Mara Safari")}
+            >
               Book Masai Mara Safari
             </Button>
           </div>

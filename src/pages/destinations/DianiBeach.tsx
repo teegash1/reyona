@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -6,6 +7,13 @@ import { Badge } from '@/components/ui/badge';
 import { MapPin, Camera, Star, Clock, Users, Waves, Umbrella, Fish, Eye, Heart, Sun, TreePalm } from 'lucide-react';
 
 const DianiBeach = () => {
+  const navigate = useNavigate();
+
+  const handleBookSafariClick = (safariType) => {
+    // Navigate to contact page with subject parameter and scroll to form
+    navigate(`/contact?subject=${encodeURIComponent(safariType)}`);
+  };
+
   const highlights = [
     {
       title: "Crystal Clear Waters",
@@ -144,9 +152,7 @@ const DianiBeach = () => {
             <Button 
               variant="luxury" 
               size="lg"
-              onClick={() => {
-                window.location.href = '/contact?subject=Diani Beach Safari';
-              }}
+              onClick={() => handleBookSafariClick("Book Diani Beach Safari")}
             >
               Book Diani Beach Safari
             </Button>
