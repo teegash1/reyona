@@ -85,65 +85,51 @@ const Contact = () => {
     }
   }, [location.state, location.search]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
     // Update hidden fields with current form data
     const form = e.target;
     form.querySelector('input[name="inquiryType"]').value = formData.inquiryType || '';
     
-    try {
-      // Submit the form to Netlify function
-      const response = await fetch('/.netlify/functions/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          safariType: formData.subject, // Using subject as safari type
-          groupSize: '', // Not in current form, can be added later
-          arrivalDate: '', // Not in current form, can be added later
-          departureDate: '', // Not in current form, can be added later
-          accommodation: '', // Not in current form, can be added later
-          budget: '', // Not in current form, can be added later
-          message: formData.message,
-          inquiryType: formData.inquiryType
-        })
+    // Submit the form to Netlify
+    const formDataToSubmit = new FormData(form);
+    
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formDataToSubmit).toString()
+    })
+    .then(() => {
+      // Set success state
+      setIsSubmitted(true);
+      // Reset form data
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+        inquiryType: ''
       });
-
-      if (response.ok) {
-        // Set success state
-        setIsSubmitted(true);
-        // Reset form data
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: '',
-          inquiryType: ''
-        });
-        
-        // Scroll to the success message
-        setTimeout(() => {
-          const formSection = document.getElementById('contact-form');
-          if (formSection) {
-            const headerHeight = 120; // Approximate header height
-            const formTop = formSection.offsetTop;
-            window.scrollTo({
-              top: formTop - headerHeight - 20, // 20px additional spacing
-              behavior: 'smooth'
-            });
-          }
-        }, 100); // Small delay to ensure state update and re-render
-      } else {
-        throw new Error('Failed to send email');
-      }
-    } catch (error) {
+      
+      // Scroll to the success message
+      setTimeout(() => {
+        const formSection = document.getElementById('contact-form');
+        if (formSection) {
+          const headerHeight = 120; // Approximate header height
+          const formTop = formSection.offsetTop;
+          window.scrollTo({
+            top: formTop - headerHeight - 20, // 20px additional spacing
+            behavior: 'smooth'
+          });
+        }
+      }, 100); // Small delay to ensure state update and re-render
+    })
+    .catch((error) => {
       console.error('Error:', error);
       alert('There was an error submitting your message. Please try again or contact us directly.');
-    }
+    });
   };
 
   const handleSendAnother = () => {
@@ -278,7 +264,6 @@ const Contact = () => {
                       method="POST" 
                       data-netlify="true"
                       data-netlify-honeypot="bot-field"
-                      action="/.netlify/functions/send-email"
                       onSubmit={handleSubmit} 
                       className="space-y-6"
                     >
