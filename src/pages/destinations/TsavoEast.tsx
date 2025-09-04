@@ -15,6 +15,11 @@ const TsavoEast = () => {
     navigate(`/contact?subject=${encodeURIComponent(safariType)}`);
   };
 
+  const handleCustomSafariClick = () => {
+    // Navigate to custom safari page and scroll to form
+    navigate('/custom-safari?scrollToForm=true');
+  };
+
   const highlights = [
     {
       title: "Red Elephants",
@@ -391,10 +396,18 @@ const TsavoEast = () => {
             Experience the raw beauty and untamed spirit of Tsavo East National Park
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="luxury" size="lg">
+            <Button 
+              variant="luxury" 
+              size="lg"
+              onClick={() => handleBookSafariClick("Book Tsavo East Safari")}
+            >
               Book Tsavo East Safari
             </Button>
-            <Button variant="outline" size="lg">
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={handleCustomSafariClick}
+            >
               Combine with Tsavo West
             </Button>
           </div>

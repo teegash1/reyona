@@ -14,6 +14,11 @@ const DianiBeach = () => {
     navigate(`/contact?subject=${encodeURIComponent(safariType)}`);
   };
 
+  const handleCustomSafariClick = () => {
+    // Navigate to custom safari page and scroll to form
+    navigate('/custom-safari?scrollToForm=true');
+  };
+
   const highlights = [
     {
       title: "Crystal Clear Waters",
@@ -382,18 +387,14 @@ const DianiBeach = () => {
             <Button 
               variant="luxury" 
               size="lg"
-              onClick={() => {
-                window.location.href = '/contact?subject=Diani Beach Safari';
-              }}
+              onClick={() => handleBookSafariClick("Book Diani Beach Safari")}
             >
               Book Diani Beach Safari
             </Button>
             <Button 
               variant="outline" 
               size="lg"
-              onClick={() => {
-                window.location.href = '/custom-safari?scrollToForm=true';
-              }}
+              onClick={handleCustomSafariClick}
             >
               Combine with Safari
             </Button>

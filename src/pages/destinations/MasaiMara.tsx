@@ -15,6 +15,11 @@ const MasaiMara = () => {
     navigate(`/contact?subject=${encodeURIComponent(safariType)}`);
   };
 
+  const handleCustomSafariClick = () => {
+    // Navigate to custom safari page and scroll to form
+    navigate('/custom-safari?scrollToForm=true');
+  };
+
   const highlights = [
     {
       title: "The Great Migration",
@@ -323,9 +328,7 @@ const MasaiMara = () => {
               <Button 
                 variant="luxury" 
                 size="lg"
-                onClick={() => {
-                  window.location.href = '/contact?subject=Masai Mara Safari';
-                }}
+                onClick={() => handleBookSafariClick("Book Masai Mara Safari")}
               >
                 Book Masai Mara Safari
               </Button>
@@ -333,9 +336,7 @@ const MasaiMara = () => {
                 variant="outline" 
                 size="lg" 
                 className="border-white text-white hover:bg-white hover:text-primary"
-                onClick={() => {
-                  window.location.href = '/custom-safari?scrollToForm=true';
-                }}
+                onClick={handleCustomSafariClick}
               >
                 Combine with Other Parks
               </Button>
