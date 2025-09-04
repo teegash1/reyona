@@ -5,9 +5,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Camera, Heart, Mountain, Users2, Tent, Utensils } from 'lucide-react';
-import heroSafari from '@/assets/hero-safari.jpg';
-import luxuryCamp from '@/assets/luxury-camp.jpg';
-import kenyaLion from '@/assets/kenya-lion.jpg';
+// Updated to use external images for better quality and variety
+// import heroSafari from '@/assets/hero-safari.jpg';
+// import luxuryCamp from '@/assets/luxury-camp.jpg';
+// import kenyaLion from '@/assets/kenya-lion.jpg';
 
 const Experiences = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Experiences = () => {
       icon: Camera,
       title: "Photography Safaris",
       description: "Capture Kenya's wildlife with expert guides and perfect lighting.",
-      image: heroSafari,
+      image: "https://i.pinimg.com/736x/0d/87/44/0d874436679577f060e7742315ddde53.jpg",
       duration: "3-5 days",
       price: "From $1,200"
     },
@@ -29,7 +30,7 @@ const Experiences = () => {
       icon: Heart,
       title: "Cultural Immersion",
       description: "Meet local Maasai communities and learn their ancient traditions.",
-      image: luxuryCamp,
+      image: "https://i.pinimg.com/736x/2c/78/65/2c78655d5a918f43501b27609541f820.jpg",
       duration: "2-3 days",
       price: "From $800"
     },
@@ -37,7 +38,7 @@ const Experiences = () => {
       icon: Mountain,
       title: "Mount Kenya Climbing",
       description: "Conquer Africa's second highest peak with experienced guides.",
-      image: kenyaLion,
+      image: "https://i.pinimg.com/736x/82/df/f0/82dff08b776c6b1adf1d48729723b01d.jpg",
       duration: "5-7 days",
       price: "From $1,500"
     },
@@ -45,7 +46,7 @@ const Experiences = () => {
       icon: Users2,
       title: "Family Adventures",
       description: "Child-friendly safaris designed for unforgettable family memories.",
-      image: luxuryCamp,
+      image: "https://i.pinimg.com/1200x/9b/9f/12/9b9f121ede51b5a76bc1b9f0ca7160ba.jpg",
       duration: "4-6 days",
       price: "From $1,800"
     },
@@ -53,7 +54,7 @@ const Experiences = () => {
       icon: Tent,
       title: "Luxury Camping",
       description: "Glamping under African stars with premium amenities.",
-      image: heroSafari,
+      image: "https://i.pinimg.com/736x/4f/12/63/4f12633c31d0d79cd0360edd78438e05.jpg",
       duration: "2-4 days",
       price: "From $1,000"
     },
@@ -61,7 +62,7 @@ const Experiences = () => {
       icon: Utensils,
       title: "Culinary Journeys",
       description: "Taste authentic Kenyan cuisine and bush dining experiences.",
-      image: kenyaLion,
+      image: "https://i.pinimg.com/736x/f5/04/0b/f5040b6df55321686d7c32c4b18d7f7e.jpg",
       duration: "3-4 days",
       price: "From $900"
     }
