@@ -194,6 +194,11 @@ const Contact = () => {
       
       {/* Hero Section */}
       <section className="relative h-[60vh] bg-gradient-to-br from-kenya-gold/20 to-kenya-magenta/20 flex items-center justify-center pt-32">
+        <img 
+          src="https://images.pexels.com/photos/821754/pexels-photo-821754.jpeg?_gl=1*9amud7*_ga*MTk4OTgwMDYwOC4xNzQ1NTg5OTU0*_ga_8JE65Q40S6*czE3NTcwMTgxNDMkbzMxJGcxJHQxNzU3MDE4MTczJGozMCRsMCRoMA.."
+          alt="Contact us background"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        />
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
