@@ -127,9 +127,9 @@ const MountKenya = () => {
       <section className="relative h-[80vh] bg-gradient-to-br from-blue-500/20 to-kenya-purple/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src={kenyaLion} 
+          src="https://i.pinimg.com/1200x/05/e8/31/05e831f17b50fe0f1d7c8f599cdd1b66.jpg" 
           alt="Mount Kenya with snow-capped peaks"
-          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">

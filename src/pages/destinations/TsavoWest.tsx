@@ -127,9 +127,9 @@ const TsavoWest = () => {
       <section className="relative h-[80vh] bg-gradient-to-br from-green-500/20 to-kenya-purple/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src={kenyaLion} 
+          src="https://i.pinimg.com/1200x/a5/f7/74/a5f77401bf553708dd384d37161bd491.jpg" 
           alt="Tsavo West landscape with Mzima Springs"
-          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">
@@ -144,9 +144,6 @@ const TsavoWest = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="luxury" size="lg">
               Explore Tsavo West
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              Download Park Guide
             </Button>
           </div>
         </div>

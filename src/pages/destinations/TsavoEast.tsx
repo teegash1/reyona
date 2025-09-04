@@ -140,9 +140,9 @@ const TsavoEast = () => {
       <section className="relative h-[80vh] bg-gradient-to-br from-orange-500/20 to-kenya-purple/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src={luxuryCamp} 
+          src="https://i.pinimg.com/736x/7d/62/2b/7d622b480e6b2f0e63d60a0ba2f12b3f.jpg" 
           alt="Tsavo East red elephants"
-          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">
@@ -157,9 +157,6 @@ const TsavoEast = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="luxury" size="lg">
               Explore Tsavo East
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              Download Park Guide
             </Button>
           </div>
         </div>
