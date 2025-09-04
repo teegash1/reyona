@@ -108,22 +108,45 @@ const CustomSafari = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    // Format data with descriptive text
+    const formatGroupSize = (value) => {
+      if (!value) return '';
+      return value.includes('people') ? value : `${value} people`;
+    };
+    
+    const formatDuration = (value) => {
+      if (!value) return '';
+      return value.includes('days') ? value : `${value} days`;
+    };
+    
+    const formatBudget = (value) => {
+      if (!value) return '';
+      const budgetRange = budgetRanges.find(b => b.value === value);
+      return budgetRange ? budgetRange.label : value;
+    };
+    
     // Update hidden fields with current form data
     const form = e.target;
     form.querySelector('input[name="destinations"]').value = formData.destinations.join(', ');
     form.querySelector('input[name="experiences"]').value = formData.experiences.join(', ');
-    form.querySelector('input[name="budget"]').value = formData.budget || '';
-    form.querySelector('input[name="duration"]').value = formData.duration || '';
-    form.querySelector('input[name="groupSize"]').value = formData.groupSize || '';
+    form.querySelector('input[name="budget"]').value = formatBudget(formData.budget);
+    form.querySelector('input[name="duration"]').value = formatDuration(formData.duration);
+    form.querySelector('input[name="groupSize"]').value = formatGroupSize(formData.groupSize);
     form.querySelector('input[name="accommodation"]').value = formData.accommodation || '';
     
     // Submit the form to Netlify
     const formDataToSubmit = new FormData(form);
+    const urlSearchParams = new URLSearchParams();
+    
+    // Convert FormData to URLSearchParams
+    for (const [key, value] of formDataToSubmit.entries()) {
+      urlSearchParams.append(key, value as string);
+    }
     
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formDataToSubmit).toString()
+      body: urlSearchParams.toString()
     })
     .then(() => {
       // Set success state
