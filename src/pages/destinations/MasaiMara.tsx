@@ -1,14 +1,18 @@
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Camera, Star, Clock, Users, Heart, TreePine, Bird, Eye, Mountain, Thermometer } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { MapPin, Camera, Star, Clock, Users, Heart, TreePine, Bird, Eye, Mountain, Thermometer, X } from 'lucide-react';
 import heroSafari from '@/assets/hero-safari.jpg';
 
 const MasaiMara = () => {
   const navigate = useNavigate();
+  const [selectedAccommodation, setSelectedAccommodation] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleBookSafariClick = (safariType) => {
     // Navigate to contact page with subject parameter and scroll to form
@@ -18,6 +22,16 @@ const MasaiMara = () => {
   const handleCustomSafariClick = () => {
     // Navigate to custom safari page and scroll to form
     navigate('/custom-safari?scrollToForm=true');
+  };
+
+  const handleViewDetails = (accommodation) => {
+    setSelectedAccommodation(accommodation);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedAccommodation(null);
   };
 
   const highlights = [
@@ -88,21 +102,45 @@ const MasaiMara = () => {
       type: "Ultra-Luxury Tented Camp",
       location: "Oloololo Escarpment",
       highlights: ["Panoramic views", "Luxury tents", "World-class dining"],
-      price: "$1,200+ per night"
+      price: "$1,200+ per night",
+      description: "Perched dramatically on the edge of the Oloololo Escarpment, Angama Mara offers one of the most spectacular views in Africa. This ultra-luxury tented camp combines contemporary elegance with authentic safari charm, featuring spacious glass-fronted tents that seem to float above the endless plains below. Each tent boasts floor-to-ceiling windows, private decks, and en-suite bathrooms with freestanding bathtubs. The camp's location provides front-row seats to the Great Migration and offers unparalleled game viewing opportunities. With world-class cuisine, personalized service, and a focus on conservation, Angama Mara delivers an unforgettable luxury safari experience.",
+      images: [
+        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop"
+      ],
+      amenities: ["Luxury tented suites", "Private decks", "En-suite bathrooms", "World-class dining", "Game drives", "Cultural experiences", "Spa services", "WiFi"]
     },
     {
       name: "Sarova Mara Game Camp",
       type: "Mid-Range Lodge",
       location: "Central Mara",
       highlights: ["Prime location", "Traditional safari experience", "Good value"],
-      price: "$350-500 per night"
+      price: "$350-500 per night",
+      description: "Located in the heart of the Masai Mara, Sarova Mara Game Camp offers an authentic safari experience with modern comforts. The camp features spacious tents and cottages set in a natural forest environment, providing a perfect blend of adventure and relaxation. Each accommodation is tastefully decorated with local materials and offers en-suite facilities. The camp's central location ensures excellent game viewing opportunities, with the famous Mara River just a short drive away. Guests can enjoy traditional safari activities including game drives, bush walks, and cultural visits to local Maasai communities. The camp's restaurant serves both international and local cuisine, and the bar offers a perfect spot to unwind after a day of safari adventures.",
+      images: [
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop"
+      ],
+      amenities: ["Tented accommodation", "En-suite bathrooms", "Restaurant & bar", "Game drives", "Cultural visits", "Bush walks", "Swimming pool", "Gift shop"]
     },
     {
       name: "Mara Explorer Camp",
       type: "Mobile Camping",
       location: "Follows migration",
       highlights: ["Migration access", "Authentic camping", "Budget-friendly"],
-      price: "$150-250 per night"
+      price: "$150-250 per night",
+      description: "Mara Explorer Camp offers an authentic mobile camping experience that follows the Great Migration, ensuring you're always in the heart of the action. This intimate camp features traditional canvas tents with comfortable beds and basic amenities, providing a true bush experience without compromising on safety and comfort. The camp moves seasonally to follow the wildebeest migration, offering guests the best wildlife viewing opportunities throughout the year. Each tent is equipped with solar lighting and shared bathroom facilities. The camp's communal dining area serves hearty meals prepared over open fires, and evenings are spent around the campfire sharing stories under the African stars. This is the perfect choice for adventurous travelers seeking an authentic safari experience at an affordable price.",
+      images: [
+        "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&h=600&fit=crop"
+      ],
+      amenities: ["Mobile canvas tents", "Shared bathroom facilities", "Communal dining", "Game drives", "Migration following", "Campfire evenings", "Solar lighting", "Authentic bush experience"]
     }
   ];
 
@@ -305,7 +343,13 @@ const MasaiMara = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-semibold text-kenya-gold">{accommodation.price}</span>
-                    <Button variant="outline" size="sm">View Details</Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => handleViewDetails(accommodation)}
+                    >
+                      View Details
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
@@ -346,6 +390,97 @@ const MasaiMara = () => {
       </section>
 
       <Footer />
+
+      {/* Accommodation Details Modal */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-kenya-gold">
+              {selectedAccommodation?.name}
+            </DialogTitle>
+          </DialogHeader>
+          
+          {selectedAccommodation && (
+            <div className="space-y-6">
+              {/* Header Info */}
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                  <Badge className="bg-kenya-magenta text-white mb-2">
+                    {selectedAccommodation.type}
+                  </Badge>
+                  <div className="flex items-center text-muted-foreground">
+                    <MapPin className="w-4 h-4 mr-1" />
+                    {selectedAccommodation.location}
+                  </div>
+                </div>
+                <div className="text-2xl font-bold text-kenya-gold">
+                  {selectedAccommodation.price}
+                </div>
+              </div>
+
+              {/* Description */}
+              <div>
+                <h3 className="text-lg font-semibold mb-3">About This Accommodation</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {selectedAccommodation.description}
+                </p>
+              </div>
+
+              {/* Image Grid */}
+              <div>
+                <h3 className="text-lg font-semibold mb-3">Photo Gallery</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {selectedAccommodation.images.map((image, index) => (
+                    <div key={index} className="relative group overflow-hidden rounded-lg">
+                      <img
+                        src={image}
+                        alt={`${selectedAccommodation.name} - Image ${index + 1}`}
+                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Amenities */}
+              <div>
+                <h3 className="text-lg font-semibold mb-3">Amenities & Services</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {selectedAccommodation.amenities.map((amenity, index) => (
+                    <div key={index} className="flex items-center text-sm">
+                      <Star className="w-4 h-4 text-kenya-gold mr-2 flex-shrink-0" />
+                      <span>{amenity}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t">
+                <Button 
+                  variant="luxury" 
+                  size="lg"
+                  className="flex-1"
+                  onClick={() => {
+                    handleCloseModal();
+                    handleBookSafariClick(`Book ${selectedAccommodation.name} Stay`);
+                  }}
+                >
+                  Book This Accommodation
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="flex-1"
+                  onClick={handleCloseModal}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
