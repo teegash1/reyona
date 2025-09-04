@@ -14,6 +14,11 @@ const Amboseli = () => {
     navigate(`/contact?subject=${encodeURIComponent(safariType)}`);
   };
 
+  const handleCustomSafariClick = () => {
+    // Navigate to custom safari page and scroll to form
+    navigate('/custom-safari?scrollToForm=true');
+  };
+
   const highlights = [
     {
       title: "Elephant Paradise",
@@ -378,10 +383,18 @@ const Amboseli = () => {
             Join us for an unforgettable journey to Kenya's elephant paradise
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="luxury" size="lg">
+            <Button 
+              variant="luxury" 
+              size="lg"
+              onClick={() => handleBookSafariClick("Book Amboseli Safari")}
+            >
               Book Amboseli Safari
             </Button>
-            <Button variant="outline" size="lg">
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={handleCustomSafariClick}
+            >
               Combine with Masai Mara
             </Button>
           </div>
