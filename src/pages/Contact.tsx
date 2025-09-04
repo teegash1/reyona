@@ -37,14 +37,15 @@ const Contact = () => {
     if (subject) {
       setFormData(prev => ({ ...prev, subject: subject }));
       
-      // Scroll to form when subject is pre-filled
+      // Scroll to form when subject is pre-filled - position to show form section header
       setTimeout(() => {
         const formElement = document.getElementById('contact-form');
         if (formElement) {
           const headerHeight = 120; // Approximate header height
           const formTop = formElement.offsetTop;
+          // Scroll to show the form section header prominently, matching the image position
           window.scrollTo({
-            top: formTop - headerHeight - 20, // 20px additional spacing
+            top: formTop - headerHeight - 60, // More spacing to show section header
             behavior: 'smooth'
           });
         }
@@ -74,8 +75,9 @@ const Contact = () => {
         setTimeout(() => {
           const headerHeight = 120; // Approximate header height
           const formTop = formElement.offsetTop;
+          // Scroll to show the form section header prominently, matching the image position
           window.scrollTo({
-            top: formTop - headerHeight - 20, // 20px additional spacing
+            top: formTop - headerHeight - 60, // More spacing to show section header
             behavior: 'smooth'
           });
         }, 100);
