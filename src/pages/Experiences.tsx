@@ -17,6 +17,11 @@ const Experiences = () => {
     navigate('/custom-safari?scrollToForm=true');
   };
 
+  const handleBookExperienceClick = (experienceTitle) => {
+    // Navigate to contact page with subject parameter and scroll to form
+    navigate(`/contact?subject=${encodeURIComponent(experienceTitle)}&scrollToGetInTouch=true`);
+  };
+
   const experiences = [
     {
       icon: Camera,
@@ -136,7 +141,11 @@ const Experiences = () => {
                     </div>
                   </div>
                   
-                  <Button className="w-full mt-4" variant="luxury">
+                  <Button 
+                    className="w-full mt-4" 
+                    variant="luxury"
+                    onClick={() => handleBookExperienceClick(experience.title)}
+                  >
                     Book Experience
                   </Button>
                 </CardContent>
