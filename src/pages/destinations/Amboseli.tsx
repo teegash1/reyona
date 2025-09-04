@@ -126,9 +126,9 @@ const Amboseli = () => {
       <section className="relative h-[80vh] bg-gradient-to-br from-kenya-gold/20 to-kenya-purple/20 flex items-center justify-center">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
-          src="/src/assets/kenya-lion.jpg" 
-          alt="Amboseli landscape with Mount Kilimanjaro"
-          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
+          src="https://cdn.pixabay.com/photo/2020/05/05/16/21/elephants-5133792_1280.jpg" 
+          alt="Amboseli landscape with elephants and Mount Kilimanjaro"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-6xl md:text-8xl font-bold text-white mb-6">
@@ -143,9 +143,6 @@ const Amboseli = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="luxury" size="lg">
               Book Amboseli Safari
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              View Photo Gallery
             </Button>
           </div>
         </div>

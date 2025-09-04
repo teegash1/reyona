@@ -144,9 +144,6 @@ const Samburu = () => {
             <Button variant="luxury" size="lg">
               Book Samburu Safari
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              View Photo Gallery
-            </Button>
           </div>
         </div>
       </section>

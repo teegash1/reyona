@@ -119,9 +119,6 @@ const MasaiMara = () => {
             <Button variant="luxury" size="lg">
               Plan Your Visit
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              Download Brochure
-            </Button>
           </div>
         </div>
       </section>

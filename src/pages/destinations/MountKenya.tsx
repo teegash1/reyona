@@ -145,9 +145,6 @@ const MountKenya = () => {
             <Button variant="luxury" size="lg">
               Book Mount Kenya Trek
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              View Photo Gallery
-            </Button>
           </div>
         </div>
       </section>
