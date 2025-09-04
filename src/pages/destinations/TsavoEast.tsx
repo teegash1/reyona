@@ -156,7 +156,7 @@ const TsavoEast = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="luxury" size="lg">
-              Explore Tsavo East
+              Book Tsavo East Safari
             </Button>
           </div>
         </div>

@@ -143,7 +143,7 @@ const TsavoWest = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button variant="luxury" size="lg">
-              Explore Tsavo West
+              Book Tsavo West Safari
             </Button>
           </div>
         </div>
