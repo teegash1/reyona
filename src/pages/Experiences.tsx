@@ -19,7 +19,7 @@ const Experiences = () => {
 
   const handleBookExperienceClick = (experienceTitle) => {
     // Navigate to contact page with subject parameter and scroll to form
-    navigate(`/contact?subject=${encodeURIComponent(experienceTitle)}&scrollToGetInTouch=true`);
+    navigate(`/contact?subject=${encodeURIComponent(experienceTitle)}`);
   };
 
   const experiences = [
