@@ -231,7 +231,7 @@ const Contact = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-gold/20 to-kenya-magenta/20 flex items-center justify-center pt-32">
+      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-32">
         <img 
           src="https://images.pexels.com/photos/821754/pexels-photo-821754.jpeg?_gl=1*9amud7*_ga*MTk4OTgwMDYwOC4xNzQ1NTg5OTU0*_ga_8JE65Q40S6*czE3NTcwMTgxNDMkbzMxJGcxJHQxNzU3MDE4MTczJGozMCRsMCRoMA.."
           alt="Contact us background"

@@ -8,7 +8,7 @@ const CookiePolicy = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[40vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-magenta/20 flex items-center justify-center pt-32">
+      <section className="relative h-[40vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-32">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
@@ -142,18 +142,18 @@ const CookiePolicy = () => {
                 </div>
 
                 {/* Functional Cookies */}
-                <div className="border border-kenya-magenta rounded-lg p-6 bg-kenya-magenta/10">
+                <div className="border border-kenya-burgundy rounded-lg p-6 bg-kenya-burgundy/10">
                   <div className="flex items-center gap-3 mb-3">
-                    <Settings className="w-6 h-6 text-kenya-magenta" />
-                    <h3 className="text-xl font-semibold text-kenya-magenta">Functional Cookies</h3>
+                    <Settings className="w-6 h-6 text-kenya-burgundy" />
+                    <h3 className="text-xl font-semibold text-kenya-burgundy">Functional Cookies</h3>
                   </div>
-                  <p className="text-kenya-magenta/80 mb-3">
+                  <p className="text-kenya-burgundy/80 mb-3">
                     These cookies enable enhanced functionality and personalization, such as remembering your preferences and choices.
                   </p>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <h4 className="font-semibold text-kenya-magenta mb-2">Purpose:</h4>
-                      <ul className="text-kenya-magenta/80 text-sm space-y-1">
+                      <h4 className="font-semibold text-kenya-burgundy mb-2">Purpose:</h4>
+                      <ul className="text-kenya-burgundy/80 text-sm space-y-1">
                         <li>• Remember user preferences</li>
                         <li>• Language and region settings</li>
                         <li>• Customized content</li>
@@ -161,10 +161,10 @@ const CookiePolicy = () => {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-kenya-magenta mb-2">Duration:</h4>
-                      <p className="text-kenya-magenta/80 text-sm">Up to 1 year</p>
-                      <h4 className="font-semibold text-kenya-magenta mb-2 mt-3">Examples:</h4>
-                      <p className="text-kenya-magenta/80 text-sm">Language preference, theme selection, form data</p>
+                      <h4 className="font-semibold text-kenya-burgundy mb-2">Duration:</h4>
+                      <p className="text-kenya-burgundy/80 text-sm">Up to 1 year</p>
+                      <h4 className="font-semibold text-kenya-burgundy mb-2 mt-3">Examples:</h4>
+                      <p className="text-kenya-burgundy/80 text-sm">Language preference, theme selection, form data</p>
                     </div>
                   </div>
                 </div>

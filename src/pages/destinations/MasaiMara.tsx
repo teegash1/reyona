@@ -149,7 +149,7 @@ const MasaiMara = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[80vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-gold/20 flex items-center justify-center pt-20">
+      <section className="relative h-[80vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
           src="https://images.pexels.com/photos/26052413/pexels-photo-26052413.jpeg?_gl=1*16542d8*_ga*MTk4OTgwMDYwOC4xNzQ1NTg5OTU0*_ga_8JE65Q40S6*czE3NTY5MDE0NzYkbzI4JGcxJHQxNzU2OTAyMDc3JGo2JGwwJGgw" 
@@ -326,7 +326,7 @@ const MasaiMara = () => {
                 <CardHeader>
                   <CardTitle className="text-xl">{accommodation.name}</CardTitle>
                   <div className="flex justify-between items-center">
-                    <Badge className="bg-kenya-magenta text-white">{accommodation.type}</Badge>
+                    <Badge className="bg-kenya-burgundy text-white">{accommodation.type}</Badge>
                     <span className="text-sm text-muted-foreground">{accommodation.location}</span>
                   </div>
                 </CardHeader>
@@ -405,7 +405,7 @@ const MasaiMara = () => {
               {/* Header Info */}
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
-                  <Badge className="bg-kenya-magenta text-white mb-2">
+                  <Badge className="bg-kenya-burgundy text-white mb-2">
                     {selectedAccommodation.type}
                   </Badge>
                   <div className="flex items-center text-muted-foreground">

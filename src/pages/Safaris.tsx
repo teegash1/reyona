@@ -1127,7 +1127,7 @@ const Safaris = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-magenta/20 flex items-center justify-center pt-32">
+      <section className="relative h-[60vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-32">
         {/* Background Image with 50% opacity */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"

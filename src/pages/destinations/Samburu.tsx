@@ -136,7 +136,7 @@ const Samburu = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[80vh] bg-gradient-to-br from-orange-500/20 to-kenya-purple/20 flex items-center justify-center pt-20">
+      <section className="relative h-[80vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
           src="https://cdn.pixabay.com/photo/2020/05/05/16/21/lion-5133788_1280.jpg" 

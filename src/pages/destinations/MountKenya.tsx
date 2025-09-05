@@ -137,7 +137,7 @@ const MountKenya = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[80vh] bg-gradient-to-br from-blue-500/20 to-kenya-purple/20 flex items-center justify-center pt-20">
+      <section className="relative h-[80vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
           src="https://i.pinimg.com/1200x/05/e8/31/05e831f17b50fe0f1d7c8f599cdd1b66.jpg" 

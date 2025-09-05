@@ -136,7 +136,7 @@ const DianiBeach = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[80vh] bg-gradient-to-br from-kenya-gold/20 to-kenya-purple/20 flex items-center justify-center pt-32">
+      <section className="relative h-[80vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-32">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
           src="https://cdn.pixabay.com/photo/2021/05/29/03/00/beach-6292382_1280.jpg"

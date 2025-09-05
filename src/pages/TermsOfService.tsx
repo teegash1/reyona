@@ -8,7 +8,7 @@ const TermsOfService = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[40vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-magenta/20 flex items-center justify-center pt-32">
+      <section className="relative h-[40vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-32">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
@@ -95,9 +95,9 @@ const TermsOfService = () => {
                   </ul>
                 </div>
                 
-                <div className="bg-kenya-magenta/10 border-l-4 border-kenya-magenta p-4">
-                  <h4 className="font-semibold text-kenya-magenta mb-2">Required Information</h4>
-                  <ul className="text-kenya-magenta/80 space-y-1">
+                <div className="bg-kenya-burgundy/10 border-l-4 border-kenya-burgundy p-4">
+                  <h4 className="font-semibold text-kenya-burgundy mb-2">Required Information</h4>
+                  <ul className="text-kenya-burgundy/80 space-y-1">
                     <li>• Full names of all travelers</li>
                     <li>• Passport details and validity</li>
                     <li>• Travel dates and preferences</li>
@@ -144,37 +144,37 @@ const TermsOfService = () => {
                 Cancellation and Refunds
               </h2>
               
-              <div className="bg-kenya-magenta/10 border border-kenya-magenta/30 rounded-lg p-6">
-                <h4 className="font-semibold text-kenya-magenta mb-3">Cancellation Policy</h4>
+              <div className="bg-kenya-burgundy/10 border border-kenya-burgundy/30 rounded-lg p-6">
+                <h4 className="font-semibold text-kenya-burgundy mb-3">Cancellation Policy</h4>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-kenya-magenta mt-1 flex-shrink-0" />
+                    <Clock className="w-5 h-5 text-kenya-burgundy mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-kenya-magenta">More than 60 days before departure</p>
-                      <p className="text-kenya-magenta/80 text-sm">Full refund minus 10% administrative fee</p>
+                      <p className="font-medium text-kenya-burgundy">More than 60 days before departure</p>
+                      <p className="text-kenya-burgundy/80 text-sm">Full refund minus 10% administrative fee</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-kenya-magenta mt-1 flex-shrink-0" />
+                    <Clock className="w-5 h-5 text-kenya-burgundy mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-kenya-magenta">30-60 days before departure</p>
-                      <p className="text-kenya-magenta/80 text-sm">50% refund of total cost</p>
+                      <p className="font-medium text-kenya-burgundy">30-60 days before departure</p>
+                      <p className="text-kenya-burgundy/80 text-sm">50% refund of total cost</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-kenya-magenta mt-1 flex-shrink-0" />
+                    <Clock className="w-5 h-5 text-kenya-burgundy mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-medium text-kenya-magenta">Less than 30 days before departure</p>
-                      <p className="text-kenya-magenta/80 text-sm">No refund available</p>
+                      <p className="font-medium text-kenya-burgundy">Less than 30 days before departure</p>
+                      <p className="text-kenya-burgundy/80 text-sm">No refund available</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="mt-4 p-3 bg-kenya-magenta/20 rounded">
-                  <p className="text-kenya-magenta/90 text-sm">
+                <div className="mt-4 p-3 bg-kenya-burgundy/20 rounded">
+                  <p className="text-kenya-burgundy/90 text-sm">
                     <strong>Note:</strong> Force majeure events (natural disasters, political unrest, etc.) may result in different refund policies. Travel insurance is strongly recommended.
                   </p>
                 </div>
@@ -249,9 +249,9 @@ const TermsOfService = () => {
               <h2 className="text-2xl font-bold text-kenya-purple mb-4">Liability and Insurance</h2>
               
               <div className="space-y-4">
-                <div className="bg-kenya-magenta/10 border border-kenya-magenta/30 rounded-lg p-4">
-                  <h4 className="font-semibold text-kenya-magenta mb-2">Limitation of Liability</h4>
-                  <p className="text-kenya-magenta/80 text-sm">
+                <div className="bg-kenya-burgundy/10 border border-kenya-burgundy/30 rounded-lg p-4">
+                  <h4 className="font-semibold text-kenya-burgundy mb-2">Limitation of Liability</h4>
+                  <p className="text-kenya-burgundy/80 text-sm">
                     Reyona Safaris' liability is limited to the amount paid for the service. We are not liable for indirect, incidental, or consequential damages.
                   </p>
                 </div>
@@ -283,9 +283,9 @@ const TermsOfService = () => {
                   </ul>
                 </div>
                 
-                <div className="bg-kenya-magenta/10 p-4 rounded-lg border border-kenya-magenta/20">
-                  <h4 className="font-semibold text-kenya-magenta mb-2">Prohibited Behavior</h4>
-                  <ul className="text-kenya-magenta/80 space-y-1 text-sm">
+                <div className="bg-kenya-burgundy/10 p-4 rounded-lg border border-kenya-burgundy/20">
+                  <h4 className="font-semibold text-kenya-burgundy mb-2">Prohibited Behavior</h4>
+                  <ul className="text-kenya-burgundy/80 space-y-1 text-sm">
                     <li>• Harassment or discrimination</li>
                     <li>• Illegal activities</li>
                     <li>• Endangering wildlife or environment</li>

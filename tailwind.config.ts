@@ -77,6 +77,7 @@ export default {
 				kenya: {
 					purple: 'hsl(var(--kenya-purple))',
 					magenta: 'hsl(var(--kenya-magenta))',
+					burgundy: 'hsl(var(--kenya-burgundy))',
 					gold: 'hsl(var(--kenya-gold))',
 					'gold-light': 'hsl(var(--kenya-gold-light))'
 				}

@@ -19,7 +19,7 @@ All colors MUST be HSL.
     --popover-foreground: 40 60% 95%;
 
     /* Kenya Brand Colors - Purple/Magenta gradient */
-    --primary: 295 85% 35%;
+    --primary: 330 100% 24%;
     --primary-foreground: 40 60% 95%;
     --primary-glow: 310 85% 55%;
 
@@ -43,13 +43,14 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Custom Kenya Theme Variables */
-    --kenya-purple: 295 85% 35%;
-    --kenya-magenta: 310 85% 55%;
+    --kenya-purple: 330 100% 24%;
+    --kenya-magenta: 337 100% 22%;
+    --kenya-burgundy: 330 100% 20%;
     --kenya-gold: 40 85% 65%;
     --kenya-gold-light: 40 90% 75%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--kenya-purple)), hsl(var(--kenya-magenta)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--kenya-purple)), hsl(var(--kenya-burgundy)));
     --gradient-gold: linear-gradient(135deg, hsl(var(--kenya-gold)), hsl(var(--kenya-gold-light)));
     
     /* Shadows */
@@ -87,7 +88,7 @@ All colors MUST be HSL.
     --popover: 222 25% 8%;
     --popover-foreground: 40 60% 95%;
 
-    --primary: 295 85% 35%;
+    --primary: 330 100% 24%;
     --primary-foreground: 40 60% 95%;
 
     --secondary: 40 85% 65%;

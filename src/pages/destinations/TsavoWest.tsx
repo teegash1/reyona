@@ -137,7 +137,7 @@ const TsavoWest = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[80vh] bg-gradient-to-br from-green-500/20 to-kenya-purple/20 flex items-center justify-center pt-20">
+      <section className="relative h-[80vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-black/40"></div>
         <img 
           src="https://i.pinimg.com/1200x/a5/f7/74/a5f77401bf553708dd384d37161bd491.jpg" 

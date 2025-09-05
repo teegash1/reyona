@@ -8,7 +8,7 @@ const PrivacyPolicy = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[40vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-magenta/20 flex items-center justify-center pt-32">
+      <section className="relative h-[40vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-32">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
@@ -157,9 +157,9 @@ const PrivacyPolicy = () => {
                 We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.
               </p>
               
-              <div className="bg-kenya-magenta/10 border-l-4 border-kenya-magenta p-4">
-                <h4 className="font-semibold text-kenya-magenta mb-2">Retention Periods:</h4>
-                <ul className="text-kenya-magenta/80 space-y-1">
+              <div className="bg-kenya-burgundy/10 border-l-4 border-kenya-burgundy p-4">
+                <h4 className="font-semibold text-kenya-burgundy mb-2">Retention Periods:</h4>
+                <ul className="text-kenya-burgundy/80 space-y-1">
                   <li>• <strong>Booking Information:</strong> 7 years (legal requirements)</li>
                   <li>• <strong>Marketing Data:</strong> Until consent withdrawal</li>
                   <li>• <strong>Website Analytics:</strong> 2 years</li>

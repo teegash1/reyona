@@ -70,7 +70,7 @@ const About = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[70vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-gold/20 flex items-center justify-center pt-32">
+      <section className="relative h-[70vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-32">
         {/* Background Image with 50% opacity */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -211,7 +211,7 @@ const About = () => {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-kenya-magenta rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-kenya-burgundy rounded-full flex items-center justify-center flex-shrink-0">
                   <Camera className="w-6 h-6 text-white" />
                 </div>
                 <div>
