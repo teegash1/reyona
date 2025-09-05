@@ -142,6 +142,25 @@ const Contact = () => {
     setIsSubmitted(false);
   };
 
+  const handleScheduleConsultation = () => {
+    const subject = 'Request of Consultation Call';
+    const emailUrl = `mailto:booking@reyonasafaris.com?subject=${encodeURIComponent(subject)}`;
+    window.open(emailUrl, '_blank');
+  };
+
+  const handleLiveChatSupport = () => {
+    const message = 'Hi Reyona Safaris, kindly assist';
+    const whatsappUrl = `https://wa.me/254707694388?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handleRequestBrochures = () => {
+    const subject = 'Brochures Request';
+    const body = 'Greetings Reyona Safaris, kindly share some brochures, thanks.';
+    const emailUrl = `mailto:booking@reyonasafaris.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(emailUrl, '_blank');
+  };
+
   const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -421,15 +440,27 @@ const Contact = () => {
                   <CardTitle>Quick Actions</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <Button variant="outline" className="w-full justify-start">
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start"
+                    onClick={handleScheduleConsultation}
+                  >
                     <Calendar className="w-4 h-4 mr-2" />
                     Schedule a Consultation Call
                   </Button>
-                  <Button variant="outline" className="w-full justify-start">
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start"
+                    onClick={handleLiveChatSupport}
+                  >
                     <MessageCircle className="w-4 h-4 mr-2" />
                     Live Chat Support
                   </Button>
-                  <Button variant="outline" className="w-full justify-start">
+                  <Button 
+                    variant="outline" 
+                    className="w-full justify-start"
+                    onClick={handleRequestBrochures}
+                  >
                     <Globe className="w-4 h-4 mr-2" />
                     Request Brochures
                   </Button>
