@@ -35,7 +35,7 @@ const PopularDestinations = () => {
       name: 'Masai Mara National Reserve',
       tagline: 'The Great Migration',
       description: 'World-famous for the annual wildebeest migration and exceptional Big Five viewing opportunities.',
-      image: heroSafari,
+      image: "https://images.pexels.com/photos/26052413/pexels-photo-26052413.jpeg?_gl=1*16542d8*_ga*MTk4OTgwMDYwOC4xNzQ1NTg5OTU0*_ga_8JE65Q40S6*czE3NTY5MDE0NzYkbzI4JGcxJHQxNzU2OTAyMDc3JGo2JGwwJGgw",
       highlights: ['Great Migration', 'Big Five', 'Maasai Culture', 'Hot Air Balloons'],
       bestTime: 'July - October',
       duration: '3-5 days',
@@ -48,7 +48,7 @@ const PopularDestinations = () => {
       name: 'Amboseli National Park',
       tagline: 'Land of Giants',
       description: 'Famous for large elephant herds and spectacular views of Mount Kilimanjaro.',
-      image: kenyaLion,
+      image: "https://cdn.pixabay.com/photo/2020/05/05/16/21/elephants-5133792_1280.jpg",
       highlights: ['Elephant Herds', 'Kilimanjaro Views', 'Birdlife', 'Maasai Villages'],
       bestTime: 'June - October, January - March',
       duration: '2-3 days',
@@ -61,7 +61,7 @@ const PopularDestinations = () => {
       name: 'Tsavo East National Park',
       tagline: 'The Red Elephants',
       description: 'Kenya\'s largest park known for red-dust elephants and diverse landscapes.',
-      image: luxuryCamp,
+      image: "https://i.pinimg.com/736x/7d/62/2b/7d622b480e6b2f0e63d60a0ba2f12b3f.jpg",
       highlights: ['Red Elephants', 'Vast Wilderness', 'Yatta Plateau', 'Man-eaters Legacy'],
       bestTime: 'June - September',
       duration: '2-4 days',
@@ -74,7 +74,7 @@ const PopularDestinations = () => {
       name: 'Tsavo West National Park',
       tagline: 'Land of Lava',
       description: 'Diverse landscapes from volcanic hills to underground caves and natural springs.',
-      image: heroSafari,
+      image: "https://i.pinimg.com/1200x/a5/f7/74/a5f77401bf553708dd384d37161bd491.jpg",
       highlights: ['Mzima Springs', 'Shetani Lava', 'Rhino Sanctuary', 'Chaimu Crater'],
       bestTime: 'June - September, December - March',
       duration: '2-3 days',
@@ -87,7 +87,7 @@ const PopularDestinations = () => {
       name: 'Lake Nakuru National Park',
       tagline: 'Pink Flamingo Paradise',
       description: 'Alkaline lake famous for millions of flamingos and successful rhino conservation.',
-      image: kenyaLion,
+      image: "https://cdn.pixabay.com/photo/2019/11/22/11/43/birds-4644652_1280.jpg",
       highlights: ['Flamingo Flocks', 'White & Black Rhinos', 'Bird Paradise', 'Baboon Cliff'],
       bestTime: 'Year-round',
       duration: '1-2 days',
@@ -100,7 +100,7 @@ const PopularDestinations = () => {
       name: 'Samburu National Reserve',
       tagline: 'The Special Five',
       description: 'Semi-arid landscape home to unique wildlife species found nowhere else in Kenya.',
-      image: luxuryCamp,
+      image: "https://cdn.pixabay.com/photo/2020/05/05/16/21/lion-5133788_1280.jpg",
       highlights: ['Special Five', 'Samburu Culture', 'Ewaso Nyiro River', 'Unique Wildlife'],
       bestTime: 'June - September, December - March',
       duration: '2-3 days',
@@ -113,7 +113,7 @@ const PopularDestinations = () => {
       name: 'Mount Kenya National Park',
       tagline: 'Africa\'s Second Highest Peak',
       description: 'UNESCO World Heritage site offering trekking, diverse ecosystems, and alpine landscapes.',
-      image: heroSafari,
+      image: "https://i.pinimg.com/1200x/05/e8/31/05e831f17b50fe0f1d7c8f599cdd1b66.jpg",
       highlights: ['Mountain Climbing', 'Alpine Lakes', 'Unique Flora', 'UNESCO Heritage'],
       bestTime: 'January - February, September - October',
       duration: '3-5 days',
@@ -181,11 +181,6 @@ const PopularDestinations = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute top-4 right-4">
-                    <Badge variant="secondary" className="bg-kenya-gold text-black font-semibold">
-                      {destination.price}
-                    </Badge>
-                  </div>
                   <div className="absolute bottom-4 left-4">
                     <h3 className="text-white font-bold text-xl">{destination.tagline}</h3>
                   </div>
