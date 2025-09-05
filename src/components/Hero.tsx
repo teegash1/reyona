@@ -1,22 +1,59 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Star, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import heroImage from '@/assets/hero-safari.jpg';
 
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const heroImages = [
+    heroImage,
+    'https://cdn.pixabay.com/photo/2015/09/22/14/34/lion-951778_1280.jpg',
+    'https://cdn.pixabay.com/photo/2020/08/25/11/11/zebra-5516455_1280.jpg',
+    'https://cdn.pixabay.com/photo/2021/05/21/12/35/giraffe-6271050_1280.jpg'
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 7000); // 7 seconds total cycle
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section 
       id="home" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-40"
     >
-      {/* Background Image with Zoom Effect */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-hero-zoom"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${heroImage})`,
-          backgroundAttachment: 'fixed'
-        }}
-      />
+      {/* Background Images with Fast Scrolling and Zoom Effect */}
+      <div className="absolute inset-0">
+        {heroImages.map((image, index) => {
+          // Special positioning for giraffe image (4th image, index 3)
+          const isGiraffe = index === 3;
+          const backgroundPosition = isGiraffe ? 'center top' : 'center center';
+          
+          return (
+            <div
+              key={index}
+              className={`absolute inset-0 bg-cover bg-no-repeat transition-all duration-1000 ease-in-out ${
+                index === currentImageIndex 
+                  ? 'opacity-100 scale-100' 
+                  : index === (currentImageIndex + 1) % heroImages.length
+                  ? 'opacity-0 scale-110 translate-x-full'
+                  : 'opacity-0 scale-95 -translate-x-full'
+              }`}
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${image})`,
+                backgroundPosition: backgroundPosition,
+                backgroundAttachment: 'fixed',
+                animation: index === currentImageIndex ? 'hero-zoom-smooth 5s ease-in-out infinite' : 'none'
+              }}
+            />
+          );
+        })}
+      </div>
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60" />
       
