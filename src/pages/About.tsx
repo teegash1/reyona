@@ -37,7 +37,7 @@ const About = () => {
       role: "Founder & CEO",
       experience: "12+ years",
       specialty: "Travel & Tourism",
-      image: kenyaLion,
+      image: "https://i.pinimg.com/736x/09/2e/6c/092e6ca37abceca8ad20c2a1c36fc492.jpg",
       description: "A passionate Kenyan entrepreneur, Yvonne's love for travel and deep connection to Kenya inspired her to create Reyona Safaris. She leads with vision and dedication to authentic experiences."
     },
     {
@@ -45,7 +45,7 @@ const About = () => {
       role: "Operations Manager",
       experience: "12+ years",
       specialty: "Cultural Tours",
-      image: luxuryCamp,
+      image: "https://i.pinimg.com/736x/c1/d2/66/c1d266f9b9e19dc1f2b86c74b5152b82.jpg",
       description: "Sarah specializes in cultural immersion experiences and manages our community partnerships across Kenya."
     },
     {
@@ -53,7 +53,7 @@ const About = () => {
       role: "Head Guide",
       experience: "18+ years",
       specialty: "Bird Watching",
-      image: heroSafari,
+      image: "https://i.pinimg.com/1200x/3e/f3/50/3ef350dc86cc82a092463e5d795654b5.jpg",
       description: "James is one of Kenya's most experienced guides with extensive knowledge of all major parks and reserves."
     }
   ];
@@ -222,7 +222,7 @@ const About = () => {
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden">
               <img 
-                src={kenyaLion} 
+                src="https://i.pinimg.com/736x/2c/56/16/2c5616a480d64e7e630dda8b138fcd78.jpg" 
                 alt="Conservation efforts"
                 className="w-full h-full object-cover"
               />
