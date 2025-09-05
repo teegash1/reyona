@@ -22,6 +22,7 @@ const Contact = () => {
     inquiryType: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [expandedFaqs, setExpandedFaqs] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     // Handle navigation state from other pages
@@ -159,6 +160,18 @@ const Contact = () => {
     const body = 'Greetings Reyona Safaris, kindly share some brochures, thanks.';
     const emailUrl = `mailto:booking@reyonasafaris.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.open(emailUrl, '_blank');
+  };
+
+  const toggleFaq = (index: number) => {
+    setExpandedFaqs(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
   };
 
   const contactInfo = [
@@ -495,12 +508,28 @@ const Contact = () => {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-          <div className="space-y-6">
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <Card key={index}>
-                <CardContent className="pt-6">
-                  <h3 className="text-lg font-semibold mb-3 text-kenya-purple">{faq.question}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+              <Card 
+                key={index} 
+                className="group cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl hover:shadow-kenya-gold/20 hover:scale-[1.01]"
+                onClick={() => toggleFaq(index)}
+              >
+                <CardContent className="pt-4 pb-4 md:pt-6 md:pb-6 transition-all duration-500">
+                  <h3 className="text-lg font-semibold mb-0 md:mb-3 text-kenya-purple group-hover:text-kenya-gold transition-all duration-300">
+                    {faq.question}
+                  </h3>
+                  <div className="overflow-hidden transition-all duration-500 ease-in-out">
+                    <p className={`text-muted-foreground leading-relaxed transition-all duration-500 ${
+                      // On mobile (below md breakpoint), show/hide based on click state
+                      // On desktop (md and above), show on hover with smooth expansion
+                      expandedFaqs.has(index) 
+                        ? 'max-h-96 opacity-100 translate-y-0 mt-3' 
+                        : 'max-h-0 opacity-0 -translate-y-2 mt-0 md:max-h-0 md:opacity-0 md:translate-y-0 md:mt-0 md:group-hover:max-h-96 md:group-hover:opacity-100 md:group-hover:translate-y-0 md:group-hover:mt-3'
+                    }`}>
+                      {faq.answer}
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
             ))}
