@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 md:pt-40"
+      className="relative min-h-screen flex items-center justify-center overflow-visible pt-32 md:pt-40"
     >
       {/* Background Images with Fast Scrolling and Zoom Effect */}
       <div className="absolute inset-0">
@@ -58,7 +58,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60" />
       
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-2 text-center text-white">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
         <div className="mb-6">
           <span className="inline-flex items-center px-4 py-2 bg-kenya-gold/20 border border-kenya-gold/30 rounded-full text-kenya-gold text-sm font-medium backdrop-blur-sm">
             <Award className="w-4 h-4 mr-2" />
@@ -66,9 +66,9 @@ const Hero = () => {
           </span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-relaxed">
           Adventure Inspired by
-          <span className="block bg-gradient-primary bg-clip-text text-transparent">
+          <span className="block text-kenya-gold leading-relaxed">
             the Wild Kenya
           </span>
         </h1>

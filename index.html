@@ -20,6 +20,11 @@
     <meta name="msapplication-TileColor" content="#7c3aed" />
     <meta name="msapplication-config" content="/browserconfig.xml" />
     
+    <!-- Cache Control Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    
     <title>Reyona Safaris - Premium African Safari Adventures</title>
     <meta name="description" content="Experience the magic of Kenya through expertly crafted safari adventures. Luxury accommodations, wildlife viewing, and cultural immersion in Africa's most spectacular destinations." />
     <meta name="keywords" content="Kenya safari, African wildlife, Masai Mara, luxury safari, wildlife photography, Kenya tours, African adventure" />
@@ -67,5 +72,31 @@
     </form>
     
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+              
+              // Check for updates
+              registration.addEventListener('updatefound', () => {
+                const newWorker = registration.installing;
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    // New content is available, reload the page
+                    window.location.reload();
+                  }
+                });
+              });
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>

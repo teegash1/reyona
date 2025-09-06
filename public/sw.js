@@ -1,49 +1,67 @@
-const CACHE_NAME = 'reyona-safaris-v1';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/static/js/bundle.js',
-  '/static/css/main.css',
-  '/favicon.ico',
-  '/favicon-64.png',
-  '/apple-touch-icon.png',
-  '/site.webmanifest'
-];
+// Use timestamp for cache versioning to ensure updates
+const CACHE_NAME = `reyona-safaris-v${Date.now()}`;
+const STATIC_CACHE = 'reyona-static-v1';
 
 // Install event - cache resources
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-  );
+  console.log('Service Worker installing...');
+  self.skipWaiting(); // Force activation of new service worker
 });
 
-// Fetch event - serve from cache when offline
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version or fetch from network
-        return response || fetch(event.request);
-      })
-  );
-});
-
-// Activate event - clean up old caches
+// Activate event - clean up old caches and take control
 self.addEventListener('activate', (event) => {
+  console.log('Service Worker activating...');
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
+          // Delete all old caches
             console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
-          }
         })
       );
+    }).then(() => {
+      // Take control of all pages immediately
+      return self.clients.claim();
+    })
+  );
+});
+
+// Fetch event - network first strategy for better updates
+self.addEventListener('fetch', (event) => {
+  // Skip non-GET requests
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  // Skip chrome-extension and other non-http requests
+  if (!event.request.url.startsWith('http')) {
+    return;
+  }
+
+  event.respondWith(
+    fetch(event.request)
+      .then((response) => {
+        // If network request succeeds, update cache and return response
+        if (response.status === 200) {
+          const responseClone = response.clone();
+          caches.open(STATIC_CACHE).then((cache) => {
+            cache.put(event.request, responseClone);
+          });
+        }
+        return response;
+      })
+      .catch(() => {
+        // If network fails, try to serve from cache
+        return caches.match(event.request).then((response) => {
+          if (response) {
+            return response;
+          }
+          // If no cache, return offline page or fallback
+          if (event.request.destination === 'document') {
+            return caches.match('/index.html');
+          }
+        });
     })
   );
 });

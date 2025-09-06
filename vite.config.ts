@@ -19,4 +19,20 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Generate manifest for better caching
+    manifest: true,
+    // Add hash to filenames for cache busting
+    rollupOptions: {
+      output: {
+        // Ensure consistent chunking
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+        },
+      },
+    },
+  },
+  // Ensure proper base path for deployment
+  base: '/',
 }));
