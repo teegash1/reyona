@@ -104,19 +104,19 @@ const Destinations = () => {
 
   return (
     <section id="destinations" className="py-20 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-2">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-kenya-purple/10 border border-kenya-purple/20 rounded-full text-kenya-purple text-sm font-medium mb-4">
             POPULAR DESTINATIONS
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-foreground px-4">
             Kenya's Wildlife
             <span className="block bg-gradient-primary bg-clip-text text-transparent">
               Treasures
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto px-4">
             Discover Kenya's most iconic national parks and reserves, each offering unique wildlife experiences 
             and unforgettable adventures in Africa's most spectacular wilderness destinations.
           </p>

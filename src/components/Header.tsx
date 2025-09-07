@@ -41,7 +41,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       {/* Top Contact Bar */}
       <div className="bg-muted/50 border-b border-border/50">
-        <div className="max-w-7xl mx-auto px-4 py-2">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-2">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div className="hidden md:flex items-center space-x-6">
               <div className="flex items-center space-x-2">
@@ -72,7 +72,7 @@ const Header = () => {
       </div>
 
       {/* Main Navigation */}
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link 
@@ -177,7 +177,7 @@ const Header = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-t border-border">
-          <nav className="max-w-7xl mx-auto px-4 py-4 space-y-3">
+          <nav className="w-full px-4 sm:px-6 lg:px-8 py-4 space-y-3">
             <a href="/" className={`block transition-colors font-medium ${isActive('/') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Home
             </a>

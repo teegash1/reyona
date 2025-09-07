@@ -38,19 +38,19 @@ const Experiences = () => {
 
   return (
     <section id="experiences" className="py-20 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-kenya-purple/10 border border-kenya-purple/20 rounded-full text-kenya-purple text-sm font-medium mb-4">
             UNIQUE EXPERIENCES
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-foreground px-4">
             Beyond Traditional
             <span className="block bg-gradient-primary bg-clip-text text-transparent">
               Safari Adventures
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto px-4">
             Immerse yourself in Kenya's rich culture, stunning landscapes, and diverse activities 
             that go beyond wildlife viewing to create truly transformative experiences.
           </p>

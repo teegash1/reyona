@@ -45,19 +45,19 @@ const SafariPackages = () => {
 
   return (
     <section id="safaris" className="py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-2">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-kenya-gold/10 border border-kenya-gold/20 rounded-full text-kenya-gold text-sm font-medium mb-4">
             SAFARI PACKAGES
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-foreground px-4">
             Curated Safari
             <span className="block bg-gradient-primary bg-clip-text text-transparent">
               Adventures
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto px-4">
             Discover Kenya's incredible wildlife through our carefully crafted safari experiences, 
             each designed to create unforgettable memories in Africa's most spectacular destinations.
           </p>

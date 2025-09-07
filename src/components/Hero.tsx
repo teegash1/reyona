@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center overflow-visible pt-32 md:pt-40"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24 md:pt-32 lg:pt-40"
     >
       {/* Background Images with Fast Scrolling and Zoom Effect */}
       <div className="absolute inset-0">
@@ -37,7 +37,7 @@ const Hero = () => {
           return (
             <div
               key={index}
-              className={`absolute inset-0 bg-cover bg-no-repeat transition-all duration-1000 ease-in-out ${
+              className={`absolute inset-0 bg-cover bg-no-repeat transition-all duration-1000 ease-in-out hero-bg-mobile ${
                 index === currentImageIndex 
                   ? 'opacity-100 scale-100' 
                   : index === (currentImageIndex + 1) % heroImages.length
@@ -47,8 +47,10 @@ const Hero = () => {
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${image})`,
                 backgroundPosition: backgroundPosition,
-                backgroundAttachment: 'fixed',
-                backgroundSize: 'cover'
+                backgroundAttachment: 'scroll',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                minHeight: '100vh'
               }}
             />
           );
@@ -58,8 +60,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60" />
       
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
-        <div className="mb-4 md:mb-6 px-4">
+      <div className="relative z-10 w-full px-4 sm:px-6 text-center text-white">
+        <div className="mb-4 md:mb-6">
           <span className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 bg-kenya-gold/20 border border-kenya-gold/30 rounded-full text-kenya-gold text-xs sm:text-sm font-medium backdrop-blur-sm">
             <Award className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
             <span className="hidden xs:inline">PREMIUM SAFARI EXPERIENCES</span>
@@ -67,19 +69,19 @@ const Hero = () => {
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight md:leading-relaxed">
+        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight md:leading-relaxed px-2">
           Adventure Inspired by
           <span className="block text-kenya-gold leading-tight md:leading-relaxed">
             the Wild Kenya
           </span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-3xl mx-auto text-gray-200 px-4">
+        <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-4xl mx-auto text-gray-200 px-4">
           Embark on extraordinary journeys through Kenya's magnificent landscapes. 
           Where every moment tells a story of wilderness and wonder.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 md:mb-12 px-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 md:mb-12">
           <Link to="/safaris">
             <Button variant="hero" size="lg" className="group w-full sm:w-auto">
               Explore Our Safaris
@@ -94,7 +96,7 @@ const Hero = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto">
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
               <Star className="w-4 h-4 sm:w-5 sm:h-5 text-kenya-gold mr-1" />
