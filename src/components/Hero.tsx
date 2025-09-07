@@ -48,7 +48,7 @@ const Hero = () => {
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${image})`,
                 backgroundPosition: backgroundPosition,
                 backgroundAttachment: 'fixed',
-                animation: index === currentImageIndex ? 'hero-zoom-smooth 5s ease-in-out infinite' : 'none'
+                backgroundSize: 'cover'
               }}
             />
           );
@@ -59,61 +59,62 @@ const Hero = () => {
       
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 text-center text-white">
-        <div className="mb-6">
-          <span className="inline-flex items-center px-4 py-2 bg-kenya-gold/20 border border-kenya-gold/30 rounded-full text-kenya-gold text-sm font-medium backdrop-blur-sm">
-            <Award className="w-4 h-4 mr-2" />
-            PREMIUM SAFARI EXPERIENCES
+        <div className="mb-4 md:mb-6 px-4">
+          <span className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 bg-kenya-gold/20 border border-kenya-gold/30 rounded-full text-kenya-gold text-xs sm:text-sm font-medium backdrop-blur-sm">
+            <Award className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
+            <span className="hidden xs:inline">PREMIUM SAFARI EXPERIENCES</span>
+            <span className="xs:hidden">PREMIUM SAFARIS</span>
           </span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-relaxed">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight md:leading-relaxed">
           Adventure Inspired by
-          <span className="block text-kenya-gold leading-relaxed">
+          <span className="block text-kenya-gold leading-tight md:leading-relaxed">
             the Wild Kenya
           </span>
         </h1>
 
-        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-200">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-3xl mx-auto text-gray-200 px-4">
           Embark on extraordinary journeys through Kenya's magnificent landscapes. 
           Where every moment tells a story of wilderness and wonder.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 md:mb-12 px-4">
           <Link to="/safaris">
-            <Button variant="hero" size="xl" className="group">
+            <Button variant="hero" size="lg" className="group w-full sm:w-auto">
               Explore Our Safaris
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
           <Link to="/about">
-            <Button variant="outline" size="xl">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto">
               About Us
             </Button>
           </Link>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto px-4">
           <div className="text-center">
             <div className="flex items-center justify-center mb-2">
-              <Star className="w-5 h-5 text-kenya-gold mr-1" />
-              <Star className="w-5 h-5 text-kenya-gold mr-1" />
-              <Star className="w-5 h-5 text-kenya-gold mr-1" />
-              <Star className="w-5 h-5 text-kenya-gold mr-1" />
-              <Star className="w-5 h-5 text-kenya-gold" />
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-kenya-gold mr-1" />
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-kenya-gold mr-1" />
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-kenya-gold mr-1" />
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-kenya-gold mr-1" />
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-kenya-gold" />
             </div>
-            <h3 className="text-3xl font-bold text-kenya-gold">5.0</h3>
-            <p className="text-gray-300">Customer Rating</p>
+            <h3 className="text-2xl sm:text-3xl font-bold text-kenya-gold">5.0</h3>
+            <p className="text-sm sm:text-base text-gray-300">Customer Rating</p>
           </div>
           
           <div className="text-center">
-            <h3 className="text-3xl font-bold text-kenya-gold">200+</h3>
-            <p className="text-gray-300">Safari Adventures</p>
+            <h3 className="text-2xl sm:text-3xl font-bold text-kenya-gold">200+</h3>
+            <p className="text-sm sm:text-base text-gray-300">Safari Adventures</p>
           </div>
           
           <div className="text-center">
-            <h3 className="text-3xl font-bold text-kenya-gold">15+</h3>
-            <p className="text-gray-300">Years Experience</p>
+            <h3 className="text-2xl sm:text-3xl font-bold text-kenya-gold">15+</h3>
+            <p className="text-sm sm:text-base text-gray-300">Years Experience</p>
           </div>
         </div>
       </div>

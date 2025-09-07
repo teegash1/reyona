@@ -123,23 +123,19 @@ export default {
 						transform: 'scale(1.1)'
 					}
 				},
-				'hero-zoom-smooth': {
-					'0%': {
-						transform: 'scale(1)'
-					},
-					'50%': {
-						transform: 'scale(1.08)'
-					},
-					'100%': {
-						transform: 'scale(1.15)'
-					}
-				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'hero-zoom': 'hero-zoom 60s ease-in-out infinite',
-				'hero-zoom-smooth': 'hero-zoom-smooth 5s ease-in-out infinite'
+				'hero-zoom': 'hero-zoom 60s ease-in-out infinite'
+			},
+			screens: {
+				'xs': '475px',
+				'sm': '640px',
+				'md': '768px',
+				'lg': '1024px',
+				'xl': '1280px',
+				'2xl': '1536px',
 			}
 		}
 	},
