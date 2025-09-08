@@ -6,7 +6,7 @@
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "theme_color": "#7c3aed",
+  "theme_color": "#800020",
   "background_color": "#ffffff",
   "categories": ["travel", "lifestyle", "business"],
   "lang": "en",

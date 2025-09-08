@@ -17,14 +17,28 @@ interface SplashScreenProps {
 const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   const [isVisible, setIsVisible] = useState(true);
   const [animationPhase, setAnimationPhase] = useState(0);
+  const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {
+    // Add splash-active class to body to prevent scrolling
+    document.body.classList.add('splash-active');
+    
     const timer = setTimeout(() => {
-      setIsVisible(false);
-      setTimeout(onComplete, 500); // Wait for fade out animation
+      setIsFadingOut(true);
+      setTimeout(() => {
+        setIsVisible(false);
+        setTimeout(() => {
+          // Remove splash-active class when splash is complete
+          document.body.classList.remove('splash-active');
+          onComplete();
+        }, 100);
+      }, 500); // Wait for fade out animation
     }, 3000); // Show splash for 3 seconds
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      document.body.classList.remove('splash-active');
+    };
   }, [onComplete]);
 
   useEffect(() => {
@@ -45,7 +59,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-kenya-gold via-kenya-burgundy to-kenya-purple overflow-hidden relative">
+    <div className={`splash-screen flex items-center justify-center bg-gradient-to-br from-kenya-gold via-kenya-burgundy to-kenya-purple overflow-hidden relative transition-opacity duration-500 ${isFadingOut ? 'opacity-0' : 'opacity-100'}`}>
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -85,8 +99,13 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
           <div className={`w-24 h-24 mx-auto rounded-full bg-white/10 backdrop-blur-sm border-2 border-kenya-gold/30 flex items-center justify-center transition-all duration-1000 ${
             animationPhase >= 0 ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
           }`}>
-            <div className="w-16 h-16 bg-gradient-to-br from-kenya-gold to-kenya-burgundy rounded-full flex items-center justify-center animate-pulse-gentle">
-              <span className="text-2xl font-bold text-white">R</span>
+            <div className="w-16 h-16 bg-gradient-to-br from-kenya-gold to-kenya-burgundy rounded-full flex items-center justify-center animate-pulse-gentle overflow-hidden">
+              <img 
+                src="/favicon-64.png" 
+                alt="Reyona Safaris" 
+                className="w-12 h-12 object-contain"
+                style={{ filter: 'brightness(0) invert(1)' }}
+              />
             </div>
           </div>
         </div>
