@@ -44,34 +44,39 @@ const SafariPartners = () => {
 
   const partners = [
     {
-      name: "Kenya Wildlife Service",
-      logo: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=100&h=60&auto=format&fit=crop&ixlib=rb-4.1.0",
-      description: "Wildlife Conservation"
+      name: "Tour Operators Society Of Kenya",
+      logo: "https://media.licdn.com/dms/image/v2/C4D0BAQGfg4zaC40NQw/company-logo_200_200/company-logo_200_200/0/1653913250452?e=2147483647&v=beta&t=9CnEyPc-ZYoUNkVP_1iP_r_kdOpwLq63DMKDetbUynk",
+      description: "Tour Operators Society"
     },
     {
-      name: "Tourism Regulatory Authority",
-      logo: "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?q=80&w=100&h=60&auto=format&fit=crop&ixlib=rb-4.1.0",
-      description: "Tourism Regulation"
+      name: "Magical Kenya",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhFFQaHC4-XmaUdMWi5mjk46Pkozjux2WVJw&s",
+      description: "Destination Marketing"
     },
     {
       name: "Eco Tourism Kenya",
-      logo: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=100&h=60&auto=format&fit=crop&ixlib=rb-4.1.0",
+      logo: "https://ecotourismkenya.org/wp-content/uploads/2023/01/EK-Revised-Logo_340x263.gif",
       description: "Sustainable Tourism"
     },
     {
+      name: "Tourism Regulatory Authority",
+      logo: "https://pbs.twimg.com/profile_images/1275038009243697153/fXbsqS7H_400x400.jpg",
+      description: "Tourism Regulation"
+    },
+    {
+      name: "Kenya Wildlife Service",
+      logo: "https://ktf.co.ke/wp-content/uploads/2021/01/KTF-LOGO-1-1.png",
+      description: "Wildlife Conservation"
+    },
+    {
       name: "AMREF Flying Doctors",
-      logo: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?q=80&w=100&h=60&auto=format&fit=crop&ixlib=rb-4.1.0",
+      logo: "https://i0.wp.com/atcnews.org/wp-content/uploads/2023/10/Flying-Doctors-logo.jpg?fit=661%2C382&ssl=1",
       description: "Medical Emergency Services"
     },
     {
-      name: "Tourism Sector Council",
-      logo: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=100&h=60&auto=format&fit=crop&ixlib=rb-4.1.0",
-      description: "Industry Standards"
-    },
-    {
       name: "Kenya Tourism Board",
-      logo: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=100&h=60&auto=format&fit=crop&ixlib=rb-4.1.0",
-      description: "Destination Marketing"
+      logo: "https://media.licdn.com/dms/image/v2/D4D0BAQGXDCv8yAjwVw/company-logo_200_200/company-logo_200_200/0/1714655689112/kenya_tourism_board_logo?e=2147483647&v=beta&t=an7K5vcByTzSfHGfjQzuK5Db-TGGery_gWmg7f4-0os",
+      description: "Tourism Development"
     }
   ];
 
