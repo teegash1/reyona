@@ -81,7 +81,7 @@ const SafariPartners = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-kenya-burgundy via-kenya-purple to-kenya-burgundy relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -104,31 +104,23 @@ const SafariPartners = () => {
         </div>
 
         {/* Scrolling Partners */}
-        <div className="relative">
+        <div className="relative px-4">
           <div 
             ref={scrollContainerRef}
-            className="flex space-x-8 md:space-x-12 lg:space-x-16 overflow-hidden"
+            className="flex space-x-4 md:space-x-6 overflow-hidden"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {/* First set of partners */}
             {partners.map((partner, index) => (
               <div
                 key={`first-${index}`}
-                className="flex-shrink-0 flex flex-col items-center justify-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 min-w-[200px] md:min-w-[240px]"
+                className="flex-shrink-0 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-32 h-20 md:w-40 md:h-24"
               >
-                <div className="w-16 h-16 md:w-20 md:h-20 mb-4 rounded-full overflow-hidden bg-white/20 flex items-center justify-center">
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-white font-semibold text-sm md:text-base text-center mb-2">
-                  {partner.name}
-                </h3>
-                <p className="text-white/70 text-xs md:text-sm text-center">
-                  {partner.description}
-                </p>
+                <img
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  className="w-full h-full object-contain p-2"
+                />
               </div>
             ))}
             
@@ -136,21 +128,13 @@ const SafariPartners = () => {
             {partners.map((partner, index) => (
               <div
                 key={`second-${index}`}
-                className="flex-shrink-0 flex flex-col items-center justify-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 min-w-[200px] md:min-w-[240px]"
+                className="flex-shrink-0 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-32 h-20 md:w-40 md:h-24"
               >
-                <div className="w-16 h-16 md:w-20 md:h-20 mb-4 rounded-full overflow-hidden bg-white/20 flex items-center justify-center">
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-white font-semibold text-sm md:text-base text-center mb-2">
-                  {partner.name}
-                </h3>
-                <p className="text-white/70 text-xs md:text-sm text-center">
-                  {partner.description}
-                </p>
+                <img
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  className="w-full h-full object-contain p-2"
+                />
               </div>
             ))}
           </div>

@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from 'luci
 
 const Footer = () => {
   return (
-    <footer className="bg-background border-t border-border">
+    <footer className="bg-background border-t border-border mt-16">
       {/* Newsletter Section */}
       <div className="bg-gradient-primary py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
