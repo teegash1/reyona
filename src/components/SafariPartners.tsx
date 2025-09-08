@@ -65,7 +65,7 @@ const SafariPartners = () => {
     },
     {
       name: "Kenya Wildlife Service",
-      logo: "https://ktf.co.ke/wp-content/uploads/2021/01/KTF-LOGO-1-1.png",
+      logo: "https://kenyaclimatedirectory.org/assets/images/events/3ac384670ae76ff7ce548da01956c96b.png",
       description: "Wildlife Conservation"
     },
     {
