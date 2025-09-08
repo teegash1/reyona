@@ -109,19 +109,6 @@ const PopularDestinations = () => {
       price: 'From $420/day'
     },
     {
-      id: 'mount-kenya',
-      name: 'Mount Kenya National Park',
-      tagline: 'Africa\'s Second Highest Peak',
-      description: 'UNESCO World Heritage site offering trekking, diverse ecosystems, and alpine landscapes.',
-      image: "https://i.pinimg.com/1200x/05/e8/31/05e831f17b50fe0f1d7c8f599cdd1b66.jpg",
-      highlights: ['Mountain Climbing', 'Alpine Lakes', 'Unique Flora', 'UNESCO Heritage'],
-      bestTime: 'January - February, September - October',
-      duration: '3-5 days',
-      difficulty: 'Challenging',
-      rating: 4.6,
-      price: 'From $380/day'
-    },
-    {
       id: 'diani-beach',
       name: 'Diani Beach',
       tagline: 'Paradise Found',
@@ -160,7 +147,7 @@ const PopularDestinations = () => {
             Kenya's Wildlife Treasures
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            From the legendary Masai Mara to the towering peaks of Mount Kenya, each destination offers 
+            From the legendary Masai Mara to the pristine beaches of Diani, each destination offers 
             its own unique character, wildlife, and unforgettable experiences. Whether you're seeking 
             the Great Migration, intimate cultural encounters, or challenging mountain adventures, 
             Kenya's diverse landscapes provide the perfect backdrop for your safari dreams.
@@ -264,7 +251,7 @@ const PopularDestinations = () => {
                 <CardContent className="pt-8 pb-6">
                   <Users className="w-12 h-12 mx-auto mb-4 text-kenya-gold" />
                   <h3 className="text-xl font-semibold mb-3">Northern Adventure</h3>
-                  <p className="text-white/80 text-sm mb-4">Samburu + Mount Kenya + Aberdares</p>
+                  <p className="text-white/80 text-sm mb-4">Samburu + Aberdares + Lake Nakuru</p>
                   <p className="text-white/70 text-xs">8-12 days • Off the beaten path</p>
                 </CardContent>
               </Card>

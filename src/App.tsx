@@ -18,7 +18,6 @@ import TsavoEast from "./pages/destinations/TsavoEast";
 import TsavoWest from "./pages/destinations/TsavoWest";
 import LakeNakuru from "./pages/destinations/LakeNakuru";
 import Samburu from "./pages/destinations/Samburu";
-import MountKenya from "./pages/destinations/MountKenya";
 import DianiBeach from "./pages/destinations/DianiBeach";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -49,7 +48,6 @@ const App = () => {
             <Route path="/destinations/tsavo-west" element={<TsavoWest />} />
             <Route path="/destinations/lake-nakuru" element={<LakeNakuru />} />
             <Route path="/destinations/samburu" element={<Samburu />} />
-            <Route path="/destinations/mount-kenya" element={<MountKenya />} />
             <Route path="/destinations/diani-beach" element={<DianiBeach />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />

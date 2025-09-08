@@ -75,19 +75,6 @@ const Destinations = () => {
       price: 'From $420/day'
     },
     {
-      id: 'mount-kenya',
-      name: 'Mount Kenya National Park',
-      tagline: 'Africa\'s Second Highest Peak',
-      description: 'UNESCO World Heritage site offering trekking, diverse ecosystems, and alpine landscapes.',
-      image: heroSafari,
-      highlights: ['Mountain Climbing', 'Alpine Lakes', 'Unique Flora', 'UNESCO Heritage'],
-      bestTime: 'January - February, September - October',
-      duration: '3-5 days',
-      difficulty: 'Challenging',
-      rating: 4.6,
-      price: 'From $380/day'
-    },
-    {
       id: 'diani-beach',
       name: 'Diani Beach',
       tagline: 'Paradise Found',

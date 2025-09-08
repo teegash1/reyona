@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Camera, Heart, Mountain, Users2, Tent, Utensils } from 'lucide-react';
+import { Camera, Heart, Wind, Users2, Tent, Utensils } from 'lucide-react';
 // Updated to use external images for better quality and variety
 // import heroSafari from '@/assets/hero-safari.jpg';
 // import luxuryCamp from '@/assets/luxury-camp.jpg';
@@ -40,12 +40,12 @@ const Experiences = () => {
       price: "From $800"
     },
     {
-      icon: Mountain,
-      title: "Mount Kenya Climbing",
-      description: "Conquer Africa's second highest peak with experienced guides.",
-      image: "https://i.pinimg.com/736x/82/df/f0/82dff08b776c6b1adf1d48729723b01d.jpg",
-      duration: "5-7 days",
-      price: "From $1,500"
+      icon: Wind,
+      title: "Hot Air Balloon Safari",
+      description: "Soar above the savanna at sunrise for breathtaking aerial views of wildlife.",
+      image: "https://www.masaimaraballoons.com/images/main_slider.jpg",
+      duration: "Half day",
+      price: "From $450"
     },
     {
       icon: Users2,

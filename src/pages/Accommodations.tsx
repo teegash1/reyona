@@ -65,17 +65,6 @@ const Accommodations = () => {
       features: ["Special Five Wildlife", "Cultural Visits", "River Views", "Luxury Tents"],
       description: "A sophisticated lodge offering luxury tented accommodation with views of the Ewaso Nyiro River and access to Samburu's unique wildlife."
     },
-    {
-      id: 6,
-      name: "Mount Kenya Lodge",
-      location: "Mount Kenya National Park",
-      type: "Mountain Lodge",
-      rating: 4.7,
-      price: "From $380/night",
-      image: kenyaLion,
-      features: ["Mountain Views", "Hiking Trails", "Alpine Scenery", "Adventure Activities"],
-      description: "Nestled in the foothills of Mount Kenya, this lodge offers stunning mountain views and access to hiking and adventure activities."
-    }
   ];
 
   const categories = [

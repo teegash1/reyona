@@ -35,7 +35,6 @@ const CustomSafari = () => {
     'Tsavo West National Park',
     'Lake Nakuru National Park',
     'Samburu National Reserve',
-    'Mount Kenya National Park',
     'Aberdare National Park',
     'Hell\'s Gate National Park',
     'Lake Naivasha',

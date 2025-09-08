@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Camera, Heart, Mountain, Users2, Tent, Utensils } from 'lucide-react';
+import { Camera, Heart, Wind, Users2, Tent, Utensils } from 'lucide-react';
 
 const Experiences = () => {
   const experiences = [
@@ -15,9 +15,9 @@ const Experiences = () => {
       description: "Meet local Maasai communities and learn their ancient traditions."
     },
     {
-      icon: Mountain,
-      title: "Mount Kenya Climbing",
-      description: "Conquer Africa's second highest peak with experienced guides."
+      icon: Wind,
+      title: "Hot Air Balloon Safari",
+      description: "Soar above the savanna at sunrise for breathtaking aerial views of wildlife."
     },
     {
       icon: Users2,

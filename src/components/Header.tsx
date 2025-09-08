@@ -31,7 +31,6 @@ const Header = () => {
     { name: 'Amboseli', path: '/destinations/amboseli' },
     { name: 'Lake Nakuru', path: '/destinations/lake-nakuru' },
     { name: 'Samburu', path: '/destinations/samburu' },
-    { name: 'Mount Kenya', path: '/destinations/mount-kenya' },
     { name: 'Tsavo East', path: '/destinations/tsavo-east' },
     { name: 'Tsavo West', path: '/destinations/tsavo-west' },
     { name: 'Diani Beach', path: '/destinations/diani-beach' }
