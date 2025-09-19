@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Cookie, Settings, Eye, Shield, Info, XCircle, CheckCircle, Clock, Mail, Phone, MapPin } from 'lucide-react';
+import { Compass, Users, Heart, Star, Gift, Info, Mail, Phone, MapPin, DollarSign } from 'lucide-react';
 
 const CookiePolicy = () => {
   return (
@@ -12,10 +12,10 @@ const CookiePolicy = () => {
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Cookie Policy
+            Guide Policy
           </h1>
           <p className="text-lg md:text-xl text-white/90">
-            Understanding how we use cookies to enhance your experience
+            Discover East Africa through the expertise of our local guides
           </p>
         </div>
       </section>
@@ -35,392 +35,129 @@ const CookiePolicy = () => {
             {/* Introduction */}
             <div className="mb-12">
               <h2 className="text-2xl font-bold text-kenya-purple mb-4 flex items-center gap-2">
-                <Cookie className="w-6 h-6" />
-                Introduction
+                <Compass className="w-6 h-6" />
+                Discover Kenya & Tanzania Through the Eyes of our Local Experts
               </h2>
               <p className="text-gray-700 mb-4">
-                This Cookie Policy explains how Reyona Safaris ("we," "our," or "us") uses cookies and similar technologies on our website to enhance your browsing experience, analyze website traffic, and provide personalized content.
+                Our immersive Kenya and Tanzania tours are led by passionate local guides, born and raised in East Africa. They are not just guides, they are storytellers, cultural ambassadors, and wildlife enthusiasts with an unparalleled understanding of the land, its people, and its wildlife.
+              </p>
+              <p className="text-gray-700 mb-4">
+                Go beyond the typical tourist experience and uncover hidden gems, connect with communities, and gain authentic insights into the heart of East Africa. With our local guides, you are not just seeing Kenya and Tanzania, you are experiencing them.
               </p>
               <p className="text-gray-700">
-                By continuing to use our website, you consent to our use of cookies in accordance with this policy. You can manage your cookie preferences at any time through your browser settings or our cookie consent banner.
+                Benefit from their insider knowledge, discover secret spots, and create memories that will last a lifetime.
               </p>
             </div>
 
-            {/* What Are Cookies */}
+            {/* Why Travel With Our Local Guides */}
             <div className="mb-12">
-              <h2 className="text-2xl font-bold text-kenya-purple mb-4">What Are Cookies?</h2>
-              
-              <div className="bg-kenya-purple/10 p-6 rounded-lg border border-kenya-purple/20">
-                <p className="text-gray-700 mb-4">
-                  Cookies are small text files that are stored on your device (computer, tablet, or mobile phone) when you visit a website. They help websites remember information about your visit, such as your preferred language and other settings, which can make your next visit easier and more useful.
-                </p>
-                
-                <div className="grid md:grid-cols-3 gap-4 mt-4">
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-kenya-gold/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <Info className="w-6 h-6 text-kenya-gold" />
-                    </div>
-                    <p className="text-sm font-medium text-kenya-gold">Information Storage</p>
+              <h2 className="text-2xl font-bold text-kenya-purple mb-4">Why Travel With Our Local Guides</h2>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="bg-kenya-purple/10 p-6 rounded-lg border border-kenya-purple/20 text-center">
+                  <div className="w-12 h-12 bg-kenya-gold/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Users className="w-6 h-6 text-kenya-gold" />
                   </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-kenya-gold/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <Clock className="w-6 h-6 text-kenya-gold" />
-                    </div>
-                    <p className="text-sm font-medium text-kenya-gold">Session Management</p>
+                  <h3 className="font-semibold text-kenya-gold mb-2">Authentic Connections</h3>
+                  <p className="text-gray-700 text-sm">Engage with local communities and cultures in a respectful, meaningful way.</p>
+                </div>
+                <div className="bg-kenya-purple/10 p-6 rounded-lg border border-kenya-purple/20 text-center">
+                  <div className="w-12 h-12 bg-kenya-gold/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Star className="w-6 h-6 text-kenya-gold" />
                   </div>
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-kenya-gold/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <Settings className="w-6 h-6 text-kenya-gold" />
-                    </div>
-                    <p className="text-sm font-medium text-kenya-gold">Preferences</p>
+                  <h3 className="font-semibold text-kenya-gold mb-2">Insider Knowledge</h3>
+                  <p className="text-gray-700 text-sm">Discover hidden gems and secret spots that typical tours miss.</p>
+                </div>
+                <div className="bg-kenya-purple/10 p-6 rounded-lg border border-kenya-purple/20 text-center">
+                  <div className="w-12 h-12 bg-kenya-gold/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Heart className="w-6 h-6 text-kenya-gold" />
                   </div>
+                  <h3 className="font-semibold text-kenya-gold mb-2">Passion for Wildlife</h3>
+                  <p className="text-gray-700 text-sm">Travel with guides who live and breathe East Africa’s wilderness.</p>
                 </div>
               </div>
             </div>
 
-            {/* Types of Cookies We Use */}
+            {/* Tipping Guidelines */}
             <div className="mb-12">
               <h2 className="text-2xl font-bold text-kenya-purple mb-4 flex items-center gap-2">
-                <Eye className="w-6 h-6" />
-                Types of Cookies We Use
+                <Gift className="w-6 h-6" />
+                Tipping Guidelines
               </h2>
-              
-              <div className="space-y-6">
-                {/* Essential Cookies */}
-                <div className="border border-kenya-gold rounded-lg p-6 bg-kenya-gold/10">
-                  <div className="flex items-center gap-3 mb-3">
-                    <CheckCircle className="w-6 h-6 text-kenya-gold" />
-                    <h3 className="text-xl font-semibold text-kenya-gold">Essential Cookies</h3>
-                  </div>
-                  <p className="text-kenya-gold/80 mb-3">
-                    These cookies are necessary for the website to function properly and cannot be disabled. They do not store any personally identifiable information.
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <h4 className="font-semibold text-kenya-gold mb-2">Purpose:</h4>
-                      <ul className="text-kenya-gold/80 text-sm space-y-1">
-                        <li>• Maintain user sessions</li>
-                        <li>• Process form submissions</li>
-                        <li>• Security and fraud prevention</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-kenya-gold mb-2">Duration:</h4>
-                      <p className="text-kenya-gold/80 text-sm">Session or up to 1 year</p>
-                      <h4 className="font-semibold text-kenya-gold mb-2 mt-3">Examples:</h4>
-                      <p className="text-kenya-gold/80 text-sm">Shopping cart, security, form processing</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Analytics Cookies */}
-                <div className="border border-kenya-purple rounded-lg p-6 bg-kenya-purple/10">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Info className="w-6 h-6 text-kenya-purple" />
-                    <h3 className="text-xl font-semibold text-kenya-purple">Analytics Cookies</h3>
-                  </div>
-                  <p className="text-kenya-purple/80 mb-3">
-                    These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <h4 className="font-semibold text-kenya-purple mb-2">Purpose:</h4>
-                      <ul className="text-kenya-purple/80 text-sm space-y-1">
-                        <li>• Website traffic analysis</li>
-                        <li>• User behavior insights</li>
-                        <li>• Performance optimization</li>
-                        <li>• Content improvement</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-kenya-purple mb-2">Duration:</h4>
-                      <p className="text-kenya-purple/80 text-sm">Up to 2 years</p>
-                      <h4 className="font-semibold text-kenya-purple mb-2 mt-3">Examples:</h4>
-                      <p className="text-kenya-purple/80 text-sm">Google Analytics, page views, time on site</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Functional Cookies */}
-                <div className="border border-kenya-burgundy rounded-lg p-6 bg-kenya-burgundy/10">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Settings className="w-6 h-6 text-kenya-burgundy" />
-                    <h3 className="text-xl font-semibold text-kenya-burgundy">Functional Cookies</h3>
-                  </div>
-                  <p className="text-kenya-burgundy/80 mb-3">
-                    These cookies enable enhanced functionality and personalization, such as remembering your preferences and choices.
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <h4 className="font-semibold text-kenya-burgundy mb-2">Purpose:</h4>
-                      <ul className="text-kenya-burgundy/80 text-sm space-y-1">
-                        <li>• Remember user preferences</li>
-                        <li>• Language and region settings</li>
-                        <li>• Customized content</li>
-                        <li>• Enhanced user experience</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-kenya-burgundy mb-2">Duration:</h4>
-                      <p className="text-kenya-burgundy/80 text-sm">Up to 1 year</p>
-                      <h4 className="font-semibold text-kenya-burgundy mb-2 mt-3">Examples:</h4>
-                      <p className="text-kenya-burgundy/80 text-sm">Language preference, theme selection, form data</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Marketing Cookies */}
-                <div className="border border-kenya-gold rounded-lg p-6 bg-kenya-gold/10">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Cookie className="w-6 h-6 text-kenya-gold" />
-                    <h3 className="text-xl font-semibold text-kenya-gold">Marketing Cookies</h3>
-                  </div>
-                  <p className="text-kenya-gold/80 mb-3">
-                    These cookies are used to track visitors across websites to display relevant and engaging advertisements.
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <h4 className="font-semibold text-kenya-gold mb-2">Purpose:</h4>
-                      <ul className="text-kenya-gold/80 text-sm space-y-1">
-                        <li>• Targeted advertising</li>
-                        <li>• Social media integration</li>
-                        <li>• Campaign tracking</li>
-                        <li>• Remarketing</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-kenya-gold mb-2">Duration:</h4>
-                      <p className="text-kenya-gold/80 text-sm">Up to 2 years</p>
-                      <h4 className="font-semibold text-kenya-gold mb-2 mt-3">Examples:</h4>
-                      <p className="text-kenya-gold/80 text-sm">Facebook Pixel, Google Ads, social sharing</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Specific Cookies Used */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold text-kenya-purple mb-4">Specific Cookies We Use</h2>
-              
-              <div className="overflow-x-auto">
-                <table className="w-full border border-gray-200 rounded-lg">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700 border-b">Cookie Name</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700 border-b">Purpose</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700 border-b">Duration</th>
-                      <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700 border-b">Type</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    <tr>
-                      <td className="px-4 py-3 text-sm font-bold text-kenya-purple">session_id</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Maintain user session</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Session</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Essential</td>
-                    </tr>
-                    <tr>
-                      <td className="px-4 py-3 text-sm font-bold text-kenya-purple">_ga</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Google Analytics tracking</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">2 years</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Analytics</td>
-                    </tr>
-                    <tr>
-                      <td className="px-4 py-3 text-sm font-bold text-kenya-purple">_gid</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Google Analytics session</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">24 hours</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Analytics</td>
-                    </tr>
-                    <tr>
-                      <td className="px-4 py-3 text-sm font-bold text-kenya-purple">language</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Language preference</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">1 year</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Functional</td>
-                    </tr>
-                    <tr>
-                      <td className="px-4 py-3 text-sm font-bold text-kenya-purple">theme</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Theme preference</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">1 year</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Functional</td>
-                    </tr>
-                    <tr>
-                      <td className="px-4 py-3 text-sm font-bold text-kenya-purple">fbp</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Facebook Pixel tracking</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">3 months</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">Marketing</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* Third-Party Cookies */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold text-kenya-purple mb-4">Third-Party Cookies</h2>
-              
-              <p className="text-gray-700 mb-4">
-                Some cookies on our website are set by third-party services that we use to enhance functionality and analyze website performance.
+              <p className="text-gray-700 mb-6">
+                At Reyona, we believe in recognizing the hard work of our dedicated guides and staff who make your journey unforgettable. Tipping is a personal choice, and while it’s not mandatory, it is a wonderful way to acknowledge exceptional service and enhance the livelihoods of those who work hard to make your safari unforgettable.
               </p>
-              
+              <div className="space-y-8">
+                <div className="border border-kenya-gold rounded-lg p-6 bg-kenya-gold/10">
+                  <h3 className="text-xl font-semibold text-kenya-gold mb-2">For Your Guides</h3>
+                  <ul className="list-disc pl-6 text-kenya-gold/90 space-y-2">
+                    <li>
+                      <span className="font-medium">Safari Guides:</span> We recommend a gratuity of $10 to $15 USD per guest per day for your safari guide. Their expertise, local knowledge, and passion for wildlife ensure you have an enriching experience.
+                    </li>
+                    <li>
+                      <span className="font-medium">Driver-Guide:</span> If your guide also drives, consider an additional $5 to $10 USD per guest per day for their dual role in enhancing your journey.
+                    </li>
+                  </ul>
+                </div>
+                <div className="border border-kenya-purple rounded-lg p-6 bg-kenya-purple/10">
+                  <h3 className="text-xl font-semibold text-kenya-purple mb-2">For Lodge and Camp Staff</h3>
+                  <p className="text-kenya-purple/90">A tip of $5 to $10 USD per guest per day is a thoughtful way to show appreciation for the hard work of the staff who take care of you during your stay. This can often be pooled and divided among the team.</p>
+                </div>
+                <div className="border border-kenya-burgundy rounded-lg p-6 bg-kenya-burgundy/10">
+                  <h3 className="text-xl font-semibold text-kenya-burgundy mb-2">For Local Community Experiences</h3>
+                  <p className="text-kenya-burgundy/90">If you participate in community visits or cultural experiences, a tip of $5 to $10 USD for local guides is a kind gesture that supports their efforts and communities.</p>
+                </div>
+                <div className="bg-kenya-purple/10 border border-kenya-purple/20 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-kenya-purple mb-2 flex items-center gap-2"><DollarSign className="w-5 h-5" />General Tips</h3>
+                  <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                    <li><span className="font-medium">Cash Tips:</span> We recommend tipping in cash, as it allows guides and staff to receive the full amount directly.</li>
+                    <li><span className="font-medium">Discretion:</span> Tipping should reflect your satisfaction with the service received. If you feel your guide or staff went above and beyond, feel free to adjust your tip accordingly.</li>
+                    <li><span className="font-medium">Group Considerations:</span> If traveling in a group, consider collectively deciding on a tipping amount for guides and staff to streamline the process.</li>
+                  </ul>
+                </div>
+                <div className="bg-kenya-gold/10 border border-kenya-gold/30 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-kenya-gold mb-2">A Note on Gratitude</h3>
+                  <p className="text-kenya-gold/80">Tipping is a wonderful way to express your gratitude for the exceptional service you receive. Your generosity not only rewards individual effort but also supports local economies and communities. We hope these guidelines enhance your safari experience, allowing you to show appreciation in a meaningful way.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Helpful Information */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-kenya-purple mb-4">Helpful Information</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-kenya-purple/10 p-4 rounded-lg border border-kenya-purple/20">
-                  <h4 className="font-semibold text-kenya-gold mb-2">Google Analytics</h4>
-                  <p className="text-gray-700 text-sm mb-2">
-                    Helps us understand how visitors use our website and improve user experience.
-                  </p>
-                  <p className="text-xs text-gray-700">
-                    <strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" className="text-kenya-gold hover:underline">Google Privacy Policy</a>
-                  </p>
+                  <h4 className="font-semibold text-kenya-gold mb-2">Travel Pace & Comfort</h4>
+                  <p className="text-gray-700 text-sm">Our guides tailor each day to your comfort level and preferences, ensuring a balanced blend of adventure and relaxation.</p>
                 </div>
-                
                 <div className="bg-kenya-purple/10 p-4 rounded-lg border border-kenya-purple/20">
-                  <h4 className="font-semibold text-kenya-gold mb-2">Facebook Pixel</h4>
-                  <p className="text-gray-700 text-sm mb-2">
-                    Enables us to measure the effectiveness of our advertising campaigns.
-                  </p>
-                  <p className="text-xs text-gray-700">
-                    <strong>Privacy Policy:</strong> <a href="https://www.facebook.com/policy.php" className="text-kenya-gold hover:underline">Facebook Privacy Policy</a>
-                  </p>
+                  <h4 className="font-semibold text-kenya-gold mb-2">Wildlife Etiquette</h4>
+                  <p className="text-gray-700 text-sm">We uphold responsible wildlife viewing with respect for animals, habitats, and park rules at all times.</p>
                 </div>
-                
                 <div className="bg-kenya-purple/10 p-4 rounded-lg border border-kenya-purple/20">
-                  <h4 className="font-semibold text-kenya-gold mb-2">Payment Processors</h4>
-                  <p className="text-gray-700 text-sm mb-2">
-                    Secure payment processing and fraud prevention services.
-                  </p>
-                  <p className="text-xs text-gray-700">
-                    <strong>Examples:</strong> Stripe, PayPal, M-Pesa
-                  </p>
+                  <h4 className="font-semibold text-kenya-gold mb-2">Community Respect</h4>
+                  <p className="text-gray-700 text-sm">We encourage mindful interactions and support fair-trade cultural experiences that benefit local communities.</p>
                 </div>
-                
                 <div className="bg-kenya-purple/10 p-4 rounded-lg border border-kenya-purple/20">
-                  <h4 className="font-semibold text-kenya-gold mb-2">Social Media</h4>
-                  <p className="text-gray-700 text-sm mb-2">
-                    Social sharing buttons and embedded content from social platforms.
-                  </p>
-                  <p className="text-xs text-gray-700">
-                    <strong>Examples:</strong> Facebook, Instagram, Twitter
-                  </p>
+                  <h4 className="font-semibold text-kenya-gold mb-2">Safety First</h4>
+                  <p className="text-gray-700 text-sm">Your guide will brief you on safety best practices and is trained for emergency response across our routes.</p>
                 </div>
               </div>
-            </div>
-
-            {/* Managing Your Cookie Preferences */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold text-kenya-purple mb-4 flex items-center gap-2">
-                <Settings className="w-6 h-6" />
-                Managing Your Cookie Preferences
-              </h2>
-              
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold text-kenya-gold mb-3">Browser Settings</h3>
-                  <p className="text-gray-700 mb-4">
-                    You can control and manage cookies through your browser settings. Most browsers allow you to:
-                  </p>
-                  <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                    <li>View and delete existing cookies</li>
-                    <li>Block cookies from specific websites</li>
-                    <li>Block all cookies</li>
-                    <li>Set preferences for different types of cookies</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-kenya-gold mb-3">Cookie Consent Banner</h3>
-                  <p className="text-gray-700 mb-4">
-                    When you first visit our website, you'll see a cookie consent banner that allows you to:
-                  </p>
-                  <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                    <li>Accept all cookies</li>
-                    <li>Reject non-essential cookies</li>
-                    <li>Customize your preferences</li>
-                    <li>Learn more about our cookie usage</li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-kenya-gold mb-3">Opt-Out Options</h3>
-                  <p className="text-gray-700 mb-4">
-                    For specific third-party services, you can opt out directly:
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-kenya-purple/10 p-3 rounded border border-kenya-purple/20">
-                      <p className="font-medium text-sm mb-2">Google Analytics</p>
-                      <a href="https://tools.google.com/dlpage/gaoptout" className="text-kenya-gold text-sm hover:underline">Google Analytics Opt-out</a>
-                    </div>
-                    <div className="bg-kenya-purple/10 p-3 rounded border border-kenya-purple/20">
-                      <p className="font-medium text-sm mb-2">Facebook</p>
-                      <a href="https://www.facebook.com/settings?tab=ads" className="text-kenya-gold text-sm hover:underline">Facebook Ad Preferences</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Impact of Disabling Cookies */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold text-kenya-purple mb-4">Impact of Disabling Cookies</h2>
-              
-              <div className="bg-kenya-gold/10 border border-kenya-gold/30 rounded-lg p-6">
-                <h4 className="font-semibold text-kenya-gold mb-3">Important Notice</h4>
-                <p className="text-kenya-gold/80 mb-4">
-                  While you can disable cookies, please note that some features of our website may not function properly without them:
-                </p>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h5 className="font-semibold text-kenya-gold mb-2">Essential Features</h5>
-                    <ul className="text-kenya-gold/80 text-sm space-y-1">
-                      <li>• Shopping cart functionality</li>
-                      <li>• Form submissions</li>
-                      <li>• Security features</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h5 className="font-semibold text-kenya-gold mb-2">Enhanced Features</h5>
-                    <ul className="text-kenya-gold/80 text-sm space-y-1">
-                      <li>• Personalized content</li>
-                      <li>• Language preferences</li>
-                      <li>• Analytics and insights</li>
-                      <li>• Marketing optimization</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Updates to Cookie Policy */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold text-kenya-purple mb-4">Updates to This Cookie Policy</h2>
-              
-              <p className="text-gray-700 mb-4">
-                We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons.
-              </p>
-              
-              <p className="text-gray-700">
-                We will notify you of any material changes by posting the updated policy on our website and updating the "Last Updated" date. Your continued use of our website after such changes constitutes acceptance of the updated policy.
-              </p>
             </div>
 
             {/* Contact Information */}
             <div className="bg-kenya-purple/15 border border-kenya-purple/30 rounded-lg p-6">
               <h2 className="text-2xl font-bold text-kenya-purple mb-4">Contact Us</h2>
-              
               <p className="text-gray-700 mb-4">
-                If you have any questions about our use of cookies or this Cookie Policy, please contact us:
+                If you have any questions about our guides, tipping, or planning your safari, please contact us:
               </p>
-              
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-kenya-gold" />
-                  <span className="text-gray-700">Email: privacy@reyonasafaris.com</span>
+                  <span className="text-gray-700">Email: booking@reyonasafaris.com</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-kenya-gold" />
-                  <span className="text-gray-700">Phone: +254 700 123 456</span>
+                  <span className="text-gray-700">Phone: +254 707 694 388</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-kenya-gold" />

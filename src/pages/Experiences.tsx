@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Camera, Heart, Wind, Users2, Tent, Utensils } from 'lucide-react';
+import maraBalloon from '@/assets/Mara Hot Air Ballooning.jpeg';
+import angamaGuest from '@/assets/Angama Mara Guest Area North Camp Deck.jpeg';
 // Updated to use external images for better quality and variety
 // import heroSafari from '@/assets/hero-safari.jpg';
 // import luxuryCamp from '@/assets/luxury-camp.jpg';
@@ -24,52 +26,124 @@ const Experiences = () => {
 
   const experiences = [
     {
-      icon: Camera,
-      title: "Photography Safaris",
-      description: "Capture Kenya's wildlife with expert guides and perfect lighting.",
-      image: "https://i.pinimg.com/736x/0d/87/44/0d874436679577f060e7742315ddde53.jpg",
-      duration: "3-5 days",
-      price: "From $1,200"
+      icon: Wind,
+      title: "Sunrise Hot Air Balloon Safari",
+      description: "Experience the breathtaking beauty of the African savanna from above with a sunrise hot air balloon safari. As the sun rises, witness the stunning landscapes of the Maasai Mara or Serengeti and the wildlife awakening below. This serene adventure concludes with a celebratory champagne breakfast in the wild, creating unforgettable memories.",
+      image: maraBalloon,
+      duration: "Half day",
+      price: "On request"
     },
     {
       icon: Heart,
-      title: "Cultural Immersion",
-      description: "Meet local Maasai communities and learn their ancient traditions.",
-      image: "https://i.pinimg.com/736x/2c/78/65/2c78655d5a918f43501b27609541f820.jpg",
-      duration: "2-3 days",
-      price: "From $800"
+      title: "Cultural Immersion in Maasai Villages",
+      description: "Engage with the vibrant Maasai culture through a guided visit to local villages. Participate in traditional dances, learn about their customs, and enjoy authentic Maasai cuisine. This unique interaction not only enriches your travel experience but also supports local communities.",
+      image: "https://cdn.pixabay.com/photo/2019/07/29/21/15/warrior-4371555_1280.jpg",
+      duration: "Half to full day",
+      price: "On request"
     },
     {
-      icon: Wind,
-      title: "Hot Air Balloon Safari",
-      description: "Soar above the savanna at sunrise for breathtaking aerial views of wildlife.",
-      image: "https://www.masaimaraballoons.com/images/main_slider.jpg",
-      duration: "Half day",
-      price: "From $450"
+      icon: Camera,
+      title: "Guided Nature Walks with Local Experts",
+      description: "Take a break from safari vehicles and join our knowledgeable local guides for a nature walk. Explore the flora and fauna of East Africa on foot, gaining insights into the ecosystem and spotting wildlife in their natural habitat. These walks are perfect for nature enthusiasts and photographers.",
+      image: "https://cdn.pixabay.com/photo/2019/03/23/13/54/canopy-4075422_1280.jpg",
+      duration: "2-3 hours",
+      price: "On request"
     },
     {
       icon: Users2,
-      title: "Family Adventures",
-      description: "Child-friendly safaris designed for unforgettable family memories.",
-      image: "https://i.pinimg.com/1200x/9b/9f/12/9b9f121ede51b5a76bc1b9f0ca7160ba.jpg",
-      duration: "4-6 days",
-      price: "From $1,800"
-    },
-    {
-      icon: Tent,
-      title: "Luxury Camping",
-      description: "Glamping under African stars with premium amenities.",
-      image: "https://i.pinimg.com/736x/4f/12/63/4f12633c31d0d79cd0360edd78438e05.jpg",
-      duration: "2-4 days",
-      price: "From $1,000"
+      title: "Night Game Drives",
+      description: "Embark on an exhilarating night game drive to witness the nocturnal wildlife of Kenya and Tanzania. With the help of experienced guides, discover the unique behaviors of animals after dark, such as lions hunting and hyenas scavenging. This thrilling experience adds a new dimension to your safari adventure.",
+      image: "https://cdn.pixabay.com/photo/2020/02/22/23/03/lion-4871786_1280.jpg",
+      duration: "2-3 hours",
+      price: "On request"
     },
     {
       icon: Utensils,
-      title: "Culinary Journeys",
-      description: "Taste authentic Kenyan cuisine and bush dining experiences.",
-      image: "https://i.pinimg.com/736x/f5/04/0b/f5040b6df55321686d7c32c4b18d7f7e.jpg",
-      duration: "3-4 days",
-      price: "From $900"
+      title: "Traditional Cooking Classes",
+      description: "Immerse yourself in the culinary delights of East Africa with a traditional cooking class. Learn to prepare local dishes using fresh ingredients while discovering the cultural significance of each meal. This hands-on experience is a delicious way to connect with the local culture.",
+      image: "https://cdn.pixabay.com/photo/2019/09/21/09/07/african-4493422_1280.jpg",
+      duration: "Half day",
+      price: "On request"
+    },
+    {
+      icon: Heart,
+      title: "Community Conservation Projects",
+      description: "Participate in community-based conservation projects that support wildlife preservation and local communities. Engage in activities like tree planting, wildlife monitoring, or educational programs. This meaningful experience allows you to give back while learning about sustainable practices.",
+      image: "https://cdn.pixabay.com/photo/2021/10/31/19/35/tribe-6758620_1280.jpg",
+      duration: "Half to full day",
+      price: "On request"
+    },
+    {
+      icon: Camera,
+      title: "Bird Watching Expeditions",
+      description: "Explore the rich avian diversity of Kenya and Tanzania on specialized bird watching expeditions. Guided by local ornithologists, you’ll spot both endemic and migratory species in stunning settings. This activity is perfect for bird lovers and nature enthusiasts alike.",
+      image: "https://cdn.pixabay.com/photo/2021/08/29/13/19/kingfisher-6583229_1280.jpg",
+      duration: "Half to full day",
+      price: "On request"
+    },
+    {
+      icon: Users2,
+      title: "Horse Riding Safaris",
+      description: "Experience the African landscape in a whole new way with our horse riding safaris. Ride through the stunning savannahs, guided by experienced equestrians, and get up close to wildlife in a serene and immersive setting. This unique perspective allows you to connect with nature while enjoying the thrill of riding.",
+      image: "https://cdn.pixabay.com/photo/2018/05/26/19/30/woman-3432069_1280.jpg",
+      duration: "Half to full day",
+      price: "On request"
+    },
+    {
+      icon: Heart,
+      title: "Coffee Farm Visits",
+      description: "Discover the rich flavors of East Africa with a visit to a local coffee farm. Learn about the coffee-making process from bean to cup, participate in tastings, and understand the impact of coffee farming on local communities. This engaging experience is perfect for coffee lovers and those interested in sustainable agriculture.",
+      image: "https://cdn.pixabay.com/photo/2017/08/05/16/05/coffee-2584497_1280.jpg",
+      duration: "Half day",
+      price: "On request"
+    },
+    {
+      icon: Users2,
+      title: "Boat Riding on Lake Naivasha",
+      description: "Enjoy a tranquil boat ride on Lake Naivasha, known for its stunning scenery and abundant wildlife. Keep an eye out for hippos, various bird species, and beautiful flora as you glide across the water. This relaxing activity is ideal for families or anyone looking to unwind in nature.",
+      image: "https://cdn.pixabay.com/photo/2016/04/05/11/04/india-1309206_1280.jpg",
+      duration: "1-2 hours",
+      price: "On request"
+    },
+    {
+      icon: Users2,
+      title: "Boat Safaris on Lake Nakuru",
+      description: "Explore the beautiful Lake Nakuru on a boat safari, where you can witness the lake's famous pink flamingos and other wildlife from a unique vantage point. Guided by local experts, this experience combines stunning scenery with the opportunity to learn about the lake's ecosystem and conservation efforts.",
+      image: "https://cdn.pixabay.com/photo/2023/08/28/19/28/boat-8219886_1280.jpg",
+      duration: "1-2 hours",
+      price: "On request"
+    },
+    {
+      icon: Utensils,
+      title: "Bush Dinner Under the Stars",
+      description: "Indulge in a magical bush dinner, where you can savor gourmet dishes prepared by skilled chefs while surrounded by the sounds of the African wilderness. Set under a canopy of stars, this enchanting dining experience offers a perfect blend of adventure and romance, making it ideal for couples and special occasions.",
+      image: "https://cdn.pixabay.com/photo/2020/02/01/06/13/vegan-4809593_1280.jpg",
+      duration: "Evening",
+      price: "On request"
+    },
+    {
+      icon: Utensils,
+      title: "Bush Breakfast Experience",
+      description: "Start your day with a unique bush breakfast, served in the heart of nature after an early morning game drive. Enjoy freshly prepared meals while taking in the stunning views and sounds of the wild. This invigorating experience adds a special touch to your safari adventure.",
+      image: "https://cdn.pixabay.com/photo/2020/02/01/06/13/vegan-4809593_1280.jpg",
+      duration: "Morning",
+      price: "On request"
+    },
+    {
+      icon: Heart,
+      title: "Sundowner Experiences",
+      description: "Cap off your day with a memorable sundowner experience, enjoying drinks and snacks as the sun sets over the African landscape. Choose from various stunning viewpoints to watch the sky transform into vibrant hues. This relaxing ritual is perfect for unwinding after a day of exploration.",
+      image: angamaGuest,
+      duration: "Evening",
+      price: "On request"
+    },
+    {
+      icon: Camera,
+      title: "Flower Farm Visits",
+      description: "Explore the vibrant world of East African floriculture with a visit to a local flower farm. Learn about the cultivation and export process of stunning blooms while enjoying guided tours through colorful fields. This unique experience is perfect for nature lovers and those interested in sustainable farming practices.",
+      image: "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_1280.jpg",
+      duration: "Half day",
+      price: "On request"
     }
   ];
 

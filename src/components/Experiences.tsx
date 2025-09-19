@@ -5,34 +5,34 @@ import { Camera, Heart, Wind, Users2, Tent, Utensils } from 'lucide-react';
 const Experiences = () => {
   const experiences = [
     {
-      icon: Camera,
-      title: "Photography Safaris",
-      description: "Capture Kenya's wildlife with expert guides and perfect lighting."
+      icon: Wind,
+      title: "Sunrise Hot Air Balloon Safari",
+      description: "Experience the breathtaking beauty of the African savanna from above with a sunrise hot air balloon safari. As the sun rises, witness the stunning landscapes of the Maasai Mara or Serengeti and the wildlife awakening below. This serene adventure concludes with a celebratory champagne breakfast in the wild, creating unforgettable memories."
     },
     {
       icon: Heart,
-      title: "Cultural Immersion",
-      description: "Meet local Maasai communities and learn their ancient traditions."
+      title: "Cultural Immersion in Maasai Villages",
+      description: "Engage with the vibrant Maasai culture through a guided visit to local villages. Participate in traditional dances, learn about their customs, and enjoy authentic Maasai cuisine. This unique interaction not only enriches your travel experience but also supports local communities."
     },
     {
-      icon: Wind,
-      title: "Hot Air Balloon Safari",
-      description: "Soar above the savanna at sunrise for breathtaking aerial views of wildlife."
+      icon: Camera,
+      title: "Guided Nature Walks with Local Experts",
+      description: "Take a break from safari vehicles and join our knowledgeable local guides for a nature walk. Explore the flora and fauna of East Africa on foot, gaining insights into the ecosystem and spotting wildlife in their natural habitat. These walks are perfect for nature enthusiasts and photographers."
     },
     {
       icon: Users2,
-      title: "Family Adventures",
-      description: "Child-friendly safaris designed for unforgettable family memories."
-    },
-    {
-      icon: Tent,
-      title: "Luxury Camping",
-      description: "Glamping under African stars with premium amenities."
+      title: "Night Game Drives",
+      description: "Embark on an exhilarating night game drive to witness the nocturnal wildlife of Kenya and Tanzania. With the help of experienced guides, discover the unique behaviors of animals after dark, such as lions hunting and hyenas scavenging. This thrilling experience adds a new dimension to your safari adventure."
     },
     {
       icon: Utensils,
-      title: "Culinary Journeys",
-      description: "Taste authentic Kenyan cuisine and bush dining experiences."
+      title: "Traditional Cooking Classes",
+      description: "Immerse yourself in the culinary delights of East Africa with a traditional cooking class. Learn to prepare local dishes using fresh ingredients while discovering the cultural significance of each meal. This hands-on experience is a delicious way to connect with the local culture."
+    },
+    {
+      icon: Heart,
+      title: "Community Conservation Projects",
+      description: "Participate in community-based conservation projects that support wildlife preservation and local communities. Engage in activities like tree planting, wildlife monitoring, or educational programs. This meaningful experience allows you to give back while learning about sustainable practices."
     }
   ];
 
@@ -66,12 +66,9 @@ const Experiences = () => {
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                     <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-kenya-gold transition-colors">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-kenya-gold transition-colors">
                     {experience.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {experience.description}
-                  </p>
                 </CardContent>
               </Card>
             );
