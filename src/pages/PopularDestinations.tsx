@@ -1,16 +1,190 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Camera, Star, Clock, Users } from 'lucide-react';
-import heroSafari from '@/assets/hero-safari.jpg';
-import kenyaLion from '@/assets/kenya-lion.jpg';
-import luxuryCamp from '@/assets/luxury-camp.jpg';
+import { MapPin, Camera, Star, Clock, Users, Globe2, Flag } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+
+type CountryFilter = 'all' | 'kenya' | 'tanzania';
+
+type DestinationCard = {
+  id: string;
+  country: 'Kenya' | 'Tanzania';
+  name: string;
+  tagline: string;
+  description: string;
+  image: string;
+  highlights: string[];
+  bestTime: string;
+  duration: string;
+  difficulty: string;
+  rating: number;
+  price: string;
+};
+
+const getFilterFromParam = (value: string | null): CountryFilter => {
+  if (value === 'kenya' || value === 'tanzania') {
+    return value;
+  }
+  return 'all';
+};
+
+const DESTINATIONS: DestinationCard[] = [
+  {
+    id: 'masai-mara',
+    country: 'Kenya',
+    name: 'Masai Mara National Reserve',
+    tagline: 'The Great Migration',
+    description: 'World-famous for the annual wildebeest migration and exceptional Big Five viewing opportunities.',
+    image: 'https://images.pexels.com/photos/26052413/pexels-photo-26052413.jpeg?_gl=1*16542d8*_ga*MTk4OTgwMDYwOC4xNzQ1NTg5OTU0*_ga_8JE65Q40S6*czE3NTY5MDE0NzYkbzI4JGcxJHQxNzU2OTAyMDc3JGo2JGwwJGgw',
+    highlights: ['Great Migration', 'Big Five', 'Maasai Culture', 'Hot Air Balloons'],
+    bestTime: 'July - October',
+    duration: '3-5 days',
+    difficulty: 'Easy',
+    rating: 4.9,
+    price: 'From $450/day'
+  },
+  {
+    id: 'amboseli',
+    country: 'Kenya',
+    name: 'Amboseli National Park',
+    tagline: 'Land of Giants',
+    description: 'Famous for large elephant herds and spectacular views of Mount Kilimanjaro.',
+    image: 'https://cdn.pixabay.com/photo/2020/05/05/16/21/elephants-5133792_1280.jpg',
+    highlights: ['Elephant Herds', 'Kilimanjaro Views', 'Birdlife', 'Maasai Villages'],
+    bestTime: 'June - October, January - March',
+    duration: '2-3 days',
+    difficulty: 'Easy',
+    rating: 4.8,
+    price: 'From $380/day'
+  },
+  {
+    id: 'tsavo-east',
+    country: 'Kenya',
+    name: 'Tsavo East National Park',
+    tagline: 'The Red Elephants',
+    description: "Kenya's largest park known for red-dust elephants and diverse landscapes.",
+    image: 'https://i.pinimg.com/736x/7d/62/2b/7d622b480e6b2f0e63d60a0ba2f12b3f.jpg',
+    highlights: ['Red Elephants', 'Vast Wilderness', 'Yatta Plateau', 'Man-eaters Legacy'],
+    bestTime: 'June - September',
+    duration: '2-4 days',
+    difficulty: 'Moderate',
+    rating: 4.6,
+    price: 'From $320/day'
+  },
+  {
+    id: 'tsavo-west',
+    country: 'Kenya',
+    name: 'Tsavo West National Park',
+    tagline: 'Land of Lava',
+    description: 'Diverse landscapes from volcanic hills to underground caves and natural springs.',
+    image: 'https://i.pinimg.com/1200x/a5/f7/74/a5f77401bf553708dd384d37161bd491.jpg',
+    highlights: ['Mzima Springs', 'Shetani Lava', 'Rhino Sanctuary', 'Chaimu Crater'],
+    bestTime: 'June - September, December - March',
+    duration: '2-3 days',
+    difficulty: 'Moderate',
+    rating: 4.7,
+    price: 'From $340/day'
+  },
+  {
+    id: 'lake-nakuru',
+    country: 'Kenya',
+    name: 'Lake Nakuru National Park',
+    tagline: 'Pink Flamingo Paradise',
+    description: 'Alkaline lake famous for millions of flamingos and successful rhino conservation.',
+    image: 'https://cdn.pixabay.com/photo/2019/11/22/11/43/birds-4644652_1280.jpg',
+    highlights: ['Flamingo Flocks', 'White & Black Rhinos', 'Bird Paradise', 'Baboon Cliff'],
+    bestTime: 'Year-round',
+    duration: '1-2 days',
+    difficulty: 'Easy',
+    rating: 4.7,
+    price: 'From $280/day'
+  },
+  {
+    id: 'samburu',
+    country: 'Kenya',
+    name: 'Samburu National Reserve',
+    tagline: 'The Special Five',
+    description: 'Semi-arid landscape home to unique wildlife species found nowhere else in Kenya.',
+    image: 'https://cdn.pixabay.com/photo/2020/05/05/16/21/lion-5133788_1280.jpg',
+    highlights: ['Special Five', 'Samburu Culture', 'Ewaso Nyiro River', 'Unique Wildlife'],
+    bestTime: 'June - September, December - March',
+    duration: '2-3 days',
+    difficulty: 'Moderate',
+    rating: 4.8,
+    price: 'From $420/day'
+  },
+  {
+    id: 'diani-beach',
+    country: 'Kenya',
+    name: 'Diani Beach',
+    tagline: 'Paradise Found',
+    description: 'Pristine white sand beaches with crystal clear turquoise waters and world-class water sports.',
+    image: 'https://cdn.pixabay.com/photo/2021/05/29/03/00/beach-6292382_1280.jpg',
+    highlights: ['White Sand Beaches', 'Coral Reefs', 'Water Sports', 'Marine Life'],
+    bestTime: 'June - October, December - March',
+    duration: '3-7 days',
+    difficulty: 'Easy',
+    rating: 4.9,
+    price: 'From $250/day'
+  },
+  {
+    id: 'serengeti',
+    country: 'Tanzania',
+    name: 'Serengeti National Park',
+    tagline: 'Endless Plains',
+    description: 'Legendary Tanzanian savannah famed for the Great Migration herds, vast lion prides, and dramatic river crossings.',
+    image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/4d/e4/8f/serengeti-national-park.jpg?w=600&h=-1&s=1',
+    highlights: ['Great Migration', 'Grumeti & Mara Rivers', 'Lion Prides', 'Balloon Safaris'],
+    bestTime: 'June - October, January - March',
+    duration: '3-6 days',
+    difficulty: 'Moderate',
+    rating: 4.9,
+    price: 'From $520/day'
+  }
+];
+
+const FILTER_BUTTONS: { value: CountryFilter; label: string; icon: LucideIcon }[] = [
+  { value: 'all', label: 'All Destinations', icon: Globe2 },
+  { value: 'kenya', label: 'Kenya', icon: MapPin },
+  { value: 'tanzania', label: 'Tanzania', icon: Flag }
+];
 
 const PopularDestinations = () => {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [countryFilter, setCountryFilter] = useState<CountryFilter>(() =>
+    getFilterFromParam(searchParams.get('filter'))
+  );
+
+  useEffect(() => {
+    const nextFilter = getFilterFromParam(searchParams.get('filter'));
+    setCountryFilter((prev) => (prev === nextFilter ? prev : nextFilter));
+  }, [searchParams]);
+
+  const filteredDestinations = useMemo(() => {
+    if (countryFilter === 'all') {
+      return DESTINATIONS;
+    }
+
+    const targetCountry = countryFilter === 'kenya' ? 'Kenya' : 'Tanzania';
+    return DESTINATIONS.filter((destination) => destination.country === targetCountry);
+  }, [countryFilter]);
+
+  const handleFilterChange = (value: CountryFilter) => {
+    setCountryFilter(value);
+
+    const params = new URLSearchParams(searchParams);
+    if (value === 'all') {
+      params.delete('filter');
+    } else {
+      params.set('filter', value);
+    }
+    setSearchParams(params, { replace: true });
+  };
 
   const handleCustomSafariClick = () => {
     // Navigate to custom safari page and scroll to form
@@ -29,100 +203,6 @@ const PopularDestinations = () => {
     }, 100);
   };
 
-  const destinations = [
-    {
-      id: 'masai-mara',
-      name: 'Masai Mara National Reserve',
-      tagline: 'The Great Migration',
-      description: 'World-famous for the annual wildebeest migration and exceptional Big Five viewing opportunities.',
-      image: "https://images.pexels.com/photos/26052413/pexels-photo-26052413.jpeg?_gl=1*16542d8*_ga*MTk4OTgwMDYwOC4xNzQ1NTg5OTU0*_ga_8JE65Q40S6*czE3NTY5MDE0NzYkbzI4JGcxJHQxNzU2OTAyMDc3JGo2JGwwJGgw",
-      highlights: ['Great Migration', 'Big Five', 'Maasai Culture', 'Hot Air Balloons'],
-      bestTime: 'July - October',
-      duration: '3-5 days',
-      difficulty: 'Easy',
-      rating: 4.9,
-      price: 'From $450/day'
-    },
-    {
-      id: 'amboseli',
-      name: 'Amboseli National Park',
-      tagline: 'Land of Giants',
-      description: 'Famous for large elephant herds and spectacular views of Mount Kilimanjaro.',
-      image: "https://cdn.pixabay.com/photo/2020/05/05/16/21/elephants-5133792_1280.jpg",
-      highlights: ['Elephant Herds', 'Kilimanjaro Views', 'Birdlife', 'Maasai Villages'],
-      bestTime: 'June - October, January - March',
-      duration: '2-3 days',
-      difficulty: 'Easy',
-      rating: 4.8,
-      price: 'From $380/day'
-    },
-    {
-      id: 'tsavo-east',
-      name: 'Tsavo East National Park',
-      tagline: 'The Red Elephants',
-      description: 'Kenya\'s largest park known for red-dust elephants and diverse landscapes.',
-      image: "https://i.pinimg.com/736x/7d/62/2b/7d622b480e6b2f0e63d60a0ba2f12b3f.jpg",
-      highlights: ['Red Elephants', 'Vast Wilderness', 'Yatta Plateau', 'Man-eaters Legacy'],
-      bestTime: 'June - September',
-      duration: '2-4 days',
-      difficulty: 'Moderate',
-      rating: 4.6,
-      price: 'From $320/day'
-    },
-    {
-      id: 'tsavo-west',
-      name: 'Tsavo West National Park',
-      tagline: 'Land of Lava',
-      description: 'Diverse landscapes from volcanic hills to underground caves and natural springs.',
-      image: "https://i.pinimg.com/1200x/a5/f7/74/a5f77401bf553708dd384d37161bd491.jpg",
-      highlights: ['Mzima Springs', 'Shetani Lava', 'Rhino Sanctuary', 'Chaimu Crater'],
-      bestTime: 'June - September, December - March',
-      duration: '2-3 days',
-      difficulty: 'Moderate',
-      rating: 4.7,
-      price: 'From $340/day'
-    },
-    {
-      id: 'lake-nakuru',
-      name: 'Lake Nakuru National Park',
-      tagline: 'Pink Flamingo Paradise',
-      description: 'Alkaline lake famous for millions of flamingos and successful rhino conservation.',
-      image: "https://cdn.pixabay.com/photo/2019/11/22/11/43/birds-4644652_1280.jpg",
-      highlights: ['Flamingo Flocks', 'White & Black Rhinos', 'Bird Paradise', 'Baboon Cliff'],
-      bestTime: 'Year-round',
-      duration: '1-2 days',
-      difficulty: 'Easy',
-      rating: 4.7,
-      price: 'From $280/day'
-    },
-    {
-      id: 'samburu',
-      name: 'Samburu National Reserve',
-      tagline: 'The Special Five',
-      description: 'Semi-arid landscape home to unique wildlife species found nowhere else in Kenya.',
-      image: "https://cdn.pixabay.com/photo/2020/05/05/16/21/lion-5133788_1280.jpg",
-      highlights: ['Special Five', 'Samburu Culture', 'Ewaso Nyiro River', 'Unique Wildlife'],
-      bestTime: 'June - September, December - March',
-      duration: '2-3 days',
-      difficulty: 'Moderate',
-      rating: 4.8,
-      price: 'From $420/day'
-    },
-    {
-      id: 'diani-beach',
-      name: 'Diani Beach',
-      tagline: 'Paradise Found',
-      description: 'Pristine white sand beaches with crystal clear turquoise waters and world-class water sports.',
-      image: "https://cdn.pixabay.com/photo/2021/05/29/03/00/beach-6292382_1280.jpg",
-      highlights: ['White Sand Beaches', 'Coral Reefs', 'Water Sports', 'Marine Life'],
-      bestTime: 'June - October, December - March',
-      duration: '3-7 days',
-      difficulty: 'Easy',
-      rating: 4.9,
-      price: 'From $250/day'
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -135,7 +215,7 @@ const PopularDestinations = () => {
             Popular Destinations
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8">
-            Discover Kenya's most iconic national parks and reserves, each offering unique wildlife experiences
+            Discover East Africa&apos;s most iconic national parks and reserves, each offering unique wildlife experiences
           </p>
         </div>
       </section>
@@ -144,14 +224,33 @@ const PopularDestinations = () => {
       <section className="py-16 bg-card">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Kenya's Wildlife Treasures
+            East Africa&apos;s Wildlife Treasures
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            From the legendary Masai Mara to the pristine beaches of Diani, each destination offers 
-            its own unique character, wildlife, and unforgettable experiences. Whether you're seeking 
-            the Great Migration, intimate cultural encounters, or challenging mountain adventures, 
-            Kenya's diverse landscapes provide the perfect backdrop for your safari dreams.
+            From the legendary Masai Mara to Tanzania&apos;s endless Serengeti plains and Kenya&apos;s pristine beaches, 
+            each destination offers its own unique character, wildlife, and unforgettable experiences. Whether you&apos;re 
+            seeking the Great Migration, intimate cultural encounters, or coastal relaxation, Kenya and Tanzania provide 
+            the perfect backdrop for your safari dreams.
           </p>
+        </div>
+      </section>
+
+      {/* Filter Section */}
+      <section className="py-8 bg-card border-y border-border/60">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            {FILTER_BUTTONS.map(({ value, label, icon: Icon }) => (
+              <Button
+                key={value}
+                variant={countryFilter === value ? 'luxury' : 'outline'}
+                onClick={() => handleFilterChange(value)}
+                className="transition-all duration-300 flex items-center gap-2"
+              >
+                <Icon className="w-4 h-4" />
+                {label}
+              </Button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -159,7 +258,7 @@ const PopularDestinations = () => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {destinations.map((destination) => (
+            {filteredDestinations.map((destination) => (
               <Card key={destination.id} className="group overflow-hidden hover:shadow-luxury transition-all duration-500">
                 <div className="relative h-64 overflow-hidden">
                   <img 
@@ -168,16 +267,26 @@ const PopularDestinations = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute top-3 left-3">
+                    <Badge className="bg-white/90 text-kenya-purple font-semibold uppercase tracking-wide px-3 py-1 text-xs shadow-sm">
+                      {destination.country}
+                    </Badge>
+                  </div>
                   <div className="absolute bottom-4 left-4">
                     <h3 className="text-white font-bold text-xl">{destination.tagline}</h3>
                   </div>
                 </div>
 
                 <CardHeader>
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge className="bg-kenya-purple text-white">
-                      {destination.difficulty}
-                    </Badge>
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <div className="flex items-center gap-2">
+                      <Badge className="bg-kenya-purple text-white">
+                        {destination.difficulty}
+                      </Badge>
+                      <Badge variant="outline" className="text-xs font-semibold">
+                        {destination.price}
+                      </Badge>
+                    </div>
                     <div className="flex items-center gap-1">
                       <Star className="w-4 h-4 fill-kenya-gold text-kenya-gold" />
                       <span className="text-sm font-medium">{destination.rating}</span>

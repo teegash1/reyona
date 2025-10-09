@@ -3,24 +3,54 @@ import { ArrowRight, Star, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import heroImage from '@/assets/hero-safari.jpg';
+import pexelsImage from '@/assets/pexels-charldurand-6404789.jpg';
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
-  const heroImages = [
-    heroImage,
-    'https://cdn.pixabay.com/photo/2015/09/22/14/34/lion-951778_1280.jpg',
-    'https://cdn.pixabay.com/photo/2020/08/25/11/11/zebra-5516455_1280.jpg',
-    'https://cdn.pixabay.com/photo/2021/05/21/12/35/giraffe-6271050_1280.jpg'
+
+  type Slide =
+    | { type: 'image'; src: string }
+    | { type: 'video'; src: string };
+
+  // Include local assets and keep remote fallbacks. Add optional video in public folder.
+  const heroSlides: Slide[] = [
+    { type: 'image', src: heroImage },
+    { type: 'image', src: pexelsImage },
+    { type: 'image', src: 'https://cdn.pixabay.com/photo/2015/09/22/14/34/lion-951778_1280.jpg' },
+    { type: 'image', src: 'https://cdn.pixabay.com/photo/2020/08/25/11/11/zebra-5516455_1280.jpg' },
+    { type: 'image', src: 'https://cdn.pixabay.com/photo/2021/05/21/12/35/giraffe-6271050_1280.jpg' }
   ];
+
+  // If a WhatsApp video is placed in public (e.g. public/whatsapp-video.mp4), include it as a slide at index 1
+  const whatsappVideoSrc = '/whatsapp-video.mp4';
+  // We cannot synchronously know if the file exists at build-time; attempt to prefetch and conditionally include
+  const [slides, setSlides] = useState<Slide[]>(heroSlides);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(whatsappVideoSrc, { method: 'HEAD' })
+      .then((res) => {
+        if (!cancelled && res.ok) {
+          const withVideo = [...heroSlides];
+          withVideo.splice(1, 0, { type: 'video', src: whatsappVideoSrc });
+          setSlides(withVideo);
+        }
+      })
+      .catch(() => {
+        // ignore if not found
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }, 7000); // 7 seconds total cycle
 
     return () => clearInterval(interval);
-  }, []);
+  }, [slides.length]);
 
   return (
     <section 
@@ -29,30 +59,49 @@ const Hero = () => {
     >
       {/* Background Images with Fast Scrolling and Zoom Effect */}
       <div className="absolute inset-0">
-        {heroImages.map((image, index) => {
-          // Special positioning for giraffe image (4th image, index 3)
-          const isGiraffe = index === 3;
-          const backgroundPosition = isGiraffe ? 'center top' : 'center center';
-          
+        {slides.map((slide, index) => {
+          // Special positioning for giraffe image (4th image in original set, index 4 or 5 with video)
+          const isGiraffeImage = slide.type === 'image' && (slide.src.includes('giraffe-6271050_1280.jpg'));
+          const backgroundPosition = isGiraffeImage ? 'center top' : 'center center';
+          const isActive = index === currentImageIndex;
+          const isNext = index === (currentImageIndex + 1) % slides.length;
+
           return (
             <div
-              key={index}
-              className={`absolute inset-0 bg-cover bg-no-repeat transition-all duration-1000 ease-in-out hero-bg-mobile ${
-                index === currentImageIndex 
-                  ? 'opacity-100 scale-100' 
-                  : index === (currentImageIndex + 1) % heroImages.length
+              key={`${slide.type}-${index}`}
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out hero-bg-mobile ${
+                isActive
+                  ? 'opacity-100 scale-100'
+                  : isNext
                   ? 'opacity-0 scale-110 translate-x-full'
                   : 'opacity-0 scale-95 -translate-x-full'
               }`}
-              style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${image})`,
-                backgroundPosition: backgroundPosition,
-                backgroundAttachment: 'scroll',
-                backgroundSize: 'cover',
-                backgroundRepeat: 'no-repeat',
-                minHeight: '100vh'
-              }}
-            />
+            >
+              {slide.type === 'image' ? (
+                <div
+                  className="absolute inset-0 bg-cover bg-no-repeat"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${slide.src})`,
+                    backgroundPosition: backgroundPosition,
+                    backgroundAttachment: 'scroll',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    minHeight: '100vh'
+                  }}
+                />
+              ) : (
+                <video
+                  className="absolute inset-0 w-full h-full object-cover"
+                  src={slide.src}
+                  muted
+                  playsInline
+                  autoPlay
+                  loop
+                  // Ensure the video starts even on iOS
+                  preload="metadata"
+                />
+              )}
+            </div>
           );
         })}
       </div>
@@ -95,30 +144,7 @@ const Hero = () => {
           </Link>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto">
-          <div className="text-center">
-            <div className="flex items-center justify-center mb-2">
-              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-kenya-gold mr-1" />
-              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-kenya-gold mr-1" />
-              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-kenya-gold mr-1" />
-              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-kenya-gold mr-1" />
-              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-kenya-gold" />
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-kenya-gold">5.0</h3>
-            <p className="text-sm sm:text-base text-gray-300">Customer Rating</p>
-          </div>
-          
-          <div className="text-center">
-            <h3 className="text-2xl sm:text-3xl font-bold text-kenya-gold">200+</h3>
-            <p className="text-sm sm:text-base text-gray-300">Safari Adventures</p>
-          </div>
-          
-          <div className="text-center">
-            <h3 className="text-2xl sm:text-3xl font-bold text-kenya-gold">15+</h3>
-            <p className="text-sm sm:text-base text-gray-300">Years Experience</p>
-          </div>
-        </div>
+        {/* Stats moved to HomeStats section below Experiences */}
       </div>
 
       {/* Scroll Indicator */}

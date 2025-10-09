@@ -153,6 +153,11 @@ const Experiences = () => {
       
       {/* Hero Section */}
       <section className="relative h-[60vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-32">
+        <img
+          src="https://images.unsplash.com/photo-1695459323889-6176e43fdb77?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="Unique safari experiences backdrop"
+          className="absolute inset-0 w-full h-full object-cover opacity-50"
+        />
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">

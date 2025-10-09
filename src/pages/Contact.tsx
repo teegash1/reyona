@@ -145,7 +145,7 @@ const Contact = () => {
 
   const handleScheduleConsultation = () => {
     const subject = 'Request of Consultation Call';
-    const emailUrl = `mailto:booking@reyonasafaris.com?subject=${encodeURIComponent(subject)}`;
+    const emailUrl = `mailto:info@reyonasafaris.com?subject=${encodeURIComponent(subject)}`;
     window.open(emailUrl, '_blank');
   };
 
@@ -158,7 +158,7 @@ const Contact = () => {
   const handleRequestBrochures = () => {
     const subject = 'Brochures Request';
     const body = 'Greetings Reyona Safaris, kindly share some brochures, thanks.';
-    const emailUrl = `mailto:booking@reyonasafaris.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const emailUrl = `mailto:info@reyonasafaris.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.open(emailUrl, '_blank');
   };
 
@@ -193,10 +193,10 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      details: ["booking@reyonasafaris.com"],
+      details: ["info@reyonasafaris.com"],
       description: "We respond within 2 hours during business hours",
       clickable: true,
-      action: "mailto:booking@reyonasafaris.com"
+      action: "mailto:info@reyonasafaris.com"
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -233,9 +233,9 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="relative h-[60vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-32">
         <img 
-          src="https://images.pexels.com/photos/821754/pexels-photo-821754.jpeg?_gl=1*9amud7*_ga*MTk4OTgwMDYwOC4xNzQ1NTg5OTU0*_ga_8JE65Q40S6*czE3NTcwMTgxNDMkbzMxJGcxJHQxNzU3MDE4MTczJGozMCRsMCRoMA.."
+          src="/contact.png"
           alt="Contact us background"
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%] opacity-30"
         />
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">

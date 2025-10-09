@@ -33,7 +33,8 @@ const Header = () => {
     { name: 'Samburu', path: '/destinations/samburu' },
     { name: 'Tsavo East', path: '/destinations/tsavo-east' },
     { name: 'Tsavo West', path: '/destinations/tsavo-west' },
-    { name: 'Diani Beach', path: '/destinations/diani-beach' }
+    { name: 'Diani Beach', path: '/destinations/diani-beach' },
+    { name: 'Serengeti', path: '/destinations/serengeti' }
   ];
 
   return (
@@ -60,10 +61,10 @@ const Header = () => {
             <div className="flex items-center space-x-2">
               <Mail className="w-4 h-4" />
               <a 
-                href="mailto:booking@reyonasafaris.com" 
+                href="mailto:info@reyonasafaris.com" 
                 className="hover:text-kenya-gold transition-colors"
               >
-                booking@reyonasafaris.com
+                info@reyonasafaris.com
               </a>
             </div>
           </div>

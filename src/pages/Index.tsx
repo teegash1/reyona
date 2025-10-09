@@ -4,6 +4,7 @@ import SafariPackages from '@/components/SafariPackages';
 import Destinations from '@/components/Destinations';
 import Experiences from '@/components/Experiences';
 import SafariPartners from '@/components/SafariPartners';
+import HomeStats from '@/components/HomeStats';
 import Footer from '@/components/Footer';
 import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 
@@ -16,6 +17,7 @@ const Index = () => {
         <SafariPackages />
         <Destinations />
         <Experiences />
+        <HomeStats />
         <SafariPartners />
       </main>
       <Footer />

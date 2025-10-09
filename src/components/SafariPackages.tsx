@@ -48,13 +48,19 @@ const SafariPackages = () => {
       <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-kenya-gold/10 border border-kenya-gold/20 rounded-full text-kenya-gold text-sm font-medium mb-4">
-            SAFARI PACKAGES
-          </div>
+          <button
+            type="button"
+            onClick={() => {
+              window.location.href = '/safaris';
+            }}
+            className="inline-flex items-center px-4 py-2 bg-kenya-gold/10 border border-kenya-gold/20 rounded-full text-kenya-gold text-sm font-medium mb-4 transition-colors hover:bg-kenya-gold/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kenya-gold/40"
+          >
+            POPULAR SAFARI PACKAGES
+          </button>
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-foreground px-4">
-            Curated Safari
+            Popular Safari
             <span className="block bg-gradient-primary bg-clip-text text-transparent">
-              Adventures
+              Packages
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-4xl mx-auto px-4">

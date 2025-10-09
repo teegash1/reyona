@@ -29,6 +29,18 @@ export default {
 			'desktop': '1280px',
 		},
 		extend: {
+			keyframes: {
+				heartbeat: {
+					'0%, 100%': { transform: 'scale(1)' },
+					'25%': { transform: 'scale(1.12)' },
+					'40%': { transform: 'scale(0.96)' },
+					'60%': { transform: 'scale(1.08)' },
+					'80%': { transform: 'scale(0.98)' }
+				}
+			},
+			animation: {
+				heartbeat: 'heartbeat 1.8s ease-in-out infinite'
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

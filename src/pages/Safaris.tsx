@@ -1,14 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Star, Clock, Users, MapPin, Heart, Plane, Car, Calendar, ExternalLink } from 'lucide-react';
+import { Star, Clock, Users, MapPin, Heart, Plane, Car, Calendar, ChevronRight } from 'lucide-react';
 import kenyaLion from '@/assets/kenya-lion.jpg';
 import luxuryCamp from '@/assets/luxury-camp.jpg';
 import heroSafari from '@/assets/hero-safari.jpg';
+
+type HeartAccentProps = {
+  size: string;
+  className?: string;
+};
+
+const pulseAnimation =
+  'animate-[heartbeat_1.8s_ease-in-out_infinite] origin-center';
+
+const HeartAccent = ({ size, className }: HeartAccentProps) => (
+  <div className={`relative inline-flex items-center justify-center ${pulseAnimation} ${className ?? ''}`}>
+    <Heart
+      className={`absolute inset-0 ${size} text-[#ffc2d1] opacity-70 blur-[3px]`}
+      fill="currentColor"
+    />
+    <Heart
+      className={`${size} text-[#ff4d6d] drop-shadow-[0_12px_20px_rgba(255,77,109,0.35)]`}
+      fill="currentColor"
+    />
+  </div>
+);
 
 const Safaris = () => {
   const [filterCategory, setFilterCategory] = useState('all');
@@ -229,8 +250,258 @@ const Safaris = () => {
         "Travel insurance",
         "Other personal items"
       ]
-    }
-  ];
+  }
+];
+
+const normalizeLodgeName = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+type LodgeDetail = {
+  summary: string;
+  parkAccess: string;
+  airAccess: string;
+  wildlife?: string;
+  notes?: string;
+};
+
+const lodgeDetailsData: Array<{ names: string[] } & LodgeDetail> = [
+  {
+    names: ['Entim Main Camp', 'Entim Mara Main Camp'],
+    summary: 'Boutique tented camp on a private stretch of the Mara River inside Masai Mara National Reserve.',
+    parkAccess: 'Inside the reserve; under 10 minutes to the main Mara River crossing points on Paradise Plains.',
+    airAccess: 'Ol Kiombo Airstrip is about a 15-minute game drive away.',
+    wildlife: 'Superb base for July-September migration crossings and resident big cat territories along the river.'
+  },
+  {
+    names: ['The Cliff'],
+    summary: 'Clifftop camp inside Lake Nakuru National Park with panoramic views of the alkaline lake.',
+    parkAccess: 'Within the park near Baboon Cliff; immediate access to the lakeshore game loops and rhino sanctuary.',
+    airAccess: 'Naishi Airstrip lies roughly 25 minutes to the south within the park.',
+    wildlife: 'Sweeping sunrise views over flamingo flocks and black and white rhino grazing areas.'
+  },
+  {
+    names: ['Tawi Lodge'],
+    summary: 'Eco-conscious lodge inside the 6,000-acre Tawi Conservancy bordering Amboseli National Park.',
+    parkAccess: '5-minute drive to Kimana Gate for Amboseli game drives; conservancy drives start from camp.',
+    airAccess: 'Amboseli (Empusel) Airstrip is about 15 minutes away; private charter strip available on site.',
+    wildlife: 'Elephants frequently graze in camp with Mount Kilimanjaro as the backdrop.'
+  },
+  {
+    names: ['Sarova Mara Game Camp'],
+    summary: 'Established tented camp in the Sekenani sector of Masai Mara beside seasonal streams.',
+    parkAccess: 'Inside the reserve near Sekenani Gate, handy for Topi Plains and Ololaimutia game loops.',
+    airAccess: 'Keekorok Airstrip is approximately a 20-minute drive; Siana Springs strip about 25 minutes.',
+    wildlife: 'Close to leopard territories along the Sekenani River and the eastern grasslands.'
+  },
+  {
+    names: ['Sarova Lion Hill', 'Sarova LionHill Game Lodge'],
+    summary: 'Hilltop lodge inside Lake Nakuru National Park overlooking the acacia woodlands and lake.',
+    parkAccess: 'Within the park; minutes from the main lake circuit and rhino sanctuary drive.',
+    airAccess: 'Naishi Airstrip is around 30 minutes to the south.',
+    wildlife: 'Great base for spotting Rothschild giraffe and rhinos on the lower grasslands.'
+  },
+  {
+    names: ['Oltukai Lodge'],
+    summary: 'Forest lodge at the heart of Amboseli National Park with uninterrupted Kilimanjaro views.',
+    parkAccess: 'Inside the park beside the Amboseli wetlands frequented by elephant herds.',
+    airAccess: 'Amboseli Airstrip is a 20-minute game drive from the lodge.',
+    wildlife: 'The marsh flats in front of camp draw elephants, hippos and prolific birdlife all year.'
+  },
+  {
+    names: ['Mara Sopa Lodge', 'Mara Sopa'],
+    summary: 'Classic lodge on the Oloolaimutia Hills bordering the eastern edge of Masai Mara.',
+    parkAccess: 'Outside the main reserve; allow 10-15 minutes to reach the Oloolaimutia Gate for drives.',
+    airAccess: 'Keekorok Airstrip is about 45 minutes away; Siana Springs strip roughly 35 minutes.',
+    notes: 'Elevated hillside setting keeps evenings cool - plan slightly earlier departures for dawn drives.'
+  },
+  {
+    names: ['Lake Nakuru Sopa Lodge', 'Nakuru Sopa Lodge', 'Sopa Nakuru'],
+    summary: 'Escarpment lodge inside Lake Nakuru National Park with sweeping views over the western shore.',
+    parkAccess: 'Within the park with a private descent road to the lakeshore game circuits.',
+    airAccess: 'Naishi Airstrip is approximately 35 minutes by road.',
+    wildlife: 'Quick access to lion territories on Lion Ridge and the Makalia waterfall area.'
+  },
+  {
+    names: ['Sopa Amboseli Lodge', 'Amboseli Sopa Lodge', 'Amboseli Sopa'],
+    summary: 'Spacious property in a Maasai community conservancy outside Amboseli National Park.',
+    parkAccess: 'Outside the park; around 15 minutes drive to Kimana Gate.',
+    airAccess: 'Amboseli Airstrip is roughly 45 minutes away via park roads.',
+    notes: 'Ideal for combining cultural visits with park game drives - factor in transfer time for sunrise safaris.'
+  },
+  {
+    names: ['Pride Inn Mara Camp', 'PrideInn Mara Camp'],
+    summary: 'Riverside tented camp on the Talek River corridor near Talek Gate.',
+    parkAccess: 'Gate entry to the reserve is under 5 minutes; Talek plains begin steps from camp.',
+    airAccess: 'Ol Kiombo Airstrip sits about 25 minutes to the west.',
+    wildlife: 'Easy access to Talek River predator hotspots and balloon launch sites.'
+  },
+  {
+    names: ['Mara Kimana Camp', 'Mara Kimana'],
+    summary: 'Intimate camp close to Talek Gate on the eastern boundary of Masai Mara.',
+    parkAccess: 'Outside but adjacent to the reserve; 5 minutes to Talek Gate.',
+    airAccess: 'Ol Kiombo Airstrip can be reached in roughly 30 minutes.',
+    notes: 'Perfect for beating the crowds to Double Crossing plains at first light.'
+  },
+  {
+    names: ['Enkorok Mara Camp'],
+    summary: 'Community-owned camp in Talek Conservancy bordering Masai Mara.',
+    parkAccess: 'Outside the park; around 8 minutes to Talek Gate.',
+    airAccess: 'Ol Kiombo or Ol Seki (Naboisho) airstrips are each about 30 minutes away.',
+    wildlife: 'Guests can combine conservancy night drives with daytime game viewing in the reserve.'
+  },
+  {
+    names: ['Oldarpoi Mara Camp'],
+    summary: 'Maasai-run camp near Sekenani Gate on the south-eastern edge of Masai Mara.',
+    parkAccess: 'Outside the reserve; approximately 10 minutes to Sekenani Gate.',
+    airAccess: 'Keekorok Airstrip is about 35 minutes by road.',
+    notes: 'Supports local community projects and offers visits to nearby villages.'
+  },
+  {
+    names: ['Mara Ngenche Safari Camp'],
+    summary: 'Boutique camp at the confluence of the Mara and Talek rivers inside the reserve.',
+    parkAccess: 'In-park location with instant access to the double river junction famed for big cats.',
+    airAccess: 'Ol Kiombo Airstrip is roughly 15 minutes away.',
+    wildlife: 'Resident leopards and migration river crossings often unfold within minutes of camp.'
+  },
+  {
+    names: ['KubuKubu Tented Camp'],
+    summary: 'Hilltop luxury camp in central Serengeti (Tanzania) with panoramic plains views.',
+    parkAccess: 'Inside Serengeti National Park near the Seronera Valley game loops.',
+    airAccess: 'Seronera Airstrip is about a 15-minute drive.',
+    wildlife: 'Strategic for migration herds April-June and prolific predator action year-round.'
+  },
+  {
+    names: ['Ilkeliani Camp'],
+    summary: 'Eco-friendly camp shaded by fig trees on the Talek River inside Masai Mara.',
+    parkAccess: 'Within the reserve; 10 minutes to Talek Gate for community interactions.',
+    airAccess: 'Ol Kiombo Airstrip can be reached in approximately 25 minutes.',
+    wildlife: 'Hippos and elephants frequent the river bend by camp at dawn and dusk.'
+  },
+  {
+    names: ['Serena Serengeti Safari Lodge'],
+    summary: 'Stone-built lodge atop a kopje overlooking the Seronera valley in central Serengeti.',
+    parkAccess: 'Inside the park with sweeping views over the Seronera River system.',
+    airAccess: 'Seronera Airstrip is less than 20 minutes away.',
+    wildlife: 'Excellent for tracking resident lion prides and following the migration during shoulder seasons.'
+  },
+  {
+    names: ['Zebra River Camp'],
+    summary: 'Intimate camp within Siana Conservancy east of Masai Mara.',
+    parkAccess: 'Outside the reserve; allow 25 minutes to Sekenani Gate.',
+    airAccess: 'Siana Springs Airstrip about 20 minutes; Keekorok Airstrip roughly 50 minutes.',
+    notes: 'Conservancy night drives available before heading into the main reserve each morning.'
+  },
+  {
+    names: ['Mara Elaita Camp', 'Mara Elaita'],
+    summary: 'Tented camp tucked along the Talek River corridor within the greater Masai Mara ecosystem.',
+    parkAccess: 'Borderline location with 15-minute access to Talek Gate and central plains.',
+    airAccess: 'Ol Kiombo Airstrip is around 30 minutes away.',
+    wildlife: 'Close to Topi Plains and Rhino Ridge routes known for cheetah encounters.'
+  },
+  {
+    names: ['Mbuzi Mawe Safari Camp'],
+    summary: 'Canvas camp between the central and northern Serengeti sectors.',
+    parkAccess: 'Inside Serengeti National Park along the migration corridor toward Lobo.',
+    airAccess: 'Seronera Airstrip approx. 25 minutes; Lobo Airstrip about 45 minutes north.',
+    wildlife: 'Ideal staging post for June-July northbound migration herds and resident lion prides.'
+  },
+  {
+    names: ['Osero Camp', 'Osero Lodge'],
+    summary: 'Boutique camp within Siana Conservancy on the south-eastern border of Masai Mara.',
+    parkAccess: 'Outside the reserve; 20 minutes to Sekenani Gate.',
+    airAccess: 'Siana Airstrip around 10 minutes; Keekorok Airstrip roughly 45 minutes.',
+    notes: 'Offers guided walks and night drives in the conservancy ahead of daytime Mara excursions.'
+  },
+  {
+    names: ['KatiKati Camp'],
+    summary: 'Seasonal mobile camp positioned on the open plains of central Serengeti.',
+    parkAccess: 'Inside the park with easy reach to Seronera, Moru and Makoma circuits.',
+    airAccess: 'Seronera Airstrip about 25 minutes by game drive.',
+    wildlife: 'Camp shifts with the migration, keeping you close to the herds April-June.'
+  },
+  {
+    names: ['JW Marriott Masai Mara Camp', 'JW Marriott Masai Mara Lodge'],
+    summary: 'Ultra-luxury lodge on the Talek River within Masai Mara National Reserve.',
+    parkAccess: 'Inside the reserve with direct access to Talek River loops and Topi Plains.',
+    airAccess: 'Ol Kiombo Airstrip is roughly 35 minutes away; private helipad use can be arranged.',
+    wildlife: 'Near key migration crossing sites and year-round big cat territories.'
+  },
+  {
+    names: ['Entumoto Main Camp'],
+    summary: 'Owner-run camp in Entumoto Conservancy bordering the Masai Mara.',
+    parkAccess: 'Outside the main reserve; 20 minutes to Sekenani Gate after enjoying conservancy drives.',
+    airAccess: 'Private Entumoto Airstrip is 5 minutes away; Keekorok Airstrip about 45 minutes.',
+    notes: 'Exclusive-use conservancy allows night drives and walking safaris before heading into the reserve.'
+  },
+  {
+    names: ['Sanctuary Olonana'],
+    summary: 'Award-winning camp on a private stretch of the Mara River adjacent to the Mara Triangle.',
+    parkAccess: 'Inside the reserve; 10 minutes to the Talek-Mara confluence and Triangle entry.',
+    airAccess: 'Kichwa Tembo Airstrip is around 15 minutes; Ol Kiombo about 45 minutes.',
+    wildlife: 'Resident hippo pod below camp with fast access to Mara Triangle lion prides.'
+  },
+  {
+    names: ['Elephant Gorge Amboseli'],
+    summary: 'Boutique lodge in Kitirua Conservancy adjoining Amboseli National Park.',
+    parkAccess: 'Outside but unfenced to Amboseli; 20 minutes to the Kitirua access track into the park.',
+    airAccess: 'Amboseli Airstrip roughly 25 minutes by road.',
+    wildlife: 'Sits on an elephant corridor with expansive views across the Amboseli basin.'
+  },
+  {
+    names: ['Swahili Beach Resort'],
+    summary: 'Oceanfront resort on the central stretch of Diani Beach.',
+    parkAccess: 'Direct beach access; 10 minutes to Ukunda town and shopping.',
+    airAccess: 'Ukunda (Diani) Airstrip is about 10 minutes away.',
+    notes: 'Good base for day trips to Shimba Hills National Reserve (45 minutes).'
+  },
+  {
+    names: ['Baobab Beach Resort'],
+    summary: 'All-inclusive resort covering a coastal forest headland on southern Diani.',
+    parkAccess: 'Beachfront property; 15 minutes to Ukunda Airstrip.',
+    notes: '45 minutes south to Kisite Marine Park departure point for snorkelling excursions.'
+  },
+  {
+    names: ['Enashipai Resort'],
+    summary: 'Upscale lakeside resort on Lake Naivasha with extensive spa and conference facilities.',
+    parkAccess: 'Outside protected areas; 10 minutes to Crescent Island and 20 minutes to Hell\'s Gate.',
+    airAccess: 'Naivasha (Loldia) Airstrip is about 25 minutes away.',
+    notes: 'Convenient overnight when breaking the journey between Nairobi and the Mara.'
+  },
+  {
+    names: ['Great Rift Valley Lodge'],
+    summary: 'Golf resort perched on the Eburru Hills overlooking Lake Naivasha.',
+    parkAccess: 'Outside the parks; 30 minutes down to Lake Naivasha and Aberdare foothills.',
+    airAccess: 'Private lodge airstrip on-site; Naivasha Airstrip around 25 minutes.',
+    notes: 'Cooler highland climate - pack layers for evenings on the escarpment.'
+  },
+  {
+    names: ['Flamingo Hill Camp', 'Flamingoe Hill Camp'],
+    summary: 'Charming tented camp inside Lake Nakuru National Park near the main gate.',
+    parkAccess: 'Within the park; 5 minutes to the lakeshore flamingo viewpoints.',
+    airAccess: 'Naishi Airstrip roughly 30 minutes away.',
+    wildlife: 'Quick access to Makalia waterfalls and lion territories around Lion Hill.'
+  },
+  {
+    names: ['Kibo Safari Camp'],
+    summary: 'Tented camp in Kimana (Amboseli) Conservancy with open views of Kilimanjaro.',
+    parkAccess: 'Outside the park; about 10 minutes to Kimana Gate.',
+    airAccess: 'Amboseli Airstrip is approximately 30 minutes away.',
+    wildlife: 'Frequent elephant and giraffe sightings along the conservancy waterholes.'
+  },
+  {
+    names: ['Mara Maisha Camp'],
+    summary: 'Luxury tented camp along the Talek River corridor close to Talek Gate.',
+    parkAccess: 'Just outside the reserve; 7 minutes to Talek Gate for immediate park entry.',
+    airAccess: 'Ol Kiombo Airstrip around 25 minutes by road.',
+    wildlife: 'Excellent base for cheetah-rich Double Crossing and Burrungat Plains.'
+  }
+];
+
+const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((acc, entry) => {
+  entry.names.forEach((name) => {
+    acc[normalizeLodgeName(name)] = entry;
+  });
+  return acc;
+}, {} as Record<string, LodgeDetail>);
 
   const honeymoonPackages = [
     {
@@ -310,7 +581,7 @@ const Safaris = () => {
       groupSize: "2 People",
       location: "Masai Mara, Lake Nakuru, Amboseli",
       price: "$3,050",
-      image: "https://cdn.pixabay.com/photo/2020/01/05/20/58/amboseli-4744085_1280.jpg",
+      image: '/honeymooners.jpeg',
       description: "Romantic multi-park adventure through Kenya's most iconic destinations",
       features: ["Private Game Drives", "Big Five", "Flamingoes", "Elephant Herds", "Luxury Accommodation"],
       badge: "Honeymoon",
@@ -1007,6 +1278,37 @@ const Safaris = () => {
     }
   ];
 
+  const coffeeTeaFallback = 'https://cdn.pixabay.com/photo/2019/10/23/12/49/tea-4571536_1280.jpg';
+  const coffeeTeaCandidates = ['/coffee-farm.jpeg', '/coffee-farm.jpg', '/coffee-farm.png'];
+  const [coffeeTeaImage, setCoffeeTeaImage] = useState<string>(coffeeTeaCandidates[0]);
+  const [activeLodgeKey, setActiveLodgeKey] = useState<string | null>(null);
+
+  // Try to use a local coffee farm image if present in public folder and fall back gracefully
+  useEffect(() => {
+    let cancelled = false;
+
+    const resolveCoffeeImage = async () => {
+      for (const path of coffeeTeaCandidates) {
+        try {
+          const response = await fetch(path, { method: 'HEAD' });
+          if (response.ok) {
+            if (!cancelled) setCoffeeTeaImage(path);
+            return;
+          }
+        } catch {
+          // Keep checking others
+        }
+      }
+      if (!cancelled) setCoffeeTeaImage(coffeeTeaFallback);
+    };
+
+    void resolveCoffeeImage();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const nairobiExcursions = [
     {
       id: 15,
@@ -1017,7 +1319,8 @@ const Safaris = () => {
       location: "Nairobi",
       price: "$325",
 
-      image: "https://cdn.pixabay.com/photo/2013/04/14/17/44/elephant-103588_1280.jpg",
+      image: '/excusions.jpeg',
+      imagePosition: 'center 40%',
       description: "Explore Nairobi in Elegance and Comfort",
       features: ["Nairobi National Park", "Elephant Orphanage", "Giraffe Centre", "Carnivore Restaurant"],
       badge: "Day Tour",
@@ -1063,7 +1366,8 @@ const Safaris = () => {
       location: "Nairobi",
       price: "$240",
 
-      image: "https://cdn.pixabay.com/photo/2019/10/23/12/49/tea-4571536_1280.jpg",
+      image: coffeeTeaImage,
+      imagePosition: 'center 85%',
       description: "Kenya's Flavorful Journey: Coffee and Tea Farm Experience",
       features: ["Farm Tour", "Hands-on Experience", "Tasting Session", "Local Lunch"],
       badge: "Cultural",
@@ -1122,6 +1426,8 @@ const Safaris = () => {
     ? allPackages 
     : allPackages.filter(pkg => pkg.category === filterCategory);
 
+  const showHoneymoonIntro = filterCategory === 'honeymoon';
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -1167,16 +1473,53 @@ const Safaris = () => {
       </section>
 
       {/* Packages Grid */}
-      <section className="py-16">
+      <section
+        className="py-16"
+        style={
+          showHoneymoonIntro
+            ? {
+                backgroundImage: 'url("/background-val.jpeg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }
+            : undefined
+        }
+      >
         <div className="max-w-7xl mx-auto px-2">
+          {showHoneymoonIntro && (
+            <div className="relative mb-12">
+              <div className="relative z-10 rounded-3xl border border-kenya-purple/20 bg-black/40 px-6 py-12 text-center backdrop-blur-sm">
+                <div className="pointer-events-none absolute left-8 top-[70%] hidden -translate-y-1/2 lg:block">
+                  <HeartAccent size="h-24 w-24" />
+                </div>
+                <div className="pointer-events-none absolute right-8 top-[70%] hidden -translate-y-1/2 lg:block">
+                  <HeartAccent size="h-24 w-24" />
+                </div>
+                <p className="inline-flex items-center justify-center gap-2 rounded-full border border-kenya-gold/30 bg-white/85 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-kenya-purple shadow-sm">
+                  Honeymoon Highlights
+                </p>
+                <h3 className="mt-4 text-2xl md:text-3xl font-bold text-foreground">
+                  Celebrate your love with private game drives, romantic sundowners, and starlit dinners in Kenya's wild heart.
+                </h3>
+                <p className="mx-auto mt-3 max-w-3xl text-base md:text-lg text-muted-foreground">
+                  Our honeymoon specialists pair dreamy safari lodges with intimate experiences &mdash; from hot-air balloon safaris over the Mara to private breakfasts facing Kilimanjaro. Tell us your dream and we will choreograph every moment.
+                </p>
+              </div>
+            </div>
+          )}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPackages.map((pkg) => (
-              <Card key={pkg.id} className="group hover:shadow-luxury transition-all duration-500 overflow-hidden">
+            {filteredPackages.map((pkg) => {
+              const isHoneymoon = pkg.category === 'honeymoon';
+
+              return (
+                <Card key={pkg.id} className="group hover:shadow-luxury transition-all duration-500 overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={pkg.image} 
                     alt={pkg.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    style={pkg.imagePosition ? { objectPosition: pkg.imagePosition } : undefined}
                   />
                   <div className="absolute top-4 right-4">
                     <Badge variant="secondary" className="bg-kenya-gold text-black font-semibold">
@@ -1242,20 +1585,41 @@ const Safaris = () => {
                     </div>
                   )}
 
-                  <Dialog>
+                  <Dialog onOpenChange={(open) => {
+                    if (!open) {
+                      setActiveLodgeKey(null);
+                    }
+                  }}>
                     <DialogTrigger asChild>
                       <Button className="w-full mt-4" variant="luxury">
                         View Details
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-                      <DialogHeader>
-                        <DialogTitle className="text-2xl font-bold text-kenya-purple">
-                          {pkg.title}
-                        </DialogTitle>
-                      </DialogHeader>
-                      
-                      <div className="space-y-6">
+                    <DialogContent
+                      className="w-[95vw] max-w-4xl max-h-[90vh] overflow-hidden p-0 sm:w-full"
+                      style={
+                        isHoneymoon
+                          ? {
+                              backgroundImage: 'url("/Heart-2.gif")',
+                              backgroundSize: 'cover',
+                              backgroundPosition: 'center',
+                              backgroundRepeat: 'no-repeat'
+                            }
+                          : undefined
+                      }
+                    >
+                      <div
+                        className={`relative max-h-[90vh] overflow-y-auto px-4 py-6 sm:px-6 ${
+                          isHoneymoon ? 'bg-black/55 backdrop-blur-sm text-white shadow-inner rounded-lg m-4 sm:m-6' : ''
+                        }`}
+                      >
+                        <div className={isHoneymoon ? 'relative z-10 space-y-6 pt-4 sm:pt-6' : 'space-y-6'}>
+                          <DialogHeader>
+                            <DialogTitle className="text-2xl font-bold text-kenya-purple">
+                              {pkg.title}
+                            </DialogTitle>
+                          </DialogHeader>
+                        
                         {/* Package Overview */}
                         <div className="bg-muted/30 p-4 rounded-lg">
                           <h3 className="font-semibold text-lg mb-2">Package Overview</h3>
@@ -1268,10 +1632,12 @@ const Safaris = () => {
                               <span className="font-medium">Group Size:</span>
                               <p>{pkg.groupSize}</p>
                             </div>
-
                             <div>
                               <span className="font-medium">Starting From:</span>
                               <p className="text-kenya-gold font-bold">{pkg.price}</p>
+                            </div>
+                            <div className="col-span-2 md:col-span-4 text-xs font-semibold text-red-600">
+                              * Price is based on month of travel
                             </div>
                           </div>
                         </div>
@@ -1314,47 +1680,120 @@ const Safaris = () => {
                         </div>
 
                         {/* Price */}
-                        {pkg.options && (
-                          <div>
-                            <h3 className="font-semibold text-lg mb-4">PRICE</h3>
-                            <div className="space-y-4">
-                              <div className="bg-muted/30 p-4 rounded-lg">
-                                <div className="text-center mb-4">
-                                  <span className="text-muted-foreground text-lg">Starting from</span>
-                                  <div className="text-3xl font-bold text-kenya-gold mt-1">
-                                    ${Math.min(...pkg.options.map(opt => parseInt(opt.price.replace(/[$,]/g, ''))))}
+                        {pkg.options && (() => {
+                          const sortedOptions = [...pkg.options].sort(
+                            (a, b) =>
+                              parseInt(b.price.replace(/[$,]/g, '')) -
+                              parseInt(a.price.replace(/[$,]/g, ''))
+                          );
+
+                          const startingFromValue = Math.min(
+                            ...pkg.options.map((opt) => parseInt(opt.price.replace(/[$,]/g, '')))
+                          );
+                          const startingFrom = startingFromValue.toLocaleString();
+
+                          return (
+                            <div>
+                              <h3 className="font-semibold text-lg mb-4">PRICE</h3>
+                              <div className="space-y-4">
+                                <div className="bg-muted/30 p-4 rounded-lg">
+                                  <div className="text-center mb-4">
+                                    <span className="text-muted-foreground text-lg">Starting from</span>
+                                    <div className="text-3xl font-bold text-kenya-gold mt-1">
+                                      ${startingFrom}
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                              {pkg.options
-                                .sort((a, b) => parseInt(b.price.replace(/[$,]/g, '')) - parseInt(a.price.replace(/[$,]/g, '')))
-                                .map((option, index) => (
-                                <div key={index} className="border border-border rounded-lg p-4">
-                                  <div className="flex items-center justify-between mb-2">
-                                    <h4 className="font-semibold text-kenya-purple">{option.name}</h4>
-                                    <span className="text-xl font-bold text-kenya-gold">{option.price}</span>
-                                  </div>
-                                  <div className="space-y-1">
-                                    {option.lodges.map((lodge, lodgeIndex) => (
-                                      <div key={lodgeIndex} className="flex items-center gap-2 text-sm">
-                                        <span className="text-muted-foreground">•</span>
-                                        <a 
-                                          href={`https://www.google.com/search?q=${encodeURIComponent(lodge + ' Kenya safari lodge')}`}
-                                          target="_blank"
-                                          rel="noopener noreferrer"
-                                          className="text-kenya-gold hover:text-kenya-purple hover:underline transition-colors"
-                                        >
-                                          {lodge}
-                                        </a>
-                                        <ExternalLink className="w-3 h-3 text-kenya-gold" />
+                                {sortedOptions.map((option) => {
+                                  const optionKeyBase = `${pkg.id}-${normalizeLodgeName(option.name)}`;
+                                  return (
+                                    <div key={optionKeyBase} className="border border-border rounded-lg p-4">
+                                      <div className="flex items-center justify-between mb-2">
+                                        <h4 className="font-semibold text-kenya-purple">{option.name}</h4>
+                                        <span className="text-xl font-bold text-kenya-gold">{option.price}</span>
                                       </div>
-                                    ))}
-                                  </div>
-                                </div>
-                              ))}
+                                      <div className="space-y-1">
+                                        {option.lodges.map((lodge) => {
+                                          const normalized = normalizeLodgeName(lodge);
+                                          const detail = lodgeDetailsMap[normalized];
+                                          const lodgeKey = `${optionKeyBase}-${normalized}`;
+                                          const isActive = activeLodgeKey === lodgeKey;
+
+                                          return (
+                                            <div key={lodgeKey} className="flex items-center gap-2 text-sm py-1">
+                                              <span className="text-muted-foreground leading-none">•</span>
+                                              <a
+                                                href={`https://www.google.com/search?q=${encodeURIComponent(lodge + ' Kenya safari lodge')}`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-kenya-gold hover:text-kenya-purple hover:underline transition-colors"
+                                              >
+                                                {lodge}
+                                              </a>
+                                              {detail && (
+                                                <div className="relative ml-2">
+                                                  <button
+                                                    type="button"
+                                                    aria-label={`More about ${lodge}`}
+                                                    aria-expanded={isActive}
+                                                    onClick={() =>
+                                                      setActiveLodgeKey((current) =>
+                                                        current === lodgeKey ? null : lodgeKey
+                                                      )
+                                                    }
+                                                    className={`flex h-6 w-6 items-center justify-center rounded-full border border-kenya-gold/40 text-kenya-gold transition-colors hover:bg-kenya-gold/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kenya-gold/50 ${
+                                                      isActive ? 'bg-kenya-gold/15 text-kenya-purple' : ''
+                                                    }`}
+                                                  >
+                                                    <ChevronRight
+                                                      className={`h-3.5 w-3.5 transition-transform ${
+                                                        isActive ? 'rotate-90' : ''
+                                                      }`}
+                                                    />
+                                                  </button>
+                                                  {isActive && (
+                                                    <div className="absolute left-full top-1/2 z-[80] ml-2 w-72 max-w-sm -translate-y-1/2 rounded-lg border border-border bg-card p-4 text-left shadow-2xl">
+                                                      <div className="absolute -left-2 top-1/2 -translate-y-1/2 h-4 w-4 rotate-45 bg-card border border-border border-r-0 border-b-0"></div>
+                                                      <p className="text-sm font-semibold text-foreground">{lodge}</p>
+                                                      <p className="mt-2 text-sm text-muted-foreground">{detail.summary}</p>
+                                                      <div className="mt-3 space-y-2 text-xs text-muted-foreground">
+                                                        <p>
+                                                          <span className="font-semibold text-foreground">Park access:</span>{' '}
+                                                          {detail.parkAccess}
+                                                        </p>
+                                                        <p>
+                                                          <span className="font-semibold text-foreground">Airstrip:</span>{' '}
+                                                          {detail.airAccess}
+                                                        </p>
+                                                        {detail.wildlife && (
+                                                          <p>
+                                                            <span className="font-semibold text-foreground">Highlights:</span>{' '}
+                                                            {detail.wildlife}
+                                                          </p>
+                                                        )}
+                                                        {detail.notes && (
+                                                          <p>
+                                                            <span className="font-semibold text-foreground">Travel tip:</span>{' '}
+                                                            {detail.notes}
+                                                          </p>
+                                                        )}
+                                                      </div>
+                                                    </div>
+                                                  )}
+                                                </div>
+                                              )}
+                                              {!detail && <div className="ml-2 h-6 w-6" aria-hidden />}
+                                            </div>
+                                          );
+                                        })}
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
                             </div>
-                          </div>
-                        )}
+                          );
+                        })()}
 
                         {/* Optional Activities */}
                         {pkg.category === 'group' && (
@@ -1425,12 +1864,14 @@ const Safaris = () => {
                             </Button>
                           </div>
                         </div>
+                        </div>
                       </div>
                     </DialogContent>
                   </Dialog>
                 </CardContent>
               </Card>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

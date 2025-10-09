@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star, Users, Globe, Award, Heart, Shield, Leaf, Camera } from 'lucide-react';
+import { Star, Users, Globe, Award, Heart, Shield, Leaf, Camera, Compass, Sparkles, Waves, CheckCircle2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import kenyaLion from '@/assets/kenya-lion.jpg';
 import luxuryCamp from '@/assets/luxury-camp.jpg';
 import heroSafari from '@/assets/hero-safari.jpg';
@@ -65,6 +67,99 @@ const About = () => {
     { icon: <Star className="w-6 h-6" />, number: "4.9", label: "Average Rating" }
   ];
 
+  const services = [
+    {
+      title: 'Private Safaris',
+      description: 'Tailor-made itineraries with dedicated guides, exclusive camps, and seamless logistics from start to finish.',
+      icon: <Compass className="w-7 h-7" />,
+      highlights: [
+        'Dedicated driver-guides with deep regional knowledge',
+        'Custom pacing that fits your travel style',
+        'Luxury 4x4 Land Cruisers with premium onboard comforts'
+      ]
+    },
+    {
+      title: 'Honeymoon Getaways',
+      description: 'Romantic bush escapes with candlelit dinners, private game drives, and thoughtful surprises for two.',
+      icon: <Sparkles className="w-7 h-7" />,
+      highlights: [
+        'Boutique camps and secluded suites handpicked for couples',
+        'Sunset champagne setups in the savannah',
+        'Optional hot air balloon and spa experiences'
+      ]
+    },
+    {
+      title: 'Family Adventures',
+      description: 'Flexible itineraries with kid-friendly lodges, engaging junior ranger activities, and multi-generational fun.',
+      icon: <Users className="w-7 h-7" />,
+      highlights: [
+        'Family suites and interconnecting rooms where available',
+        'Educator-led bush walks and wildlife talks for kids',
+        'On-demand pacing for nap times, school breaks, and energy levels'
+      ]
+    },
+    {
+      title: 'Beach Extensions',
+      description: 'Seamless Mara-to-coast combinations with private transfers to Diani, Watamu, or Lamu for barefoot luxury.',
+      icon: <Waves className="w-7 h-7" />,
+      highlights: [
+        'Tropical resorts and boutique villas with ocean views',
+        'Curated snorkeling, kite surfing, and dhow sunset cruises',
+        'Expert concierge support for dining and local culture tips'
+      ]
+    }
+  ];
+
+  const VEHICLE_CARD_COUNT = 4;
+
+  const vehicleImagesCandidates = [
+    '/tourvehicle.jpeg',
+    '/vehicles-landcruiser.jpg',
+    '/vehicles-safari-van.jpg',
+    '/WhatsApp Image 2025-09-22 at 19.32.05.jpeg',
+    '/whatsapp-image-vehicle.jpeg'
+  ];
+
+  const vehiclesFallback = [
+    'https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg',
+    'https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg',
+    'https://images.pexels.com/photos/167475/pexels-photo-167475.jpeg',
+    'https://images.pexels.com/photos/887828/pexels-photo-887828.jpeg'
+  ];
+
+  const resolveVehicleImages = async (): Promise<string[]> => {
+    const checks = await Promise.allSettled(
+      vehicleImagesCandidates.map((p) => fetch(p, { method: 'HEAD' }).then((r) => ({ ok: r.ok, path: p })))
+    );
+    const found = checks
+      .filter((r) => r.status === 'fulfilled' && (r as any).value.ok)
+      .map((r) => (r as any).value.path);
+
+    const selected = found.slice(0, VEHICLE_CARD_COUNT);
+    if (selected.length < VEHICLE_CARD_COUNT) {
+      const remainingFallback = vehiclesFallback.filter((url) => !selected.includes(url));
+      while (selected.length < VEHICLE_CARD_COUNT && remainingFallback.length) {
+        selected.push(remainingFallback.shift()!);
+      }
+    }
+
+    return selected.length ? selected : vehiclesFallback.slice(0, VEHICLE_CARD_COUNT);
+  };
+
+  const [activeService, setActiveService] = useState(0);
+  const [vehicleImages, setVehicleImages] = useState<string[]>(vehiclesFallback.slice(0, VEHICLE_CARD_COUNT));
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    let cancelled = false;
+    resolveVehicleImages().then((imgs) => {
+      if (!cancelled) setVehicleImages(imgs);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -124,6 +219,125 @@ const About = () => {
                   </div>
                   <h3 className="text-xl font-semibold mb-4">{value.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{value.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Services */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+            <p className="text-muted-foreground text-lg">
+              Choose how you want to explore Kenya. Hover or focus a service to see how we bring each experience to life.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-[1.1fr,0.9fr] gap-10 items-stretch">
+            <div className="grid sm:grid-cols-2 gap-6">
+              {services.map((svc, idx) => (
+                <Card
+                  key={idx}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={activeService === idx}
+                  onMouseEnter={() => setActiveService(idx)}
+                  onFocus={() => setActiveService(idx)}
+                  onClick={() => setActiveService(idx)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      setActiveService(idx);
+                    }
+                  }}
+                  className={`group relative overflow-hidden transition-all duration-300 border border-border bg-card shadow-sm hover:shadow-luxury focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kenya-gold ${
+                    activeService === idx
+                      ? 'ring-2 ring-kenya-gold shadow-luxury -translate-y-1'
+                      : 'hover:-translate-y-1'
+                  }`}
+                >
+                  <CardContent className="relative p-8 text-left">
+                    <div className="flex items-center gap-4 mb-5">
+                      <span className={`flex h-12 w-12 items-center justify-center rounded-full bg-kenya-gold/10 text-kenya-gold transition-all duration-300 ${
+                        activeService === idx ? 'bg-kenya-gold text-white scale-105 shadow-lg' : 'group-hover:bg-kenya-gold group-hover:text-white'
+                      }`}>
+                        {svc.icon}
+                      </span>
+                      <CardTitle className="text-lg font-semibold leading-snug">
+                        {svc.title}
+                      </CardTitle>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                      {svc.description}
+                    </p>
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        if (activeService !== idx) {
+                          setActiveService(idx);
+                        }
+                        navigate('/safaris');
+                      }}
+                      className="flex items-center gap-2 text-sm font-medium text-kenya-gold focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-kenya-gold/70"
+                      aria-label={`Discover more about ${svc.title}`}
+                    >
+                      <span>Discover more</span>
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <Card className="group relative overflow-hidden border border-border bg-card shadow-luxury transition-colors duration-300">
+              <CardHeader className="space-y-4 pt-10 pb-4 px-10">
+                <Badge className="bg-kenya-gold text-white w-fit">Signature Experience</Badge>
+                <CardTitle className="text-2xl font-semibold text-foreground transition-colors duration-300 group-hover:text-white">
+                  Signature Experience
+                </CardTitle>
+                <p className="text-sm font-medium uppercase tracking-wide text-foreground transition-colors duration-300 group-hover:text-white">
+                  {services[activeService]?.title}
+                </p>
+                <p className="text-base leading-relaxed text-foreground transition-colors duration-300 group-hover:text-white group-hover:text-opacity-90">
+                  {services[activeService]?.description}
+                </p>
+              </CardHeader>
+              <CardContent className="relative px-10 pb-10">
+                <div className="space-y-4">
+                  {services[activeService]?.highlights.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <span className="mt-1 text-kenya-gold transition-transform duration-300 group-hover:scale-110">
+                        <CheckCircle2 className="w-5 h-5" />
+                      </span>
+                      <p className="text-sm leading-relaxed text-foreground transition-colors duration-300 group-hover:text-white group-hover:text-opacity-90">
+                        {item}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Vehicles */}
+      <section className="py-16 bg-card">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Vehicles</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {vehicleImages.map((img, idx) => (
+              <Card key={idx} className="overflow-hidden hover:shadow-luxury transition-all duration-300 flex flex-col">
+                <div className="relative w-full" style={{ aspectRatio: '3 / 4' }}>
+                  <img src={img} alt={`Safari Vehicle ${idx + 1}`} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                </div>
+                <CardContent className="pt-4">
+                  <p className="text-sm text-muted-foreground">Spacious 4x4 with pop-up roof, charging ports, and fridge for cold drinks.</p>
                 </CardContent>
               </Card>
             ))}
