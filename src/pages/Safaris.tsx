@@ -1752,8 +1752,12 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
                                                     />
                                                   </button>
                                                   {isActive && (
-                                                    <div className="absolute left-full top-1/2 z-[80] ml-2 w-72 max-w-sm -translate-y-1/2 rounded-lg border border-border bg-card p-4 text-left shadow-2xl">
-                                                      <div className="absolute -left-2 top-1/2 -translate-y-1/2 h-4 w-4 rotate-45 bg-card border border-border border-r-0 border-b-0"></div>
+                                                    <div
+                                                      className="absolute left-1/2 bottom-full z-[80] mb-3 -translate-x-1/2 rounded-lg border border-border bg-card p-4 text-left shadow-2xl md:left-full md:bottom-auto md:top-1/2 md:mb-0 md:ml-2 md:w-72 md:max-w-sm md:-translate-x-0 md:-translate-y-1/2"
+                                                      style={{ width: 'clamp(14rem, 85vw, 18rem)' }}
+                                                    >
+                                                      <div className="absolute -bottom-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 border border-border border-t-0 border-l-0 bg-card shadow-md md:hidden"></div>
+                                                      <div className="absolute -left-2 top-1/2 hidden h-4 w-4 -translate-y-1/2 rotate-45 border border-border border-r-0 border-b-0 bg-card md:block"></div>
                                                       <p className="text-sm font-semibold text-foreground">{lodge}</p>
                                                       <p className="mt-2 text-sm text-muted-foreground">{detail.summary}</p>
                                                       <div className="mt-3 space-y-2 text-xs text-muted-foreground">

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -8,6 +8,28 @@ import { Play } from 'lucide-react';
 const GalleryPage = () => {
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+
+  const prioritizedItems = useMemo(() => {
+    const highlightTitle = 'Safari Highlight 2025-10-28 At 12.50.47';
+    const spotlightTitle = 'Safari Moment 2025-10-28 At 13.22.06';
+
+    const highlightItem = galleryItems.find((item) => item.title === highlightTitle);
+    const spotlightItem = galleryItems.find((item) => item.title === spotlightTitle);
+
+    const remainingItems = galleryItems.filter(
+      (item) => item.title !== highlightTitle && item.title !== spotlightTitle
+    );
+
+    const imageItems = remainingItems.filter((item) => item.type === 'image');
+    const videoItems = remainingItems.filter((item) => item.type === 'video');
+
+    return [
+      ...(highlightItem ? [highlightItem] : []),
+      ...(spotlightItem ? [spotlightItem] : []),
+      ...imageItems,
+      ...videoItems,
+    ];
+  }, []);
 
   const handleOpenItem = (item: GalleryItem) => {
     setSelectedItem(item);
@@ -54,43 +76,41 @@ const GalleryPage = () => {
             </div>
 
             <div className="columns-1 gap-4 space-y-4 sm:columns-2 lg:columns-3">
-              {galleryItems.map((item) => (
+              {prioritizedItems.map((item) => (
                 <button
                   key={item.src}
                   type="button"
                   onClick={() => handleOpenItem(item)}
                   className="group relative mb-4 block w-full break-inside-avoid focus:outline-none focus-visible:ring-2 focus-visible:ring-kenya-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  <div className="relative overflow-hidden rounded-3xl bg-muted/10 shadow-lg transition-transform duration-500 group-hover:-translate-y-1 group-hover:shadow-2xl">
-                    {item.type === 'image' ? (
-                      <img
-                        src={item.src}
-                        alt={item.title}
-                        loading="lazy"
-                        className="block w-full transform-gpu rounded-3xl object-cover transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-105"
-                      />
-                    ) : (
-                      <video
-                        src={item.src}
-                        muted
-                        loop
-                        autoPlay
-                        playsInline
-                        preload="metadata"
-                        className="block w-full transform-gpu rounded-3xl object-cover transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-105"
-                      />
-                    )}
-
-                    <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-black/45 via-transparent to-black/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-                    <div className="pointer-events-none absolute bottom-5 left-5 right-5 flex items-center justify-between text-white drop-shadow-lg">
-                      <span className="text-sm font-medium md:text-base">{item.title}</span>
-                      {item.type === 'video' && (
-                        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur">
-                          <Play className="h-4 w-4" />
-                        </span>
+                  <div className="relative overflow-visible rounded-3xl bg-muted/10 shadow-lg transition-transform duration-500 group-hover:-translate-y-1 group-hover:shadow-2xl">
+                    <div className="relative rounded-3xl">
+                      {item.type === 'image' ? (
+                        <img
+                          src={item.src}
+                          alt={item.title}
+                          loading="lazy"
+                          className="block w-full transform-gpu rounded-3xl object-cover transition-transform duration-500 origin-center ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.2]"
+                        />
+                      ) : (
+                        <video
+                          src={item.src}
+                          muted
+                          loop
+                          autoPlay
+                          playsInline
+                          preload="metadata"
+                          className="block w-full transform-gpu rounded-3xl object-cover transition-transform duration-500 origin-center ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.2]"
+                        />
                       )}
+                      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-black/45 via-transparent to-black/20 opacity-0 transition-transform transition-opacity duration-500 origin-center group-hover:scale-[1.2] group-hover:opacity-100" />
                     </div>
+
+                    {item.type === 'video' && (
+                      <div className="pointer-events-none absolute bottom-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm">
+                        <Play className="h-4 w-4" />
+                      </div>
+                    )}
                   </div>
                 </button>
               ))}
@@ -100,24 +120,26 @@ const GalleryPage = () => {
       </main>
 
       <Dialog open={open} onOpenChange={handleToggleOpen}>
-        <DialogContent className="max-w-5xl w-[92vw] border-none bg-transparent p-0 shadow-none focus:outline-none">
+        <DialogContent className="w-[94vw] max-w-5xl border-none bg-transparent p-0 shadow-none focus:outline-none sm:w-auto">
           {selectedItem && (
-            <div className="relative overflow-hidden rounded-3xl bg-black">
-              {selectedItem.type === 'image' ? (
-                <img
-                  src={selectedItem.src}
-                  alt={selectedItem.title}
-                  className="block w-full"
-                />
-              ) : (
-                <video
-                  src={selectedItem.src}
-                  controls
-                  autoPlay
-                  playsInline
-                  className="block w-full"
-                />
-              )}
+            <div className="flex w-full items-center justify-center">
+              <div className="relative w-full max-h-[85vh] overflow-hidden rounded-3xl bg-black/90 shadow-2xl sm:w-auto">
+                {selectedItem.type === 'image' ? (
+                  <img
+                    src={selectedItem.src}
+                    alt={selectedItem.title}
+                    className="h-full max-h-[85vh] w-full object-contain"
+                  />
+                ) : (
+                  <video
+                    src={selectedItem.src}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="h-full max-h-[85vh] w-full object-contain"
+                  />
+                )}
+              </div>
             </div>
           )}
           <DialogHeader className="px-4 pt-4 text-center">
