@@ -51,10 +51,10 @@ const Header = () => {
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
                 <a 
-                  href="tel:+254707694388" 
+                  href="tel:+254740086688" 
                   className="hover:text-kenya-gold transition-colors"
                 >
-                  +254 707 694 388
+                  +254 740 086688
                 </a>
               </div>
             </div>
@@ -109,7 +109,7 @@ const Header = () => {
             <a href="/experiences" className={`transition-colors font-medium ${isActive('/experiences') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Experiences
             </a>
-            <a href="/accommodations" className={`transition-colors font-medium ${isActive('/accommodations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
+            <a href="/gallery" className={`transition-colors font-medium ${isActive('/gallery') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Gallery
             </a>
             
@@ -187,7 +187,7 @@ const Header = () => {
             <a href="/experiences" className={`block transition-colors font-medium ${isActive('/experiences') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Experiences
             </a>
-            <a href="/accommodations" className={`block transition-colors font-medium ${isActive('/accommodations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
+            <a href="/gallery" className={`block transition-colors font-medium ${isActive('/gallery') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
               Gallery
             </a>
             

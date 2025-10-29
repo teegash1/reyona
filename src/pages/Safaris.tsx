@@ -1854,7 +1854,7 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
                               size="lg"
                               onClick={() => {
                                 const message = encodeURIComponent(`Greetings, requesting for quote of ${pkg.title}. Kindly assist.`);
-                                const whatsappUrl = `https://wa.me/254707694388?text=${message}`;
+                                const whatsappUrl = `https://wa.me/254740086688?text=${message}`;
                                 window.open(whatsappUrl, '_blank');
                               }}
                             >

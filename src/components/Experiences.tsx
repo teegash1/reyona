@@ -41,9 +41,12 @@ const Experiences = () => {
       <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-kenya-purple/10 border border-kenya-purple/20 rounded-full text-kenya-purple text-sm font-medium mb-4">
+          <a
+            href="/experiences"
+            className="inline-flex items-center px-4 py-2 bg-kenya-purple/10 border border-kenya-purple/20 rounded-full text-kenya-purple text-sm font-medium mb-4 transition-colors hover:bg-kenya-purple/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kenya-purple/50"
+          >
             UNIQUE EXPERIENCES
-          </div>
+          </a>
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-foreground px-4">
             Beyond Traditional
             <span className="block bg-gradient-primary bg-clip-text text-transparent">
@@ -99,7 +102,7 @@ const Experiences = () => {
               className="border-white text-white hover:bg-white hover:text-primary"
               onClick={() => {
                 const message = encodeURIComponent("Greetings, I am in need of assistance on planning my safari to Kenya.");
-                const whatsappUrl = `https://wa.me/254707694388?text=${message}`;
+                const whatsappUrl = `https://wa.me/254740086688?text=${message}`;
                 window.open(whatsappUrl, '_blank');
               }}
             >

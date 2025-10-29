@@ -151,7 +151,7 @@ const Contact = () => {
 
   const handleLiveChatSupport = () => {
     const message = 'Hi Reyona Safaris, kindly assist';
-    const whatsappUrl = `https://wa.me/254707694388?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://wa.me/254740086688?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -178,17 +178,17 @@ const Contact = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Our Office",
-      details: ["Westlands, Nairobi", "Kenya"],
+      details: ["Delta Chambers", "P.O.BOX 172-00100", "Nairobi, Kenya"],
       description: "Come see us for personalized safari planning",
       clickable: false
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      details: ["+254 707 694 388"],
+      details: ["+254 740 086688"],
       description: "Available 24/7 for emergency support",
       clickable: true,
-      action: "tel:+254707694388"
+      action: "tel:+254740086688"
     },
     {
       icon: <Mail className="w-6 h-6" />,
@@ -436,7 +436,8 @@ const Contact = () => {
                     <div className="text-center">
                       <MapPin className="w-12 h-12 mx-auto mb-4" />
                       <h3 className="text-xl font-bold">Reyona Safaris</h3>
-                      <p>Westlands, Nairobi</p>
+                      <p>Delta Chambers, P.O.BOX 172-00100</p>
+                      <p>Nairobi, Kenya</p>
                       <p>Kenya</p>
                     </div>
                   </div>

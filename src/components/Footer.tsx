@@ -83,7 +83,7 @@ const Footer = () => {
                 <li><a href="/" className="text-muted-foreground hover:text-kenya-gold transition-colors">Home</a></li>
                 <li><a href="/safaris" className="text-muted-foreground hover:text-kenya-gold transition-colors">Safari Packages</a></li>
                 <li><a href="/experiences" className="text-muted-foreground hover:text-kenya-gold transition-colors">Experiences</a></li>
-                <li><a href="/accommodations" className="text-muted-foreground hover:text-kenya-gold transition-colors">Gallery</a></li>
+                <li><a href="/gallery" className="text-muted-foreground hover:text-kenya-gold transition-colors">Gallery</a></li>
                 <li><a href="/about" className="text-muted-foreground hover:text-kenya-gold transition-colors">About Us</a></li>
                 <li><a href="/contact" className="text-muted-foreground hover:text-kenya-gold transition-colors">Contact</a></li>
               </ul>
@@ -111,7 +111,7 @@ const Footer = () => {
                   <MapPin className="w-5 h-5 text-kenya-gold mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-muted-foreground">
-                      Safari Centre, Westlands<br />
+                      Delta Chambers, P.O.BOX 172-00100<br />
                       Nairobi, Kenya
                     </p>
                   </div>
@@ -119,10 +119,10 @@ const Footer = () => {
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-kenya-gold flex-shrink-0" />
                   <a 
-                    href="tel:+254707694388" 
+                    href="tel:+254740086688" 
                     className="text-muted-foreground hover:text-kenya-gold transition-colors"
                   >
-                    +254 707 694 388
+                    +254 740 086688
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
