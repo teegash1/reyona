@@ -6,7 +6,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Camera, Heart, Wind, Users2, Tent, Utensils } from 'lucide-react';
 import maraBalloon from '@/assets/Mara Hot Air Ballooning.jpeg';
-import angamaGuest from '@/assets/Angama Mara Guest Area North Camp Deck.jpeg';
 // Updated to use external images for better quality and variety
 // import heroSafari from '@/assets/hero-safari.jpg';
 // import luxuryCamp from '@/assets/luxury-camp.jpg';
@@ -37,7 +36,7 @@ const Experiences = () => {
       icon: Heart,
       title: "Cultural Immersion in Maasai Villages",
       description: "Engage with the vibrant Maasai culture through a guided visit to local villages. Participate in traditional dances, learn about their customs, and enjoy authentic Maasai cuisine. This unique interaction not only enriches your travel experience but also supports local communities.",
-      image: "https://cdn.pixabay.com/photo/2019/07/29/21/15/warrior-4371555_1280.jpg",
+      image: "/AAcultureimersion.jpeg",
       duration: "Half to full day",
       price: "On request"
     },
@@ -61,7 +60,7 @@ const Experiences = () => {
       icon: Utensils,
       title: "Traditional Cooking Classes",
       description: "Immerse yourself in the culinary delights of East Africa with a traditional cooking class. Learn to prepare local dishes using fresh ingredients while discovering the cultural significance of each meal. This hands-on experience is a delicious way to connect with the local culture.",
-      image: "https://cdn.pixabay.com/photo/2019/09/21/09/07/african-4493422_1280.jpg",
+      image: "/AAtraditionalcooking.jpeg",
       duration: "Half day",
       price: "On request"
     },
@@ -69,7 +68,7 @@ const Experiences = () => {
       icon: Heart,
       title: "Community Conservation Projects",
       description: "Participate in community-based conservation projects that support wildlife preservation and local communities. Engage in activities like tree planting, wildlife monitoring, or educational programs. This meaningful experience allows you to give back while learning about sustainable practices.",
-      image: "https://cdn.pixabay.com/photo/2021/10/31/19/35/tribe-6758620_1280.jpg",
+      image: "/AAcommcons.jpeg",
       duration: "Half to full day",
       price: "On request"
     },
@@ -93,7 +92,7 @@ const Experiences = () => {
       icon: Heart,
       title: "Coffee Farm Visits",
       description: "Discover the rich flavors of East Africa with a visit to a local coffee farm. Learn about the coffee-making process from bean to cup, participate in tastings, and understand the impact of coffee farming on local communities. This engaging experience is perfect for coffee lovers and those interested in sustainable agriculture.",
-      image: "https://cdn.pixabay.com/photo/2017/08/05/16/05/coffee-2584497_1280.jpg",
+      image: "/coffee-farm.jpeg",
       duration: "Half day",
       price: "On request"
     },
@@ -101,7 +100,7 @@ const Experiences = () => {
       icon: Users2,
       title: "Boat Riding on Lake Naivasha",
       description: "Enjoy a tranquil boat ride on Lake Naivasha, known for its stunning scenery and abundant wildlife. Keep an eye out for hippos, various bird species, and beautiful flora as you glide across the water. This relaxing activity is ideal for families or anyone looking to unwind in nature.",
-      image: "https://cdn.pixabay.com/photo/2016/04/05/11/04/india-1309206_1280.jpg",
+      image: "/AAboatride.jpg",
       duration: "1-2 hours",
       price: "On request"
     },
@@ -109,7 +108,7 @@ const Experiences = () => {
       icon: Users2,
       title: "Boat Safaris on Lake Nakuru",
       description: "Explore the beautiful Lake Nakuru on a boat safari, where you can witness the lake's famous pink flamingos and other wildlife from a unique vantage point. Guided by local experts, this experience combines stunning scenery with the opportunity to learn about the lake's ecosystem and conservation efforts.",
-      image: "https://cdn.pixabay.com/photo/2023/08/28/19/28/boat-8219886_1280.jpg",
+      image: "/AAboat ride nakuru.jpg",
       duration: "1-2 hours",
       price: "On request"
     },
@@ -117,7 +116,7 @@ const Experiences = () => {
       icon: Utensils,
       title: "Bush Dinner Under the Stars",
       description: "Indulge in a magical bush dinner, where you can savor gourmet dishes prepared by skilled chefs while surrounded by the sounds of the African wilderness. Set under a canopy of stars, this enchanting dining experience offers a perfect blend of adventure and romance, making it ideal for couples and special occasions.",
-      image: "https://cdn.pixabay.com/photo/2020/02/01/06/13/vegan-4809593_1280.jpg",
+      image: "/AAdinner.png",
       duration: "Evening",
       price: "On request"
     },
@@ -125,7 +124,7 @@ const Experiences = () => {
       icon: Utensils,
       title: "Bush Breakfast Experience",
       description: "Start your day with a unique bush breakfast, served in the heart of nature after an early morning game drive. Enjoy freshly prepared meals while taking in the stunning views and sounds of the wild. This invigorating experience adds a special touch to your safari adventure.",
-      image: "https://cdn.pixabay.com/photo/2020/02/01/06/13/vegan-4809593_1280.jpg",
+      image: "/AAbushbreakfast.jpg",
       duration: "Morning",
       price: "On request"
     },
@@ -133,7 +132,7 @@ const Experiences = () => {
       icon: Heart,
       title: "Sundowner Experiences",
       description: "Cap off your day with a memorable sundowner experience, enjoying drinks and snacks as the sun sets over the African landscape. Choose from various stunning viewpoints to watch the sky transform into vibrant hues. This relaxing ritual is perfect for unwinding after a day of exploration.",
-      image: angamaGuest,
+      image: "/AAsundowne.jpg",
       duration: "Evening",
       price: "On request"
     },
@@ -143,6 +142,15 @@ const Experiences = () => {
       description: "Explore the vibrant world of East African floriculture with a visit to a local flower farm. Learn about the cultivation and export process of stunning blooms while enjoying guided tours through colorful fields. This unique experience is perfect for nature lovers and those interested in sustainable farming practices.",
       image: "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_1280.jpg",
       duration: "Half day",
+      price: "On request"
+    }
+    ,
+    {
+      icon: Heart,
+      title: "Massage Therapy",
+      description: "Unwind after a day of adventure with a soothing massage provided by trained therapists. Choose from deep tissue, aromatherapy, or hot-stone sessions — perfect for restoring energy between game drives.",
+      image: "/AAmassage.jpeg",
+      duration: "60–90 minutes",
       price: "On request"
     }
   ];
