@@ -202,17 +202,20 @@ const About = () => {
 
       {/* Our Story */}
       <section className="relative py-16 overflow-hidden">
-        {/* Cheetah print background at ~30% opacity (desktop + mobile) */}
-        <div className="pointer-events-none absolute inset-0 opacity-30">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: "url('https://www.transparenttextures.com/patterns/leopard.png')",
-              backgroundColor: '#f6e8c8',
-              backgroundRepeat: 'repeat'
-            }}
-          />
-        </div>
+        {/* Solid backdrop */}
+        <div className="absolute inset-0" style={{ backgroundColor: '#616569' }} />
+        {/* Image overlay at 40% opacity */}
+        <div
+          className="absolute inset-0 opacity-40"
+          style={{
+            backgroundImage: "url('/AATIG.png')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+        {/* Subtle readability gradient */}
+        <div className="absolute inset-0 bg-black/15" />
         <div className="relative max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Story</h2>
           <div className="space-y-8 text-lg leading-relaxed text-center">
