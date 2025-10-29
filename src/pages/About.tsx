@@ -244,57 +244,57 @@ const About = () => {
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Why Choose Us?</h2>
           <ol className="space-y-6 list-decimal pl-6 text-muted-foreground text-lg">
-            <li className="group cursor-default rounded-xl border border-kenya-burgundy/60 p-4 transition-[box-shadow,ring,transform] duration-[3000ms] md:hover:duration-[1000ms] md:group-hover:shadow-[0_0_28px_rgba(125,0,35,0.35)] md:group-hover:ring-2 md:group-hover:ring-kenya-burgundy/60">
+            <li className="group cursor-default rounded-xl border border-kenya-gold/50 p-4 transition-[box-shadow,ring,transform] duration-[4000ms] md:hover:duration-[1000ms] md:group-hover:shadow-[0_0_28px_rgba(212,175,55,0.35)] md:group-hover:ring-2 md:group-hover:ring-kenya-gold/50">
               <span className="font-semibold text-foreground">Expertise You Can Trust:</span>
-              <span className="ml-2 hidden md:inline text-xs text-kenya-burgundy/70">(hover for details)</span>
+              <span className="ml-2 hidden md:inline text-xs text-kenya-gold/50">(hover for details)</span>
               <p className="mt-2 md:hidden">
                 Our knowledgeable team brings together years of experience in every aspect of tours and travel, ensuring the highest level of service and attention to detail. From the moment you reach out, we’re here to support you every step of the way.
               </p>
-              <p className="mt-2 hidden opacity-0 transition-[opacity,max-height] duration-[3000ms] md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100 md:group-hover:duration-[1000ms]">
+              <p className="mt-2 hidden opacity-0 transition-[opacity,max-height] duration-[4000ms] md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100 md:group-hover:duration-[1000ms]">
                 Our knowledgeable team brings together years of experience in every aspect of tours and travel, ensuring the highest level of service and attention to detail. From the moment you reach out, we’re here to support you every step of the way.
               </p>
             </li>
 
-            <li className="group cursor-default rounded-xl border border-kenya-burgundy/60 p-4 transition-[box-shadow,ring,transform] duration-[3000ms] md:hover:duration-[1000ms] md:group-hover:shadow-[0_0_28px_rgba(125,0,35,0.35)] md:group-hover:ring-2 md:group-hover:ring-kenya-burgundy/60">
+            <li className="group cursor-default rounded-xl border border-kenya-gold/50 p-4 transition-[box-shadow,ring,transform] duration-[4000ms] md:hover:duration-[1000ms] md:group-hover:shadow-[0_0_28px_rgba(212,175,55,0.35)] md:group-hover:ring-2 md:group-hover:ring-kenya-gold/50">
               <span className="font-semibold text-foreground">Authentic Experiences:</span>
-              <span className="ml-2 hidden md:inline text-xs text-kenya-burgundy/70">(hover for details)</span>
+              <span className="ml-2 hidden md:inline text-xs text-kenya-gold/50">(hover for details)</span>
               <p className="mt-2 md:hidden">
                 We craft encounters that immerse you in local culture — engaging with communities, savoring traditional cuisine, and exploring stunning natural wonders — to create memories that last a lifetime.
               </p>
-              <p className="mt-2 hidden opacity-0 transition-[opacity,max-height] duration-[3000ms] md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100 md:group-hover:duration-[1000ms]">
+              <p className="mt-2 hidden opacity-0 transition-[opacity,max-height] duration-[4000ms] md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100 md:group-hover:duration-[1000ms]">
                 We craft encounters that immerse you in local culture — engaging with communities, savoring traditional cuisine, and exploring stunning natural wonders — to create memories that last a lifetime.
               </p>
             </li>
 
-            <li className="group cursor-default rounded-xl border border-kenya-burgundy/60 p-4 transition-[box-shadow,ring,transform] duration-[3000ms] md:hover:duration-[1000ms] md:group-hover:shadow-[0_0_28px_rgba(125,0,35,0.35)] md:group-hover:ring-2 md:group-hover:ring-kenya-burgundy/60">
+            <li className="group cursor-default rounded-xl border border-kenya-gold/50 p-4 transition-[box-shadow,ring,transform] duration-[4000ms] md:hover:duration-[1000ms] md:group-hover:shadow-[0_0_28px_rgba(212,175,55,0.35)] md:group-hover:ring-2 md:group-hover:ring-kenya-gold/50">
               <span className="font-semibold text-foreground">Tailored Itineraries:</span>
-              <span className="ml-2 hidden md:inline text-xs text-kenya-burgundy/70">(hover for details)</span>
+              <span className="ml-2 hidden md:inline text-xs text-kenya-gold/50">(hover for details)</span>
               <p className="mt-2 md:hidden">
                 No two travelers are alike. We design custom itineraries that reflect your preferences, budget, and aspirations — from thrilling safaris to relaxing wellness retreats and cultural explorations.
               </p>
-              <p className="mt-2 hidden opacity-0 transition-[opacity,max-height] duration-[3000ms] md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100 md:group-hover:duration-[1000ms]">
+              <p className="mt-2 hidden opacity-0 transition-[opacity,max-height] duration-[4000ms] md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100 md:group-hover:duration-[1000ms]">
                 No two travelers are alike. We design custom itineraries that reflect your preferences, budget, and aspirations — from thrilling safaris to relaxing wellness retreats and cultural explorations.
               </p>
             </li>
 
-            <li className="group cursor-default rounded-xl border border-kenya-burgundy/60 p-4 transition-[box-shadow,ring,transform] duration-[3000ms] md:hover:duration-[1000ms] md:group-hover:shadow-[0_0_28px_rgba(125,0,35,0.35)] md:group-hover:ring-2 md:group-hover:ring-kenya-burgundy/60">
+            <li className="group cursor-default rounded-xl border border-kenya-gold/50 p-4 transition-[box-shadow,ring,transform] duration-[4000ms] md:hover:duration-[1000ms] md:group-hover:shadow-[0_0_28px_rgba(212,175,55,0.35)] md:group-hover:ring-2 md:group-hover:ring-kenya-gold/50">
               <span className="font-semibold text-foreground">Commitment to Sustainability:</span>
-              <span className="ml-2 hidden md:inline text-xs text-kenya-burgundy/70">(hover for details)</span>
+              <span className="ml-2 hidden md:inline text-xs text-kenya-gold/50">(hover for details)</span>
               <p className="mt-2 md:hidden">
                 We champion conservation and community initiatives, so your trip contributes to places and people you’ll remember long after you return home.
               </p>
-              <p className="mt-2 hidden opacity-0 transition-[opacity,max-height] duration-[3000ms] md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100 md:group-hover:duration-[1000ms]">
+              <p className="mt-2 hidden opacity-0 transition-[opacity,max-height] duration-[4000ms] md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100 md:group-hover:duration-[1000ms]">
                 We champion conservation and community initiatives, so your trip contributes to places and people you’ll remember long after you return home.
               </p>
             </li>
 
-            <li className="group cursor-default rounded-xl border border-kenya-burgundy/60 p-4 transition-[box-shadow,ring,transform] duration-[3000ms] md:hover:duration-[1000ms] md:group-hover:shadow-[0_0_28px_rgba(125,0,35,0.35)] md:group-hover:ring-2 md:group-hover:ring-kenya-burgundy/60">
+            <li className="group cursor-default rounded-xl border border-kenya-gold/50 p-4 transition-[box-shadow,ring,transform] duration-[4000ms] md:hover:duration-[1000ms] md:group-hover:shadow-[0_0_28px_rgba(212,175,55,0.35)] md:group-hover:ring-2 md:group-hover:ring-kenya-gold/50">
               <span className="font-semibold text-foreground">Unwavering Support:</span>
-              <span className="ml-2 hidden md:inline text-xs text-kenya-burgundy/70">(hover for details)</span>
+              <span className="ml-2 hidden md:inline text-xs text-kenya-gold/50">(hover for details)</span>
               <p className="mt-2 md:hidden">
                 Your journey doesn’t end at booking. Enjoy 24/7 personalized assistance — travel with peace of mind knowing help is always just a call away.
               </p>
-              <p className="mt-2 hidden opacity-0 transition-[opacity,max-height] duration-[3000ms] md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100 md:group-hover:duration-[1000ms]">
+              <p className="mt-2 hidden opacity-0 transition-[opacity,max-height] duration-[4000ms] md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100 md:group-hover:duration-[1000ms]">
                 Your journey doesn’t end at booking. Enjoy 24/7 personalized assistance — travel with peace of mind knowing help is always just a call away.
               </p>
             </li>
