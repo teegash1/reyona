@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { galleryItems, type GalleryItem } from '@/data/galleryItems';
 import { Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -86,7 +86,7 @@ const GalleryPage = () => {
                   hoveredIndex !== null && Math.abs(hoveredIndex - index) === 1;
 
                 const hoverEffect = 0.045;
-                const neighborEffect = hoverEffect * 0.3;
+                const neighborEffect = hoverEffect * 0.2;
 
                 const scale = isHovered
                   ? 1 + hoverEffect
@@ -94,12 +94,12 @@ const GalleryPage = () => {
                   ? 1 + neighborEffect
                   : 1;
 
-                const rotate = isHovered ? 4 : isNeighbor ? 1.5 : 0;
+                const rotate = isHovered ? 4 : isNeighbor ? 1 : 0;
                 const transformStyle = {
                   transform: `perspective(1400px) scale(${scale}) rotateX(${rotate}deg)`,
                 };
-                const overlayOpacity = isHovered ? 0.6 : isNeighbor ? 0.25 : 0;
-                const saturation = isHovered ? 1.05 : isNeighbor ? 1.02 : 1;
+                const overlayOpacity = isHovered ? 0.55 : isNeighbor ? 0.18 : 0;
+                const saturation = isHovered ? 1.05 : isNeighbor ? 1.015 : 1;
 
                 return (
                   <button
@@ -189,11 +189,6 @@ const GalleryPage = () => {
               </div>
             </div>
           )}
-          <DialogHeader className="px-4 pt-4 text-center">
-            <DialogTitle className="text-base font-semibold text-white md:text-lg">
-              {selectedItem?.title}
-            </DialogTitle>
-          </DialogHeader>
         </DialogContent>
       </Dialog>
 
