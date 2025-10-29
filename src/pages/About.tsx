@@ -188,8 +188,7 @@ const About = () => {
       {/* Reyona Intro */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Reyona</h2>
-          <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
+          <div className="space-y-6 text-lg leading-relaxed text-muted-foreground text-center">
             <p>
               At Reyona, we turn travel dreams into hand-crafted realities. With nearly a decade of experience in the travel industry, our founder has dedicated their life to crafting unforgettable journeys that connect travelers with the vibrant culture, breathtaking landscapes, and incredible wildlife of the remarkable East Africa region.
             </p>
@@ -205,7 +204,7 @@ const About = () => {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Story</h2>
-          <div className="space-y-8 text-lg leading-relaxed">
+          <div className="space-y-8 text-lg leading-relaxed text-center">
             <p className="text-muted-foreground">
               Reyona started with a single conviction: the best journeys are the ones that change you. Our founder spent years working in tour agencies, negotiating with lodges, and building relationships with local communities and guides. That meant late nights shaping itineraries and hundreds of conversations with travelers about what truly made their trip special — plus first‑hand familiarisation of hotels, lodges, and tented camps to identify the very best for our guests.
             </p>
@@ -234,20 +233,54 @@ const About = () => {
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Why Choose Us?</h2>
           <ol className="space-y-6 list-decimal pl-6 text-muted-foreground text-lg">
-            <li>
-              <span className="font-semibold text-foreground">Expertise You Can Trust:</span> Our knowledgeable team brings together years of experience in every aspect of tours and travel, ensuring the highest level of service and attention to detail. From the moment you reach out, we’re here to support you every step of the way.
+            <li className="group cursor-default">
+              <span className="font-semibold text-foreground">Expertise You Can Trust:</span>
+              <p className="mt-2 md:hidden">
+                Our knowledgeable team brings together years of experience in every aspect of tours and travel, ensuring the highest level of service and attention to detail. From the moment you reach out, we’re here to support you every step of the way.
+              </p>
+              <p className="mt-2 hidden opacity-0 transition-all duration-300 md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100">
+                Our knowledgeable team brings together years of experience in every aspect of tours and travel, ensuring the highest level of service and attention to detail. From the moment you reach out, we’re here to support you every step of the way.
+              </p>
             </li>
-            <li>
-              <span className="font-semibold text-foreground">Authentic Experiences:</span> We craft encounters that immerse you in local culture — engaging with communities, savoring traditional cuisine, and exploring stunning natural wonders — to create memories that last a lifetime.
+
+            <li className="group cursor-default">
+              <span className="font-semibold text-foreground">Authentic Experiences:</span>
+              <p className="mt-2 md:hidden">
+                We craft encounters that immerse you in local culture — engaging with communities, savoring traditional cuisine, and exploring stunning natural wonders — to create memories that last a lifetime.
+              </p>
+              <p className="mt-2 hidden opacity-0 transition-all duration-300 md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100">
+                We craft encounters that immerse you in local culture — engaging with communities, savoring traditional cuisine, and exploring stunning natural wonders — to create memories that last a lifetime.
+              </p>
             </li>
-            <li>
-              <span className="font-semibold text-foreground">Tailored Itineraries:</span> No two travelers are alike. We design custom itineraries that reflect your preferences, budget, and aspirations — from thrilling safaris to relaxing wellness retreats and cultural explorations.
+
+            <li className="group cursor-default">
+              <span className="font-semibold text-foreground">Tailored Itineraries:</span>
+              <p className="mt-2 md:hidden">
+                No two travelers are alike. We design custom itineraries that reflect your preferences, budget, and aspirations — from thrilling safaris to relaxing wellness retreats and cultural explorations.
+              </p>
+              <p className="mt-2 hidden opacity-0 transition-all duration-300 md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100">
+                No two travelers are alike. We design custom itineraries that reflect your preferences, budget, and aspirations — from thrilling safaris to relaxing wellness retreats and cultural explorations.
+              </p>
             </li>
-            <li>
-              <span className="font-semibold text-foreground">Commitment to Sustainability:</span> We champion conservation and community initiatives, so your trip contributes to places and people you’ll remember long after you return home.
+
+            <li className="group cursor-default">
+              <span className="font-semibold text-foreground">Commitment to Sustainability:</span>
+              <p className="mt-2 md:hidden">
+                We champion conservation and community initiatives, so your trip contributes to places and people you’ll remember long after you return home.
+              </p>
+              <p className="mt-2 hidden opacity-0 transition-all duration-300 md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100">
+                We champion conservation and community initiatives, so your trip contributes to places and people you’ll remember long after you return home.
+              </p>
             </li>
-            <li>
-              <span className="font-semibold text-foreground">Unwavering Support:</span> Your journey doesn’t end at booking. Enjoy 24/7 personalized assistance — travel with peace of mind knowing help is always just a call away.
+
+            <li className="group cursor-default">
+              <span className="font-semibold text-foreground">Unwavering Support:</span>
+              <p className="mt-2 md:hidden">
+                Your journey doesn’t end at booking. Enjoy 24/7 personalized assistance — travel with peace of mind knowing help is always just a call away.
+              </p>
+              <p className="mt-2 hidden opacity-0 transition-all duration-300 md:block md:max-h-0 md:group-hover:max-h-40 md:group-hover:opacity-100">
+                Your journey doesn’t end at booking. Enjoy 24/7 personalized assistance — travel with peace of mind knowing help is always just a call away.
+              </p>
             </li>
           </ol>
         </div>
