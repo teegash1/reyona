@@ -35,7 +35,7 @@ const About = () => {
 
   const team = [
     {
-      name: "NAthaniel Gachukia",
+      name: "Nathaniel Gachukia",
       role: "Founder & CEO",
       experience: "12+ years",
       specialty: "Travel & Tourism",
@@ -374,7 +374,7 @@ const About = () => {
                   <img 
                     src={member.image} 
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover ${member.role === 'Founder & CEO' ? 'object-top' : ''}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-white">
