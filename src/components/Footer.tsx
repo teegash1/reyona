@@ -1,7 +1,17 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Youtube, CheckCircle2 } from 'lucide-react';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const onSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+    setSubscribed(true);
+  };
+
   return (
     <footer className="bg-background border-t border-border mt-16">
       {/* Newsletter Section */}
@@ -13,16 +23,34 @@ const Footer = () => {
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
             Get exclusive safari deals, wildlife photography tips, and Kenya travel insights delivered to your inbox.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full px-4 py-3 rounded-lg border-0 text-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-kenya-gold"
-            />
-            <Button variant="luxury" size="lg" className="w-full sm:w-auto">
-              Subscribe
-            </Button>
-          </div>
+          {subscribed ? (
+            <div className="max-w-md mx-auto">
+              <div className="flex items-center gap-3 bg-white/15 border border-white/30 rounded-xl px-4 py-3 text-left text-white shadow-lg backdrop-blur-sm">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-kenya-gold/90 text-background">
+                  <CheckCircle2 className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-semibold">Successfully subscribed</p>
+                  <p className="text-white/80 text-sm">We’ll send you occasional travel inspiration and offers.</p>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <form onSubmit={onSubscribe} className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                aria-label="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 rounded-lg border-0 text-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-kenya-gold"
+                required
+              />
+              <Button type="submit" variant="luxury" size="lg" className="w-full sm:w-auto">
+                Subscribe
+              </Button>
+            </form>
+          )}
         </div>
       </div>
 
