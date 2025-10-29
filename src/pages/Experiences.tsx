@@ -202,8 +202,8 @@ const Experiences = () => {
                     src={experience.image} 
                     alt={experience.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    style={experience.title === 'Coffee Farm Visits' ? { objectPosition: 'center 70%' } : undefined}
-                  />
+                    style={experience.title === 'Coffee Farm Visits' ? { objectPosition: 'center 80%' } : undefined}
+                   />
                   <div className="absolute top-4 right-4">
                     <Badge variant="secondary" className="bg-kenya-gold text-black font-semibold">
                       {experience.price}
