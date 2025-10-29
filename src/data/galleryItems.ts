@@ -21,6 +21,11 @@ export const galleryItems: readonly GalleryItem[] = [
     type: 'video',
   },
   {
+    title: 'Safari Clip (4)',
+    src: '/gallery/Untitled design (4).mp4',
+    type: 'video',
+  },
+  {
     title: 'Safari Clip',
     src: '/gallery/Untitled design.mp4',
     type: 'video',

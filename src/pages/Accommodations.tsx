@@ -14,6 +14,7 @@ const GalleryPage = () => {
   const prioritizedItems = useMemo(() => {
     const highlightTitle = 'Safari Highlight 2025-10-28 At 12.50.47';
     const spotlightTitle = 'Safari Moment 2025-10-28 At 13.22.06';
+    const middleVideoTitle = 'Safari Clip (4)';
 
     const highlightItem = galleryItems.find((item) => item.title === highlightTitle);
     const spotlightItem = galleryItems.find((item) => item.title === spotlightTitle);
@@ -25,11 +26,25 @@ const GalleryPage = () => {
     const imageItems = remainingItems.filter((item) => item.type === 'image');
     const videoItems = remainingItems.filter((item) => item.type === 'video');
 
+    const middleVideo =
+      videoItems.find((item) => item.title === middleVideoTitle) ??
+      videoItems.find((item) => item.src.includes('Untitled design (4).mp4'));
+
+    const otherVideos = middleVideo
+      ? videoItems.filter((item) => item !== middleVideo)
+      : videoItems;
+
+    const arrangedMedia = [...imageItems];
+    if (middleVideo) {
+      const insertIndex = Math.max(0, Math.floor(arrangedMedia.length / 2));
+      arrangedMedia.splice(insertIndex, 0, middleVideo);
+    }
+
     return [
       ...(highlightItem ? [highlightItem] : []),
       ...(spotlightItem ? [spotlightItem] : []),
-      ...imageItems,
-      ...videoItems,
+      ...arrangedMedia,
+      ...otherVideos,
     ];
   }, []);
 
@@ -86,7 +101,7 @@ const GalleryPage = () => {
                   hoveredIndex !== null && Math.abs(hoveredIndex - index) === 1;
 
                 const hoverEffect = 0.045;
-                const neighborEffect = hoverEffect * 0.2;
+                const neighborEffect = hoverEffect * 0.15;
 
                 const scale = isHovered
                   ? 1 + hoverEffect
