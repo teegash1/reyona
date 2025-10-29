@@ -214,8 +214,21 @@ const About = () => {
             backgroundRepeat: 'no-repeat'
           }}
         />
-        {/* Darkest readability overlay */}
-        <div className="absolute inset-0 bg-black/70" />
+        {/* Strong readability overlay */}
+        <div className="absolute inset-0 bg-black/90" />
+        {/* Edge blending to neighboring sections using app background color */}
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-16 md:h-24"
+          style={{
+            background: 'linear-gradient(to bottom, hsl(var(--background)) 0%, rgba(0,0,0,0) 100%)'
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-16 md:h-24"
+          style={{
+            background: 'linear-gradient(to top, hsl(var(--background)) 0%, rgba(0,0,0,0) 100%)'
+          }}
+        />
         <div className="relative max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Story</h2>
           <div className="space-y-8 text-lg leading-relaxed text-center">
