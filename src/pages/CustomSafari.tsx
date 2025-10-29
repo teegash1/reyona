@@ -500,7 +500,7 @@ const CustomSafari = () => {
                 <CardContent className="pt-6 text-center">
                   <Mail className="w-8 h-8 mx-auto mb-4 text-kenya-gold" />
                   <h3 className="font-semibold text-white mb-2">Email Us</h3>
-                  <p className="text-white/90">custom@reyonasafaris.com</p>
+                  <p className="text-white/90">info@reyonasafaris.com</p>
                   <p className="text-white/70 text-sm">Response within 2 hours</p>
                 </CardContent>
               </Card>
