@@ -82,15 +82,16 @@ const GalleryPage = () => {
                   type="button"
                   onClick={() => handleOpenItem(item)}
                   className="group relative mb-4 block w-full break-inside-avoid focus:outline-none focus-visible:ring-2 focus-visible:ring-kenya-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  style={{ perspective: '1400px' }}
                 >
-                  <div className="relative overflow-visible rounded-3xl bg-muted/10 shadow-lg transition-transform duration-500 group-hover:-translate-y-1 group-hover:shadow-2xl">
-                    <div className="relative rounded-3xl">
+                  <div className="relative overflow-visible rounded-3xl bg-muted/10 shadow-lg transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_25px_55px_rgba(17,25,40,0.35)]">
+                    <div className="relative rounded-3xl transform-gpu transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover:[transform:rotateX(3deg)_scale(1.02)]">
                       {item.type === 'image' ? (
                         <img
                           src={item.src}
                           alt={item.title}
                           loading="lazy"
-                          className="block w-full transform-gpu rounded-3xl object-cover transition-transform duration-500 origin-center ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.2]"
+                          className="block w-full transform-gpu rounded-3xl object-cover transition-transform duration-500 origin-center ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.08] group-hover:[filter:saturate(1.05)]"
                         />
                       ) : (
                         <video
@@ -100,10 +101,10 @@ const GalleryPage = () => {
                           autoPlay
                           playsInline
                           preload="metadata"
-                          className="block w-full transform-gpu rounded-3xl object-cover transition-transform duration-500 origin-center ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.2]"
+                          className="block w-full transform-gpu rounded-3xl object-cover transition-transform duration-500 origin-center ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.08] group-hover:[filter:saturate(1.05)]"
                         />
                       )}
-                      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-black/45 via-transparent to-black/20 opacity-0 transition-transform transition-opacity duration-500 origin-center group-hover:scale-[1.2] group-hover:opacity-100" />
+                      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-black/45 via-transparent to-black/20 opacity-0 transition-transform transition-opacity duration-500 origin-center group-hover:scale-[1.08] group-hover:opacity-100" />
                     </div>
 
                     {item.type === 'video' && (
@@ -120,7 +121,7 @@ const GalleryPage = () => {
       </main>
 
       <Dialog open={open} onOpenChange={handleToggleOpen}>
-        <DialogContent className="w-[94vw] max-w-5xl border-none bg-transparent p-0 shadow-none focus:outline-none sm:w-auto">
+        <DialogContent className="w-[94vw] max-w-5xl border-none bg-transparent p-0 shadow-none focus:outline-none sm:w-auto [&_[data-radix-dialog-close]]:bg-white [&_[data-radix-dialog-close]]:hover:bg-white [&_[data-radix-dialog-close]]:!text-black [&_[data-radix-dialog-close]]:hover:!text-black [&_[data-radix-dialog-close]]:focus-visible:ring-kenya-gold">
           {selectedItem && (
             <div className="flex w-full items-center justify-center">
               <div className="relative w-full max-h-[85vh] overflow-hidden rounded-3xl bg-black/90 shadow-2xl sm:w-auto">
