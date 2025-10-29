@@ -185,24 +185,71 @@ const About = () => {
         </div>
       </section>
 
+      {/* Reyona Intro */}
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Reyona</h2>
+          <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
+            <p>
+              At Reyona, we turn travel dreams into hand-crafted realities. With nearly a decade of experience in the travel industry, our founder has dedicated their life to crafting unforgettable journeys that connect travelers with the vibrant culture, breathtaking landscapes, and incredible wildlife of the remarkable East Africa region.
+            </p>
+            <p>
+              We believe that every journey should be as unique as the traveler embarking on it. Our passionate team, equipped with years of expertise in tour planning and itinerary creation, is committed to delivering personalized experiences that resonate with your individual interests and desires. We take pride in understanding your needs and transforming them into extraordinary adventures.
+            </p>
+            <p className="font-semibold text-foreground">We don’t sell itineraries; we design experiences.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Our Story */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Story</h2>
           <div className="space-y-8 text-lg leading-relaxed">
             <p className="text-muted-foreground">
-              Reyona Safaris was born from the vision of Yvonne Agala, a passionate Kenyan entrepreneur whose love for travel and deep connection to her homeland inspired her to create something extraordinary. Growing up in Nairobi, Yvonne was captivated by the stories of Kenya's magnificent wildlife and the rich cultural heritage that surrounded her.
+              Reyona started with a single conviction: the best journeys are the ones that change you. Our founder spent years working in tour agencies, negotiating with lodges, and building relationships with local communities and guides. That meant late nights shaping itineraries and hundreds of conversations with travelers about what truly made their trip special — plus first‑hand familiarisation of hotels, lodges, and tented camps to identify the very best for our guests.
             </p>
             <p className="text-muted-foreground">
-              After exploring various corners of the world and experiencing different cultures, Yvonne realized that Kenya possessed something truly unique – a perfect blend of breathtaking landscapes, diverse wildlife, and warm hospitality that could create life-changing experiences for travelers. She noticed that many safari companies were offering standardized tours that missed the authentic essence of what makes Kenya special.
+              Those first experiences taught us three things: authenticity matters, detail wins trust, and stories create connections. We built Reyona to honor those lessons. What began as carefully arranged bespoke safaris for friends and visitors grew into a team of passionate professionals who believe travel should be soulful, sustainable, and precisely tailored.
             </p>
             <p className="text-muted-foreground">
-              Driven by her passion for travel and her desire to showcase Kenya's beauty to the world, Yvonne founded Reyona Safaris with a simple yet powerful mission: to create personalized, authentic safari experiences that would not only showcase Kenya's natural wonders but also support local communities and conservation efforts. She believed that every traveler deserved to experience the magic of Kenya in a way that was meaningful, responsible, and unforgettable.
-            </p>
-            <p className="text-muted-foreground">
-              Today, Reyona Safaris stands as a testament to Yvonne's vision – a company that has transformed the lives of thousands of travelers while maintaining the highest standards of service, sustainability, and authenticity. Her passion for travel continues to inspire every aspect of our operations, ensuring that every safari experience is crafted with the same love and dedication that inspired her to start this incredible journey.
+              Today, Reyona is a collective of seasoned guides, planners, and local specialists who wake up excited to craft days you’ll remember forever. We measure success not by the number of bookings, but by the quiet moments — a child’s first zebra sighting, a couple’s private sundowner, a guest who unwinds in a morning yoga session framed by acacias.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Mission */}
+      <section className="py-16 bg-card">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Our Mission</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed text-center">
+            Our mission is simple: to design authentic journeys that leave an indelible mark on your heart. Our team of seasoned planners, drivers, guides and local partners bring decades of combined experience in every facet of travel, ensuring that your adventure is not only seamless but also enriching. We listen to your desires and transform them into personalized itineraries that reflect your unique interests — whether it’s a thrilling safari, a cultural immersion, or a serene wellness retreat.
+          </p>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Why Choose Us?</h2>
+          <ol className="space-y-6 list-decimal pl-6 text-muted-foreground text-lg">
+            <li>
+              <span className="font-semibold text-foreground">Expertise You Can Trust:</span> Our knowledgeable team brings together years of experience in every aspect of tours and travel, ensuring the highest level of service and attention to detail. From the moment you reach out, we’re here to support you every step of the way.
+            </li>
+            <li>
+              <span className="font-semibold text-foreground">Authentic Experiences:</span> We craft encounters that immerse you in local culture — engaging with communities, savoring traditional cuisine, and exploring stunning natural wonders — to create memories that last a lifetime.
+            </li>
+            <li>
+              <span className="font-semibold text-foreground">Tailored Itineraries:</span> No two travelers are alike. We design custom itineraries that reflect your preferences, budget, and aspirations — from thrilling safaris to relaxing wellness retreats and cultural explorations.
+            </li>
+            <li>
+              <span className="font-semibold text-foreground">Commitment to Sustainability:</span> We champion conservation and community initiatives, so your trip contributes to places and people you’ll remember long after you return home.
+            </li>
+            <li>
+              <span className="font-semibold text-foreground">Unwavering Support:</span> Your journey doesn’t end at booking. Enjoy 24/7 personalized assistance — travel with peace of mind knowing help is always just a call away.
+            </li>
+          </ol>
         </div>
       </section>
 
