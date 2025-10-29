@@ -39,7 +39,7 @@ const About = () => {
       role: "Founder & CEO",
       experience: "12+ years",
       specialty: "Travel & Tourism",
-      image: "/AATNAE.jpeg",
+      image: "/AACEO.jpeg",
       description: "Nathaniel leads Reyona Safaris with a clear vision for authentic, guest-first safaris and a deep love for Kenya's wild places."
     },
     {
