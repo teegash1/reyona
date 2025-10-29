@@ -100,7 +100,7 @@ const GalleryPage = () => {
                 const isNeighbor =
                   hoveredIndex !== null && Math.abs(hoveredIndex - index) === 1;
 
-                const hoverEffect = 0.045;
+                const hoverEffect = 0.035;
                 const neighborEffect = hoverEffect * 0.15;
 
                 const scale = isHovered
@@ -109,12 +109,12 @@ const GalleryPage = () => {
                   ? 1 + neighborEffect
                   : 1;
 
-                const rotate = isHovered ? 4 : isNeighbor ? 1 : 0;
+                const rotate = isHovered ? 3 : isNeighbor ? 0.75 : 0;
                 const transformStyle = {
                   transform: `perspective(1400px) scale(${scale}) rotateX(${rotate}deg)`,
                 };
-                const overlayOpacity = isHovered ? 0.55 : isNeighbor ? 0.18 : 0;
-                const saturation = isHovered ? 1.05 : isNeighbor ? 1.015 : 1;
+                const overlayOpacity = isHovered ? 0.45 : isNeighbor ? 0.15 : 0;
+                const saturation = isHovered ? 1.04 : isNeighbor ? 1.01 : 1;
 
                 return (
                   <button

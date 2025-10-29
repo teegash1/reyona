@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Safaris from "./pages/Safaris";
 import Experiences from "./pages/Experiences";
-import Accommodations from "./pages/Accommodations";
+import Gallery from "./pages/Gallery";
 import CustomSafari from "./pages/CustomSafari";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -38,7 +38,7 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/safaris" element={<Safaris />} />
             <Route path="/experiences" element={<Experiences />} />
-            <Route path="/accommodations" element={<Accommodations />} />
+            <Route path="/accommodations" element={<Gallery />} />
             <Route path="/custom-safari" element={<CustomSafari />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
