@@ -110,7 +110,7 @@ const Header = () => {
               Experiences
             </a>
             <a href="/accommodations" className={`transition-colors font-medium ${isActive('/accommodations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
-              Accommodations
+              Gallery
             </a>
             
             {/* Destinations Dropdown */}
@@ -188,7 +188,7 @@ const Header = () => {
               Experiences
             </a>
             <a href="/accommodations" className={`block transition-colors font-medium ${isActive('/accommodations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
-              Accommodations
+              Gallery
             </a>
             
             {/* Mobile Destinations Section */}
