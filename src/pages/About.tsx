@@ -214,8 +214,8 @@ const About = () => {
             backgroundRepeat: 'no-repeat'
           }}
         />
-        {/* Subtle readability gradient */}
-        <div className="absolute inset-0 bg-black/15" />
+        {/* Darkest readability overlay */}
+        <div className="absolute inset-0 bg-black/70" />
         <div className="relative max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Story</h2>
           <div className="space-y-8 text-lg leading-relaxed text-center">
