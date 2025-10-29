@@ -35,28 +35,28 @@ const About = () => {
 
   const team = [
     {
-      name: "Yvonne Agala",
+      name: "NAthaniel Gachukia",
       role: "Founder & CEO",
       experience: "12+ years",
       specialty: "Travel & Tourism",
-      image: "https://i.pinimg.com/736x/09/2e/6c/092e6ca37abceca8ad20c2a1c36fc492.jpg",
-      description: "A passionate Kenyan entrepreneur, Yvonne's love for travel and deep connection to Kenya inspired her to create Reyona Safaris. She leads with vision and dedication to authentic experiences."
+      image: "/AATNAE.jpeg",
+      description: "Nathaniel leads Reyona Safaris with a clear vision for authentic, guest-first safaris and a deep love for Kenya's wild places."
     },
     {
-      name: "Sarah Wanjiku",
+      name: "Victor Timona",
       role: "Operations Manager",
       experience: "12+ years",
-      specialty: "Cultural Tours",
-      image: "https://i.pinimg.com/736x/c1/d2/66/c1d266f9b9e19dc1f2b86c74b5152b82.jpg",
-      description: "Sarah specializes in cultural immersion experiences and manages our community partnerships across Kenya."
+      specialty: "Operations & Logistics",
+      image: "/AAtim.jpeg",
+      description: "Victor orchestrates daily operations and ensures every itinerary runs smoothly from touchdown to takeoff."
     },
     {
-      name: "James Muthoni",
-      role: "Head Guide",
-      experience: "18+ years",
-      specialty: "Bird Watching",
-      image: "https://i.pinimg.com/1200x/3e/f3/50/3ef350dc86cc82a092463e5d795654b5.jpg",
-      description: "James is one of Kenya's most experienced guides with extensive knowledge of all major parks and reserves."
+      name: "Tanu Mutanu",
+      role: "Concierge",
+      experience: "10+ years",
+      specialty: "Guest Experience",
+      image: "/AATANU.jpeg",
+      description: "Tanu is your dedicated concierge, curating thoughtful touches and tailored experiences throughout your safari."
     }
   ];
 
