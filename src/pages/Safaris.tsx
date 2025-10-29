@@ -1490,12 +1490,6 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
           {showHoneymoonIntro && (
             <div className="relative mb-12">
               <div className="relative z-10 rounded-3xl border border-kenya-purple/20 bg-black/40 px-6 py-12 text-center backdrop-blur-sm">
-                <div className="pointer-events-none absolute left-8 top-[70%] hidden -translate-y-1/2 lg:block">
-                  <HeartAccent size="h-24 w-24" />
-                </div>
-                <div className="pointer-events-none absolute right-8 top-[70%] hidden -translate-y-1/2 lg:block">
-                  <HeartAccent size="h-24 w-24" />
-                </div>
                 <p className="inline-flex items-center justify-center gap-2 rounded-full border border-kenya-gold/30 bg-white/85 px-5 py-2 text-sm font-semibold uppercase tracking-wide text-kenya-purple shadow-sm">
                   Honeymoon Highlights
                 </p>

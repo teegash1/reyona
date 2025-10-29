@@ -4,10 +4,12 @@ import Footer from '@/components/Footer';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { galleryItems, type GalleryItem } from '@/data/galleryItems';
 import { Play } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const GalleryPage = () => {
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const prioritizedItems = useMemo(() => {
     const highlightTitle = 'Safari Highlight 2025-10-28 At 12.50.47';
@@ -34,12 +36,14 @@ const GalleryPage = () => {
   const handleOpenItem = (item: GalleryItem) => {
     setSelectedItem(item);
     setOpen(true);
+    setHoveredIndex(null);
   };
 
   const handleToggleOpen = (value: boolean) => {
     setOpen(value);
     if (!value) {
       setSelectedItem(null);
+      setHoveredIndex(null);
     }
   };
 
@@ -76,45 +80,87 @@ const GalleryPage = () => {
             </div>
 
             <div className="columns-1 gap-4 space-y-4 sm:columns-2 lg:columns-3">
-              {prioritizedItems.map((item) => (
-                <button
-                  key={item.src}
-                  type="button"
-                  onClick={() => handleOpenItem(item)}
-                  className="group relative mb-4 block w-full break-inside-avoid focus:outline-none focus-visible:ring-2 focus-visible:ring-kenya-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  style={{ perspective: '1400px' }}
-                >
-                  <div className="relative overflow-visible rounded-3xl bg-muted/10 shadow-lg transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[0_25px_55px_rgba(17,25,40,0.35)]">
-                    <div className="relative rounded-3xl transform-gpu transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] group-hover:[transform:rotateX(3deg)_scale(1.02)]">
-                      {item.type === 'image' ? (
-                        <img
-                          src={item.src}
-                          alt={item.title}
-                          loading="lazy"
-                          className="block w-full transform-gpu rounded-3xl object-cover transition-transform duration-500 origin-center ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.08] group-hover:[filter:saturate(1.05)]"
-                        />
-                      ) : (
-                        <video
-                          src={item.src}
-                          muted
-                          loop
-                          autoPlay
-                          playsInline
-                          preload="metadata"
-                          className="block w-full transform-gpu rounded-3xl object-cover transition-transform duration-500 origin-center ease-[cubic-bezier(.22,1,.36,1)] group-hover:scale-[1.08] group-hover:[filter:saturate(1.05)]"
-                        />
-                      )}
-                      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-black/45 via-transparent to-black/20 opacity-0 transition-transform transition-opacity duration-500 origin-center group-hover:scale-[1.08] group-hover:opacity-100" />
-                    </div>
+              {prioritizedItems.map((item, index) => {
+                const isHovered = hoveredIndex === index;
+                const isNeighbor =
+                  hoveredIndex !== null && Math.abs(hoveredIndex - index) === 1;
 
-                    {item.type === 'video' && (
-                      <div className="pointer-events-none absolute bottom-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm">
-                        <Play className="h-4 w-4" />
+                const hoverEffect = 0.045;
+                const neighborEffect = hoverEffect * 0.3;
+
+                const scale = isHovered
+                  ? 1 + hoverEffect
+                  : isNeighbor
+                  ? 1 + neighborEffect
+                  : 1;
+
+                const rotate = isHovered ? 4 : isNeighbor ? 1.5 : 0;
+                const transformStyle = {
+                  transform: `perspective(1400px) scale(${scale}) rotateX(${rotate}deg)`,
+                };
+                const overlayOpacity = isHovered ? 0.6 : isNeighbor ? 0.25 : 0;
+                const saturation = isHovered ? 1.05 : isNeighbor ? 1.02 : 1;
+
+                return (
+                  <button
+                    key={item.src}
+                    type="button"
+                    onClick={() => handleOpenItem(item)}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    onFocus={() => setHoveredIndex(index)}
+                    onBlur={() => setHoveredIndex(null)}
+                    className="relative mb-4 block w-full break-inside-avoid focus:outline-none focus-visible:ring-2 focus-visible:ring-kenya-gold focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  >
+                    <div
+                      className={cn(
+                        'relative overflow-visible rounded-3xl bg-muted/10 shadow-lg transition-all duration-500',
+                        isHovered
+                          ? '-translate-y-1 shadow-[0_28px_60px_rgba(17,25,40,0.35)]'
+                          : isNeighbor
+                          ? '-translate-y-0.5 shadow-[0_18px_45px_rgba(17,25,40,0.25)]'
+                          : ''
+                      )}
+                    >
+                      <div
+                        className="relative rounded-3xl transform-gpu transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)]"
+                        style={transformStyle}
+                      >
+                        {item.type === 'image' ? (
+                          <img
+                            src={item.src}
+                            alt={item.title}
+                            loading="lazy"
+                            className="block w-full rounded-3xl object-cover transition-[filter] duration-500"
+                            style={{ filter: `saturate(${saturation})` }}
+                          />
+                        ) : (
+                          <video
+                            src={item.src}
+                            muted
+                            loop
+                            autoPlay
+                            playsInline
+                            preload="metadata"
+                            className="block w-full rounded-3xl object-cover transition-[filter] duration-500"
+                            style={{ filter: `saturate(${saturation})` }}
+                          />
+                        )}
+                        <div
+                          className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-black/45 via-transparent to-black/20 transition-opacity duration-500"
+                          style={{ opacity: overlayOpacity }}
+                        />
                       </div>
-                    )}
-                  </div>
-                </button>
-              ))}
+
+                      {item.type === 'video' && (
+                        <div className="pointer-events-none absolute bottom-4 right-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm transition-opacity duration-500">
+                          <Play className="h-4 w-4" />
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </section>
