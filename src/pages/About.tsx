@@ -513,7 +513,7 @@ const About = () => {
                     className={`w-full h-full object-cover object-center ${
                       (member.name === 'Victor Timona' && member.role === 'Operations Manager') ||
                       (member.name === 'Tanu Mutanu' && member.role === 'Concierge')
-                        ? 'md:object-[center_70%]'
+                        ? 'md:object-[center_60%]'
                         : ''
                     }`}
                   />
