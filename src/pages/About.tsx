@@ -510,14 +510,12 @@ const About = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover object-center"
-                    style={
-                      member.name === 'Victor Timona' && member.role === 'Operations Manager'
-                        ? { transform: 'translateY(16px) scale(1.08)' }
-                        : member.name === 'Tanu Mutanu' && member.role === 'Concierge'
-                        ? { transform: 'translateY(14px) scale(1.08)' }
-                        : undefined
-                    }
+                    className={`w-full h-full object-cover object-center ${
+                      (member.name === 'Victor Timona' && member.role === 'Operations Manager') ||
+                      (member.name === 'Tanu Mutanu' && member.role === 'Concierge')
+                        ? 'md:object-[center_70%]'
+                        : ''
+                    }`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-white">
