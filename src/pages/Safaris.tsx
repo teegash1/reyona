@@ -1410,7 +1410,158 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
     }
   ];
 
-  const allPackages = [...popularPackages, ...honeymoonPackages, ...groupPackages, ...migrationPackages, ...flyInPackages, ...nairobiExcursions];
+  const tanzaniaPackages = [
+    {
+      id: 201,
+      title: '4 DAYS PRIVATE SERENGETI SAFARI PACKAGE',
+      category: 'tanzania',
+      duration: '4 Days',
+      groupSize: '2-6 People',
+      location: 'Serengeti National Park',
+      price: '$4,400',
+      image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/4d/e4/8f/serengeti-national-park.jpg?w=1200&h=-1&s=1',
+      description: 'Private safari focused on the Serengeti’s wildlife and migration scenes with flexible pacing.',
+      features: ['Private 4x4', 'Big Five', 'Migration Views', 'Custom Pacing'],
+      badge: 'Tanzania',
+      options: [
+        { name: 'Option 1', price: '$6202', lodges: ['KubuKubu Tented Camp'] },
+        { name: 'Option 2', price: '$5785', lodges: ['Serena Serengeti Safari Lodge'] },
+        { name: 'Option 3', price: '$5198', lodges: ['Mbuzi Mawe Safari Camp'] },
+        { name: 'Option 4', price: '$4400', lodges: ['KatiKati Camp'] }
+      ],
+      itinerary: [
+        { day: 1, title: 'ARUSHA - SERENGETI (≈5hrs)', description: 'Pickup from hotel. Drive to Serengeti. Check‑in, lunch and afternoon game drive at 4pm in search of the Big Five and other wildlife.', meals: 'Lunch & Dinner' },
+        { day: 2, title: 'SERENGETI – FULL DAY', description: 'Full‑day game drives with picnic lunch; track herds and predators across the plains.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 3, title: 'SERENGETI – FULL DAY', description: 'Explore different regions for varied habitats and sightings; optional sunrise start.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 4, title: 'SERENGETI – ARUSHA (≈5hrs)', description: 'Morning game drive en‑route to the gate; drive back to Arusha for drop‑off.', meals: 'Breakfast' }
+      ],
+      inclusions: [
+        'All government taxes/VAT',
+        'Park & concession fees',
+        'Accommodation on full board basis',
+        'Bottled drinking water in vehicle',
+        'Private game drives in 4x4 Land Cruiser',
+        'Professional driver‑guide'
+      ],
+      exclusions: ['International flights', 'Visa', 'Travel Insurance']
+    },
+    {
+      id: 202,
+      title: '6 DAYS OF WILD DISCOVERY',
+      category: 'tanzania',
+      duration: '6 Days',
+      groupSize: '2-6 People',
+      location: 'Serengeti • Ngorongoro • Tarangire',
+      price: '$6,084',
+      image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600&auto=format&fit=crop',
+      description: 'Classic northern circuit: Serengeti, Ngorongoro and Tarangire with full‑day drives.',
+      features: ['Private 4x4', 'Big Five', 'Scenic Crater', 'Elephant Herds'],
+      badge: 'Tanzania',
+      options: [
+        { name: 'Package Price', price: '$6084', lodges: ['Lemala Kuria Hills', 'Lemala Ngorongoro', 'Maramboi Tented Lodge'] }
+      ],
+      itinerary: [
+        { day: 1, title: 'ARUSHA – SERENGETI', description: 'Drive/ fly to Serengeti, check‑in, lunch and afternoon game drive.', meals: 'Lunch & Dinner' },
+        { day: 2, title: 'SERENGETI FULL DAY', description: 'Full‑day game drive with picnic or split drives with hot lunch.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 3, title: 'SERENGETI FULL DAY', description: 'Track migration routes or predator territories with your guide.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 4, title: 'SERENGETI – NGORONGORO', description: 'Drive to Ngorongoro for lunch; afternoon crater‑rim viewpoints or short game drives.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 5, title: 'NGORONGORO – TARANGIRE', description: 'Morning crater tour or rim walk then continue to Tarangire for afternoon drive.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 6, title: 'TARANGIRE – ARUSHA', description: 'Morning game drive; transfer to Arusha/ airport.', meals: 'Breakfast' }
+      ],
+      inclusions: [
+        'All government taxes/VAT', 'Park & concession fees', 'Accommodation on full board basis', 'Bottled drinking water in vehicle', 'Private game drives in 4x4 Land Cruiser', 'Professional driver‑guide'
+      ],
+      exclusions: ['International flights', 'Visa', 'Travel Insurance']
+    },
+    {
+      id: 203,
+      title: '7 DAYS SAFARI & BEACH VACATION',
+      category: 'tanzania',
+      duration: '7 Days',
+      groupSize: '2-6 People',
+      location: 'Serengeti • Zanzibar',
+      price: '$6,455',
+      image: 'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg',
+      description: 'Serengeti safari followed by relaxing white‑sand days on Zanzibar’s coast.',
+      features: ['Private 4x4', 'Return flights Arusha–Zanzibar–Arusha', 'Beach Stay'],
+      badge: 'Bush + Beach',
+      options: [
+        { name: 'Package Price', price: '$6455', lodges: ['Serengeti lodge (varies)', 'Zanzi Resort (example)'] }
+      ],
+      itinerary: [
+        { day: 1, title: 'ARUSHA – SERENGETI', description: 'Transfer to Serengeti. Lunch then afternoon game drive.', meals: 'Lunch & Dinner' },
+        { day: 2, title: 'SERENGETI FULL DAY', description: 'Full‑day/ split drives; picnic or hot lunch at lodge.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 3, title: 'SERENGETI – ARUSHA – ZANZIBAR (FLIGHT)', description: 'Sunrise drive, return to Arusha and fly to Zanzibar. Resort transfer.', meals: 'Breakfast & Dinner' },
+        { day: 4, title: 'ZANZIBAR – LEISURE', description: 'Beach relaxation/ optional water sports and Stone Town tour.', meals: 'Breakfast & Dinner' },
+        { day: 5, title: 'ZANZIBAR – LEISURE', description: 'Free day on the beach; optional reef and spice experiences.', meals: 'Breakfast & Dinner' },
+        { day: 6, title: 'ZANZIBAR – ARUSHA (FLIGHT)', description: 'Fly back to Arusha; transfer to hotel.', meals: 'Breakfast' },
+        { day: 7, title: 'DEPARTURE', description: 'Airport transfer as per flight schedule.', meals: '—' }
+      ],
+      inclusions: [
+        'All government taxes/VAT','Park & concession fees','Accommodation on full board (safari) & half board (Zanzibar)','Bottled water in vehicle','Private game drives in 4x4 Land Cruiser','Return Flight (Arusha–Zanzibar–Arusha)','Professional driver‑guide'
+      ],
+      exclusions: ['International flights','Visa','Travel Insurance','Zanzibar Infrastructure Tax']
+    },
+    {
+      id: 204,
+      title: '4 DAY EXCLUSIVE GETAWAY',
+      category: 'tanzania',
+      duration: '4 Days',
+      groupSize: '2-6 People',
+      location: 'Ngorongoro • Tarangire • Lake Manyara',
+      price: '$1,750',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lake_Manyara_Wildlife.jpg/960px-Lake_Manyara_Wildlife.jpg',
+      description: 'Short northern‑circuit escape combining crater wildlife, elephants and lake shores.',
+      features: ['Private 4x4', 'Big Five', 'Scenic Lakes'],
+      badge: 'Tanzania',
+      options: [
+        { name: 'Package Price', price: '$1750', lodges: ['Ngorongoro Farm House', 'Tarangire Sopa Lodge', 'Lake Manyara Tortilis Camp'] }
+      ],
+      itinerary: [
+        { day: 1, title: 'ARUSHA – NGORONGORO', description: 'Drive to Ngorongoro. Check‑in, lunch and 4pm game drive on crater floor.', meals: 'Lunch & Dinner' },
+        { day: 2, title: 'NGORONGORO – TARANGIRE', description: 'Morning crater or rim views; continue to Tarangire for afternoon drive.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 3, title: 'TARANGIRE – LAKE MANYARA', description: 'Arrive Manyara for lunch; afternoon game drives for flamingos and tree‑lions.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 4, title: 'LAKE MANYARA – ARUSHA', description: 'Final breakfast and drive back to Arusha or airport transfer.', meals: 'Breakfast' }
+      ],
+      inclusions: [
+        'All government taxes/VAT', 'Park & concession fees', 'Accommodation on full board basis', 'Bottled water in vehicle', 'Private game drives in 4x4 Land Cruiser', 'Professional driver‑guide'
+      ],
+      exclusions: ['International flights','Visa','Travel Insurance']
+    },
+    {
+      id: 205,
+      title: '9 DAYS EXCLUSIVE PRIVATE FAMILY KENYA & ZANZIBAR VACATION',
+      category: 'tanzania',
+      duration: '9 Days',
+      groupSize: 'Family',
+      location: 'Nairobi • Masai Mara • Lake Naivasha • Zanzibar',
+      price: '$9,850',
+      image: 'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg',
+      description: 'Family‑friendly Kenya safari combined with Zanzibar beach time and convenient flights.',
+      features: ['Private 4x4', 'Airport Transfers', 'Family Room'],
+      badge: 'Family',
+      options: [
+        { name: 'Family Package', price: '$9850', lodges: ['The Boma Hotel', 'Oldarpoi Mara Camp', 'Sawela Lodge', 'Zanzi Resort'] }
+      ],
+      itinerary: [
+        { day: 1, title: 'NAIROBI ARRIVAL', description: 'Airport transfer to hotel and trip briefing.', meals: '—' },
+        { day: 2, title: 'NAIROBI – MASAI MARA', description: 'Drive to Mara; lunch, relax and 4pm game drive.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 3, title: 'MASAI MARA FULL DAY', description: 'Full‑day or split game drives with hot lunch in camp.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 4, title: 'MASAI MARA – LAKE NAIVASHA', description: 'Lunch then boat ride & walking on Crescent Island.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 5, title: 'NAIVASHA – NAIROBI – ZANZIBAR (FLIGHT)', description: 'Return to Nairobi and fly to Zanzibar; resort transfer.', meals: 'Breakfast & Dinner' },
+        { day: 6, title: 'ZANZIBAR LEISURE', description: 'Beach & hotel facilities.', meals: 'Breakfast & Dinner' },
+        { day: 7, title: 'ZANZIBAR LEISURE', description: 'Relax or optional activities.', meals: 'Breakfast & Dinner' },
+        { day: 8, title: 'ZANZIBAR – NAIROBI (FLIGHT)', description: 'Flight back to Nairobi; transfer to hotel.', meals: 'Breakfast' },
+        { day: 9, title: 'DEPART', description: 'Airport transfer for flight home.', meals: '—' }
+      ],
+      inclusions: [
+        'All government taxes/VAT', 'Park fees', 'Airport Transfers', 'Accommodation on FB & HB as per itinerary (1 Double + extra bed)', 'Bottled water in vehicle', 'Private game drives in 4x4 Land Cruiser', 'Professional driver‑guide'
+      ],
+      exclusions: ['International flights', 'Tips & porterage', 'Visa fees (if applicable)', 'Travel insurance', 'Other personal items', 'Zanzibar Infrastructure Tax']
+    }
+  ];
+
+  const allPackages = [...popularPackages, ...honeymoonPackages, ...groupPackages, ...migrationPackages, ...flyInPackages, ...nairobiExcursions, ...tanzaniaPackages];
 
   const categories = [
     { value: 'all', label: 'All Packages', icon: <Calendar className="w-4 h-4" /> },
@@ -1419,7 +1570,8 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
     { value: 'group', label: 'Group', icon: <Users className="w-4 h-4" /> },
     { value: 'migration', label: 'Migration', icon: <Car className="w-4 h-4" /> },
     { value: 'flyin', label: 'Fly-In', icon: <Plane className="w-4 h-4" /> },
-    { value: 'nairobi', label: 'Nairobi Tours', icon: <MapPin className="w-4 h-4" /> }
+    { value: 'nairobi', label: 'Nairobi Tours', icon: <MapPin className="w-4 h-4" /> },
+    { value: 'tanzania', label: 'Tanzania', icon: <MapPin className="w-4 h-4" /> }
   ];
 
   const filteredPackages = filterCategory === 'all' 

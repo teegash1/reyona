@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Camera, Star, Clock, Users, Bird, Trees } from 'lucide-react';
+import { MapPin, Camera, Star, Clock, Users, Bird, TreePine } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,13 +13,13 @@ const LakeManyara = () => {
   const facts: { title: string; value: string; icon: LucideIcon; description: string }[] = [
     { title: 'Signature', value: 'Tree‑Climbing Lions', icon: Star, description: 'One of the few places where lions regularly rest in trees.' },
     { title: 'Birdlife', value: '390+ species', icon: Bird, description: 'Flamingo flocks on the soda lake plus raptors and forest species.' },
-    { title: 'Habitats', value: 'Forest • Floodplain • Lake', icon: Trees, description: 'Groundwater forests give way to open plains and lake shore.' },
+    { title: 'Habitats', value: 'Forest • Floodplain • Lake', icon: TreePine, description: 'Groundwater forests give way to open plains and lake shore.' },
     { title: 'Best Time', value: 'Jun–Sep • Nov–Mar (birds)', icon: Clock, description: 'Dry season for wildlife visibility; wet for lush scenery and migrants.' }
   ];
 
   const highlights = [
     { title: 'Lake‑Edge Flamingos', description: 'Vast pink flocks create painterly scenes along the alkaline shore.', icon: Bird },
-    { title: 'Forest Drives', description: 'Fig and mahogany forests shelter elephants, baboons and turacos.', icon: Trees },
+    { title: 'Forest Drives', description: 'Fig and mahogany forests shelter elephants, baboons and turacos.', icon: TreePine },
     { title: 'Rift Valley Backdrop', description: 'The dramatic escarpment towers above the lakeshore habitats.', icon: MapPin },
     { title: 'Canopy Walk (select areas)', description: 'Aerial perspectives of forest life on suspended walkways.', icon: Camera }
   ];
@@ -127,6 +127,61 @@ const LakeManyara = () => {
         </div>
       </section>
 
+      {/* Where To Stay */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Where To Stay</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[ 
+              { tier: 'Luxury', name: 'andBeyond Manyara Tree Lodge (Example)', blurb: 'Stylish stilted suites deep in the groundwater forest; canopy‑level wildlife viewing.', img: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop' },
+              { tier: 'Mid‑Range', name: 'Manyara Serena Lodge (Example)', blurb: 'Ridge‑top property with sweeping views across the lake and escarpment.', img: 'https://images.unsplash.com/photo-1601918774946-25832a4b3cbe?q=80&w=1200&auto=format&fit=crop' },
+              { tier: 'Tented Camp', name: 'Public Camps/ Tented Sites (Example)', blurb: 'Affordable, close‑to‑nature stays ideal for early starts on the lakeshore.', img: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=1200&auto=format&fit=crop' }
+            ].map((l, i) => (
+              <Card key={i} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
+                <div className="relative h-44 overflow-hidden">
+                  <img src={l.img} alt={l.name} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+                <CardHeader>
+                  <Badge className="bg-kenya-gold text-black w-fit">{l.tier}</Badge>
+                  <CardTitle className="text-lg">{l.name}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm text-muted-foreground">
+                  <p>{l.blurb}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Getting There & Map */}
+      <section className="py-16 bg-card">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Getting There & Map</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="hover:shadow-luxury transition-all duration-300">
+              <CardHeader>
+                <CardTitle className="text-xl">Travel Logistics</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-muted-foreground">
+                <p><span className="font-semibold text-foreground">By air:</span> Daily flights from Arusha to Lake Manyara Airstrip (~30 mins) with easy road transfers to lodges.</p>
+                <p><span className="font-semibold text-foreground">By road:</span> ~125 km/2–3 hrs from Arusha on good tarmac; often combined with Tarangire, Ngorongoro and Serengeti.</p>
+                <p><span className="font-semibold text-foreground">Ideal vehicle:</span> 4x4 with pop‑up roof. Forest and floodplain tracks benefit from higher clearance.</p>
+              </CardContent>
+            </Card>
+            <div className="relative rounded-xl overflow-hidden border border-border shadow-lg" style={{ aspectRatio: '16 / 9' }}>
+              <iframe
+                title="Lake Manyara Map"
+                className="absolute inset-0 w-full h-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Lake%20Manyara%20National%20Park%2C%20Tanzania&output=embed"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Experiences */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4">

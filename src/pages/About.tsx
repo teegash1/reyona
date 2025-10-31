@@ -39,7 +39,7 @@ const About = () => {
       role: "Founder & CEO",
       experience: "12+ years",
       specialty: "Travel & Tourism",
-      image: "/AACEO.jpeg",
+      image: "/picc.jpeg",
       description: "Nathaniel leads Reyona Safaris with a clear vision for authentic, guest-first safaris and a deep love for Kenya's wild places."
     },
     {
@@ -507,10 +507,10 @@ const About = () => {
             {team.map((member, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
-                  <img 
+                    <img 
                     src={member.image} 
                     alt={member.name}
-                    className={`w-full h-full object-cover ${member.role === 'Founder & CEO' ? 'object-top' : ''}`}
+                    className={`w-full h-full object-cover ${['Founder & CEO','Operations Manager','Concierge'].includes(member.role) ? 'object-top' : ''}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-white">
