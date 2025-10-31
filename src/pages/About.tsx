@@ -441,17 +441,17 @@ const About = () => {
 
                     {/* Hover detail modal (desktop) */}
                     <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-full mb-3 z-30 hidden md:group-hover:block md:group-focus-within:block">
-                      <div className="w-[22rem] max-w-[85vw] rounded-xl border border-border bg-card p-5 shadow-2xl">
-                        <h4 className="font-semibold text-foreground mb-1">{svc.title}</h4>
-                        <p className="text-sm text-muted-foreground mb-3">{svc.description}</p>
+                      <div className="w-[22rem] max-w-[85vw] rounded-xl border border-white/30 bg-[#B5A03D] p-5 text-black shadow-2xl">
+                        <h4 className="font-semibold text-black mb-1">{svc.title}</h4>
+                        <p className="text-sm text-black/80 mb-3">{svc.description}</p>
                         {svc.highlights?.length ? (
-                          <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                          <ul className="list-disc pl-5 space-y-1 text-sm text-black/80">
                             {svc.highlights.slice(0, 4).map((h, i) => (
                               <li key={i}>{h}</li>
                             ))}
                           </ul>
                         ) : null}
-                        <div className="absolute left-1/2 translate-x-[-50%] -bottom-2 h-4 w-4 rotate-45 bg-card border border-border border-t-0 border-l-0" />
+                        <div className="absolute left-1/2 translate-x-[-50%] -bottom-2 h-4 w-4 rotate-45 bg-[#B5A03D] border border-white/30 border-t-0 border-l-0" />
                       </div>
                     </div>
                   </CardContent>
