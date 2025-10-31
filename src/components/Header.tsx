@@ -62,6 +62,13 @@ const Header = () => {
     { name: 'Tsavo East', path: '/destinations/tsavo-east' },
     { name: 'Tsavo West', path: '/destinations/tsavo-west' },
     { name: 'Diani Beach', path: '/destinations/diani-beach' },
+    { name: 'Salt Lick Sanctuary', path: '/destinations/salt-lick-sanctuary' },
+    { name: 'Ol Pejeta Conservancy', path: '/destinations/ol-pejeta' },
+    { name: 'Solio Conservancy', path: '/destinations/solio-conservancy' },
+    { name: 'Meru National Park', path: '/destinations/meru-national-park' },
+    { name: 'Lake Elementaita', path: '/destinations/lake-elementaita' },
+    { name: 'Lake Bogoria', path: '/destinations/lake-bogoria' },
+    { name: 'Lake Naivasha', path: '/destinations/lake-naivasha' },
   ];
   const tanzaniaDestinations = [
     { name: 'Serengeti', path: '/destinations/serengeti' },

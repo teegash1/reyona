@@ -128,6 +128,13 @@ const Footer = () => {
                 <li><a href="/destinations/lake-nakuru" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Nakuru</a></li>
                 <li><a href="/destinations/samburu" className="text-muted-foreground hover:text-kenya-gold transition-colors">Samburu Reserve</a></li>
                 <li><a href="/destinations/diani-beach" className="text-muted-foreground hover:text-kenya-gold transition-colors">Diani Beach</a></li>
+                <li><a href="/destinations/lake-naivasha" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Naivasha</a></li>
+                <li><a href="/destinations/salt-lick-sanctuary" className="text-muted-foreground hover:text-kenya-gold transition-colors">Salt Lick Sanctuary</a></li>
+                <li><a href="/destinations/ol-pejeta" className="text-muted-foreground hover:text-kenya-gold transition-colors">Ol Pejeta Conservancy</a></li>
+                <li><a href="/destinations/solio-conservancy" className="text-muted-foreground hover:text-kenya-gold transition-colors">Solio Conservancy</a></li>
+                <li><a href="/destinations/meru-national-park" className="text-muted-foreground hover:text-kenya-gold transition-colors">Meru National Park</a></li>
+                <li><a href="/destinations/lake-elementaita" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Elementaita</a></li>
+                <li><a href="/destinations/lake-bogoria" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Bogoria</a></li>
                 <li><a href="/destinations/serengeti" className="text-muted-foreground hover:text-kenya-gold transition-colors">Serengeti</a></li>
                 <li><a href="/destinations/ngorongoro" className="text-muted-foreground hover:text-kenya-gold transition-colors">Ngorongoro</a></li>
                 <li><a href="/destinations/tarangire" className="text-muted-foreground hover:text-kenya-gold transition-colors">Tarangire</a></li>

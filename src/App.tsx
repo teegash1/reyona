@@ -23,6 +23,13 @@ import Serengeti from "./pages/destinations/Serengeti";
 import Ngorongoro from "./pages/destinations/Ngorongoro";
 import Tarangire from "./pages/destinations/Tarangire";
 import LakeManyara from "./pages/destinations/LakeManyara";
+import SaltLickSanctuary from "./pages/destinations/SaltLickSanctuary";
+import OlPejeta from "./pages/destinations/OlPejeta";
+import SolioConservancy from "./pages/destinations/SolioConservancy";
+import MeruNationalPark from "./pages/destinations/MeruNationalPark";
+import LakeElementaita from "./pages/destinations/LakeElementaita";
+import LakeBogoria from "./pages/destinations/LakeBogoria";
+import LakeNaivasha from "./pages/destinations/LakeNaivasha";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
@@ -53,6 +60,13 @@ const App = () => {
             <Route path="/destinations/lake-nakuru" element={<LakeNakuru />} />
             <Route path="/destinations/samburu" element={<Samburu />} />
             <Route path="/destinations/diani-beach" element={<DianiBeach />} />
+            <Route path="/destinations/salt-lick-sanctuary" element={<SaltLickSanctuary />} />
+            <Route path="/destinations/ol-pejeta" element={<OlPejeta />} />
+            <Route path="/destinations/solio-conservancy" element={<SolioConservancy />} />
+            <Route path="/destinations/meru-national-park" element={<MeruNationalPark />} />
+            <Route path="/destinations/lake-elementaita" element={<LakeElementaita />} />
+            <Route path="/destinations/lake-bogoria" element={<LakeBogoria />} />
+            <Route path="/destinations/lake-naivasha" element={<LakeNaivasha />} />
             <Route path="/destinations/serengeti" element={<Serengeti />} />
             <Route path="/destinations/ngorongoro" element={<Ngorongoro />} />
             <Route path="/destinations/tarangire" element={<Tarangire />} />
