@@ -131,6 +131,7 @@ const DESTINATIONS: DestinationCard[] = [
     rating: 4.7,
     price: 'From $260/day'
   },
+  {
     id: 'masai-mara',
     country: 'Kenya',
     name: 'Masai Mara National Reserve',

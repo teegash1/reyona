@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { MapPin, Camera, Star, Clock, Users, Bird, TreePine } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import type { ReactNode } from 'react';
 
 type Section = {
   title: string;
@@ -32,7 +33,7 @@ export const DestinationShell = ({
   facts: Facts;
   highlights: Section[];
   activities: { name: string; duration?: string; blurb: string }[];
-  children?: React.ReactNode;
+  children?: ReactNode;
 }) => {
   const navigate = useNavigate();
   return (
