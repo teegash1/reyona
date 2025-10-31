@@ -385,16 +385,16 @@ const About = () => {
               ))}
             </div>
 
-            <Card className="relative overflow-hidden border border-border bg-kenya-burgundy text-white shadow-luxury">
+            <Card className="group relative overflow-hidden border border-border bg-card shadow-luxury transition-colors duration-300">
               <CardHeader className="space-y-4 pt-10 pb-4 px-10">
-                <Badge className="bg-kenya-burgundy text-white w-fit border border-white/30">Signature Experience</Badge>
-                <CardTitle className="text-2xl font-semibold text-white">
+                <Badge className="bg-kenya-burgundy text-white w-fit">Signature Experience</Badge>
+                <CardTitle className="text-2xl font-semibold text-foreground transition-colors duration-300 group-hover:text-white">
                   Signature Experience
                 </CardTitle>
-                <p className="text-sm font-medium uppercase tracking-wide text-white/90">
+                <p className="text-sm font-medium uppercase tracking-wide text-foreground transition-colors duration-300 group-hover:text-white">
                   {services[activeService]?.title}
                 </p>
-                <p className="text-base leading-relaxed text-white/90">
+                <p className="text-base leading-relaxed text-foreground transition-colors duration-300 group-hover:text-white group-hover:text-opacity-90">
                   {services[activeService]?.description}
                 </p>
               </CardHeader>
@@ -537,26 +537,30 @@ const About = () => {
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8">Certifications & Memberships</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="p-6">
-              <h3 className="font-semibold mb-2">Kenya Association of Tour Operators</h3>
-              <p className="text-muted-foreground text-sm">Licensed member since 2008</p>
-            </Card>
-            <Card className="p-6">
-              <h3 className="font-semibold mb-2">Ecotourism Kenya</h3>
-              <p className="text-muted-foreground text-sm">Certified eco-friendly operator</p>
-            </Card>
-            <Card className="p-6">
-              <h3 className="font-semibold mb-2">Kenya Wildlife Service</h3>
-              <p className="text-muted-foreground text-sm">Authorized safari operator</p>
-            </Card>
-          </div>
-        </div>
-      </section>
+      {/**
+       * Certifications & Memberships (temporarily hidden)
+       * Intentionally commented out for future use.
+       *
+       * <section className="py-16">
+       *   <div className="max-w-4xl mx-auto px-4 text-center">
+       *     <h2 className="text-3xl font-bold mb-8">Certifications & Memberships</h2>
+       *     <div className="grid md:grid-cols-3 gap-6">
+       *       <Card className="p-6">
+       *         <h3 className="font-semibold mb-2">Kenya Association of Tour Operators</h3>
+       *         <p className="text-muted-foreground text-sm">Licensed member since 2008</p>
+       *       </Card>
+       *       <Card className="p-6">
+       *         <h3 className="font-semibold mb-2">Ecotourism Kenya</h3>
+       *         <p className="text-muted-foreground text-sm">Certified eco-friendly operator</p>
+       *       </Card>
+       *       <Card className="p-6">
+       *         <h3 className="font-semibold mb-2">Kenya Wildlife Service</h3>
+       *         <p className="text-muted-foreground text-sm">Authorized safari operator</p>
+       *       </Card>
+       *     </div>
+       *   </div>
+       * </section>
+       */}
 
       <Footer />
     </div>
