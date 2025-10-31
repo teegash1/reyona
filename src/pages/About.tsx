@@ -69,43 +69,102 @@ const About = () => {
 
   const services = [
     {
-      title: 'Private Safaris',
-      description: 'Tailor-made itineraries with dedicated guides, exclusive camps, and seamless logistics from start to finish.',
+      title: 'Handpicked Hotels, Effortless Bookings',
+      description:
+        'Wake up to stunning views knowing every detail is handled. We curate unique stays — from boutique lodges to luxury tented camps — and reserve them for you with ease.',
+      icon: <Star className="w-7 h-7" />,
+      highlights: [
+        'Boutique lodges and luxury camps handpicked',
+        'Seamless reservations and confirmations',
+        'Room preferences and special requests managed'
+      ]
+    },
+    {
+      title: 'Bespoke Itineraries, Designed for You',
+      description:
+        "Share your desires and we’ll weave the perfect adventure — balanced wildlife encounters, cultural immersion and relaxation, tailored to your budget.",
       icon: <Compass className="w-7 h-7" />,
       highlights: [
-        'Dedicated driver-guides with deep regional knowledge',
-        'Custom pacing that fits your travel style',
-        'Luxury 4x4 Land Cruisers with premium onboard comforts'
+        'Pacing that fits your style',
+        'Balanced wildlife, culture and downtime',
+        'Budget-aware without compromising magic'
       ]
     },
     {
-      title: 'Honeymoon Getaways',
-      description: 'Romantic bush escapes with candlelit dinners, private game drives, and thoughtful surprises for two.',
+      title: 'Seamless Domestic Flights',
+      description:
+        'Maximize time on safari. We simplify local flight bookings, connecting you to hidden gems and iconic destinations without the stress.',
+      icon: <Globe className="w-7 h-7" />,
+      highlights: [
+        'Best routes and timings secured',
+        'Coordinated transfers to airstrips',
+        'Ticketing and baggage guidance included'
+      ]
+    },
+    {
+      title: 'Unrivaled Safari Experience',
+      description:
+        'Travel in comfort and safety in our custom 4x4 Safari Land Cruisers. Expert guides put you in the right place, at the right time.',
+      icon: <Camera className="w-7 h-7" />,
+      highlights: [
+        'Custom 4x4s with pop‑up roofs',
+        'Seasoned, conservation‑minded guides',
+        'Prime wildlife viewing strategies'
+      ]
+    },
+    {
+      title: 'Wellness & Rejuvenation',
+      description:
+        'Elevate your journey with yoga, spa rituals and slow mornings. Return refreshed in mind, body and soul.',
       icon: <Sparkles className="w-7 h-7" />,
       highlights: [
-        'Boutique camps and secluded suites handpicked for couples',
-        'Sunset champagne setups in the savannah',
-        'Optional hot air balloon and spa experiences'
+        'Spa days and private yoga sessions',
+        'Mindful pacing woven into itineraries',
+        'Nature‑forward wellness settings'
       ]
     },
     {
-      title: 'Family Adventures',
-      description: 'Flexible itineraries with kid-friendly lodges, engaging junior ranger activities, and multi-generational fun.',
+      title: 'Flexible Payment Options',
+      description:
+        'Planning should be stress‑free. Choose convenient methods — secure wire transfers or cash upon arrival.',
+      icon: <Shield className="w-7 h-7" />,
+      highlights: [
+        'Transparent invoicing and timelines',
+        'Secure international transfers',
+        'Cash on arrival available'
+      ]
+    },
+    {
+      title: 'Stargazing Safaris',
+      description:
+        'Discover the African night sky under pristine dark skies with guided astronomy sessions.',
+      icon: <Star className="w-7 h-7" />,
+      highlights: [
+        'Laser‑guided constellations tours',
+        'Milky Way and Southern Sky focus',
+        'Optional astrophotography tips'
+      ]
+    },
+    {
+      title: 'Accessibility & Inclusivity',
+      description:
+        'Everyone deserves the wonder of East Africa. We craft trips that accommodate varying mobility and sensory needs.',
       icon: <Users className="w-7 h-7" />,
       highlights: [
-        'Family suites and interconnecting rooms where available',
-        'Educator-led bush walks and wildlife talks for kids',
-        'On-demand pacing for nap times, school breaks, and energy levels'
+        'Accessible room and vehicle options',
+        'Step‑by‑step logistics support',
+        'Companion arrangements where needed'
       ]
     },
     {
-      title: 'Beach Extensions',
-      description: 'Seamless Mara-to-coast combinations with private transfers to Diani, Watamu, or Lamu for barefoot luxury.',
-      icon: <Waves className="w-7 h-7" />,
+      title: '24/7 Peace of Mind',
+      description:
+        'From booking to homecoming, our team provides round‑the‑clock personalized assistance.',
+      icon: <Heart className="w-7 h-7" />,
       highlights: [
-        'Tropical resorts and boutique villas with ocean views',
-        'Curated snorkeling, kite surfing, and dhow sunset cruises',
-        'Expert concierge support for dining and local culture tips'
+        'Real‑time support while travelling',
+        'Proactive itinerary monitoring',
+        'Swift solutions if plans change'
       ]
     }
   ];
