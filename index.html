@@ -79,39 +79,11 @@
     
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Chatbase Chatbot Embed -->
+    <!-- Chatling Chatbot Embed -->
     <script>
-      (function () {
-        if (!window.chatbase || window.chatbase("getState") !== "initialized") {
-          window.chatbase = (...arguments) => {
-            if (!window.chatbase.q) {
-              window.chatbase.q = [];
-            }
-            window.chatbase.q.push(arguments);
-          };
-          window.chatbase = new Proxy(window.chatbase, {
-            get(target, prop) {
-              if (prop === "q") {
-                return target.q;
-              }
-              return (...args) => target(prop, ...args);
-            },
-          });
-        }
-        const onLoad = function () {
-          const script = document.createElement("script");
-          script.src = "https://www.chatbase.co/embed.min.js";
-          script.id = "im9q-Tqa9xE0H4zgJEaVI";
-          script.domain = "www.chatbase.co";
-          document.body.appendChild(script);
-        };
-        if (document.readyState === "complete") {
-          onLoad();
-        } else {
-          window.addEventListener("load", onLoad);
-        }
-      })();
+      window.chtlConfig = { chatbotId: "4699473457" };
     </script>
+    <script async data-id="4699473457" id="chtl-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
     
     <!-- Service Worker Registration -->
     <script>
