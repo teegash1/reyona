@@ -491,11 +491,11 @@ const Contact = () => {
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <Phone className="w-4 h-4" />
-                      <span className="font-semibold">+254 700 911 911</span>
+                      <span className="font-semibold">+254 740 086688</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4" />
-                      <span>emergency@reyonasafaris.com</span>
+                      <span>info@reyonasafaris.com</span>
                     </div>
                   </div>
                 </CardContent>

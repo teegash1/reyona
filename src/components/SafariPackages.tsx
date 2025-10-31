@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, Users, MapPin, Clock } from 'lucide-react';
+import { Calendar, Users, MapPin, Clock, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const SafariPackages = () => {
   const packages = [
@@ -44,10 +45,31 @@ const SafariPackages = () => {
   ];
 
   return (
-    <section id="safaris" className="py-20 bg-background">
+    <section id="safaris" className="relative bg-background pt-12 pb-20 -mt-10">
+      {/* Top blend into hero */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-10"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, hsl(var(--background)) 100%)'
+        }}
+      />
       <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
+          {/* Moved CTAs from Hero */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6">
+            <Link to="/safaris">
+              <Button variant="hero" size="lg" className="group w-full sm:w-auto">
+                Explore Our Safaris
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link to="/about">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                About Us
+              </Button>
+            </Link>
+          </div>
           <button
             type="button"
             onClick={() => {

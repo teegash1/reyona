@@ -130,19 +130,7 @@ const Hero = () => {
           Where every moment tells a story of wilderness and wonder.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 md:mb-12">
-          <Link to="/safaris">
-            <Button variant="hero" size="lg" className="group w-full sm:w-auto">
-              Explore Our Safaris
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
-          <Link to="/about">
-            <Button variant="outline" size="lg" className="w-full sm:w-auto">
-              About Us
-            </Button>
-          </Link>
-        </div>
+        {/* Primary CTAs moved to SafariPackages section for better flow */}
 
         {/* Stats moved to HomeStats section below Experiences */}
       </div>
