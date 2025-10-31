@@ -440,7 +440,7 @@ const About = () => {
                     </button>
 
                     {/* Hover detail modal (desktop) */}
-                    <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-full mb-3 z-30 hidden md:block group-hover:block group-focus-within:block">
+                    <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-full mb-3 z-30 hidden md:group-hover:block md:group-focus-within:block">
                       <div className="w-[22rem] max-w-[85vw] rounded-xl border border-border bg-card p-5 shadow-2xl">
                         <h4 className="font-semibold text-foreground mb-1">{svc.title}</h4>
                         <p className="text-sm text-muted-foreground mb-3">{svc.description}</p>
