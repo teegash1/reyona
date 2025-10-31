@@ -7,9 +7,10 @@ const MeruNationalPark = () => (
     title="Meru National Park"
     subtitle="Wild & Undiscovered"
     hero={{
-      src: 'https://images.pexels.com/photos/163279/waterfall-africa-kenya-163279.jpeg',
+      src: 'https://lh3.googleusercontent.com/gps-cs-s/AG0ilSykK3yU5gLBbw5MOW7kRGaLbv0sSB71IZDAimVLP8jZp2HRjIZvfLhtFwd5WZ6veeBXcn-XLwKu-Wl2XHA1FX-et2b52pHDkQAa0l1pl6b6rK-YiW-MGZ0PZy1mm5U8mC4BaE1JJA=s1360-w1360-h1020-rw',
       alt: 'Meru rivers and palms',
-      objectPosition: 'center 60%'
+      objectPosition: 'center 60%',
+      overlay: 'bg-black/70'
     }}
     bookSubject="Meru National Park"
     facts={[
@@ -52,31 +53,6 @@ const MeruNationalPark = () => (
     </div>
   </section>
 
-  {/* Where To Stay */}
-  <section className="py-16">
-    <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Where To Stay</h2>
-      <div className="grid md:grid-cols-3 gap-6">
-        {[
-          { tier: 'Luxury', name: "Elsa's Kopje", blurb: 'Clifftop lodge with sweeping park views; a Meru classic.', img: 'https://images.pexels.com/photos/221471/pexels-photo-221471.jpeg' },
-          { tier: 'Mid‑Range', name: 'Ikweta Safari Camp', blurb: 'Comfortable base close to the Murera Gate.', img: 'https://images.pexels.com/photos/210542/pexels-photo-210542.jpeg' },
-          { tier: 'Tented', name: 'Rhino River Camp', blurb: 'Chic tents along the Kindani River in a forested setting.', img: 'https://images.pexels.com/photos/259733/pexels-photo-259733.jpeg' },
-        ].map((l,i)=> (
-          <Card key={i} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
-            <div className="relative h-44 overflow-hidden">
-              <img src={l.img} alt={l.name} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            </div>
-            <CardHeader>
-              <Badge className="bg-kenya-gold text-black w-fit">{l.tier}</Badge>
-              <CardTitle className="text-lg">{l.name}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground"><p>{l.blurb}</p></CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
 
   {/* Getting There & Map */}
   <section className="py-16 bg-card">

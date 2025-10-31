@@ -7,9 +7,10 @@ const LakeElementaita = () => (
     title="Lake Elementaita"
     subtitle="Quiet Soda Lake"
     hero={{
-      src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Lake_Elementaita.jpg/640px-Lake_Elementaita.jpg',
+      src: 'https://jacarandahotels.com/images/elementaita/homepage/sliders/2.webp',
       alt: 'Lake Elementaita shoreline',
-      objectPosition: 'center 65%'
+      objectPosition: 'center 65%',
+      overlay: 'bg-black/70'
     }}
     bookSubject="Lake Elementaita"
     facts={[
@@ -52,31 +53,6 @@ const LakeElementaita = () => (
     </div>
   </section>
 
-  {/* Where To Stay */}
-  <section className="py-16">
-    <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Where To Stay</h2>
-      <div className="grid md:grid-cols-3 gap-6">
-        {[
-          { tier: 'Lakeside', name: 'Lake Elementaita Serena Camp', blurb: 'Stylish tents on a ridge with sweeping lake views.', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Lake_Elementaita.jpg/640px-Lake_Elementaita.jpg' },
-          { tier: 'Boutique', name: 'Sunbird Lodge', blurb: 'Intimate setting overlooking the water with cozy chalets.', img: 'https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg' },
-          { tier: 'Conservancy', name: 'Soysambu Camps', blurb: 'Tented options within the conservancy close to birding spots.', img: 'https://images.pexels.com/photos/259733/pexels-photo-259733.jpeg' },
-        ].map((l,i)=> (
-          <Card key={i} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
-            <div className="relative h-44 overflow-hidden">
-              <img src={l.img} alt={l.name} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            </div>
-            <CardHeader>
-              <Badge className="bg-kenya-gold text-black w-fit">{l.tier}</Badge>
-              <CardTitle className="text-lg">{l.name}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground"><p>{l.blurb}</p></CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
 
   {/* Getting There & Map */}
   <section className="py-16 bg-card">

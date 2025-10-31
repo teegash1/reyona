@@ -10,9 +10,10 @@ const OlPejeta = () => (
     title="Ol Pejeta Conservancy"
     subtitle="Conservation & Big Five"
     hero={{
-      src: 'https://images.pexels.com/photos/259730/pexels-photo-259730.jpeg',
+      src: 'https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwHXs4mLmvgipw3pDkyhH8rT9ZTJrkE_yNKbLdWIl9_BWbAVIlLKTxU055DU8fItpIp3Bsucs7dB1R3uFD-Hth7ZCpdCPSvLABqI5GiZ26NuDxJVegQYRvY2_BCtYRHy_9pvbdC2YWdo1VD=s1360-w1360-h1020-rw',
       alt: 'Rhinos and plains at Ol Pejeta',
-      objectPosition: 'center 60%'
+      objectPosition: 'center 60%',
+      overlay: 'bg-black/70'
     }}
     bookSubject="Ol Pejeta Conservancy"
     facts={[
@@ -55,31 +56,6 @@ const OlPejeta = () => (
     </div>
   </section>
 
-  {/* Where To Stay */}
-  <section className="py-16">
-    <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Where To Stay</h2>
-      <div className="grid md:grid-cols-3 gap-6">
-        {[
-          { tier: 'Signature', name: 'Ol Pejeta Bush Camp', blurb: 'Owner‑run tented camp on the banks of the Ewaso Nyiro feeder with authentic feel.', img: 'https://images.pexels.com/photos/2393816/pexels-photo-2393816.jpeg' },
-          { tier: 'Mid‑Range', name: 'Sweetwaters Serena Camp', blurb: 'Comfortable tented suites beside a busy waterhole and the chimpanzee center.', img: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg' },
-          { tier: 'Private Houses', name: 'Ranch Houses/ Cottages', blurb: 'Exclusive homes across the conservancy for families and small groups.', img: 'https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg' }
-        ].map((l,i)=> (
-          <Card key={i} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
-            <div className="relative h-44 overflow-hidden">
-              <img src={l.img} alt={l.name} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            </div>
-            <CardHeader>
-              <Badge className="bg-kenya-gold text-black w-fit">{l.tier}</Badge>
-              <CardTitle className="text-lg">{l.name}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground"><p>{l.blurb}</p></CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
 
   {/* Getting There & Map */}
   <section className="py-16 bg-card">

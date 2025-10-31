@@ -7,9 +7,10 @@ const LakeBogoria = () => (
     title="Lake Bogoria"
     subtitle="Flamingos & Hot Springs"
     hero={{
-      src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lesser_Flamingos_at_Lake_Bogoria.jpg/640px-Lesser_Flamingos_at_Lake_Bogoria.jpg',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Flickr_-_Rainbirder_-_Born_of_Fire.jpg',
       alt: 'Lake Bogoria flamingos and hot springs',
-      objectPosition: 'center 60%'
+      objectPosition: 'center 60%',
+      overlay: 'bg-black/70'
     }}
     bookSubject="Lake Bogoria"
     facts={[
@@ -52,31 +53,6 @@ const LakeBogoria = () => (
     </div>
   </section>
 
-  {/* Where To Stay */}
-  <section className="py-16">
-    <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Where To Stay</h2>
-      <div className="grid md:grid-cols-3 gap-6">
-        {[
-          { tier: 'Resort', name: 'Lake Bogoria Spa Resort', blurb: 'Comfortable base with access to geothermal features and birding sites.', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Lesser_Flamingos_at_Lake_Bogoria.jpg/640px-Lesser_Flamingos_at_Lake_Bogoria.jpg' },
-          { tier: 'Nearby', name: 'Baringo Lodges', blurb: 'Combine Bogoria with Lake Baringo birding a short drive north.', img: 'https://images.pexels.com/photos/221471/pexels-photo-221471.jpeg' },
-          { tier: 'Simple Stays', name: 'Local Guesthouses', blurb: 'Budget‑friendly options in the area for short stops.', img: 'https://images.pexels.com/photos/210542/pexels-photo-210542.jpeg' },
-        ].map((l,i)=> (
-          <Card key={i} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
-            <div className="relative h-44 overflow-hidden">
-              <img src={l.img} alt={l.name} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            </div>
-            <CardHeader>
-              <Badge className="bg-kenya-gold text-black w-fit">{l.tier}</Badge>
-              <CardTitle className="text-lg">{l.name}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground"><p>{l.blurb}</p></CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
 
   {/* Getting There & Map */}
   <section className="py-16 bg-card">

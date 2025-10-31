@@ -7,9 +7,10 @@ const SolioConservancy = () => (
     title="Solio Conservancy"
     subtitle="Rhino Stronghold"
     hero={{
-      src: 'https://images.pexels.com/photos/46251/rhino-horn-animal-africa-46251.jpeg',
+      src: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/ae/7d/58/caption.jpg?w=1400&h=-1&s=1',
       alt: 'Rhino at Solio Conservancy',
-      objectPosition: 'center 55%'
+      objectPosition: 'center 55%',
+      overlay: 'bg-black/70'
     }}
     bookSubject="Solio Conservancy"
     facts={[
@@ -52,31 +53,6 @@ const SolioConservancy = () => (
     </div>
   </section>
 
-  {/* Where To Stay */}
-  <section className="py-16">
-    <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Where To Stay</h2>
-      <div className="grid md:grid-cols-3 gap-6">
-        {[
-          { tier: 'Signature', name: 'Solio Lodge', blurb: 'Boutique property with direct access to the conservancy and rhino plains.', img: 'https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg' },
-          { tier: 'Nearby', name: 'Nanyuki Area Lodges', blurb: 'Comfortable bases in the Laikipia region within easy drive to the gate.', img: 'https://images.pexels.com/photos/261169/pexels-photo-261169.jpeg' },
-          { tier: 'Private Houses', name: 'Highland Cottages', blurb: 'Intimate stays ideal for families seeking privacy.', img: 'https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg' },
-        ].map((l,i)=> (
-          <Card key={i} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
-            <div className="relative h-44 overflow-hidden">
-              <img src={l.img} alt={l.name} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            </div>
-            <CardHeader>
-              <Badge className="bg-kenya-gold text-black w-fit">{l.tier}</Badge>
-              <CardTitle className="text-lg">{l.name}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground"><p>{l.blurb}</p></CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
 
   {/* Getting There & Map */}
   <section className="py-16 bg-card">

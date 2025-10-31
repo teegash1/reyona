@@ -7,9 +7,10 @@ const LakeNaivasha = () => (
     title="Lake Naivasha"
     subtitle="Highland Oasis"
     hero={{
-      src: 'https://cdn.pixabay.com/photo/2017/11/02/00/49/kenya-2905453_1280.jpg',
+      src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Lake_Naivasha%2C_Kenya_%2832487531978%29.jpg/2560px-Lake_Naivasha%2C_Kenya_%2832487531978%29.jpg',
       alt: 'Lake Naivasha boat and shores',
-      objectPosition: 'center 60%'
+      objectPosition: 'center 60%',
+      overlay: 'bg-black/70'
     }}
     bookSubject="Lake Naivasha"
     facts={[
@@ -52,31 +53,6 @@ const LakeNaivasha = () => (
     </div>
   </section>
 
-  {/* Where To Stay */}
-  <section className="py-16">
-    <div className="max-w-7xl mx-auto px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Where To Stay</h2>
-      <div className="grid md:grid-cols-3 gap-6">
-        {[
-          { tier: 'Resort', name: 'Enashipai Resort', blurb: 'Full‑service lakeside resort with spa and family amenities.', img: 'https://cdn.pixabay.com/photo/2017/11/02/00/49/kenya-2905453_1280.jpg' },
-          { tier: 'Lodge', name: 'Lake Naivasha Sopa Resort', blurb: 'Spacious grounds frequented by giraffes and waterbuck.', img: 'https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg' },
-          { tier: 'Tented', name: 'Crescent Island Camps', blurb: 'Simple tented stays close to the walking area and boat jetty.', img: 'https://images.pexels.com/photos/259733/pexels-photo-259733.jpeg' },
-        ].map((l,i)=> (
-          <Card key={i} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
-            <div className="relative h-44 overflow-hidden">
-              <img src={l.img} alt={l.name} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            </div>
-            <CardHeader>
-              <Badge className="bg-kenya-gold text-black w-fit">{l.tier}</Badge>
-              <CardTitle className="text-lg">{l.name}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground"><p>{l.blurb}</p></CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
 
   {/* Getting There & Map */}
   <section className="py-16 bg-card">
