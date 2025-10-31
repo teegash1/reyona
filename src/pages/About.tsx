@@ -511,7 +511,13 @@ const About = () => {
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover object-center"
-                    style={(['Victor Timona','Tanu Mutanu'].includes(member.name)) ? { transform: 'scale(1.08)' } : undefined}
+                    style={
+                      member.name === 'Victor Timona' && member.role === 'Operations Manager'
+                        ? { transform: 'translateY(10px) scale(1.08)' }
+                        : member.name === 'Tanu Mutanu' && member.role === 'Concierge'
+                        ? { transform: 'translateY(8px) scale(1.08)' }
+                        : undefined
+                    }
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-white">
