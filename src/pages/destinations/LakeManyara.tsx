@@ -133,9 +133,9 @@ const LakeManyara = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Where To Stay</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[ 
-              { tier: 'Luxury', name: 'andBeyond Manyara Tree Lodge (Example)', blurb: 'Stylish stilted suites deep in the groundwater forest; canopy‑level wildlife viewing.', img: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop' },
-              { tier: 'Mid‑Range', name: 'Manyara Serena Lodge (Example)', blurb: 'Ridge‑top property with sweeping views across the lake and escarpment.', img: 'https://images.unsplash.com/photo-1601918774946-25832a4b3cbe?q=80&w=1200&auto=format&fit=crop' },
-              { tier: 'Tented Camp', name: 'Public Camps/ Tented Sites (Example)', blurb: 'Affordable, close‑to‑nature stays ideal for early starts on the lakeshore.', img: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=1200&auto=format&fit=crop' }
+              { tier: 'Luxury', name: 'andBeyond Manyara Tree Lodge', blurb: 'Stylish stilted suites deep in the groundwater forest; canopy‑level wildlife viewing.', img: 'https://lh3.googleusercontent.com/p/AF1QipMAh5aQM0kJFZeHXWCvsQC9hqun6yZymyvDkFVE=s1360-w1360-h1020-rw' },
+              { tier: 'Mid‑Range', name: 'Manyara Serena Lodge', blurb: 'Ridge‑top property with sweeping views across the lake and escarpment.', img: 'https://lh3.googleusercontent.com/p/AF1QipMRCxzh3sbD58RKnADZVqCynPTwkNp46BtrvZJh=s1360-w1360-h1020-rw' },
+              { tier: 'Tented Camp', name: 'Lake Manyara Tortilis Camp', blurb: 'Tented camp close to the park with quick access to the lakeshore and forest drives.', img: 'https://www.tortiliscamps.com/wp-content/uploads/2021/11/comfortable-tent-tortilis-camps.jpg' }
             ].map((l, i) => (
               <Card key={i} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
                 <div className="relative h-44 overflow-hidden">
@@ -176,7 +176,7 @@ const LakeManyara = () => {
                 className="absolute inset-0 w-full h-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Lake%20Manyara%20National%20Park%2C%20Tanzania&output=embed"
+                src="https://www.google.com/maps?q=Lake+Manyara+National+Park,+Tanzania&t=k&z=10&hl=en&output=embed"
               />
             </div>
           </div>

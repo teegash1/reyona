@@ -507,24 +507,11 @@ const About = () => {
             {team.map((member, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
-                    {(() => {
-                      let translateY = '0px';
-                      if (member.name === 'Nathaniel Gachukia' && member.role === 'Founder & CEO') {
-                        translateY = '80px'; // move down a lot
-                      } else if (member.name === 'Victor Timona' && member.role === 'Operations Manager') {
-                        translateY = '50px'; // move down ~50px
-                      } else if (member.name === 'Tanu Mutanu' && member.role === 'Concierge') {
-                        translateY = '20px'; // move down slightly
-                      }
-                      return (
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                          style={{ transform: `translateY(${translateY})` }}
-                        />
-                      );
-                    })()}
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover object-center"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-white">
                     <h3 className="text-xl font-bold">{member.name}</h3>
