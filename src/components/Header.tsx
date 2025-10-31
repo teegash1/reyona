@@ -46,12 +46,7 @@ const Header = () => {
   };
 
   const handleBookSafari = () => {
-    navigate('/contact', { 
-      state: { 
-        inquiryType: 'safari',
-        scrollToForm: true 
-      } 
-    });
+    navigate('/custom-safari?scrollToForm=true');
   };
 
   const kenyaDestinations = [
@@ -270,7 +265,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Button variant="luxury" size="lg" onClick={handleBookSafari}>
-              Book Your Safari
+              Custom Safari
             </Button>
           </div>
 
@@ -329,7 +324,7 @@ const Header = () => {
               Contact
             </a>
             <Button variant="luxury" size="lg" className="w-full mt-3" onClick={handleBookSafari}>
-              Book Your Safari
+              Custom Safari
             </Button>
           </nav>
         </div>

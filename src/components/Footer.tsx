@@ -111,6 +111,7 @@ const Footer = () => {
                 <li><a href="/" className="text-muted-foreground hover:text-kenya-gold transition-colors">Home</a></li>
                 <li><a href="/safaris" className="text-muted-foreground hover:text-kenya-gold transition-colors">Safari Packages</a></li>
                 <li><a href="/experiences" className="text-muted-foreground hover:text-kenya-gold transition-colors">Experiences</a></li>
+                <li><a href="/custom-safari" className="text-muted-foreground hover:text-kenya-gold transition-colors">Custom Safari</a></li>
                 <li><a href="/gallery" className="text-muted-foreground hover:text-kenya-gold transition-colors">Gallery</a></li>
                 <li><a href="/about" className="text-muted-foreground hover:text-kenya-gold transition-colors">About Us</a></li>
                 <li><a href="/contact" className="text-muted-foreground hover:text-kenya-gold transition-colors">Contact</a></li>
