@@ -7,6 +7,33 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
   const [hoveredRegion, setHoveredRegion] = useState<null | 'kenya' | 'tanzania'>(null);
+  // Hover delay timers for submenu
+  const openTimeout = useRef<number | null>(null);
+  const closeTimeout = useRef<number | null>(null);
+  const kenyaBtnRef = useRef<HTMLButtonElement>(null);
+  const tanzaniaBtnRef = useRef<HTMLButtonElement>(null);
+
+  const clearTimers = () => {
+    if (openTimeout.current) {
+      window.clearTimeout(openTimeout.current);
+      openTimeout.current = null;
+    }
+    if (closeTimeout.current) {
+      window.clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+  };
+  const scheduleOpen = () => {
+    clearTimers();
+    openTimeout.current = window.setTimeout(() => setIsDestinationsOpen(true), 100);
+  };
+  const scheduleClose = () => {
+    clearTimers();
+    closeTimeout.current = window.setTimeout(() => {
+      setIsDestinationsOpen(false);
+      setHoveredRegion(null);
+    }, 200);
+  };
   const location = useLocation();
   const navigate = useNavigate();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -123,9 +150,23 @@ const Header = () => {
             {/* Destinations Dropdown */}
             <div className="relative group" ref={dropdownRef}>
               <button
-                onMouseEnter={() => setIsDestinationsOpen(true)}
-                onMouseLeave={() => setIsDestinationsOpen(false)}
+                onMouseEnter={scheduleOpen}
+                onMouseLeave={scheduleClose}
                 onClick={() => navigate('/destinations')}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    setIsDestinationsOpen(true);
+                    setHoveredRegion('kenya');
+                    // Focus first region button after render
+                    setTimeout(() => {
+                      kenyaBtnRef.current?.focus();
+                    }, 0);
+                  } else if (e.key === 'Escape') {
+                    setIsDestinationsOpen(false);
+                    setHoveredRegion(null);
+                  }
+                }}
                 className={`relative flex items-center transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
               >
                 <span>Destinations</span>
@@ -141,27 +182,49 @@ const Header = () => {
               {isDestinationsOpen && (
                 <div 
                   className="absolute top-full -left-4 mt-2 bg-background border border-border rounded-lg shadow-lg py-2 z-50 w-56"
-                  onMouseEnter={() => setIsDestinationsOpen(true)}
-                  onMouseLeave={() => { setIsDestinationsOpen(false); setHoveredRegion(null); }}
+                  onMouseEnter={scheduleOpen}
+                  onMouseLeave={scheduleClose}
                 >
                   {/* Regions column */}
                   <div className="relative">
                     <button
-                      className="w-full flex items-center justify-between px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors"
+                      ref={kenyaBtnRef}
+                      className="w-full flex items-center justify-between px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors focus:outline-none focus:bg-muted"
                       onMouseEnter={() => setHoveredRegion('kenya')}
                       onFocus={() => setHoveredRegion('kenya')}
                       onClick={() => navigate('/destinations?filter=kenya')}
                       type="button"
+                      onKeyDown={(e) => {
+                        if (e.key === 'ArrowRight') {
+                          setHoveredRegion('kenya');
+                        } else if (e.key === 'ArrowLeft') {
+                          setHoveredRegion(null);
+                        } else if (e.key === 'Escape') {
+                          setIsDestinationsOpen(false);
+                          setHoveredRegion(null);
+                        }
+                      }}
                     >
                       <span>Kenya</span>
                       <ChevronRight className="w-4 h-4" />
                     </button>
                     <button
-                      className="w-full flex items-center justify-between px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors"
+                      ref={tanzaniaBtnRef}
+                      className="w-full flex items-center justify-between px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors focus:outline-none focus:bg-muted"
                       onMouseEnter={() => setHoveredRegion('tanzania')}
                       onFocus={() => setHoveredRegion('tanzania')}
                       onClick={() => navigate('/destinations?filter=tanzania')}
                       type="button"
+                      onKeyDown={(e) => {
+                        if (e.key === 'ArrowRight') {
+                          setHoveredRegion('tanzania');
+                        } else if (e.key === 'ArrowLeft') {
+                          setHoveredRegion(null);
+                        } else if (e.key === 'Escape') {
+                          setIsDestinationsOpen(false);
+                          setHoveredRegion(null);
+                        }
+                      }}
                     >
                       <span>Tanzania</span>
                       <ChevronRight className="w-4 h-4" />
@@ -169,7 +232,10 @@ const Header = () => {
 
                     {/* Submenu */}
                     {hoveredRegion && (
-                      <div className="absolute top-0 left-full ml-2 w-56 bg-background border border-border rounded-lg shadow-lg py-2">
+                      <div className="absolute top-0 left-full ml-2 w-56 bg-background border border-border rounded-lg shadow-lg py-2"
+                           onMouseEnter={scheduleOpen}
+                           onMouseLeave={scheduleClose}
+                      >
                         {(hoveredRegion === 'kenya' ? kenyaDestinations : tanzaniaDestinations).map((d) => (
                           <a
                             key={d.path}
