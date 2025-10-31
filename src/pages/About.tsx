@@ -387,8 +387,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-[1.1fr,0.9fr] gap-10 items-stretch">
-            <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
               {services.map((svc, idx) => (
                 <Card
                   key={idx}
@@ -404,7 +403,7 @@ const About = () => {
                       setActiveService(idx);
                     }
                   }}
-                  className={`group relative overflow-hidden transition-all duration-300 border border-border bg-card shadow-sm hover:shadow-luxury focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kenya-gold ${
+                  className={`group relative overflow-visible transition-all duration-300 border border-border bg-card shadow-sm hover:shadow-luxury focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kenya-gold ${
                     activeService === idx
                       ? 'ring-2 ring-kenya-gold shadow-luxury -translate-y-1'
                       : 'hover:-translate-y-1'
@@ -439,39 +438,26 @@ const About = () => {
                       <span>Discover more</span>
                       <span aria-hidden="true">→</span>
                     </button>
+
+                    {/* Hover detail modal (desktop) */}
+                    <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-full mb-3 z-30 hidden md:block group-hover:block group-focus-within:block">
+                      <div className="w-[22rem] max-w-[85vw] rounded-xl border border-border bg-card p-5 shadow-2xl">
+                        <h4 className="font-semibold text-foreground mb-1">{svc.title}</h4>
+                        <p className="text-sm text-muted-foreground mb-3">{svc.description}</p>
+                        {svc.highlights?.length ? (
+                          <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                            {svc.highlights.slice(0, 4).map((h, i) => (
+                              <li key={i}>{h}</li>
+                            ))}
+                          </ul>
+                        ) : null}
+                        <div className="absolute left-1/2 translate-x-[-50%] -bottom-2 h-4 w-4 rotate-45 bg-card border border-border border-t-0 border-l-0" />
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
-
-            <Card className="group relative overflow-hidden border border-border bg-card shadow-luxury transition-colors duration-300">
-              <CardHeader className="space-y-4 pt-10 pb-4 px-10">
-                <Badge className="bg-kenya-burgundy text-white w-fit">Signature Experience</Badge>
-                <CardTitle className="text-2xl font-semibold text-foreground transition-colors duration-300 group-hover:text-white">
-                  Signature Experience
-                </CardTitle>
-                <p className="text-sm font-medium uppercase tracking-wide text-foreground transition-colors duration-300 group-hover:text-white">
-                  {services[activeService]?.title}
-                </p>
-                <p className="text-base leading-relaxed text-foreground transition-colors duration-300 group-hover:text-white group-hover:text-opacity-90">
-                  {services[activeService]?.description}
-                </p>
-              </CardHeader>
-              <CardContent className="relative px-10 pb-10">
-                <div className="space-y-4">
-                  {services[activeService]?.highlights.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <span className="mt-1 text-kenya-gold transition-transform duration-300 group-hover:scale-110">
-                        <CheckCircle2 className="w-5 h-5" />
-                      </span>
-                      <p className="text-sm leading-relaxed text-foreground transition-colors duration-300 group-hover:text-white group-hover:text-opacity-90">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
