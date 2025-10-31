@@ -152,9 +152,9 @@ const DESTINATIONS: DestinationCard[] = [
     tagline: "Nature’s Masterpiece",
     description:
       "UNESCO World Heritage Site with the world’s largest intact volcanic caldera teeming with wildlife and steeped in Maasai culture.",
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600&auto=format&fit=crop',
+    image: 'https://www.tripsavvy.com/thmb/s33VPdbJrrspXYixd6ByvK3B2No=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-148679836-5b03d89030371300373c5135.jpg',
     highlights: ['World’s largest caldera', 'Black rhino sanctuary', 'Maasai culture', 'Spectacular viewpoints'],
-    bestTime: 'June - September; lush scenery Nov - Dec',
+    bestTime: 'June - September, Nov - Dec',
     duration: '2-3 days',
     difficulty: 'Easy',
     rating: 4.9,
@@ -167,9 +167,9 @@ const DESTINATIONS: DestinationCard[] = [
     tagline: 'The Hidden Gem',
     description:
       'Known for its giant baobabs, vast herds of elephants and excellent birding across swamps and river valleys.',
-    image: 'https://images.unsplash.com/photo-1552410260-0fd9b577afa3?q=80&w=1600&auto=format&fit=crop',
+    image: 'https://images.squarespace-cdn.com/content/v1/54929084e4b074c56b326d39/1632894557134-63WJ93ODSDFWT6RQBHZE/View+river.jpg',
     highlights: ['Elephant herds', 'Ancient baobabs', 'Intimate safaris', '500+ bird species'],
-    bestTime: 'June - September (dry season)',
+    bestTime: 'June - September',
     duration: '2-3 days',
     difficulty: 'Easy',
     rating: 4.7,
@@ -182,9 +182,9 @@ const DESTINATIONS: DestinationCard[] = [
     tagline: 'A Colorful Oasis',
     description:
       'Famed for tree‑climbing lions, lake‑edge flamingos and diverse ecosystems from forests to soda lakes.',
-    image: 'https://images.unsplash.com/photo-1565787153192-9b3e226d1b4d?q=80&w=1600&auto=format&fit=crop',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lake_Manyara_Wildlife.jpg/960px-Lake_Manyara_Wildlife.jpg',
     highlights: ['Tree‑climbing lions', 'Flamingo flocks', 'Forest & lake habitats', 'Great photography'],
-    bestTime: 'June - September; Nov - Mar for birds',
+    bestTime: 'June - September, Nov - Mar',
     duration: '1-2 days',
     difficulty: 'Easy',
     rating: 4.6,
@@ -257,9 +257,9 @@ const PopularDestinations = () => {
         <img
           src="/beach.jpeg"
           alt="Destinations beach backdrop"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
             Popular Destinations
