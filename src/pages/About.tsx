@@ -511,9 +511,10 @@ const About = () => {
                     src={member.image}
                     alt={member.name}
                     className={`w-full h-full object-cover object-center ${
-                      (member.name === 'Victor Timona' && member.role === 'Operations Manager') ||
-                      (member.name === 'Tanu Mutanu' && member.role === 'Concierge')
-                        ? 'md:object-[center_55%]'
+                      member.name === 'Victor Timona' && member.role === 'Operations Manager'
+                        ? 'md:object-[center_40%]'
+                        : member.name === 'Tanu Mutanu' && member.role === 'Concierge'
+                        ? 'md:object-[center_35%]'
                         : ''
                     }`}
                   />
