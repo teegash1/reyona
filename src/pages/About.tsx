@@ -513,9 +513,9 @@ const About = () => {
                     className="w-full h-full object-cover object-center"
                     style={
                       member.name === 'Victor Timona' && member.role === 'Operations Manager'
-                        ? { transform: 'translateY(10px) scale(1.08)' }
+                        ? { transform: 'translateY(16px) scale(1.08)' }
                         : member.name === 'Tanu Mutanu' && member.role === 'Concierge'
-                        ? { transform: 'translateY(8px) scale(1.08)' }
+                        ? { transform: 'translateY(14px) scale(1.08)' }
                         : undefined
                     }
                   />
