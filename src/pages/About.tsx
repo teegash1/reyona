@@ -510,9 +510,9 @@ const About = () => {
                   {(() => {
                     let translateY = '0px';
                     if (member.name === 'Victor Timona' && member.role === 'Operations Manager') {
-                      translateY = '0px';
+                      translateY = '8px';
                     } else if (member.name === 'Tanu Mutanu' && member.role === 'Concierge') {
-                      translateY = '0px';
+                      translateY = '8px';
                     }
                     return (
                       <img
