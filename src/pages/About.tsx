@@ -511,6 +511,13 @@ const About = () => {
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover object-center"
+                    style={
+                      member.name === 'Victor Timona' && member.role === 'Operations Manager'
+                        ? { transform: 'translateY(-8px)' }
+                        : member.name === 'Tanu Mutanu' && member.role === 'Concierge'
+                        ? { transform: 'translateY(-6px)' }
+                        : undefined
+                    }
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-white">
