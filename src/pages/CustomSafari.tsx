@@ -29,30 +29,49 @@ const CustomSafari = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const destinations = [
+    // Kenya
     'Masai Mara National Reserve',
     'Amboseli National Park',
     'Tsavo East National Park',
     'Tsavo West National Park',
     'Lake Nakuru National Park',
     'Samburu National Reserve',
-    'Aberdare National Park',
-    'Hell\'s Gate National Park',
+    'Salt Lick Sanctuary',
+    'Ol Pejeta Conservancy',
+    'Solio Conservancy',
+    'Meru National Park',
+    'Lake Elementaita',
+    'Lake Bogoria',
     'Lake Naivasha',
     'Diani Beach',
-    'The Serengeti'
+    'Aberdare National Park',
+    'Hell\'s Gate National Park',
+    // Tanzania
+    'Serengeti National Park',
+    'Ngorongoro Conservation Area',
+    'Tarangire National Park',
+    'Lake Manyara National Park'
   ];
 
   const experiences = [
-    'Game Drives',
-    'Hot Air Balloon Safari',
-    'Walking Safaris',
+    // Match Experiences page
+    'Sunrise Hot Air Balloon Safari',
+    'Cultural Immersion in Maasai Villages',
+    'Guided Nature Walks with Local Experts',
     'Night Game Drives',
-    'Bird Watching',
-    'Cultural Village Visits',
-    'Photography Workshops',
-    'Horseback Riding',
-    'Fishing',
-    'Mountain Climbing',
+    'Traditional Cooking Classes',
+    'Community Conservation Projects',
+    'Bird Watching Expeditions',
+    'Horse Riding Safaris',
+    'Coffee Farm Visits',
+    'Boat Riding on Lake Naivasha',
+    'Boat Safaris on Lake Nakuru',
+    'Bush Dinner Under the Stars',
+    'Bush Breakfast Experience',
+    'Sundowner Experiences',
+    'Flower Farm Visits',
+    'Massage Therapy',
+    // General add-ons
     'Beach Activities',
     'Snorkeling'
   ];

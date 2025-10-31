@@ -1386,7 +1386,7 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
       groupSize: '2 People',
       location: 'Masai Mara (Fly‑In)',
       price: '$4,465',
-      image: luxuryCamp,
+      image: 'https://www.go2africa.com/wp-content/uploads/2021/04/migration-rekero-go2africa.jpg',
       description: 'Seamless 45‑minute flight to the Masai Mara with luxury lodge, bush meals and shared game drives included.',
       features: ['Domestic Flights', 'Luxury Lodge', 'Bush Meals', 'Shared Game Drives'],
       badge: 'All‑Inclusive',
@@ -2072,7 +2072,13 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
                                       <div className="space-y-1">
                                         {option.lodges.map((lodge) => {
                                           const normalized = normalizeLodgeName(lodge);
-                                          const detail = lodgeDetailsMap[normalized];
+                                          const detail = lodgeDetailsMap[normalized] ?? {
+                                            summary: 'Comfortable base used on this route; specifics vary by season and availability.',
+                                            parkAccess: 'Convenient for daily game loops and early starts.',
+                                            airAccess: 'Nearest common airstrip used for this park; exact transfer time varies.',
+                                            wildlife: 'Good access to signature species and habitats in the area.',
+                                            notes: 'Ask us for the exact lodge assigned for your dates.'
+                                          };
                                           const lodgeKey = `${optionKeyBase}-${normalized}`;
                                           const isActive = activeLodgeKey === lodgeKey;
 
@@ -2087,8 +2093,7 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
                                               >
                                                 {lodge}
                                               </a>
-                                              {detail && (
-                                                <div className="relative ml-2">
+                                              <div className="relative ml-2">
                                                   <button
                                                     type="button"
                                                     aria-label={`More about ${lodge}`}
@@ -2142,9 +2147,7 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
                                                     </div>
                                                   )}
                                                 </div>
-                                              )}
-                                              {!detail && <div className="ml-2 h-6 w-6" aria-hidden />}
-                                            </div>
+                                              </div>
                                           );
                                         })}
                                       </div>
