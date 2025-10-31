@@ -45,18 +45,11 @@ const SafariPackages = () => {
   ];
 
   return (
-    <section id="safaris" className="relative bg-background pt-12 pb-20 -mt-10">
-      {/* Top blend into hero */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-10"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.0) 0%, hsl(var(--background)) 100%)'
-        }}
-      />
+    <section id="safaris" className="py-20 bg-background">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          {/* Moved CTAs from Hero */}
+        <div className="text-center mb-16">
+          {/* Move hero CTAs here to sit above the packages pill */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6">
             <Link to="/safaris">
               <Button variant="hero" size="lg" className="group w-full sm:w-auto">
@@ -70,12 +63,14 @@ const SafariPackages = () => {
               </Button>
             </Link>
           </div>
+          {/* Soft divider between CTAs and pill */}
+          <div className="max-w-xl mx-auto my-4 border-t border-border/40" />
           <button
             type="button"
             onClick={() => {
               window.location.href = '/safaris';
             }}
-            className="inline-flex items-center px-4 py-2 bg-kenya-gold/10 border border-kenya-gold/20 rounded-full text-kenya-gold text-sm font-medium mb-4 transition-colors hover:bg-kenya-gold/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kenya-gold/40"
+            className="inline-flex items-center px-4 py-2 bg-kenya-gold/10 border border-kenya-gold/20 rounded-full text-kenya-gold text-sm font-medium mt-8 mb-6 transition-colors hover:bg-kenya-gold/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kenya-gold/40"
           >
             POPULAR SAFARI PACKAGES
           </button>

@@ -130,7 +130,7 @@ const Hero = () => {
           Where every moment tells a story of wilderness and wonder.
         </p>
 
-        {/* Primary CTAs moved to SafariPackages section for better flow */}
+        {/* Primary CTAs are rendered above packages section for maximum hero visibility */}
 
         {/* Stats moved to HomeStats section below Experiences */}
       </div>
