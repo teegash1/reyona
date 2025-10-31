@@ -493,6 +493,76 @@ const lodgeDetailsData: Array<{ names: string[] } & LodgeDetail> = [
     parkAccess: 'Just outside the reserve; 7 minutes to Talek Gate for immediate park entry.',
     airAccess: 'Ol Kiombo Airstrip around 25 minutes by road.',
     wildlife: 'Excellent base for cheetah-rich Double Crossing and Burrungat Plains.'
+  },
+  {
+    names: ['Lemala Kuria Hills'],
+    summary: 'Luxury hilltop suites in northern Serengeti (Wogakuria) with sweeping savannah views.',
+    parkAccess: 'Inside Serengeti National Park; prime base for the northern sector near Kogatende.',
+    airAccess: 'Kogatende (Kertem) Airstrip roughly 30–45 minutes depending on wildlife stops.',
+    wildlife: 'Superb for July–October river‑crossing season and year‑round big cats.'
+  },
+  {
+    names: ['Lemala Ngorongoro'],
+    summary: 'Intimate tented camp in the ancient acacia forest on the eastern rim of Ngorongoro.',
+    parkAccess: 'Crater access via the quiet Lemala descent road for early game drives.',
+    airAccess: 'Lake Manyara Airstrip with a 1.5–2 hr scenic drive to camp.',
+    notes: 'Cooler rim climate—pack layers for dawn crater descents.'
+  },
+  {
+    names: ['Maramboi Tented Lodge', 'Maramboi Tented Camp'],
+    summary: 'Stilted tents set between Tarangire and Lake Manyara with Rift Valley panoramas.',
+    parkAccess: 'Outside the parks; around 30–40 minutes to Tarangire main gate.',
+    airAccess: 'Lake Manyara Airstrip approximately 30–40 minutes by road.',
+    wildlife: 'Frequent zebra and giraffe on the open plains; flamingos seasonally on the lakeshore.'
+  },
+  {
+    names: ['Ngorongoro Farm House'],
+    summary: 'Charming plantation‑style lodge in Karatu, ideal base for crater and Manyara days.',
+    parkAccess: 'About 30–45 minutes to Ngorongoro Lodoare Gate; easy access to Lake Manyara.',
+    airAccess: 'Lake Manyara Airstrip roughly 45 minutes away.',
+    notes: 'Lovely gardens and coffee estate ambience—great for families and small groups.'
+  },
+  {
+    names: ['Tarangire Sopa Lodge'],
+    summary: 'Spacious lodge deep inside Tarangire among iconic baobab landscapes.',
+    parkAccess: 'Inside Tarangire with quick access to elephant‑rich river loops.',
+    airAccess: 'Kuro Airstrip is roughly 30–40 minutes by game drive.',
+    wildlife: 'Excellent dry‑season elephant concentrations and classic savannah scenes.'
+  },
+  {
+    names: ['Lake Manyara Tortilis Camp', 'Manyara Tortilis Camp'],
+    summary: 'Tented camp near Lake Manyara with fast access to the park gate and lakeshore.',
+    parkAccess: 'Minutes to Lake Manyara National Park entrance at Mto wa Mbu.',
+    airAccess: 'Lake Manyara Airstrip approximately 20–30 minutes away.',
+    wildlife: 'Perfect for flamingos (seasonal), elephants and forest birdlife.'
+  },
+  {
+    names: ['Zanzi Resort', 'Zanzi Resort (example)'],
+    summary: 'Boutique beachfront retreat on Zanzibar’s west coast with private villas and jetty.',
+    parkAccess: 'Beachfront; convenient for Stone Town and west‑coast excursions.',
+    airAccess: 'Abeid Amani Karume International Airport about 45–60 minutes by road.',
+    notes: 'Ideal for post‑safari relaxation, sunset cruises and spice tours.'
+  },
+  {
+    names: ['Serengeti Lodge'],
+    summary: 'Comfortable Serengeti lodge allocation tailored to travel dates and migration location.',
+    parkAccess: 'Inside the park with game loops selected to suit seasonal wildlife movements.',
+    airAccess: 'Most central placements use Seronera Airstrip (≈20–30 minutes).',
+    notes: 'Exact lodge confirmed at booking to optimize wildlife proximity.'
+  },
+  {
+    names: ['The Boma Hotel'],
+    summary: 'Contemporary hotel in Nairobi with easy access to both JKIA and Wilson Airport.',
+    parkAccess: 'City base; convenient for Nairobi National Park day visits.',
+    airAccess: 'Jomo Kenyatta International ≈20–30 minutes; Wilson ≈15–25 minutes (traffic dependent).',
+    notes: 'Good overnight stop pre/post‑safari with reliable transfers.'
+  },
+  {
+    names: ['Sawela Lodge', 'Sawela Naivasha'],
+    summary: 'Family‑friendly resort on Lake Naivasha’s south shore with gardens and pools.',
+    parkAccess: 'Near Crescent Island (≈20 minutes) and Hell’s Gate National Park (≈30 minutes).',
+    airAccess: 'Naivasha (Loldia) Airstrip around 30–40 minutes by road.',
+    notes: 'Great base for boating, cycling and geothermal spa day trips.'
   }
 ];
 
@@ -1486,7 +1556,7 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
       features: ['Private 4x4', 'Return flights Arusha–Zanzibar–Arusha', 'Beach Stay'],
       badge: 'Bush + Beach',
       options: [
-        { name: 'Package Price', price: '$6455', lodges: ['Serengeti lodge (varies)', 'Zanzi Resort (example)'] }
+        { name: 'Package Price', price: '$6455', lodges: ['Serengeti Lodge', 'Zanzi Resort'] }
       ],
       itinerary: [
         { day: 1, title: 'ARUSHA – SERENGETI', description: 'Transfer to Serengeti. Lunch then afternoon game drive.', meals: 'Lunch & Dinner' },
