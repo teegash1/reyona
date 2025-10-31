@@ -131,49 +131,7 @@ const Tarangire = () => {
         </div>
       </section>
 
-      {/* Where To Stay (Examples) */}
-      <section className="py-16 bg-card">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Where To Stay</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[ 
-              { tier: 'Luxury', name: 'Tarangire Treetops (Example)', blurb: 'Elevated, open‑front suites among baobabs with waterhole views and night drives (in concessions).', img: 'https://images.unsplash.com/photo-1519822471931-00f409b89f39?q=80&w=1200&auto=format&fit=crop' },
-              { tier: 'Mid‑Range', name: 'Tarangire Sopa Lodge (Example)', blurb: 'Comfortable rooms on a ridge with sweeping views and a large pool.', img: 'https://images.unsplash.com/photo-1601918774946-25832a4b3cbe?q=80&w=1200&auto=format&fit=crop' },
-              { tier: 'Tented Camp', name: 'Kuro/ Public Camps (Example)', blurb: 'Authentic tented stays close to the action; excellent for dawn/ dusk access.', img: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?q=80&w=1200&auto=format&fit=crop' }
-            ].map((l, i) => (
-              <Card key={i} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
-                <div className="relative h-44 overflow-hidden">
-                  <img src={l.img} alt={l.name} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                </div>
-                <CardHeader>
-                  <Badge className="bg-kenya-gold text-black w-fit">{l.tier}</Badge>
-                  <CardTitle className="text-lg">{l.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-sm text-muted-foreground">
-                  <p>{l.blurb}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Map */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Map & Location</h2>
-          <div className="relative rounded-xl overflow-hidden border border-border shadow-lg" style={{ aspectRatio: '16 / 9' }}>
-            <iframe
-              title="Tarangire Map"
-              className="absolute inset-0 w-full h-full"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Tarangire%20National%20Park%2C%20Tanzania&output=embed"
-            />
-          </div>
-        </div>
-      </section>
+      {/* Where To Stay and Map sections intentionally removed per request */}
 
       <Footer />
     </div>

@@ -143,7 +143,7 @@ const LakeManyara = () => {
                     src={l.img} 
                     alt={l.name} 
                     className="w-full h-full object-cover"
-                    style={l.name === 'Manyara Serena Lodge' ? { objectPosition: 'center 75%' } : undefined}
+                    style={l.name === 'Manyara Serena Lodge' ? { objectPosition: 'center 92%' } : undefined}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
