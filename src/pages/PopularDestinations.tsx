@@ -208,7 +208,12 @@ const PopularDestinations = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-[70vh] bg-gradient-to-br from-kenya-purple/20 to-kenya-burgundy/20 flex items-center justify-center pt-32">
+      <section className="relative h-[70vh] flex items-center justify-center pt-32">
+        <img
+          src="/beach.jpeg"
+          alt="Destinations beach backdrop"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">

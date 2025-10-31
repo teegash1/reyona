@@ -385,16 +385,16 @@ const About = () => {
               ))}
             </div>
 
-            <Card className="group relative overflow-hidden border border-border bg-card shadow-luxury transition-colors duration-300">
+            <Card className="relative overflow-hidden border border-border bg-kenya-burgundy text-white shadow-luxury">
               <CardHeader className="space-y-4 pt-10 pb-4 px-10">
-                <Badge className="bg-kenya-gold text-white w-fit">Signature Experience</Badge>
-                <CardTitle className="text-2xl font-semibold text-foreground transition-colors duration-300 group-hover:text-white">
+                <Badge className="bg-kenya-burgundy text-white w-fit border border-white/30">Signature Experience</Badge>
+                <CardTitle className="text-2xl font-semibold text-white">
                   Signature Experience
                 </CardTitle>
-                <p className="text-sm font-medium uppercase tracking-wide text-foreground transition-colors duration-300 group-hover:text-white">
+                <p className="text-sm font-medium uppercase tracking-wide text-white/90">
                   {services[activeService]?.title}
                 </p>
-                <p className="text-base leading-relaxed text-foreground transition-colors duration-300 group-hover:text-white group-hover:text-opacity-90">
+                <p className="text-base leading-relaxed text-white/90">
                   {services[activeService]?.description}
                 </p>
               </CardHeader>

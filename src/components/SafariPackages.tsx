@@ -45,7 +45,7 @@ const SafariPackages = () => {
   ];
 
   return (
-    <section id="safaris" className="py-20 bg-background">
+    <section id="safaris" className="pt-10 pb-20 bg-background">
       <div className="w-full px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">

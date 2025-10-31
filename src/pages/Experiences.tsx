@@ -217,7 +217,7 @@ const Experiences = () => {
                 </div>
                 
                 <CardContent className="space-y-4 pt-6">
-                  <h3 className="text-xl font-bold text-kenya-gold group-hover:text-kenya-purple transition-colors">
+                  <h3 className="text-xl font-bold text-kenya-gold transition-all [text-shadow:0_0_0_rgba(0,0,0,0)] group-hover:[text-shadow:0_0_10px_rgba(212,175,55,0.9)]">
                     {experience.title}
                   </h3>
                   <p className="text-sm text-muted-foreground">

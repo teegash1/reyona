@@ -16,6 +16,8 @@ const Hero = () => {
   const heroSlides: Slide[] = [
     { type: 'image', src: heroImage },
     { type: 'image', src: pexelsImage },
+    // Insert public AAballoon.jpeg as the 3rd slide
+    { type: 'image', src: '/AAballoon.jpeg' },
     { type: 'image', src: 'https://cdn.pixabay.com/photo/2015/09/22/14/34/lion-951778_1280.jpg' },
     { type: 'image', src: 'https://cdn.pixabay.com/photo/2020/08/25/11/11/zebra-5516455_1280.jpg' },
     { type: 'image', src: 'https://cdn.pixabay.com/photo/2021/05/21/12/35/giraffe-6271050_1280.jpg' }
