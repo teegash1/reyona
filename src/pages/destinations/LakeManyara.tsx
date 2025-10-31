@@ -139,7 +139,12 @@ const LakeManyara = () => {
             ].map((l, i) => (
               <Card key={i} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
                 <div className="relative h-44 overflow-hidden">
-                  <img src={l.img} alt={l.name} className="w-full h-full object-cover" />
+                  <img 
+                    src={l.img} 
+                    alt={l.name} 
+                    className="w-full h-full object-cover"
+                    style={l.name === 'Manyara Serena Lodge' ? { objectPosition: 'center 75%' } : undefined}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
                 <CardHeader>
