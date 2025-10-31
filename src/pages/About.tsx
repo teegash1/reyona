@@ -506,11 +506,12 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
-                <div className={`relative h-64 ${(['Victor Timona','Tanu Mutanu'].includes(member.name) ? '' : 'overflow-hidden')}`}>
+                <div className="relative h-64 overflow-hidden">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className={`w-full h-full object-center ${(['Victor Timona','Tanu Mutanu'].includes(member.name) ? 'object-contain' : 'object-cover')}`}
+                    className="w-full h-full object-cover object-center"
+                    style={(['Victor Timona','Tanu Mutanu'].includes(member.name)) ? { transform: 'scale(1.08)' } : undefined}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 text-white">
