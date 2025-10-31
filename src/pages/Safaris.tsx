@@ -108,6 +108,91 @@ const Safaris = () => {
       ]
     },
     {
+      id: 301,
+      title: '3 DAYS PRIVATE HOLIDAY IN AMBOSELI (UNLEASH YOUR WILD SIDE)',
+      category: 'popular',
+      duration: '3 Days',
+      groupSize: '2-6 People',
+      location: 'Amboseli National Park',
+      price: '$1,125',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Kibo_and_Mawenzi_from_Amboseli_2011.jpg',
+      description: 'Short private getaway to Amboseli with iconic elephant herds and Kilimanjaro views.',
+      features: ['Private 4x4', 'Elephants', 'Kilimanjaro Views'],
+      badge: 'Kenya',
+      options: [
+        { name: 'Package Price', price: '$1125', lodges: ['Oltukai Lodge'] }
+      ],
+      itinerary: [
+        { day: 1, title: 'NAIROBI – AMBOSELI (≈4hrs)', description: 'Pickup and drive to Amboseli. Lunch, check‑in and afternoon game drive searching for elephants, lions and more.', meals: 'Lunch & Dinner' },
+        { day: 2, title: 'AMBOSELI – FULL DAY', description: 'Morning and afternoon game drives with hot lunch at the lodge; capture sunrise and sunset views of Kilimanjaro.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 3, title: 'AMBOSELI – NAIROBI (≈4hrs)', description: 'Breakfast, check‑out and road transfer back to Nairobi. Drop‑off at hotel/airport.', meals: 'Breakfast only' }
+      ],
+      inclusions: [
+        'All government taxes/VAT', 'Park fees', 'Accommodation on full board basis', 'Bottled drinking water in the vehicle', 'All game drives are PRIVATE in a 4/4 Land Cruiser', 'Services of professional tour driver/guide (s)'
+      ],
+      exclusions: ['International flights', 'Tips & porterage', 'Visa fees', 'Travel insurance', 'Other personal items']
+    },
+    {
+      id: 302,
+      title: '5 DAY WILDLIFE DISCOVERY ADVENTURE: EXPERIENCE THE HEART OF KENYA',
+      category: 'popular',
+      duration: '5 Days',
+      groupSize: '2-6 People',
+      location: 'Samburu • Ol Pejeta • Lake Naivasha',
+      price: '$2,145',
+      image: 'https://images.pexels.com/photos/259730/pexels-photo-259730.jpeg',
+      description: 'Samburu Special Five, rhino conservation at Ol Pejeta and lakeside boat ride on Naivasha.',
+      features: ['Private 4x4', 'Boat Ride', 'Rhino Sanctuary'],
+      badge: 'Kenya',
+      options: [
+        { name: 'Package Price', price: '$2145', lodges: ['Samburu Intrepids', 'Sweetwaters Serena Camp (Deluxe)', 'Great Rift Valley Lodge'] }
+      ],
+      itinerary: [
+        { day: 1, title: 'NAIROBI – SAMBURU (≈7hrs)', description: 'Drive to Samburu. Lunch, check‑in and afternoon game drive in search of Samburu Special Five.', meals: 'Lunch & Dinner' },
+        { day: 2, title: 'SAMBURU – FULL DAY', description: 'Morning and afternoon game drives; hot lunch at the camp.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 3, title: 'SAMBURU – OL PEJETA (≈3hrs)', description: 'En‑route game drive to Ol Pejeta Conservancy. Lunch then afternoon game drive for lions, rhinos, cheetahs.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 4, title: 'OL PEJETA – LAKE NAIVASHA (≈5hrs)', description: 'Travel to Naivasha. Lunch then boat ride and Crescent Island walking tour.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 5, title: 'NAIVASHA – NAIROBI (≈2hrs)', description: 'Breakfast and drive back to Nairobi. Drop‑off at hotel/airport.', meals: 'Breakfast only' }
+      ],
+      inclusions: [
+        'All government taxes/VAT', 'Park fees', 'Accommodation on full board basis', 'Bottled drinking water in the vehicle', 'All game drives are PRIVATE in a 4/4 Land Cruiser', 'Services of professional tour driver/guide (s)'
+      ],
+      exclusions: ['International flights', 'Tips & porterage', 'Visa fees', 'Travel insurance', 'Other personal items']
+    },
+    {
+      id: 303,
+      title: '11‑DAY PRIVATE KENYAN SAFARI: AUTHENTIC DISCOVERY',
+      category: 'popular',
+      duration: '11 Days',
+      groupSize: '2-6 People',
+      location: 'Samburu • Ol Pejeta • Lake Nakuru • Masai Mara • Lake Naivasha • Amboseli',
+      price: '$5,150',
+      image: 'https://cdn.pixabay.com/photo/2016/11/21/12/38/nature-1845134_1280.jpg',
+      description: 'A grand circuit through Kenya’s iconic parks with varied habitats and abundant wildlife.',
+      features: ['Private 4x4', 'Big Five', 'Boat Ride', 'Rhino Sanctuary'],
+      badge: 'Kenya',
+      options: [
+        { name: 'Package Price', price: '$5150', lodges: ['Samburu Intrepids', 'Sweetwaters Serena Camp', 'Lake Nakuru Sopa', 'Ilkeliani Camp', 'Great Rift Valley Lodge', 'Oltukai Lodge'] }
+      ],
+      itinerary: [
+        { day: 1, title: 'NAIROBI – SAMBURU (≈7hrs)', description: 'Pickup and drive to Samburu. Lunch, relax and afternoon game drive.', meals: 'Lunch & Dinner' },
+        { day: 2, title: 'SAMBURU – FULL DAY', description: 'Morning and afternoon game drives; hot lunch at the lodge.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 3, title: 'SAMBURU – OL PEJETA (≈3hrs)', description: 'En‑route game drives; arrive for lunch then afternoon conservancy drive.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 4, title: 'OL PEJETA – LAKE NAKURU (≈5hrs)', description: 'Drive to Nakuru; afternoon game drive for rhinos, cats and flamingoes.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 5, title: 'LAKE NAKURU – MASAI MARA (≈5hrs)', description: 'Scenic transfer to the Mara; lunch and 4pm game drive.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 6, title: 'MASAI MARA – FULL DAY', description: 'Full‑day drives with picnic lunch; search for Big Five and cheetahs.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 7, title: 'MASAI MARA – FULL DAY', description: 'Second full day exploring the Mara’s plains and river loops.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 8, title: 'MASAI MARA – LAKE NAIVASHA (≈5hrs)', description: 'Transfer to Naivasha; boat ride and Crescent Island walk.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 9, title: 'NAIVASHA – AMBOSELI (≈6hrs)', description: 'Head south to Amboseli; lunch then 4pm game drive in elephant country.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 10, title: 'AMBOSELI – FULL DAY', description: 'Morning and afternoon drives with Kilimanjaro backdrops.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 11, title: 'AMBOSELI – NAIROBI (≈4hrs)', description: 'Breakfast and drive to Nairobi; drop‑off at airport/hotel.', meals: 'Breakfast only' }
+      ],
+      inclusions: [
+        'All government taxes/VAT', 'Park fees', 'Accommodation on full board basis', 'Bottled drinking water in the vehicle', 'All game drives are PRIVATE in a 4/4 Land Cruiser', 'Services of professional tour driver/guide (s)'
+      ],
+      exclusions: ['International flights', 'Tips & porterage', 'Visa fees', 'Travel insurance', 'Other personal items']
+    },
+    {
       id: 2,
       title: "4 DAYS 3NIGHTS MASAI MARA SAFARI PACKAGE",
       category: "popular",
@@ -493,6 +578,27 @@ const lodgeDetailsData: Array<{ names: string[] } & LodgeDetail> = [
     parkAccess: 'Just outside the reserve; 7 minutes to Talek Gate for immediate park entry.',
     airAccess: 'Ol Kiombo Airstrip around 25 minutes by road.',
     wildlife: 'Excellent base for cheetah-rich Double Crossing and Burrungat Plains.'
+  },
+  {
+    names: ['Samburu Intrepids'],
+    summary: 'Well‑known riverside camp inside Samburu with excellent access to Special Five habitats.',
+    parkAccess: 'Within Samburu National Reserve along the Ewaso Nyiro.',
+    airAccess: 'Samburu/ Buffalo Springs airstrips ~20–30 minutes by road.',
+    wildlife: 'Reticulated giraffe, Grevy’s zebra, gerenuk and predators on nearby plains.'
+  },
+  {
+    names: ['Sweetwaters Serena Camp', 'Sweetwaters Serena Camp (Deluxe)', 'Maisha Sweetwaters Camp', 'Maisha Sweetwaters Camp(Deluxe)'],
+    summary: 'Tented camp beside a busy waterhole within Ol Pejeta Conservancy.',
+    parkAccess: 'Inside Ol Pejeta with immediate access to conservancy loops and rhino enclosures.',
+    airAccess: 'Nanyuki Airstrip ~45–60 minutes by road.',
+    wildlife: 'Regular black and white rhino sightings, lions and abundant plains game.'
+  },
+  {
+    names: ['Lake Nakuru Sopa', 'Lake Nakuru Sopa Lodge', 'Sopa Nakuru'],
+    summary: 'Escarpment‑top lodge inside Lake Nakuru with great lake and forest views.',
+    parkAccess: 'Within park boundaries with quick descent to lakeshore circuits.',
+    airAccess: 'Naishi Airstrip ~30–40 minutes depending on route.',
+    wildlife: 'Good base for both rhino species, Rothschild giraffe and lion territories.'
   },
   {
     names: ['Lemala Kuria Hills'],
@@ -1271,6 +1377,41 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
         "Travel insurance",
         "Other personal items"
       ]
+    },
+    {
+      id: 1401,
+      title: '4 DAYS LUXURY PRIVATE SAFARI (FLY‑IN)',
+      category: 'flyin',
+      duration: '4 Days',
+      groupSize: '2 People',
+      location: 'Masai Mara (Fly‑In)',
+      price: '$4,465',
+      image: luxuryCamp,
+      description: 'Seamless 45‑minute flight to the Masai Mara with luxury lodge, bush meals and shared game drives included.',
+      features: ['Domestic Flights', 'Luxury Lodge', 'Bush Meals', 'Shared Game Drives'],
+      badge: 'All‑Inclusive',
+      options: [
+        { name: 'Package Price', price: '$4465', lodges: ['JW Marriott Masai Mara'] }
+      ],
+      itinerary: [
+        { day: 1, title: 'NAIROBI – MASAI MARA (FLIGHT ≈45min)', description: 'Hotel pickup and transfer to Wilson. Flight to the Mara. Morning drive on arrival; check‑in, lunch and afternoon game drive.', meals: 'Lunch & Dinner' },
+        { day: 2, title: 'MASAI MARA – FULL DAY', description: 'Full‑day game drive with picnic or split drives with hot lunch. Optional balloon (advance booking).', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 3, title: 'CULTURE & WILDLIFE', description: 'Optional Maasai village visit in the morning; afternoon game drive to river loops and plains.', meals: 'Breakfast, Lunch & Dinner' },
+        { day: 4, title: 'MARA – NAIROBI (FLIGHT)', description: 'Dawn game drive, breakfast and transfer to airstrip for flight back to Nairobi and hotel/airport transfer.', meals: 'Breakfast only' }
+      ],
+      inclusions: [
+        'Accommodation and meals on FB basis; tea, water and coffee',
+        'Selected alcoholic and non‑alcoholic drinks',
+        'Bush meals once (weather permitting) and one sundowner',
+        '2 shared game drives per day; refreshments on drives; bird watching; guided walking safaris',
+        'Wifi throughout the lodge',
+        'Domestic Return Flight and airstrip transfers',
+        'Use of the JW photo studio, gym, pool and teens club',
+        'Emergency Medical Evacuation Services',
+        'Laundry services – 5 items per person per day',
+        'All statutory taxes'
+      ],
+      exclusions: ['International flights', 'Tips & porterage', 'Visa fees', 'Travel insurance', 'Other personal items']
     },
     {
       id: 14,
