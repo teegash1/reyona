@@ -144,6 +144,51 @@ const DESTINATIONS: DestinationCard[] = [
     difficulty: 'Moderate',
     rating: 4.9,
     price: 'From $520/day'
+  },
+  {
+    id: 'ngorongoro',
+    country: 'Tanzania',
+    name: 'Ngorongoro Conservation Area',
+    tagline: "Nature’s Masterpiece",
+    description:
+      "UNESCO World Heritage Site with the world’s largest intact volcanic caldera teeming with wildlife and steeped in Maasai culture.",
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1600&auto=format&fit=crop',
+    highlights: ['World’s largest caldera', 'Black rhino sanctuary', 'Maasai culture', 'Spectacular viewpoints'],
+    bestTime: 'June - September; lush scenery Nov - Dec',
+    duration: '2-3 days',
+    difficulty: 'Easy',
+    rating: 4.9,
+    price: 'From $420/day'
+  },
+  {
+    id: 'tarangire',
+    country: 'Tanzania',
+    name: 'Tarangire National Park',
+    tagline: 'The Hidden Gem',
+    description:
+      'Known for its giant baobabs, vast herds of elephants and excellent birding across swamps and river valleys.',
+    image: 'https://images.unsplash.com/photo-1552410260-0fd9b577afa3?q=80&w=1600&auto=format&fit=crop',
+    highlights: ['Elephant herds', 'Ancient baobabs', 'Intimate safaris', '500+ bird species'],
+    bestTime: 'June - September (dry season)',
+    duration: '2-3 days',
+    difficulty: 'Easy',
+    rating: 4.7,
+    price: 'From $360/day'
+  },
+  {
+    id: 'lake-manyara',
+    country: 'Tanzania',
+    name: 'Lake Manyara National Park',
+    tagline: 'A Colorful Oasis',
+    description:
+      'Famed for tree‑climbing lions, lake‑edge flamingos and diverse ecosystems from forests to soda lakes.',
+    image: 'https://images.unsplash.com/photo-1565787153192-9b3e226d1b4d?q=80&w=1600&auto=format&fit=crop',
+    highlights: ['Tree‑climbing lions', 'Flamingo flocks', 'Forest & lake habitats', 'Great photography'],
+    bestTime: 'June - September; Nov - Mar for birds',
+    duration: '1-2 days',
+    difficulty: 'Easy',
+    rating: 4.6,
+    price: 'From $300/day'
   }
 ];
 

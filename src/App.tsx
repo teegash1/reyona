@@ -20,6 +20,9 @@ import LakeNakuru from "./pages/destinations/LakeNakuru";
 import Samburu from "./pages/destinations/Samburu";
 import DianiBeach from "./pages/destinations/DianiBeach";
 import Serengeti from "./pages/destinations/Serengeti";
+import Ngorongoro from "./pages/destinations/Ngorongoro";
+import Tarangire from "./pages/destinations/Tarangire";
+import LakeManyara from "./pages/destinations/LakeManyara";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
@@ -51,6 +54,9 @@ const App = () => {
             <Route path="/destinations/samburu" element={<Samburu />} />
             <Route path="/destinations/diani-beach" element={<DianiBeach />} />
             <Route path="/destinations/serengeti" element={<Serengeti />} />
+            <Route path="/destinations/ngorongoro" element={<Ngorongoro />} />
+            <Route path="/destinations/tarangire" element={<Tarangire />} />
+            <Route path="/destinations/lake-manyara" element={<LakeManyara />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />

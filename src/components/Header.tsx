@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Phone, Mail, MapPin, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, ChevronDown, ChevronRight } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
+  const [hoveredRegion, setHoveredRegion] = useState<null | 'kenya' | 'tanzania'>(null);
   const location = useLocation();
   const navigate = useNavigate();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -26,7 +27,7 @@ const Header = () => {
     });
   };
 
-  const destinations = [
+  const kenyaDestinations = [
     { name: 'Masai Mara', path: '/destinations/masai-mara' },
     { name: 'Amboseli', path: '/destinations/amboseli' },
     { name: 'Lake Nakuru', path: '/destinations/lake-nakuru' },
@@ -34,8 +35,14 @@ const Header = () => {
     { name: 'Tsavo East', path: '/destinations/tsavo-east' },
     { name: 'Tsavo West', path: '/destinations/tsavo-west' },
     { name: 'Diani Beach', path: '/destinations/diani-beach' },
-    { name: 'Serengeti', path: '/destinations/serengeti' }
   ];
+  const tanzaniaDestinations = [
+    { name: 'Serengeti', path: '/destinations/serengeti' },
+    { name: 'Ngorongoro', path: '/destinations/ngorongoro' },
+    { name: 'Tarangire', path: '/destinations/tarangire' },
+    { name: 'Lake Manyara', path: '/destinations/lake-manyara' },
+  ];
+  const destinations = [...kenyaDestinations, ...tanzaniaDestinations]; // used in mobile quick list
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
@@ -118,6 +125,7 @@ const Header = () => {
               <button
                 onMouseEnter={() => setIsDestinationsOpen(true)}
                 onMouseLeave={() => setIsDestinationsOpen(false)}
+                onClick={() => navigate('/destinations')}
                 className={`relative flex items-center transition-colors font-medium ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
               >
                 <span>Destinations</span>
@@ -132,19 +140,48 @@ const Header = () => {
               {/* Dropdown Menu */}
               {isDestinationsOpen && (
                 <div 
-                  className="absolute top-full -left-4 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg py-2 z-50"
+                  className="absolute top-full -left-4 mt-2 bg-background border border-border rounded-lg shadow-lg py-2 z-50 w-56"
                   onMouseEnter={() => setIsDestinationsOpen(true)}
-                  onMouseLeave={() => setIsDestinationsOpen(false)}
+                  onMouseLeave={() => { setIsDestinationsOpen(false); setHoveredRegion(null); }}
                 >
-                  {destinations.map((destination) => (
-                    <a
-                      key={destination.path}
-                      href={destination.path}
-                      className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors"
+                  {/* Regions column */}
+                  <div className="relative">
+                    <button
+                      className="w-full flex items-center justify-between px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors"
+                      onMouseEnter={() => setHoveredRegion('kenya')}
+                      onFocus={() => setHoveredRegion('kenya')}
+                      onClick={() => navigate('/destinations?filter=kenya')}
+                      type="button"
                     >
-                      {destination.name}
-                    </a>
-                  ))}
+                      <span>Kenya</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                    <button
+                      className="w-full flex items-center justify-between px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors"
+                      onMouseEnter={() => setHoveredRegion('tanzania')}
+                      onFocus={() => setHoveredRegion('tanzania')}
+                      onClick={() => navigate('/destinations?filter=tanzania')}
+                      type="button"
+                    >
+                      <span>Tanzania</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+
+                    {/* Submenu */}
+                    {hoveredRegion && (
+                      <div className="absolute top-0 left-full ml-2 w-56 bg-background border border-border rounded-lg shadow-lg py-2">
+                        {(hoveredRegion === 'kenya' ? kenyaDestinations : tanzaniaDestinations).map((d) => (
+                          <a
+                            key={d.path}
+                            href={d.path}
+                            className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-kenya-gold transition-colors whitespace-nowrap"
+                          >
+                            {d.name}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
