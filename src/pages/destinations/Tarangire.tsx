@@ -36,7 +36,7 @@ const Tarangire = () => {
       {/* Hero */}
       <section className="relative h-[80vh] flex items-center justify-center">
         <img src="https://images.squarespace-cdn.com/content/v1/54929084e4b074c56b326d39/1632894557134-63WJ93ODSDFWT6RQBHZE/View+river.jpg" alt="Tarangire baobabs and river" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-black/55" />
         <div className="relative z-10 text-center px-4 max-w-3xl text-white">
           <h1 className="text-6xl md:text-8xl font-bold mb-4">Tarangire</h1>
           <p className="text-2xl md:text-3xl text-kenya-gold font-semibold mb-2">The Hidden Gem</p>

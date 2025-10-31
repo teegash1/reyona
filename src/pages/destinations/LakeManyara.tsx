@@ -35,8 +35,8 @@ const LakeManyara = () => {
       <Header />
       {/* Hero */}
       <section className="relative h-[80vh] flex items-center justify-center">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lake_Manyara_Wildlife.jpg/960px-Lake_Manyara_Wildlife.jpg" alt="Lake Manyara" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/45" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Lake_Manyara_Wildlife.jpg/960px-Lake_Manyara_Wildlife.jpg" alt="Lake Manyara" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: 'center 78%' }} />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 text-center px-4 max-w-3xl text-white">
           <h1 className="text-6xl md:text-8xl font-bold mb-4">Lake Manyara</h1>
           <p className="text-2xl md:text-3xl text-kenya-gold font-semibold mb-2">A Colorful Oasis</p>
@@ -81,6 +81,32 @@ const LakeManyara = () => {
         </div>
       </section>
 
+      {/* Wildlife Highlights */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Wildlife Highlights</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[ 
+              { name: 'Tree‑Climbing Lions', note: 'Frequently seen resting in acacia and fig trees along the lake edge.' },
+              { name: 'Elephants & Baboons', note: 'Large elephant families and impressively sized baboon troops in groundwater forest.' },
+              { name: 'Hippos', note: 'Hippo pools near the lakeshore; best viewed in cooler hours.' },
+              { name: 'Flamingos', note: 'Seasonal flocks paint the alkaline waters pink depending on water levels.' },
+              { name: 'Birdlife (390+)', note: 'Pelicans, storks, raptors and forest species like turacos and hornbills.' },
+              { name: 'Giraffe, Zebra, Buffalo', note: 'Common across floodplains south of Msasa River.' }
+            ].map((w, i) => (
+              <Card key={i} className="hover:shadow-luxury transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-lg">{w.name}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm text-muted-foreground">
+                  <p>{w.note}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Seasons */}
       <section className="py-16 bg-card">
         <div className="max-w-7xl mx-auto px-4">
@@ -94,6 +120,30 @@ const LakeManyara = () => {
                 </CardHeader>
                 <CardContent className="text-sm text-muted-foreground">
                   <p>{s.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Experiences */}
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Top Experiences</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[ 
+              { title: 'Lake‑Edge Game Drive', duration: 'Half to full day', desc: 'Work forest tracks, floodplains and hot springs for diverse sightings.' },
+              { title: 'Canopy Walk (where available)', duration: '1 hour', desc: 'A unique treetop perspective of the groundwater forest.' },
+              { title: 'Birding Circuit', duration: 'Half day', desc: 'Focus on flamingos, pelicans and raptors with a specialist guide.' }
+            ].map((e, i) => (
+              <Card key={i} className="hover:shadow-luxury transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="text-lg">{e.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm text-muted-foreground">
+                  <p className="text-kenya-gold font-medium mb-1">{e.duration}</p>
+                  <p>{e.desc}</p>
                 </CardContent>
               </Card>
             ))}
