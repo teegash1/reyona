@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -31,6 +31,16 @@ const CustomSafari = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>({});
   const [openCalendar, setOpenCalendar] = useState(false);
+  const [calendarMonth, setCalendarMonth] = useState<Date>(new Date());
+  const budgetRef = useRef<HTMLDivElement | null>(null);
+  const safariDetailsRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    // Keep calendar month aligned with chosen start date when opening
+    if (openCalendar) {
+      setCalendarMonth((dateRange as any)?.from || new Date());
+    }
+  }, [openCalendar]);
 
   const formatDate = (d?: Date) =>
     d ? d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '';
@@ -332,7 +342,7 @@ const CustomSafari = () => {
                 </div>
 
                 {/* Safari Details */}
-                <div className="space-y-4">
+                <div ref={safariDetailsRef} className="space-y-4">
                   <h3 className="text-lg font-semibold border-b border-border pb-2">Safari Details</h3>
                   <div className="grid md:grid-cols-3 gap-4">
                     <div>
@@ -352,7 +362,19 @@ const CustomSafari = () => {
                     </div>
                     <div>
                       <Label htmlFor="groupSize">Group Size</Label>
-                      <Select onValueChange={(value) => setFormData(prev => ({ ...prev, groupSize: value }))}>
+                      <Select onValueChange={(value) => {
+                        setFormData(prev => ({ ...prev, groupSize: value }));
+                        // Smooth scroll to Safari Details section after selecting group size
+                        setTimeout(() => {
+                          const headerHeight = 120; // approximate fixed header height
+                          const el = safariDetailsRef.current;
+                          if (el) {
+                            const rect = el.getBoundingClientRect();
+                            const top = window.scrollY + rect.top - headerHeight - 16;
+                            window.scrollTo({ top, behavior: 'smooth' });
+                          }
+                        }, 50);
+                      }}>
                         <SelectTrigger>
                           <SelectValue placeholder="Number of travelers" />
                         </SelectTrigger>
@@ -376,13 +398,26 @@ const CustomSafari = () => {
                             {rangeLabel || 'Select date range'}
                           </button>
                         </PopoverTrigger>
-                        <PopoverContent align="start" className="p-0">
+                        <PopoverContent
+                          align="start"
+                          className="p-0 origin-top-left bg-gradient-to-b from-black/90 to-kenya-burgundy/80 text-white border-kenya-burgundy/40"
+                          onKeyDown={(e) => {
+                            if (e.key === 'ArrowRight') {
+                              // Next month
+                              setCalendarMonth((m) => new Date(m.getFullYear(), m.getMonth() + 1, 1));
+                            } else if (e.key === 'ArrowLeft') {
+                              // Previous month
+                              setCalendarMonth((m) => new Date(m.getFullYear(), m.getMonth() - 1, 1));
+                            }
+                          }}
+                        >
                           <Calendar
                             mode="range"
                             numberOfMonths={1}
                             selected={dateRange as any}
                             disabled={{ before: new Date(new Date().setHours(0,0,0,0)) }}
-                            defaultMonth={(dateRange as any)?.from || new Date()}
+                            month={calendarMonth}
+                            onMonthChange={(m:any)=>setCalendarMonth(m)}
                             onSelect={(range: any) => {
                               setDateRange(range || {});
                               if (range?.from && range?.to) {
@@ -399,7 +434,7 @@ const CustomSafari = () => {
                 </div>
 
                 {/* Budget */}
-                <div className="space-y-4">
+                <div ref={budgetRef} className="space-y-4">
                   <h3 className="text-lg font-semibold border-b border-border pb-2">Budget Range</h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     {budgetRanges.map((budget) => (
