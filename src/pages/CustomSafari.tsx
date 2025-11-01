@@ -584,7 +584,7 @@ const CustomSafari = () => {
                 <CardContent className="pt-6 text-center">
                   <Phone className="w-8 h-8 mx-auto mb-4 text-kenya-gold" />
                   <h3 className="font-semibold text-white mb-2">Call Us</h3>
-                  <p className="text-white/90">+254 700 123 456</p>
+                  <p className="text-white/90">+254 740 086688</p>
                   <p className="text-white/70 text-sm">Available 24/7</p>
                 </CardContent>
               </Card>
