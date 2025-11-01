@@ -318,7 +318,6 @@ const Header = () => {
                 <span className={`font-medium text-sm ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground'}`}>
                   Destinations
                 </span>
-                <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse shadow-lg shadow-yellow-400/50"></div>
               </div>
               
               {/* Kenya and Tanzania Buttons Side by Side */}
