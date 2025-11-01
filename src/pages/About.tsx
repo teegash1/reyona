@@ -478,7 +478,7 @@ const About = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {vehicleImages.map((img, idx) => (
               <Card key={idx} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
-                <div className="relative w-full" style={{ aspectRatio: '1 / 1' }}>
+                <div className="relative w-full" style={{ aspectRatio: '1 / 0.85' }}>
                   <img src={img} alt={`Safari Vehicle ${idx + 1}`} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 </div>
