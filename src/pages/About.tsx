@@ -482,7 +482,7 @@ const About = () => {
                   <img
                     src={img}
                     alt={`Safari Vehicle ${idx + 1}`}
-                    className={`w-full h-full object-cover ${idx === 0 ? 'object-[center_85%]' : 'object-center'}`}
+                    className={`w-full h-full object-cover ${idx === 0 ? 'object-[center_92%]' : 'object-center'}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 </div>
