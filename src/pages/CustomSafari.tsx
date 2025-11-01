@@ -10,7 +10,9 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Calendar, Users, MapPin, Clock, Star, Phone, Mail } from 'lucide-react';
+import { Users, MapPin, Clock, Star, Phone, Mail } from 'lucide-react';
+import { Calendar } from '@/components/ui/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 
 const CustomSafari = () => {
   const [formData, setFormData] = useState({
@@ -27,6 +29,16 @@ const CustomSafari = () => {
     specialRequests: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>({});
+  const [openCalendar, setOpenCalendar] = useState(false);
+
+  const formatDate = (d?: Date) =>
+    d ? d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+  const rangeLabel = dateRange.from && dateRange.to
+    ? `${formatDate(dateRange.from)} – ${formatDate(dateRange.to)}`
+    : dateRange.from
+    ? `${formatDate(dateRange.from)} – …`
+    : '';
 
   const destinations = [
     // Kenya
@@ -354,14 +366,34 @@ const CustomSafari = () => {
                       </Select>
                     </div>
                     <div>
-                      <Label htmlFor="travelDates">Preferred Travel Dates</Label>
-                                              <Input
-                          id="travelDates"
-                          name="travelDates"
-                          value={formData.travelDates}
-                          onChange={(e) => setFormData(prev => ({ ...prev, travelDates: e.target.value }))}
-                          placeholder="e.g., June 2025"
-                        />
+                      <Label>Preferred Travel Dates</Label>
+                      <Popover open={openCalendar} onOpenChange={setOpenCalendar}>
+                        <PopoverTrigger asChild>
+                          <button
+                            type="button"
+                            className="w-full text-left mt-1 px-3 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-kenya-gold"
+                          >
+                            {rangeLabel || 'Select date range'}
+                          </button>
+                        </PopoverTrigger>
+                        <PopoverContent align="start" className="p-0">
+                          <Calendar
+                            mode="range"
+                            numberOfMonths={2}
+                            selected={dateRange as any}
+                            disabled={{ before: new Date(new Date().setHours(0,0,0,0)) }}
+                            defaultMonth={(dateRange as any)?.from || new Date()}
+                            onSelect={(range: any) => {
+                              setDateRange(range || {});
+                              if (range?.from && range?.to) {
+                                const label = `${formatDate(range.from)} – ${formatDate(range.to)}`;
+                                setFormData(prev => ({ ...prev, travelDates: label }));
+                                setOpenCalendar(false);
+                              }
+                            }}
+                          />
+                        </PopoverContent>
+                      </Popover>
                     </div>
                   </div>
                 </div>
