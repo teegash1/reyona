@@ -39,7 +39,7 @@ const About = () => {
       role: "Founder & CEO",
       experience: "12+ years",
       specialty: "Travel & Tourism",
-      image: "/AACEO.jpeg",
+      image: "/picc.jpeg",
       description: "Nathaniel leads Reyona Safaris with a clear vision for authentic, guest-first safaris and a deep love for Kenya's wild places."
     },
     {
@@ -215,7 +215,14 @@ const About = () => {
   useEffect(() => {
     let cancelled = false;
     resolveVehicleImages().then((imgs) => {
-      if (!cancelled) setVehicleImages(imgs);
+      if (!cancelled) {
+        const forced = [...imgs];
+        // Force 2nd, 3rd, 4th cards to veh1/veh2/veh3 if available
+        forced[1] = '/veh1.jpeg';
+        forced[2] = '/veh2.jpeg';
+        forced[3] = '/veh3.jpeg';
+        setVehicleImages(forced.slice(0, VEHICLE_CARD_COUNT));
+      }
     });
     return () => {
       cancelled = true;
