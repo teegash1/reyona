@@ -84,7 +84,7 @@ const Experiences = () => {
       icon: Users2,
       title: "Horse Riding Safaris",
       description: "Experience the African landscape in a whole new way with our horse riding safaris. Ride through the stunning savannahs, guided by experienced equestrians, and get up close to wildlife in a serene and immersive setting. This unique perspective allows you to connect with nature while enjoying the thrill of riding.",
-      image: "https://cdn.pixabay.com/photo/2018/05/26/19/30/woman-3432069_1280.jpg",
+      image: "/horseriding.jpeg",
       duration: "Half to full day",
       price: "On request"
     },

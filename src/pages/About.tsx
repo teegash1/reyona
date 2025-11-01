@@ -39,7 +39,7 @@ const About = () => {
       role: "Founder & CEO",
       experience: "12+ years",
       specialty: "Travel & Tourism",
-      image: "/picc.jpeg",
+      image: "/AACEO.jpeg",
       description: "Nathaniel leads Reyona Safaris with a clear vision for authentic, guest-first safaris and a deep love for Kenya's wild places."
     },
     {
@@ -176,7 +176,10 @@ const About = () => {
     '/vehicles-landcruiser.jpg',
     '/vehicles-safari-van.jpg',
     '/WhatsApp Image 2025-09-22 at 19.32.05.jpeg',
-    '/whatsapp-image-vehicle.jpeg'
+    '/whatsapp-image-vehicle.jpeg',
+    '/veh1.jpeg',
+    '/veh2.jpeg',
+    '/veh3.jpeg'
   ];
 
   const vehiclesFallback = [
@@ -468,7 +471,7 @@ const About = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {vehicleImages.map((img, idx) => (
               <Card key={idx} className="overflow-hidden hover:shadow-luxury transition-all duration-300 flex flex-col">
-                <div className="relative w-full" style={{ aspectRatio: '3 / 4' }}>
+                <div className="relative w-full" style={{ aspectRatio: '1 / 1' }}>
                   <img src={img} alt={`Safari Vehicle ${idx + 1}`} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 </div>
@@ -511,7 +514,9 @@ const About = () => {
                     src={member.image}
                     alt={member.name}
                     className={`w-full h-full object-cover object-center ${
-                      member.name === 'Victor Timona' && member.role === 'Operations Manager'
+                      member.name === 'Nathaniel Gachukia' && member.role === 'Founder & CEO'
+                        ? 'md:object-[center_20%]'
+                        : member.name === 'Victor Timona' && member.role === 'Operations Manager'
                         ? 'md:object-[center_40%]'
                         : member.name === 'Tanu Mutanu' && member.role === 'Concierge'
                         ? 'md:object-[center_35%]'
