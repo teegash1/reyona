@@ -173,6 +173,8 @@ const CustomSafari = () => {
     form.querySelector('input[name="duration"]').value = formatDuration(formData.duration);
     form.querySelector('input[name="groupSize"]').value = formatGroupSize(formData.groupSize);
     form.querySelector('input[name="accommodation"]').value = formData.accommodation || '';
+    // Ensure travel dates are submitted (fallback to current label if needed)
+    form.querySelector('input[name="travelDates"]').value = formData.travelDates || (rangeLabel || '');
     
     // Submit the form to Netlify
     const formDataToSubmit = new FormData(form);
@@ -227,6 +229,8 @@ const CustomSafari = () => {
 
   const handleSendAnother = () => {
     setIsSubmitted(false);
+    // Clear any previously selected dates when starting a new request
+    setDateRange({});
   };
 
   return (
@@ -303,6 +307,8 @@ const CustomSafari = () => {
                   <input name="duration" value={formData.duration} />
                   <input name="groupSize" value={formData.groupSize} />
                   <input name="accommodation" value={formData.accommodation} />
+                  {/* Ensure travel dates are included in submission */}
+                  <input name="travelDates" value={formData.travelDates} />
                 </div>
                 {/* Personal Information */}
                 <div className="space-y-4">
