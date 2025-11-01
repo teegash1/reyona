@@ -7,6 +7,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDestinationsOpen, setIsDestinationsOpen] = useState(false);
   const [hoveredRegion, setHoveredRegion] = useState<null | 'kenya' | 'tanzania'>(null);
+  const [mobileExpandedRegion, setMobileExpandedRegion] = useState<null | 'kenya' | 'tanzania'>(null);
   // Hover delay timers for submenu
   const openTimeout = useRef<number | null>(null);
   const closeTimeout = useRef<number | null>(null);
@@ -71,7 +72,6 @@ const Header = () => {
     { name: 'Tarangire', path: '/destinations/tarangire' },
     { name: 'Lake Manyara', path: '/destinations/lake-manyara' },
   ];
-  const destinations = [...kenyaDestinations, ...tanzaniaDestinations]; // used in mobile quick list
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
@@ -281,49 +281,145 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-background border-t border-border">
-          <nav className="w-full px-4 sm:px-6 lg:px-8 py-4 space-y-3">
-            <a href="/" className={`block transition-colors font-medium ${isActive('/') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
+        <div className="lg:hidden bg-background border-t border-border max-h-[calc(100vh-80px)] overflow-y-auto">
+          <nav className="w-full px-4 sm:px-6 lg:px-8 py-4 space-y-2">
+            <a 
+              href="/" 
+              onClick={() => setIsMenuOpen(false)}
+              className={`block py-2 transition-colors font-medium ${isActive('/') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
+            >
               Home
             </a>
-            <a href="/safaris" className={`block transition-colors font-medium ${isActive('/safaris') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
+            <a 
+              href="/safaris" 
+              onClick={() => setIsMenuOpen(false)}
+              className={`block py-2 transition-colors font-medium ${isActive('/safaris') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
+            >
               Safaris
             </a>
-            <a href="/experiences" className={`block transition-colors font-medium ${isActive('/experiences') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
+            <a 
+              href="/experiences" 
+              onClick={() => setIsMenuOpen(false)}
+              className={`block py-2 transition-colors font-medium ${isActive('/experiences') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
+            >
               Experiences
             </a>
-            <a href="/gallery" className={`block transition-colors font-medium ${isActive('/gallery') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
+            <a 
+              href="/gallery" 
+              onClick={() => setIsMenuOpen(false)}
+              className={`block py-2 transition-colors font-medium ${isActive('/gallery') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
+            >
               Gallery
             </a>
             
-            {/* Mobile Destinations Section */}
-            <div className="space-y-2">
-              <div className="flex items-center space-x-2">
+            {/* Mobile Destinations Section - Grouped with Expandable Kenya/Tanzania */}
+            <div className="space-y-2 py-2">
+              <div className="flex items-center space-x-2 mb-2">
                 <span className={`font-medium text-sm ${isActive('/destinations') ? 'text-kenya-gold' : 'text-foreground'}`}>
                   Destinations
                 </span>
                 <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse shadow-lg shadow-yellow-400/50"></div>
               </div>
-              <div className="ml-4 space-y-1 bg-muted/30 rounded-lg p-2">
-                {destinations.map((destination) => (
-                  <a
-                    key={destination.path}
-                    href={destination.path}
-                    className="block text-xs font-medium text-foreground hover:text-kenya-gold transition-colors py-0.5"
-                  >
-                    {destination.name}
-                  </a>
-                ))}
+              
+              {/* Kenya and Tanzania Buttons Side by Side */}
+              <div className="grid grid-cols-2 gap-2 mb-2">
+                <button
+                  type="button"
+                  onClick={() => setMobileExpandedRegion(mobileExpandedRegion === 'kenya' ? null : 'kenya')}
+                  className={`flex items-center justify-between px-3 py-2 rounded-lg border transition-all ${
+                    mobileExpandedRegion === 'kenya'
+                      ? 'bg-kenya-gold/10 border-kenya-gold text-kenya-gold'
+                      : 'bg-muted/30 border-border text-foreground hover:bg-muted/50'
+                  }`}
+                >
+                  <span className="text-sm font-medium">Kenya</span>
+                  <ChevronDown 
+                    className={`w-4 h-4 transition-transform ${
+                      mobileExpandedRegion === 'kenya' ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                
+                <button
+                  type="button"
+                  onClick={() => setMobileExpandedRegion(mobileExpandedRegion === 'tanzania' ? null : 'tanzania')}
+                  className={`flex items-center justify-between px-3 py-2 rounded-lg border transition-all ${
+                    mobileExpandedRegion === 'tanzania'
+                      ? 'bg-kenya-gold/10 border-kenya-gold text-kenya-gold'
+                      : 'bg-muted/30 border-border text-foreground hover:bg-muted/50'
+                  }`}
+                >
+                  <span className="text-sm font-medium">Tanzania</span>
+                  <ChevronDown 
+                    className={`w-4 h-4 transition-transform ${
+                      mobileExpandedRegion === 'tanzania' ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
               </div>
+              
+              {/* Kenya Destinations List */}
+              {mobileExpandedRegion === 'kenya' && (
+                <div className="ml-2 space-y-1 bg-muted/20 rounded-lg p-2 transition-all duration-200">
+                  {kenyaDestinations.map((destination) => (
+                    <a
+                      key={destination.path}
+                      href={destination.path}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setMobileExpandedRegion(null);
+                      }}
+                      className="block text-xs font-medium text-foreground hover:text-kenya-gold transition-colors py-1.5 px-2 rounded hover:bg-muted/40"
+                    >
+                      {destination.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+              
+              {/* Tanzania Destinations List */}
+              {mobileExpandedRegion === 'tanzania' && (
+                <div className="ml-2 space-y-1 bg-muted/20 rounded-lg p-2 transition-all duration-200">
+                  {tanzaniaDestinations.map((destination) => (
+                    <a
+                      key={destination.path}
+                      href={destination.path}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        setMobileExpandedRegion(null);
+                      }}
+                      className="block text-xs font-medium text-foreground hover:text-kenya-gold transition-colors py-1.5 px-2 rounded hover:bg-muted/40"
+                    >
+                      {destination.name}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
             
-            <a href="/about" className={`block transition-colors font-medium ${isActive('/about') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
+            <a 
+              href="/about" 
+              onClick={() => setIsMenuOpen(false)}
+              className={`block py-2 transition-colors font-medium ${isActive('/about') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
+            >
               About Us
             </a>
-            <a href="/contact" className={`block transition-colors font-medium ${isActive('/contact') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}>
+            <a 
+              href="/contact" 
+              onClick={() => setIsMenuOpen(false)}
+              className={`block py-2 transition-colors font-medium ${isActive('/contact') ? 'text-kenya-gold' : 'text-foreground hover:text-kenya-gold'}`}
+            >
               Contact
             </a>
-            <Button variant="luxury" size="lg" className="w-full mt-3" onClick={handleBookSafari}>
+            <Button 
+              variant="luxury" 
+              size="lg" 
+              className="w-full mt-3" 
+              onClick={() => {
+                handleBookSafari();
+                setIsMenuOpen(false);
+              }}
+            >
               Custom Safari
             </Button>
           </nav>
