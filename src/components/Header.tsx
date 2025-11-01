@@ -360,7 +360,7 @@ const Header = () => {
               
               {/* Kenya Destinations List */}
               {mobileExpandedRegion === 'kenya' && (
-                <div className="ml-2 space-y-1 bg-muted/20 rounded-lg p-2 transition-all duration-200">
+                <div className="ml-2 grid grid-cols-2 gap-2 bg-muted/20 rounded-lg p-2 transition-all duration-200">
                   {kenyaDestinations.map((destination) => (
                     <a
                       key={destination.path}
