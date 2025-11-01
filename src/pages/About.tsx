@@ -183,10 +183,10 @@ const About = () => {
   ];
 
   const vehiclesFallback = [
-    'https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg',
-    'https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg',
-    'https://images.pexels.com/photos/167475/pexels-photo-167475.jpeg',
-    'https://images.pexels.com/photos/887828/pexels-photo-887828.jpeg'
+    '/tourvehicle.jpeg',
+    '/veh1.jpeg',
+    '/veh2.jpeg',
+    '/veh3.jpeg'
   ];
 
   const resolveVehicleImages = async (): Promise<string[]> => {
@@ -369,7 +369,7 @@ const About = () => {
 
       {/* Our Values */}
       <section className="py-16 bg-card">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-screen-2xl mx-auto px-2 md:px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Values</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
