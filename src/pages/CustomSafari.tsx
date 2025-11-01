@@ -379,7 +379,7 @@ const CustomSafari = () => {
                         <PopoverContent align="start" className="p-0">
                           <Calendar
                             mode="range"
-                            numberOfMonths={2}
+                            numberOfMonths={1}
                             selected={dateRange as any}
                             disabled={{ before: new Date(new Date().setHours(0,0,0,0)) }}
                             defaultMonth={(dateRange as any)?.from || new Date()}
