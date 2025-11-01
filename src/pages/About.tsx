@@ -481,10 +481,6 @@ const About = () => {
                 <div className="relative w-full" style={{ aspectRatio: '1 / 1' }}>
                   <img src={img} alt={`Safari Vehicle ${idx + 1}`} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-4">
-                    <div className="text-white text-lg font-semibold drop-shadow-sm">Safari Vehicle</div>
-                    <div className="text-kenya-gold text-sm">Spacious 4x4 with pop‑up roof</div>
-                  </div>
                 </div>
               </Card>
             ))}
