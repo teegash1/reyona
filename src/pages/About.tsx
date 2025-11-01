@@ -475,7 +475,7 @@ const About = () => {
       <section className="py-16 bg-card">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Vehicles</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {vehicleImages.map((img, idx) => (
               <Card key={idx} className="overflow-hidden hover:shadow-luxury transition-all duration-300">
                 <div className="relative w-full" style={{ aspectRatio: '1 / 1' }}>
