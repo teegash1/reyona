@@ -23,6 +23,15 @@ const Contact = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [expandedFaqs, setExpandedFaqs] = useState<Set<number>>(new Set());
+  
+  // Map internal values to human-friendly labels for submission
+  const inquiryTypeLabels: Record<string, string> = {
+    general: 'General Information',
+    booking: 'Safari Booking',
+    custom: 'Custom Safari',
+    group: 'Group Travel',
+    support: 'Customer Support',
+  };
 
   useEffect(() => {
     // Handle navigation state from other pages
@@ -91,7 +100,9 @@ const Contact = () => {
     
     // Update hidden fields with current form data
     const form = e.target;
-    form.querySelector('input[name="inquiryType"]').value = formData.inquiryType || '';
+    // Ensure we submit the full label, not the internal value
+    const inquiryLabel = inquiryTypeLabels[formData.inquiryType] || formData.inquiryType || '';
+    form.querySelector('input[name="inquiryType"]').value = inquiryLabel;
     
     // Submit the form to Netlify
     const formDataToSubmit = new FormData(form);
