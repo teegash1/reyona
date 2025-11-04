@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -235,6 +236,11 @@ const CustomSafari = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Plan Your Custom Safari | Tailor‑Made Itineraries | Reyona Safaris</title>
+        <meta name="description" content="Design your tailor‑made safari with expert planners. Choose dates, destinations, budget and experiences for a personalized itinerary." />
+        <link rel="canonical" href="https://reyonasafaris.com/custom-safari" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}
@@ -584,7 +590,7 @@ const CustomSafari = () => {
                 <CardContent className="pt-6 text-center">
                   <Phone className="w-8 h-8 mx-auto mb-4 text-kenya-gold" />
                   <h3 className="font-semibold text-white mb-2">Call Us</h3>
-                  <p className="text-white/90">+254 740 086688</p>
+                  <p className="text-white/90">+254 707 694388</p>
                   <p className="text-white/70 text-sm">Available 24/7</p>
                 </CardContent>
               </Card>

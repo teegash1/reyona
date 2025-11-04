@@ -5,7 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Camera, Star, Clock, Users, Bird, TreePine } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import type { ReactNode } from 'react';
 
 type Section = {
@@ -36,8 +37,42 @@ export const DestinationShell = ({
   children?: ReactNode;
 }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const canonical = `https://reyonasafaris.com${location.pathname}`;
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://reyonasafaris.com/'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Destinations',
+        item: 'https://reyonasafaris.com/destinations'
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: title,
+        item: canonical
+      }
+    ]
+  };
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{`${title} | Reyona Safaris`}</title>
+        <meta name="description" content={subtitle} />
+        <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbJsonLd)}
+        </script>
+      </Helmet>
       <Header />
       <section className="relative h-[80vh] flex items-center justify-center">
         <img src={hero.src} alt={hero.alt} className="absolute inset-0 w-full h-full object-cover" style={hero.objectPosition ? { objectPosition: hero.objectPosition } : undefined} />

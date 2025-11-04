@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -1793,6 +1794,11 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Kenya Safari Packages | Private 4x4 Tours | Reyona Safaris</title>
+        <meta name="description" content="Handcrafted Kenya safari packages with private 4x4 vehicles, expert guides, and flexible itineraries. Family, honeymoon, and photography safaris." />
+        <link rel="canonical" href="https://reyonasafaris.com/safaris" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}
@@ -2220,7 +2226,7 @@ const lodgeDetailsMap: Record<string, LodgeDetail> = lodgeDetailsData.reduce((ac
                               size="lg"
                               onClick={() => {
                                 const message = encodeURIComponent(`Greetings, requesting for quote of ${pkg.title}. Kindly assist.`);
-                                const whatsappUrl = `https://wa.me/254740086688?text=${message}`;
+                                const whatsappUrl = `https://wa.me/254707694388?text=${message}`;
                                 window.open(whatsappUrl, '_blank');
                               }}
                             >

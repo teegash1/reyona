@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import Header from '@/components/Header';
+import { Helmet } from 'react-helmet-async';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -348,6 +349,11 @@ const PopularDestinations = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Kenya & Tanzania Destinations | Parks & Reserves | Reyona Safaris</title>
+        <meta name="description" content="Explore top safari destinations across Kenya and Tanzania including Masai Mara, Serengeti, Amboseli, Tsavo, Samburu, and more." />
+        <link rel="canonical" href="https://reyonasafaris.com/destinations" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}

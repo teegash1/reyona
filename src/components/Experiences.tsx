@@ -102,7 +102,7 @@ const Experiences = () => {
               className="border-white text-white hover:bg-white hover:text-primary"
               onClick={() => {
                 const message = encodeURIComponent("Greetings, I am in need of assistance on planning my safari to Kenya.");
-                const whatsappUrl = `https://wa.me/254740086688?text=${message}`;
+                const whatsappUrl = `https://wa.me/254707694388?text=${message}`;
                 window.open(whatsappUrl, '_blank');
               }}
             >

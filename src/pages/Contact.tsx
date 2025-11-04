@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Calendar, Globe } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
   const location = useLocation();
@@ -162,7 +163,7 @@ const Contact = () => {
 
   const handleLiveChatSupport = () => {
     const message = 'Hi Reyona Safaris, kindly assist';
-  const whatsappUrl = `https://wa.me/254740086688?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://wa.me/254707694388?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -196,10 +197,10 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      details: ["+254 740 086688"],
+      details: ["+254 707 694388"],
       description: "Available 24/7 for emergency support",
       clickable: true,
-      action: "tel:+254740086688"
+      action: "tel:+254707694388"
     },
     {
       icon: <Mail className="w-6 h-6" />,
@@ -306,8 +307,27 @@ const Contact = () => {
     }
   ];
 
+  // Build FAQPage structured data for SEO
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: (faqs || []).map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: f.answer,
+      },
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Contact Reyona Safaris | 24/7 Support</title>
+        <meta name="description" content="Contact Reyona Safaris for safari planning, custom itineraries, bookings, and 24/7 emergency support." />
+        <link rel="canonical" href="https://reyonasafaris.com/contact" />
+      </Helmet>
       <Header />
       
       {/* Hero Section */}
@@ -571,7 +591,7 @@ const Contact = () => {
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <Phone className="w-4 h-4" />
-                      <span className="font-semibold">+254 740 086688</span>
+                      <span className="font-semibold">+254 707 694388</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Mail className="w-4 h-4" />
@@ -619,6 +639,11 @@ const Contact = () => {
       </section>
 
       <Footer />
+      {/* FAQPage Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
     </div>
   );
 };

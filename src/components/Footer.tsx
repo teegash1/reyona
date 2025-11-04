@@ -89,18 +89,36 @@ const Footer = () => {
                 We create unforgettable memories in Africa's most spectacular wilderness destinations.
               </p>
               <div className="flex space-x-4">
-                <Button variant="ghost" size="icon" className="hover:bg-kenya-gold/10 hover:text-kenya-gold">
+                <a
+                  href="https://web.facebook.com/profile.php?id=61583158291924"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Reyona Safaris on Facebook"
+                  className="p-2 rounded-md hover:bg-kenya-gold/10 hover:text-kenya-gold transition-colors"
+                >
                   <Facebook className="w-5 h-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="hover:bg-kenya-gold/10 hover:text-kenya-gold">
+                </a>
+                <a
+                  href="https://www.instagram.com/reyonasafaris/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Reyona Safaris on Instagram"
+                  className="p-2 rounded-md hover:bg-kenya-gold/10 hover:text-kenya-gold transition-colors"
+                >
                   <Instagram className="w-5 h-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="hover:bg-kenya-gold/10 hover:text-kenya-gold">
-                  <Twitter className="w-5 h-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="hover:bg-kenya-gold/10 hover:text-kenya-gold">
-                  <Youtube className="w-5 h-5" />
-                </Button>
+                </a>
+                <a
+                  href="https://www.pinterest.com/reyonasafaris/?actingBusinessId=1094023071888918646"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Reyona Safaris on Pinterest"
+                  className="p-2 rounded-md hover:bg-kenya-gold/10 hover:text-kenya-gold transition-colors"
+                >
+                  {/* Using Instagram icon style for consistency; lucide-react has no Pinterest default */}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                    <path d="M12 2C6.486 2 2 6.486 2 12c0 4.084 2.466 7.568 5.963 9.057-.083-.769-.157-1.949.033-2.787.171-.742 1.106-4.727 1.106-4.727s-.282-.563-.282-1.396c0-1.306.757-2.282 1.698-2.282.8 0 1.187.6 1.187 1.32 0 .804-.513 2.006-.78 3.121-.221.937.468 1.701 1.388 1.701 1.666 0 2.944-1.757 2.944-4.293 0-2.246-1.612-3.817-3.915-3.817-2.665 0-4.235 1.999-4.235 4.063 0 .804.309 1.666.694 2.134a.28.28 0 01.064.27c-.07.298-.228.937-.259 1.067-.04.171-.132.208-.306.126-1.141-.532-1.853-2.201-1.853-3.543 0-2.882 2.094-5.534 6.038-5.534 3.169 0 5.63 2.259 5.63 5.277 0 3.145-1.982 5.674-4.735 5.674-0.925 0-1.795-.48-2.092-1.047l-.568 2.167c-.206.796-.763 1.794-1.138 2.404.858.265 1.763.409 2.705.409 5.514 0 10-4.486 10-10S17.514 2 12 2z" />
+                  </svg>
+                </a>
               </div>
             </div>
 
@@ -159,10 +177,10 @@ const Footer = () => {
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-kenya-gold flex-shrink-0" />
                   <a 
-                    href="tel:+254740086688" 
+                    href="tel:+254707694388" 
                     className="text-muted-foreground hover:text-kenya-gold transition-colors"
                   >
-                    +254 740 086688
+                    +254 707 694388
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
