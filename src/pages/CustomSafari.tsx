@@ -377,7 +377,7 @@ const CustomSafari = () => {
                       />
                     </div>
                   </div>
-                  <div>
+                  <div className="relative pb-5">
                     <Label>Phone Number</Label>
                     <div className="flex gap-2 mt-1">
                       <CountryCodeSelect value={formData.phoneCountry} onChange={(code) => setFormData(prev => ({ ...prev, phoneCountry: code }))} className="w-48" />
@@ -385,6 +385,8 @@ const CustomSafari = () => {
                         inputMode="tel"
                         placeholder="Phone number"
                         value={formData.phoneNumber}
+                        className={`${phoneError ? 'border-red-500/70 ring-2 ring-red-500/60 focus-visible:ring-red-500/70 focus:border-red-500/70' : ''} transition-all`}
+                        aria-invalid={!!phoneError}
                         onChange={(e) => {
                           const v = e.target.value;
                           setFormData(prev => ({ ...prev, phoneNumber: v }));
@@ -400,7 +402,7 @@ const CustomSafari = () => {
                           else setPhoneError('');
                         }}
                       />
-                      {phoneError && <p className="text-sm text-red-600 mt-1">{phoneError}</p>}
+                      {/* Warning text intentionally removed per request; visual highlight remains */}
                     </div>
                   </div>
                 </div>
