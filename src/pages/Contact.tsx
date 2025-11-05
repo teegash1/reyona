@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import CountryCodeSelect from '@/components/CountryCodeSelect';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Calendar, Globe } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
@@ -17,13 +18,15 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
+    phoneCountry: '+254',
+    phoneNumber: '',
     subject: '',
     message: '',
     inquiryType: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [expandedFaqs, setExpandedFaqs] = useState<Set<number>>(new Set());
+  const [phoneError, setPhoneError] = useState<string>('');
   
   // Map internal values to human-friendly labels for submission
   const inquiryTypeLabels: Record<string, string> = {
@@ -33,6 +36,8 @@ const Contact = () => {
     group: 'Group Travel',
     support: 'Customer Support',
   };
+
+  // Country selection handled by CountryCodeSelect (searchable + recents)
 
   useEffect(() => {
     // Handle navigation state from other pages
@@ -99,8 +104,50 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    // Validate phone quickly
+    const digits = (formData.phoneNumber || '').replace(/[^0-9]/g, '');
+    const rules: Record<string, { min: number; max: number }> = {
+      '+254': { min: 9, max: 9 },
+      '+255': { min: 9, max: 9 },
+      '+256': { min: 9, max: 9 },
+      '+250': { min: 9, max: 9 },
+      '+257': { min: 8, max: 9 },
+      '+260': { min: 9, max: 9 },
+      '+27': { min: 9, max: 9 },
+      '+20': { min: 9, max: 10 },
+      '+971': { min: 9, max: 9 },
+      '+91': { min: 10, max: 10 },
+      '+61': { min: 9, max: 9 },
+      '+44': { min: 9, max: 10 },
+      '+1': { min: 10, max: 10 },
+      '+49': { min: 10, max: 11 },
+      '+33': { min: 9, max: 9 },
+      '+39': { min: 9, max: 10 },
+      '+34': { min: 9, max: 9 },
+      '+81': { min: 9, max: 10 },
+      '+86': { min: 8, max: 11 },
+      '+353': { min: 9, max: 9 },
+      '+46': { min: 7, max: 10 },
+    };
+    const r = rules[formData.phoneCountry] || { min: 6, max: 14 };
+    if (!digits || digits.length < r.min || digits.length > r.max) {
+      setPhoneError(`Please enter ${r.min === r.max ? r.min : `${r.min}-${r.max}`} digits for ${formData.phoneCountry}.`);
+      return;
+    }
+    setPhoneError('');
+
     // Update hidden fields with current form data
     const form = e.target;
+    // Compose full E.164 phone number and populate hidden fields
+    const cleanedLocal = (formData.phoneNumber || '').replace(/[^0-9]/g, '');
+    const fullPhone = `${formData.phoneCountry}${cleanedLocal}`;
+    const phoneInput = form.querySelector('input[name="phone"]') as HTMLInputElement | null;
+    if (phoneInput) phoneInput.value = fullPhone;
+    // Keep country and local as hidden too for clarity
+    const phoneCountryInput = form.querySelector('input[name="phoneCountry"]') as HTMLInputElement | null;
+    if (phoneCountryInput) phoneCountryInput.value = formData.phoneCountry;
+    const phoneNumberInput = form.querySelector('input[name="phoneNumber"]') as HTMLInputElement | null;
+    if (phoneNumberInput) phoneNumberInput.value = cleanedLocal;
     // Ensure we submit the full label, not the internal value
     const inquiryLabel = inquiryTypeLabels[formData.inquiryType] || formData.inquiryType || '';
     form.querySelector('input[name="inquiryType"]').value = inquiryLabel;
@@ -126,7 +173,8 @@ const Contact = () => {
       setFormData({
         name: '',
         email: '',
-        phone: '',
+        phoneCountry: '+254',
+        phoneNumber: '',
         subject: '',
         message: '',
         inquiryType: ''
@@ -410,6 +458,10 @@ const Contact = () => {
                       <div className="hidden">
                         <input name="bot-field" />
                         <input name="inquiryType" value={formData.inquiryType} />
+                        {/* Hidden canonical phone fields populated on submit */}
+                        <input name="phone" />
+                        <input name="phoneCountry" />
+                        <input name="phoneNumber" />
                       </div>
                       
                       <div className="grid md:grid-cols-2 gap-4">
@@ -438,13 +490,29 @@ const Contact = () => {
                       
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                          <Label htmlFor="phone">Phone Number</Label>
-                          <Input
-                            id="phone"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                          />
+                          <Label>Phone Number</Label>
+                          <div className="flex gap-2 mt-1">
+                            <CountryCodeSelect value={formData.phoneCountry} onChange={(code) => setFormData(prev => ({ ...prev, phoneCountry: code }))} className="w-48" />
+                      <Input
+                        inputMode="tel"
+                        placeholder="Phone number"
+                        value={formData.phoneNumber}
+                        onChange={(e) => {
+                          const v = e.target.value;
+                          setFormData(prev => ({ ...prev, phoneNumber: v }));
+                          const d = v.replace(/[^0-9]/g, '');
+                          const r = {
+                            '+254': { min: 9, max: 9 }, '+255': { min: 9, max: 9 }, '+256': { min: 9, max: 9 }, '+250': { min: 9, max: 9 }, '+257': { min: 8, max: 9 }, '+260': { min: 9, max: 9 }, '+27': { min: 9, max: 9 }, '+20': { min: 9, max: 10 }, '+971': { min: 9, max: 9 }, '+91': { min: 10, max: 10 }, '+61': { min: 9, max: 9 }, '+44': { min: 9, max: 10 }, '+1': { min: 10, max: 10 }, '+49': { min: 10, max: 11 }, '+33': { min: 9, max: 9 }, '+39': { min: 9, max: 10 }, '+34': { min: 9, max: 9 }, '+81': { min: 9, max: 10 }, '+86': { min: 8, max: 11 }, '+353': { min: 9, max: 9 }, '+46': { min: 7, max: 10 },
+                          }[formData.phoneCountry] || { min: 6, max: 14 };
+                          if (!d || d.length < r.min || d.length > r.max) {
+                            setPhoneError(`Enter ${r.min === r.max ? r.min : `${r.min}-${r.max}`} digits for ${formData.phoneCountry}.`);
+                          } else {
+                            setPhoneError('');
+                          }
+                        }}
+                      />
+                      {phoneError && <p className="text-sm text-red-600 mt-1">{phoneError}</p>}
+                          </div>
                         </div>
                         <div>
                           <Label htmlFor="inquiryType">Inquiry Type</Label>
