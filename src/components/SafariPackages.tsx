@@ -41,6 +41,39 @@ const SafariPackages = () => {
 
       features: ["Big Five", "Wildebeest Migration", "Cross-Border Safari", "Private Game Drives"],
       badge: "Cross-Border"
+    },
+    {
+      id: 4,
+      title: '3 DAYS PRIVATE HOLIDAY IN AMBOSELI (UNLEASH YOUR WILD SIDE)',
+      description: 'Short private getaway to Amboseli with iconic elephant herds and Kilimanjaro views.',
+      image: '/ambos.jpeg',
+      duration: '3 Days',
+      groupSize: '2-6 People',
+      price: '$1,125',
+      features: ['Private 4x4', 'Elephants', 'Kilimanjaro Views'],
+      badge: 'Kenya'
+    },
+    {
+      id: 5,
+      title: '11‑DAY PRIVATE KENYAN SAFARI: AUTHENTIC DISCOVERY',
+      description: 'A grand circuit through Kenya’s iconic parks with varied habitats and abundant wildlife.',
+      image: '/angam.jpeg',
+      duration: '11 Days',
+      groupSize: '2-6 People',
+      price: '$5,150',
+      features: ['Private 4x4', 'Big Five', 'Boat Ride', 'Rhino Sanctuary'],
+      badge: 'Kenya'
+    },
+    {
+      id: 6,
+      title: '7 DAYS 6 NIGHTS MASAI MARA, LAKE NAKURU AND AMBOSELI HONEYMOON',
+      description: "Romantic multi-park adventure through Kenya's most iconic destinations",
+      image: '/honeymooners.jpeg',
+      duration: '7 Days',
+      groupSize: '2 People',
+      price: '$3,050',
+      features: ['Private Game Drives', 'Big Five', 'Flamingoes', 'Elephant Herds', 'Luxury Accommodation'],
+      badge: 'Honeymoon'
     }
   ];
 

@@ -138,27 +138,21 @@ const Footer = () => {
 
             {/* Safari Destinations */}
             <div>
-              <h3 className="text-lg font-bold text-foreground mb-6">Popular Destinations</h3>
-              <ul className="space-y-3">
-                <li><a href="/destinations/masai-mara" className="text-muted-foreground hover:text-kenya-gold transition-colors">Masai Mara</a></li>
-                <li><a href="/destinations/amboseli" className="text-muted-foreground hover:text-kenya-gold transition-colors">Amboseli National Park</a></li>
-                <li><a href="/destinations/tsavo-east" className="text-muted-foreground hover:text-kenya-gold transition-colors">Tsavo East</a></li>
-                <li><a href="/destinations/tsavo-west" className="text-muted-foreground hover:text-kenya-gold transition-colors">Tsavo West</a></li>
-                <li><a href="/destinations/lake-nakuru" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Nakuru</a></li>
-                <li><a href="/destinations/samburu" className="text-muted-foreground hover:text-kenya-gold transition-colors">Samburu Reserve</a></li>
-                <li><a href="/destinations/diani-beach" className="text-muted-foreground hover:text-kenya-gold transition-colors">Diani Beach</a></li>
-                <li><a href="/destinations/lake-naivasha" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Naivasha</a></li>
-                <li><a href="/destinations/salt-lick-sanctuary" className="text-muted-foreground hover:text-kenya-gold transition-colors">Salt Lick Sanctuary</a></li>
-                <li><a href="/destinations/ol-pejeta" className="text-muted-foreground hover:text-kenya-gold transition-colors">Ol Pejeta Conservancy</a></li>
-                <li><a href="/destinations/solio-conservancy" className="text-muted-foreground hover:text-kenya-gold transition-colors">Solio Conservancy</a></li>
-                <li><a href="/destinations/meru-national-park" className="text-muted-foreground hover:text-kenya-gold transition-colors">Meru National Park</a></li>
-                <li><a href="/destinations/lake-elementaita" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Elementaita</a></li>
-                <li><a href="/destinations/lake-bogoria" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Bogoria</a></li>
-                <li><a href="/destinations/serengeti" className="text-muted-foreground hover:text-kenya-gold transition-colors">Serengeti</a></li>
-                <li><a href="/destinations/ngorongoro" className="text-muted-foreground hover:text-kenya-gold transition-colors">Ngorongoro</a></li>
-                <li><a href="/destinations/tarangire" className="text-muted-foreground hover:text-kenya-gold transition-colors">Tarangire</a></li>
-                <li><a href="/destinations/lake-manyara" className="text-muted-foreground hover:text-kenya-gold transition-colors">Lake Manyara</a></li>
-              </ul>
+              <h3 className="text-lg font-bold text-foreground mb-6">Destinations</h3>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="/destinations?filter=kenya"
+                  className="inline-flex items-center px-4 py-2 rounded-full border border-kenya-gold/30 text-kenya-gold hover:bg-kenya-gold/10 transition-colors"
+                >
+                  Kenya
+                </a>
+                <a
+                  href="/destinations?filter=tanzania"
+                  className="inline-flex items-center px-4 py-2 rounded-full border border-kenya-gold/30 text-kenya-gold hover:bg-kenya-gold/10 transition-colors"
+                >
+                  Tanzania
+                </a>
+              </div>
             </div>
 
             {/* Contact Info */}
