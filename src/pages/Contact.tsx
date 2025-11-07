@@ -211,6 +211,9 @@ const Contact = () => {
     if (childrenAgesInput) childrenAgesInput.value = childrenAges.join(', ');
     const groupTotalInput = form.querySelector('input[name="groupSizeTotal"]') as HTMLInputElement | null;
     if (groupTotalInput) groupTotalInput.value = String(adults + childrenUnder12);
+    const breakdownContact = `Adults: ${adults}; Children <12: ${childrenUnder12}${childrenUnder12 > 0 ? ` (Ages: ${childrenAges.filter((a)=>!isNaN(a as any)).join(', ')})` : ''}; Total: ${adults + childrenUnder12}`;
+    const groupBreakdownContactInput = form.querySelector('input[name="groupSizeBreakdown"]') as HTMLInputElement | null;
+    if (groupBreakdownContactInput) groupBreakdownContactInput.value = breakdownContact;
     // Travel preference fields
     const travelDatesInput = form.querySelector('input[name="preferredTravelDates"]') as HTMLInputElement | null;
     if (travelDatesInput) travelDatesInput.value = rangeLabel || '';
@@ -531,10 +534,12 @@ const Contact = () => {
                         <input type="hidden" name="phoneCountry" />
                         <input type="hidden" name="phoneNumber" />
                         {/* Group size hidden fields populated from state */}
-                        <input type="hidden" name="adults" value={adults} />
-                        <input type="hidden" name="childrenUnder12" value={childrenUnder12} />
+                        <input type="hidden" name="adults" value={`${adults}`} />
+                        <input type="hidden" name="childrenUnder12" value={`${childrenUnder12}`} />
                         <input type="hidden" name="childrenUnder12Ages" value={childrenAges.filter((a)=>!isNaN(a as any)).join(', ')} />
-                        <input type="hidden" name="groupSizeTotal" value={adults + childrenUnder12} />
+                        <input type="hidden" name="groupSizeTotal" value={`${adults + childrenUnder12}`} />
+                        <input type="hidden" name="groupSizeBreakdown" value={`Adults: ${adults}; Children <12: ${childrenUnder12}${childrenUnder12 > 0 ? ` (Ages: ${childrenAges.filter((a)=>!isNaN(a as any)).join(', ')})` : ''}; Total: ${adults + childrenUnder12}`}
+                        />
                         {/* Travel preference hidden fields populated from state */}
                         <input type="hidden" name="preferredTravelDates" value={rangeLabel} />
                         <input type="hidden" name="duration" value={duration} />

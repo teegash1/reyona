@@ -228,6 +228,9 @@ const CustomSafari = () => {
     form.querySelector('input[name="duration"]').value = formData.duration || '';
     const groupTotal = adults + childrenUnder12;
     form.querySelector('input[name="groupSize"]').value = groupTotal ? `${groupTotal} people` : '';
+    const breakdown = `Adults: ${adults}; Children <12: ${childrenUnder12}${childrenUnder12 > 0 ? ` (Ages: ${childrenAges.filter((a)=>!isNaN(a as any)).join(', ')})` : ''}; Total: ${groupTotal}`;
+    const groupBreakdownInput = form.querySelector('input[name="groupSizeBreakdown"]') as HTMLInputElement | null;
+    if (groupBreakdownInput) groupBreakdownInput.value = breakdown;
     // Extra group fields for clarity
     const adultsInput = form.querySelector('input[name="adults"]') as HTMLInputElement | null;
     if (adultsInput) adultsInput.value = String(adults);
@@ -395,10 +398,12 @@ const CustomSafari = () => {
                   {/* Human-friendly group size summary */}
                   <input type="hidden" name="groupSize" value={`${adults + childrenUnder12} people`} />
                   {/* Group size breakdown for clarity */}
-                  <input type="hidden" name="adults" value={adults} />
-                  <input type="hidden" name="childrenUnder12" value={childrenUnder12} />
+                  <input type="hidden" name="adults" value={`${adults}`} />
+                  <input type="hidden" name="childrenUnder12" value={`${childrenUnder12}`} />
                   <input type="hidden" name="childrenUnder12Ages" value={childrenAges.filter((a)=>!isNaN(a as any)).join(', ')} />
-                  <input type="hidden" name="groupSizeTotal" value={adults + childrenUnder12} />
+                  <input type="hidden" name="groupSizeTotal" value={`${adults + childrenUnder12}`} />
+                  <input type="hidden" name="groupSizeBreakdown" value={`Adults: ${adults}; Children <12: ${childrenUnder12}${childrenUnder12 > 0 ? ` (Ages: ${childrenAges.filter((a)=>!isNaN(a as any)).join(', ')})` : ''}; Total: ${adults + childrenUnder12}`}
+                  />
                   {/* Accommodation label */}
                   <input type="hidden" name="accommodation" value={accommodationLabels[formData.accommodation] || formData.accommodation} />
                   {/* Ensure travel dates are included in submission */}
