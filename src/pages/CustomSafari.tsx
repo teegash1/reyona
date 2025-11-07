@@ -459,7 +459,19 @@ const CustomSafari = () => {
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="duration">Duration</Label>
-                      <Select onValueChange={(value) => setFormData(prev => ({ ...prev, duration: value }))}>
+                      <Select onValueChange={(value) => {
+                        setFormData(prev => ({ ...prev, duration: value }));
+                        // Smooth scroll to Safari Details section after selecting duration
+                        setTimeout(() => {
+                          const headerHeight = 120; // approximate fixed header height
+                          const el = safariDetailsRef.current;
+                          if (el) {
+                            const rect = el.getBoundingClientRect();
+                            const top = window.scrollY + rect.top - headerHeight - 16;
+                            window.scrollTo({ top, behavior: 'smooth' });
+                          }
+                        }, 50);
+                      }}>
                         <SelectTrigger>
                           <SelectValue placeholder="Select duration" />
                         </SelectTrigger>
