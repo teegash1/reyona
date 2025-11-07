@@ -837,16 +837,16 @@ const CustomSafari = () => {
                   <Mail className="w-8 h-8 mx-auto mb-4 text-kenya-gold" />
                   <h3 className="font-semibold text-white mb-2">Email Us</h3>
                   <p className="text-white/90">info@reyonasafaris.com</p>
-                  <p className="text-white/70 text-sm">Response within 2 hours</p>
+                  <p className="text-white/70 text-sm">Response within 24 hours</p>
                 </CardContent>
               </Card>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="luxury" size="lg">
-                Call Now
+              <Button asChild variant="luxury" size="lg">
+                <a href="tel:+254707694388">Call Now</a>
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
-                Send Email
+              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+                <a href="mailto:info@reyonasafaris.com">Send Email</a>
               </Button>
             </div>
           </div>
