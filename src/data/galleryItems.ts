@@ -3,8 +3,9 @@ export type GalleryItem = {
   src: string;
   type: 'image' | 'video';
 };
+import { galleryAuto } from './galleryAuto';
 
-export const galleryItems: readonly GalleryItem[] = [
+export const baseGalleryItems: readonly GalleryItem[] = [
   {
     title: 'Safari Clip (1)',
     src: '/gallery/Untitled design (1).mp4',
@@ -401,3 +402,10 @@ export const galleryItems: readonly GalleryItem[] = [
     type: 'image',
   },
 ] as const;
+
+// Merge in any files found in public/gallery automatically
+const existingSrc = new Set(baseGalleryItems.map((i) => i.src));
+const autoItems = (galleryAuto as readonly { title: string; src: string; type: 'image' | 'video' }[])
+  .filter((i) => !existingSrc.has(i.src));
+
+export const galleryItems: readonly GalleryItem[] = [...baseGalleryItems, ...autoItems] as const;

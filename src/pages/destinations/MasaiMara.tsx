@@ -102,7 +102,7 @@ const MasaiMara = () => {
       type: "Ultra-Luxury Tented Camp",
       location: "Oloololo Escarpment",
       highlights: ["Panoramic views", "Luxury tents", "World-class dining"],
-      price: "$1,200+ per night",
+      price: "$1,700+ per night",
       description: "Perched dramatically on the edge of the Oloololo Escarpment, Angama Mara offers one of the most spectacular views in Africa. This ultra-luxury tented camp combines contemporary elegance with authentic safari charm, featuring spacious glass-fronted tents that seem to float above the endless plains below. Each tent boasts floor-to-ceiling windows, private decks, and en-suite bathrooms with freestanding bathtubs. The camp's location provides front-row seats to the Great Migration and offers unparalleled game viewing opportunities. With world-class cuisine, personalized service, and a focus on conservation, Angama Mara delivers an unforgettable luxury safari experience.",
       images: [
         "https://i.pinimg.com/736x/bf/3c/15/bf3c15ac2e1b8dd14ef25443fe819aa9.jpg",
@@ -135,10 +135,10 @@ const MasaiMara = () => {
       price: "$150-250 per night",
       description: "Mara Explorer Camp offers an authentic mobile camping experience that follows the Great Migration, ensuring you're always in the heart of the action. This intimate camp features traditional canvas tents with comfortable beds and basic amenities, providing a true bush experience without compromising on safety and comfort. The camp moves seasonally to follow the wildebeest migration, offering guests the best wildlife viewing opportunities throughout the year. Each tent is equipped with solar lighting and shared bathroom facilities. The camp's communal dining area serves hearty meals prepared over open fires, and evenings are spent around the campfire sharing stories under the African stars. This is the perfect choice for adventurous travelers seeking an authentic safari experience at an affordable price.",
       images: [
-        "https://ik.imgkit.net/3vlqs5axxjf/external/ik-seo/http://images.ntmllc.com/v4/hotel/T39/T39452/T39452_ROM_Z8CB98/Mara-Explorer-Room.jpg?tr=w-780%2Ch-437%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/external/ik-seo/http://images.ntmllc.com/v4/hotel/T39/T39452/T39452_ROM_Z8CB98/Mara-Explorer-Room.jpg?tr=w-780%2Ch-437%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/external/ik-seo/http://images.ntmllc.com/v4/hotel/T39/T39452/T39452_BRL_Z59071/Mara-Explorer-Bar-Lounge.jpg?tr=w-780%2Ch-437%2Cfo-auto",
-        "https://ik.imgkit.net/3vlqs5axxjf/external/ik-seo/http://images.ntmllc.com/v4/hotel/T39/T39452/T39452_BRL_Z59071/Mara-Explorer-Bar-Lounge.jpg?tr=w-780%2Ch-437%2Cfo-auto"
+        "https://static.guestcentric.net/bin/f5a8105e9dd778f4/mara-explorer-gallerymex0811-39.jpg",
+        "https://static.guestcentric.net/bin/f5a8105e9dd778f4/mara-explorer-gallerygdbb0811-5.jpg",
+        "https://static.guestcentric.net/bin/f5a8105e9dd778f4/mara-explorer-gallerymex0811-128.jpg",
+        "https://static.guestcentric.net/bin/f5a8105e9dd778f4/mara-explorer-gallerymara-2-016.jpg"
       ],
       amenities: ["Mobile canvas tents", "Shared bathroom facilities", "Communal dining", "Game drives", "Migration following", "Campfire evenings", "Solar lighting", "Authentic bush experience"]
     }
@@ -431,11 +431,11 @@ const MasaiMara = () => {
                 <h3 className="text-lg font-semibold mb-3">Photo Gallery</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {selectedAccommodation.images.map((image, index) => (
-                    <div key={index} className="relative group overflow-hidden rounded-lg">
+                    <div key={index} className="relative group overflow-hidden rounded-lg aspect-square">
                       <img
                         src={image}
                         alt={`${selectedAccommodation.name} - Image ${index + 1}`}
-                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                   ))}

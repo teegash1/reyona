@@ -1,50 +1,99 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Star, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import heroImage from '@/assets/hero-safari.jpg';
 import pexelsImage from '@/assets/pexels-charldurand-6404789.jpg';
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [showText, setShowText] = useState(true);
+  const [textVariant, setTextVariant] = useState<0 | 1>(0);
 
   type Slide =
     | { type: 'image'; src: string }
     | { type: 'video'; src: string };
 
-  // Include local assets and keep remote fallbacks. Add optional video in public folder.
+  // Base slides: keep only the first picture, then use provided AAAAfr images from public
   const heroSlides: Slide[] = [
     { type: 'image', src: heroImage },
-    { type: 'image', src: pexelsImage },
-    // Insert public AAballoon.jpeg as the 3rd slide
-    { type: 'image', src: '/AAballoon.jpeg' },
-    { type: 'image', src: 'https://cdn.pixabay.com/photo/2015/09/22/14/34/lion-951778_1280.jpg' },
-    { type: 'image', src: 'https://cdn.pixabay.com/photo/2020/08/25/11/11/zebra-5516455_1280.jpg' },
-    { type: 'image', src: 'https://cdn.pixabay.com/photo/2021/05/21/12/35/giraffe-6271050_1280.jpg' }
+    { type: 'image', src: '/AAAAfr.jpeg' },
+    { type: 'image', src: '/AAAAfr2.jpeg' },
+    { type: 'image', src: '/AAAAfr3.jpeg' },
+    { type: 'image', src: '/AAAAfr4.jpeg' },
+    { type: 'image', src: '/AAAAfr5.jpeg' },
+    { type: 'image', src: '/AAAAfr6.jpeg' },
+    { type: 'image', src: '/AAAAfr7.jpeg' },
   ];
 
-  // If a WhatsApp video is placed in public (e.g. public/whatsapp-video.mp4), include it as a slide at index 1
-  const whatsappVideoSrc = '/whatsapp-video.mp4';
-  // We cannot synchronously know if the file exists at build-time; attempt to prefetch and conditionally include
+  // Include a hero video from public as second slide if present
+  const heroVideoSrc = '/herovideo.mp4';
+  // We cannot synchronously know if the file exists at build-time; attempt to prefetch and conditionally include (mobile only)
   const [slides, setSlides] = useState<Slide[]>(heroSlides);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)');
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener?.('change', update);
+    return () => mq.removeEventListener?.('change', update);
+  }, []);
+
+  // Alternate hero text visibility and variants
+  useEffect(() => {
     let cancelled = false;
-    fetch(whatsappVideoSrc, { method: 'HEAD' })
-      .then((res) => {
-        if (!cancelled && res.ok) {
-          const withVideo = [...heroSlides];
-          withVideo.splice(1, 0, { type: 'video', src: whatsappVideoSrc });
-          setSlides(withVideo);
+    let firstVisible = true;
+    let visible = true;
+    let variant: 0 | 1 = 0;
+
+    const run = () => {
+      if (cancelled) return;
+      setShowText(visible);
+      if (visible) setTextVariant(variant);
+      const delay = visible ? (firstVisible ? 5000 : 6000) : 5000; // show 5s initially, then 6s; hide 5s
+      firstVisible = false;
+      setTimeout(() => {
+        if (cancelled) return;
+        if (visible) {
+          visible = false; // hide
+        } else {
+          visible = true; // show next variant
+          variant = variant === 0 ? 1 : 0;
         }
-      })
-      .catch(() => {
-        // ignore if not found
-      });
+        run();
+      }, delay);
+    };
+    run();
     return () => {
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    if (isMobile) {
+      fetch(heroVideoSrc, { method: 'HEAD' })
+        .then((res) => {
+          if (!cancelled && res.ok) {
+            const withVideo = [...heroSlides];
+            // Insert video as the 3rd item (index 2) on mobile only
+            withVideo.splice(2, 0, { type: 'video', src: heroVideoSrc });
+            setSlides(withVideo);
+          } else if (!cancelled) {
+            setSlides(heroSlides);
+          }
+        })
+        .catch(() => {
+          if (!cancelled) setSlides(heroSlides);
+        });
+    } else {
+      setSlides(heroSlides);
+    }
+    return () => {
+      cancelled = true;
+    };
+  }, [isMobile]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -62,9 +111,7 @@ const Hero = () => {
       {/* Background Images with Fast Scrolling and Zoom Effect */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => {
-          // Special positioning for giraffe image (4th image in original set, index 4 or 5 with video)
-          const isGiraffeImage = slide.type === 'image' && (slide.src.includes('giraffe-6271050_1280.jpg'));
-          const backgroundPosition = isGiraffeImage ? 'center top' : 'center center';
+          const backgroundPosition = 'center center';
           const isActive = index === currentImageIndex;
           const isNext = index === (currentImageIndex + 1) % slides.length;
 
@@ -101,6 +148,12 @@ const Hero = () => {
                   loop
                   // Ensure the video starts even on iOS
                   preload="metadata"
+                  onLoadedMetadata={(e) => {
+                    try { (e.currentTarget as HTMLVideoElement).playbackRate = 0.7; } catch {}
+                  }}
+                  onPlay={(e) => {
+                    try { (e.currentTarget as HTMLVideoElement).playbackRate = 0.7; } catch {}
+                  }}
                 />
               )}
             </div>
@@ -110,9 +163,9 @@ const Hero = () => {
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60" />
       
-      {/* Content */}
+      {/* Content (alternating text) */}
       <div className="relative z-10 w-full px-4 sm:px-6 text-center text-white">
-        <div className="mb-4 md:mb-6">
+        <div className={`mb-4 md:mb-6 transition-opacity duration-700 ${showText ? 'opacity-100' : 'opacity-0'}`}>
           <span className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 bg-kenya-gold/20 border border-kenya-gold/30 rounded-full text-kenya-gold text-xs sm:text-sm font-medium backdrop-blur-sm">
             <Award className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
             <span className="hidden xs:inline">PREMIUM SAFARI EXPERIENCES</span>
@@ -120,17 +173,35 @@ const Hero = () => {
           </span>
         </div>
 
-        <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight md:leading-relaxed px-2">
-          Adventure Inspired by
-          <span className="block text-kenya-gold leading-tight md:leading-relaxed">
-            the Wild Kenya
-          </span>
-        </h1>
-
-        <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-4xl mx-auto text-gray-200 px-4">
-          Embark on extraordinary journeys through Kenya's magnificent landscapes. 
-          Where every moment tells a story of wilderness and wonder.
-        </p>
+        <div className={`transition-opacity duration-700 ${showText ? 'opacity-100' : 'opacity-0'}`}>
+          {textVariant === 0 ? (
+            <>
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight md:leading-relaxed px-2">
+                Adventure Inspired by
+                <span className="block text-kenya-gold leading-tight md:leading-relaxed">
+                  the Wild Kenya
+                </span>
+              </h1>
+              <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-4xl mx-auto text-gray-200 px-4">
+                Embark on extraordinary journeys through Kenya's magnificent landscapes. Where every moment
+                tells a story of wilderness and wonder.
+              </p>
+            </>
+          ) : (
+            <>
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight md:leading-relaxed px-2">
+                Craft Your Perfect Safari
+                <span className="block text-kenya-gold leading-tight md:leading-relaxed">
+                  From Savannah to Sea
+                </span>
+              </h1>
+              <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-4xl mx-auto text-gray-200 px-4">
+                Hand‑crafted adventures across Masai Mara, Amboseli, Samburu and the coast—luxury, wildlife,
+                and culture woven into memories that last.
+              </p>
+            </>
+          )}
+        </div>
 
         {/* Primary CTAs are rendered above packages section for maximum hero visibility */}
 

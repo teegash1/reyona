@@ -18,7 +18,7 @@ const Destinations = () => {
       name: "Kenya's Signature Safari Circuit",
       tagline: 'Kenyan Wildlife Wonders',
       description: "Pair the Masai Mara migration with Amboseli's elephant herds, Samburu's unique wildlife, and the white sands of Diani for a complete Kenyan adventure.",
-      image: 'https://images.pexels.com/photos/26052413/pexels-photo-26052413.jpeg?_gl=1*16542d8*_ga*MTk4OTgwMDYwOC4xNzQ1NTg5OTU0*_ga_8JE65Q40S6*czE3NTY5MDE0NzYkbzI4JGcxJHQxNzU2OTAyMDc3JGo2JGwwJGgw',
+      image: '/AAAAAAApk5.jpeg',
       highlights: ['Masai Mara Migration', 'Amboseli Elephants', 'Samburu Special Five', 'Diani Beach Sunsets'],
       bestTime: 'June - October, December - March',
       duration: '5-10 days',
@@ -75,7 +75,7 @@ const Destinations = () => {
               key={destination.id}
               className="group w-full overflow-hidden hover:shadow-luxury transition-all duration-500 hover:-translate-y-2"
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative overflow-hidden aspect-[5/3]">
                 <img 
                   src={destination.image} 
                   alt={destination.name}

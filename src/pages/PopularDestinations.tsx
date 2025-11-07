@@ -453,9 +453,6 @@ const PopularDestinations = () => {
                       <Badge className="bg-kenya-purple text-white">
                         {destination.difficulty}
                       </Badge>
-                      <Badge variant="outline" className="text-xs font-semibold">
-                        {destination.price}
-                      </Badge>
                     </div>
                     <div className="flex items-center gap-1">
                       <Star className="w-4 h-4 fill-kenya-gold text-kenya-gold" />
