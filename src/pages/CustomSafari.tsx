@@ -124,6 +124,15 @@ const CustomSafari = () => {
     { value: 'ultra-luxury', label: '$10,000+ per person', description: 'Ultra-luxury, exclusive experiences' }
   ];
 
+  // Map accommodation internal values to full labels for submission
+  const accommodationLabels: Record<string, string> = {
+    'luxury-lodge': 'Luxury Lodges',
+    'tented-camp': 'Luxury Tented Camps',
+    'eco-lodge': 'Eco Lodges',
+    'budget-camp': 'Budget Camps',
+    'mixed': 'Mix of Different Types',
+  };
+
   // Country selection handled by CountryCodeSelect (searchable + recents)
 
   const handleDestinationChange = (destination, checked) => {
@@ -228,7 +237,8 @@ const CustomSafari = () => {
     if (childrenAgesInput) childrenAgesInput.value = childrenAges.join(', ');
     const groupSizeTotalInput = form.querySelector('input[name="groupSizeTotal"]') as HTMLInputElement | null;
     if (groupSizeTotalInput) groupSizeTotalInput.value = String(groupTotal);
-    form.querySelector('input[name="accommodation"]').value = formData.accommodation || '';
+    const accommodationLabel = accommodationLabels[formData.accommodation] || formData.accommodation || '';
+    form.querySelector('input[name="accommodation"]').value = accommodationLabel;
     // Ensure travel dates are submitted (fallback to current label if needed)
     form.querySelector('input[name="travelDates"]').value = formData.travelDates || (rangeLabel || '');
     // Compose and include canonical phone field
