@@ -214,6 +214,8 @@ const Contact = () => {
     const breakdownContact = `Adults: ${adults}; Children <12: ${childrenUnder12}${childrenUnder12 > 0 ? ` (Ages: ${childrenAges.filter((a)=>!isNaN(a as any)).join(', ')})` : ''}; Total: ${adults + childrenUnder12}`;
     const groupBreakdownContactInput = form.querySelector('input[name="groupSizeBreakdown"]') as HTMLInputElement | null;
     if (groupBreakdownContactInput) groupBreakdownContactInput.value = breakdownContact;
+    const groupSizeInput = form.querySelector('input[name=\"groupSize\"]') as HTMLInputElement | null;
+    if (groupSizeInput) groupSizeInput.value = `${adults + childrenUnder12} people | ${breakdownContact}`;
     // Travel preference fields
     const travelDatesInput = form.querySelector('input[name="preferredTravelDates"]') as HTMLInputElement | null;
     if (travelDatesInput) travelDatesInput.value = rangeLabel || '';
@@ -539,6 +541,11 @@ const Contact = () => {
                         <input type="hidden" name="childrenUnder12Ages" value={childrenAges.filter((a)=>!isNaN(a as any)).join(', ')} />
                         <input type="hidden" name="groupSizeTotal" value={`${adults + childrenUnder12}`} />
                         <input type="hidden" name="groupSizeBreakdown" value={`Adults: ${adults}; Children <12: ${childrenUnder12}${childrenUnder12 > 0 ? ` (Ages: ${childrenAges.filter((a)=>!isNaN(a as any)).join(', ')})` : ''}; Total: ${adults + childrenUnder12}`}
+                        />
+                        <input
+                          type="hidden"
+                          name="groupSize"
+                          value={`${adults + childrenUnder12} people | Adults: ${adults}; Children <12: ${childrenUnder12}${childrenUnder12 > 0 ? ` (Ages: ${childrenAges.filter((a)=>!isNaN(a as any)).join(', ')})` : ''}; Total: ${adults + childrenUnder12}`}
                         />
                         {/* Travel preference hidden fields populated from state */}
                         <input type="hidden" name="preferredTravelDates" value={rangeLabel} />
