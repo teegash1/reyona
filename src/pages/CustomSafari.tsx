@@ -227,8 +227,8 @@ const CustomSafari = () => {
     form.querySelector('input[name="budget"]').value = formatBudget(formData.budget);
     form.querySelector('input[name="duration"]').value = formData.duration || '';
     const groupTotal = adults + childrenUnder12;
-    form.querySelector('input[name="groupSize"]').value = groupTotal ? `${groupTotal} people` : '';
     const breakdown = `Adults: ${adults}; Children <12: ${childrenUnder12}${childrenUnder12 > 0 ? ` (Ages: ${childrenAges.filter((a)=>!isNaN(a as any)).join(', ')})` : ''}; Total: ${groupTotal}`;
+    form.querySelector('input[name="groupSize"]').value = groupTotal ? `${groupTotal} people | ${breakdown}` : '';
     const groupBreakdownInput = form.querySelector('input[name="groupSizeBreakdown"]') as HTMLInputElement | null;
     if (groupBreakdownInput) groupBreakdownInput.value = breakdown;
     // Extra group fields for clarity
@@ -395,8 +395,12 @@ const CustomSafari = () => {
                   <input type="hidden" name="experiences" value={formData.experiences.join(', ')} />
                   <input type="hidden" name="budget" value={formData.budget} />
                   <input type="hidden" name="duration" value={formData.duration} />
-                  {/* Human-friendly group size summary */}
-                  <input type="hidden" name="groupSize" value={`${adults + childrenUnder12} people`} />
+                  {/* Human-friendly group size summary including breakdown so it always appears in submissions */}
+                  <input
+                    type="hidden"
+                    name="groupSize"
+                    value={`${adults + childrenUnder12} people | Adults: ${adults}; Children <12: ${childrenUnder12}${childrenUnder12 > 0 ? ` (Ages: ${childrenAges.filter((a)=>!isNaN(a as any)).join(', ')})` : ''}; Total: ${adults + childrenUnder12}`}
+                  />
                   {/* Group size breakdown for clarity */}
                   <input type="hidden" name="adults" value={`${adults}`} />
                   <input type="hidden" name="childrenUnder12" value={`${childrenUnder12}`} />
