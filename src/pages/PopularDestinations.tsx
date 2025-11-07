@@ -288,6 +288,21 @@ const DESTINATIONS: DestinationCard[] = [
     difficulty: 'Easy',
     rating: 4.6,
     price: 'From $300/day'
+  },
+  {
+    id: 'zanzibar',
+    country: 'Tanzania',
+    name: 'Zanzibar Archipelago',
+    tagline: 'Spice Island Paradise',
+    description:
+      'UNESCO-listed Stone Town, pristine beaches at Nungwi and Paje, and superb snorkeling around Mnemba Atoll.',
+    image: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?q=80&w=1600&auto=format&fit=crop',
+    highlights: ['Stone Town', 'Powder-white beaches', 'Mnemba snorkeling', 'Jozani Forest'],
+    bestTime: 'Jun - Oct, Dec - Feb',
+    duration: '3-7 days',
+    difficulty: 'Easy',
+    rating: 4.8,
+    price: 'From $220/day'
   }
 ];
 

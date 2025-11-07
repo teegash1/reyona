@@ -23,6 +23,7 @@ import Serengeti from "./pages/destinations/Serengeti";
 import Ngorongoro from "./pages/destinations/Ngorongoro";
 import Tarangire from "./pages/destinations/Tarangire";
 import LakeManyara from "./pages/destinations/LakeManyara";
+import Zanzibar from "./pages/destinations/Zanzibar";
 import SaltLickSanctuary from "./pages/destinations/SaltLickSanctuary";
 import OlPejeta from "./pages/destinations/OlPejeta";
 import SolioConservancy from "./pages/destinations/SolioConservancy";
@@ -71,6 +72,7 @@ const App = () => {
             <Route path="/destinations/ngorongoro" element={<Ngorongoro />} />
             <Route path="/destinations/tarangire" element={<Tarangire />} />
             <Route path="/destinations/lake-manyara" element={<LakeManyara />} />
+            <Route path="/destinations/zanzibar" element={<Zanzibar />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/cookie-policy" element={<CookiePolicy />} />

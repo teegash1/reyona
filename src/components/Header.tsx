@@ -71,6 +71,7 @@ const Header = () => {
     { name: 'Ngorongoro', path: '/destinations/ngorongoro' },
     { name: 'Tarangire', path: '/destinations/tarangire' },
     { name: 'Lake Manyara', path: '/destinations/lake-manyara' },
+    { name: 'Zanzibar', path: '/destinations/zanzibar' },
   ];
 
   return (
