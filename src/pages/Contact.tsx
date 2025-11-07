@@ -702,7 +702,7 @@ const Contact = () => {
                                   type="button"
                                   variant="outline"
                                   size="sm"
-                                  className="border-[#800020] text-[#800020] rounded-md hover:bg-[#800020]/5"
+                                className="border-kenya-gold text-kenya-gold rounded-md hover:bg-kenya-gold hover:text-black transition-colors"
                                   onClick={() => setShowAgesDialog(true)}
                                 >
                                   Edit children ages

@@ -12,7 +12,14 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import CountryCodeSelect from '@/components/CountryCodeSelect';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Users, MapPin, Clock, Star, Phone, Mail } from 'lucide-react';
+import { Users, MapPin, Clock, Star, Phone, Mail, Plus, Minus } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from '@/components/ui/dialog';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 
@@ -38,6 +45,12 @@ const CustomSafari = () => {
   const [calendarMonth, setCalendarMonth] = useState<Date>(new Date());
   const budgetRef = useRef<HTMLDivElement | null>(null);
   const safariDetailsRef = useRef<HTMLDivElement | null>(null);
+  // Group size (match Contact form behavior)
+  const [adults, setAdults] = useState<number>(2);
+  const [childrenUnder12, setChildrenUnder12] = useState<number>(0);
+  const [childrenAges, setChildrenAges] = useState<number[]>([]);
+  const [showAgesDialog, setShowAgesDialog] = useState<boolean>(false);
+  const [childrenAgesError, setChildrenAgesError] = useState<string>('');
 
   useEffect(() => {
     // Keep calendar month aligned with chosen start date when opening
@@ -77,6 +90,8 @@ const CustomSafari = () => {
     'Ngorongoro Conservation Area',
     'Tarangire National Park',
     'Lake Manyara National Park'
+    ,
+    'Zanzibar'
   ];
 
   const experiences = [
@@ -99,7 +114,7 @@ const CustomSafari = () => {
     'Massage Therapy',
     // General add-ons
     'Beach Activities',
-    'Snorkeling'
+    'Game Drives'
   ];
 
   const budgetRanges = [
@@ -154,16 +169,25 @@ const CustomSafari = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Format data with descriptive text
-    const formatGroupSize = (value) => {
-      if (!value) return '';
-      return value.includes('people') ? value : `${value} people`;
-    };
+    // Validate children ages (same as Contact form)
+    if (childrenUnder12 > 0) {
+      if (childrenAges.length !== childrenUnder12) {
+        setChildrenAgesError('Please provide the age for each child under 12.');
+        setShowAgesDialog(true);
+        return;
+      }
+      const invalid = childrenAges.some((age) => isNaN(age as any) || age < 0 || age > 11);
+      if (invalid) {
+        setChildrenAgesError('Ages must be between 0 and 11 years.');
+        setShowAgesDialog(true);
+        return;
+      }
+    } else {
+      setChildrenAgesError('');
+    }
     
-    const formatDuration = (value) => {
-      if (!value) return '';
-      return value.includes('days') ? value : `${value} days`;
-    };
+    // Format data with descriptive text
+    // Duration comes as label like "7 Days" from dropdown; group size derived from counters
     
     const formatBudget = (value) => {
       if (!value) return '';
@@ -192,8 +216,18 @@ const CustomSafari = () => {
     form.querySelector('input[name="destinations"]').value = formData.destinations.join(', ');
     form.querySelector('input[name="experiences"]').value = formData.experiences.join(', ');
     form.querySelector('input[name="budget"]').value = formatBudget(formData.budget);
-    form.querySelector('input[name="duration"]').value = formatDuration(formData.duration);
-    form.querySelector('input[name="groupSize"]').value = formatGroupSize(formData.groupSize);
+    form.querySelector('input[name="duration"]').value = formData.duration || '';
+    const groupTotal = adults + childrenUnder12;
+    form.querySelector('input[name="groupSize"]').value = groupTotal ? `${groupTotal} people` : '';
+    // Extra group fields for clarity
+    const adultsInput = form.querySelector('input[name="adults"]') as HTMLInputElement | null;
+    if (adultsInput) adultsInput.value = String(adults);
+    const childrenInput = form.querySelector('input[name="childrenUnder12"]') as HTMLInputElement | null;
+    if (childrenInput) childrenInput.value = String(childrenUnder12);
+    const childrenAgesInput = form.querySelector('input[name="childrenUnder12Ages"]') as HTMLInputElement | null;
+    if (childrenAgesInput) childrenAgesInput.value = childrenAges.join(', ');
+    const groupSizeTotalInput = form.querySelector('input[name="groupSizeTotal"]') as HTMLInputElement | null;
+    if (groupSizeTotalInput) groupSizeTotalInput.value = String(groupTotal);
     form.querySelector('input[name="accommodation"]').value = formData.accommodation || '';
     // Ensure travel dates are submitted (fallback to current label if needed)
     form.querySelector('input[name="travelDates"]').value = formData.travelDates || (rangeLabel || '');
@@ -239,6 +273,12 @@ const CustomSafari = () => {
         accommodation: '',
         specialRequests: ''
       });
+      // Reset group size state
+      setAdults(2);
+      setChildrenUnder12(0);
+      setChildrenAges([]);
+      setChildrenAgesError('');
+      setShowAgesDialog(false);
       
       // Scroll to the success message
       setTimeout(() => {
@@ -343,6 +383,11 @@ const CustomSafari = () => {
                   <input name="budget" value={formData.budget} />
                   <input name="duration" value={formData.duration} />
                   <input name="groupSize" value={formData.groupSize} />
+                  {/* Group size breakdown for clarity */}
+                  <input name="adults" />
+                  <input name="childrenUnder12" />
+                  <input name="childrenUnder12Ages" />
+                  <input name="groupSizeTotal" />
                   <input name="accommodation" value={formData.accommodation} />
                   {/* Ensure travel dates are included in submission */}
                   <input name="travelDates" value={formData.travelDates} />
@@ -410,7 +455,8 @@ const CustomSafari = () => {
                 {/* Safari Details */}
                 <div ref={safariDetailsRef} className="space-y-4">
                   <h3 className="text-lg font-semibold border-b border-border pb-2">Safari Details</h3>
-                  <div className="grid md:grid-cols-3 gap-4">
+                  {/* Duration + Preferred Travel Dates side-by-side */}
+                  <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="duration">Duration</Label>
                       <Select onValueChange={(value) => setFormData(prev => ({ ...prev, duration: value }))}>
@@ -418,38 +464,14 @@ const CustomSafari = () => {
                           <SelectValue placeholder="Select duration" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="3-4">3-4 days</SelectItem>
-                          <SelectItem value="5-7">5-7 days</SelectItem>
-                          <SelectItem value="8-10">8-10 days</SelectItem>
-                          <SelectItem value="11-14">11-14 days</SelectItem>
-                          <SelectItem value="15+">15+ days</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <Label htmlFor="groupSize">Group Size</Label>
-                      <Select onValueChange={(value) => {
-                        setFormData(prev => ({ ...prev, groupSize: value }));
-                        // Smooth scroll to Safari Details section after selecting group size
-                        setTimeout(() => {
-                          const headerHeight = 120; // approximate fixed header height
-                          const el = safariDetailsRef.current;
-                          if (el) {
-                            const rect = el.getBoundingClientRect();
-                            const top = window.scrollY + rect.top - headerHeight - 16;
-                            window.scrollTo({ top, behavior: 'smooth' });
-                          }
-                        }, 50);
-                      }}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Number of travelers" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="1-2">1-2 people</SelectItem>
-                          <SelectItem value="3-4">3-4 people</SelectItem>
-                          <SelectItem value="5-8">5-8 people</SelectItem>
-                          <SelectItem value="9-12">9-12 people</SelectItem>
-                          <SelectItem value="13+">13+ people</SelectItem>
+                          {Array.from({ length: 30 }).map((_, i) => {
+                            const d = i + 1;
+                            return (
+                              <SelectItem key={d} value={`${d} ${d === 1 ? 'Day' : 'Days'}`}>
+                                {d} {d === 1 ? 'Day' : 'Days'}
+                              </SelectItem>
+                            );
+                          })}
                         </SelectContent>
                       </Select>
                     </div>
@@ -459,7 +481,7 @@ const CustomSafari = () => {
                         <PopoverTrigger asChild>
                           <button
                             type="button"
-                            className="w-full text-left mt-1 px-3 py-2 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-kenya-gold"
+                            className="w-full h-10 text-left mt-1 px-3 py-2 rounded-md border border-input bg-background text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-kenya-gold"
                           >
                             {rangeLabel || 'Select date range'}
                           </button>
@@ -469,10 +491,8 @@ const CustomSafari = () => {
                           className="p-0 origin-top-left bg-gradient-to-b from-black/90 to-kenya-burgundy/80 text-white border-kenya-burgundy/40"
                           onKeyDown={(e) => {
                             if (e.key === 'ArrowRight') {
-                              // Next month
                               setCalendarMonth((m) => new Date(m.getFullYear(), m.getMonth() + 1, 1));
                             } else if (e.key === 'ArrowLeft') {
-                              // Previous month
                               setCalendarMonth((m) => new Date(m.getFullYear(), m.getMonth() - 1, 1));
                             }
                           }}
@@ -490,45 +510,166 @@ const CustomSafari = () => {
                               if (hasFrom && !hasTo) {
                                 let start = dateRange.from as Date;
                                 let end = day;
-                                if (end < start) {
-                                  const tmp = start; start = end; end = tmp;
-                                }
+                                if (end < start) { const tmp = start; start = end; end = tmp; }
                                 setDateRange({ from: start, to: end });
                                 const label = `${formatDate(start)} – ${formatDate(end)}`;
                                 setFormData(prev => ({ ...prev, travelDates: label }));
                                 setOpenCalendar(false);
                               } else {
-                                // No start yet, or an existing completed range — start fresh
                                 setDateRange({ from: day, to: undefined });
                               }
                             }}
                             classNames={{
                               cell: [
-                                "h-9 w-9 text-center text-sm p-0 relative",
-                                // pill-like rounded corners at the ends
-                                "[&:has([aria-selected].day-range-start)]:rounded-l-full",
-                                "[&:has([aria-selected].day-range-end)]:rounded-r-full",
-                                // range background (gold 50%) and outside days lighter
-                                "[&:has([aria-selected].day-outside)]:bg-kenya-gold/70",
-                                //"[&:has([aria-selected])]:bg-kenya-gold/50",
-                                // ensure focus layering
-                                "focus-within:relative focus-within:z-20",
+                                'h-9 w-9 text-center text-sm p-0 relative',
+                                '[&:has([aria-selected].day-range-start)]:rounded-l-full',
+                                '[&:has([aria-selected].day-range-end)]:rounded-r-full',
+                                '[&:has([aria-selected].day-outside)]:bg-kenya-gold/70',
+                                'focus-within:relative focus-within:z-20',
                               ].join(' '),
-                              // single selected day (before range end picked) should look like a start: burgundy + fully rounded
-                              day_selected: "bg-kenya-burgundy text-white rounded-full",
-                              // middle of range remains soft gold
-                              day_range_middle: "aria-selected:bg-kenya-gold/50 aria-selected:text-foreground",
-                              // explicit start/end styling (always burgundy, rounded ends)
-                              day_range_start: "bg-kenya-burgundy text-white rounded-l-full",
-                              day_range_end: "bg-kenya-burgundy text-white rounded-r-full",
+                              day_selected: 'bg-kenya-burgundy text-white rounded-full',
+                              day_range_middle: 'aria-selected:bg-kenya-gold/50 aria-selected:text-foreground',
+                              day_range_start: 'bg-kenya-burgundy text-white rounded-l-full',
+                              day_range_end: 'bg-kenya-burgundy text-white rounded-r-full',
                             }}
-                            
                           />
                         </PopoverContent>
                       </Popover>
                     </div>
                   </div>
+                  {/* Group Size placed below, boxes side-by-side */}
+                  <div>
+                    <Label>Group Size</Label>
+                    <div className="mt-2 grid md:grid-cols-2 gap-4">
+                      <div className="border rounded-lg p-3">
+                        <div className="flex items-center justify-between">
+                          <span className="font-medium">Adults</span>
+                          <div className="flex items-center gap-2">
+                            <Button type="button" variant="outline" size="icon" onClick={() => setAdults((n) => Math.max(1, n - 1))} aria-label="Decrease adults">
+                              <Minus className="h-4 w-4" />
+                            </Button>
+                            <span className="w-8 text-center select-none">{adults}</span>
+                            <Button type="button" variant="outline" size="icon" onClick={() => setAdults((n) => n + 1)} aria-label="Increase adults">
+                              <Plus className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="border rounded-lg p-3">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <div className="font-medium">Children (under 12)</div>
+                            <div className="text-xs text-muted-foreground">Ages required</div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <Button type="button" variant="outline" size="icon" onClick={() => {
+                              setChildrenUnder12((n) => {
+                                const next = Math.max(0, n - 1);
+                                setChildrenAges((ages) => ages.slice(0, next));
+                                return next;
+                              });
+                            }} aria-label="Decrease children">
+                              <Minus className="h-4 w-4" />
+                            </Button>
+                            <span className="w-8 text-center select-none">{childrenUnder12}</span>
+                            <Button type="button" variant="outline" size="icon" onClick={() => {
+                              setChildrenUnder12((n) => {
+                                const next = n + 1;
+                                setShowAgesDialog(true);
+                                setChildrenAges((ages) => {
+                                  const copy = [...ages];
+                                  while (copy.length < next) copy.push(NaN as any);
+                                  return copy;
+                                });
+                                return next;
+                              });
+                            }} aria-label="Increase children">
+                              <Plus className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </div>
+                        {childrenUnder12 > 0 && childrenAges.filter((a) => !isNaN(a as any)).length === childrenUnder12 && (
+                          <div className="mt-2 text-xs text-muted-foreground">Ages: {childrenAges.join(', ')}</div>
+                        )}
+                        {childrenAgesError && (
+                          <div className="mt-2 text-xs text-red-600">{childrenAgesError}</div>
+                        )}
+                        {childrenUnder12 > 0 && (
+                          <div className="mt-2">
+                            <Button type="button" variant="outline" size="sm" className="border-kenya-gold text-kenya-gold rounded-md hover:bg-kenya-gold hover:text-black transition-colors" onClick={() => setShowAgesDialog(true)}>
+                              Edit children ages
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                {/* Children Ages Dialog */}
+                <Dialog open={showAgesDialog} onOpenChange={setShowAgesDialog}>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Children Ages (under 12)</DialogTitle>
+                    </DialogHeader>
+                    <div className="space-y-4">
+                      {childrenUnder12 === 0 ? (
+                        <div className="text-sm text-muted-foreground">No children added.</div>
+                      ) : (
+                        <div className="space-y-3">
+                          {Array.from({ length: childrenUnder12 }).map((_, idx) => (
+                            <div key={idx} className="grid grid-cols-[1fr,120px] items-center gap-3">
+                              <Label className="text-sm">Child {idx + 1} Age</Label>
+                              <Input
+                                inputMode="numeric"
+                                placeholder="0-11"
+                                value={
+                                  Number.isNaN(childrenAges[idx] as any) || childrenAges[idx] === undefined
+                                    ? ''
+                                    : String(childrenAges[idx])
+                                }
+                                onChange={(e) => {
+                                  const val = e.target.value.replace(/[^0-9]/g, '');
+                                  const num = val === '' ? NaN : parseInt(val, 10);
+                                  setChildrenAges((prev) => {
+                                    const next = [...prev];
+                                    next[idx] = num as any;
+                                    return next;
+                                  });
+                                }}
+                              />
+                            </div>
+                          ))}
+                          {childrenAgesError && (
+                            <div className="text-sm text-red-600">{childrenAgesError}</div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    <DialogFooter>
+                      <Button
+                        type="button"
+                        onClick={() => {
+                          if (childrenUnder12 > 0) {
+                            if (childrenAges.length !== childrenUnder12) {
+                              setChildrenAgesError('Please provide the age for each child under 12.');
+                              return;
+                            }
+                            const invalid = childrenAges.some((age) => isNaN(age as any) || age < 0 || age > 11);
+                            if (invalid) {
+                              setChildrenAgesError('Ages must be between 0 and 11 years.');
+                              return;
+                            }
+                          }
+                          setChildrenAgesError('');
+                          setShowAgesDialog(false);
+                        }}
+                        variant="luxury"
+                      >
+                        Save Ages
+                      </Button>
+                    </DialogFooter>
+                  </DialogContent>
+                </Dialog>
 
                 {/* Budget */}
                 <div ref={budgetRef} className="space-y-4">
