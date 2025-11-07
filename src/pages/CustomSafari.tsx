@@ -484,14 +484,45 @@ const CustomSafari = () => {
                             disabled={{ before: new Date(new Date().setHours(0,0,0,0)) }}
                             month={calendarMonth}
                             onMonthChange={(m:any)=>setCalendarMonth(m)}
-                            onSelect={(range: any) => {
-                              setDateRange(range || {});
-                              if (range?.from && range?.to) {
-                                const label = `${formatDate(range.from)} – ${formatDate(range.to)}`;
+                            onDayClick={(day: Date) => {
+                              const hasFrom = !!dateRange?.from;
+                              const hasTo = !!dateRange?.to;
+                              if (hasFrom && !hasTo) {
+                                let start = dateRange.from as Date;
+                                let end = day;
+                                if (end < start) {
+                                  const tmp = start; start = end; end = tmp;
+                                }
+                                setDateRange({ from: start, to: end });
+                                const label = `${formatDate(start)} – ${formatDate(end)}`;
                                 setFormData(prev => ({ ...prev, travelDates: label }));
                                 setOpenCalendar(false);
+                              } else {
+                                // No start yet, or an existing completed range — start fresh
+                                setDateRange({ from: day, to: undefined });
                               }
                             }}
+                            classNames={{
+                              cell: [
+                                "h-9 w-9 text-center text-sm p-0 relative",
+                                // pill-like rounded corners at the ends
+                                "[&:has([aria-selected].day-range-start)]:rounded-l-full",
+                                "[&:has([aria-selected].day-range-end)]:rounded-r-full",
+                                // range background (gold 50%) and outside days lighter
+                                "[&:has([aria-selected].day-outside)]:bg-kenya-gold/70",
+                                //"[&:has([aria-selected])]:bg-kenya-gold/50",
+                                // ensure focus layering
+                                "focus-within:relative focus-within:z-20",
+                              ].join(' '),
+                              // single selected day (before range end picked) should look like a start: burgundy + fully rounded
+                              day_selected: "bg-kenya-burgundy text-white rounded-full",
+                              // middle of range remains soft gold
+                              day_range_middle: "aria-selected:bg-kenya-gold/50 aria-selected:text-foreground",
+                              // explicit start/end styling (always burgundy, rounded ends)
+                              day_range_start: "bg-kenya-burgundy text-white rounded-l-full",
+                              day_range_end: "bg-kenya-burgundy text-white rounded-r-full",
+                            }}
+                            
                           />
                         </PopoverContent>
                       </Popover>

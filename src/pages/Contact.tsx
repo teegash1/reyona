@@ -9,7 +9,14 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import CountryCodeSelect from '@/components/CountryCodeSelect';
-import { MapPin, Phone, Mail, Clock, MessageCircle, Calendar, Globe } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, Calendar, Globe, Plus, Minus } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from '@/components/ui/dialog';
 import { Helmet } from 'react-helmet-async';
 
 const Contact = () => {
@@ -27,6 +34,12 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [expandedFaqs, setExpandedFaqs] = useState<Set<number>>(new Set());
   const [phoneError, setPhoneError] = useState<string>('');
+  // Group size state
+  const [adults, setAdults] = useState<number>(2);
+  const [childrenUnder12, setChildrenUnder12] = useState<number>(0);
+  const [childrenAges, setChildrenAges] = useState<number[]>([]);
+  const [showAgesDialog, setShowAgesDialog] = useState<boolean>(false);
+  const [childrenAgesError, setChildrenAgesError] = useState<string>('');
   
   // Map internal values to human-friendly labels for submission
   const inquiryTypeLabels: Record<string, string> = {
@@ -103,7 +116,24 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
+    // Validate children ages if any children are added
+    if (childrenUnder12 > 0) {
+      if (childrenAges.length !== childrenUnder12) {
+        setChildrenAgesError('Please provide the age for each child under 12.');
+        setShowAgesDialog(true);
+        return;
+      }
+      const invalid = childrenAges.some((age) => isNaN(age as any) || age < 0 || age > 11);
+      if (invalid) {
+        setChildrenAgesError('Ages must be between 0 and 11 years.');
+        setShowAgesDialog(true);
+        return;
+      }
+    } else {
+      setChildrenAgesError('');
+    }
+
     // Validate phone quickly
     const digits = (formData.phoneNumber || '').replace(/[^0-9]/g, '');
     const rules: Record<string, { min: number; max: number }> = {
@@ -151,6 +181,15 @@ const Contact = () => {
     // Ensure we submit the full label, not the internal value
     const inquiryLabel = inquiryTypeLabels[formData.inquiryType] || formData.inquiryType || '';
     form.querySelector('input[name="inquiryType"]').value = inquiryLabel;
+    // Group size fields
+    const adultsInput = form.querySelector('input[name="adults"]') as HTMLInputElement | null;
+    if (adultsInput) adultsInput.value = String(adults);
+    const childrenInput = form.querySelector('input[name="childrenUnder12"]') as HTMLInputElement | null;
+    if (childrenInput) childrenInput.value = String(childrenUnder12);
+    const childrenAgesInput = form.querySelector('input[name="childrenUnder12Ages"]') as HTMLInputElement | null;
+    if (childrenAgesInput) childrenAgesInput.value = childrenAges.join(', ');
+    const groupTotalInput = form.querySelector('input[name="groupSizeTotal"]') as HTMLInputElement | null;
+    if (groupTotalInput) groupTotalInput.value = String(adults + childrenUnder12);
     
     // Submit the form to Netlify
     const formDataToSubmit = new FormData(form);
@@ -179,6 +218,12 @@ const Contact = () => {
         message: '',
         inquiryType: ''
       });
+      // Reset group size state
+      setAdults(2);
+      setChildrenUnder12(0);
+      setChildrenAges([]);
+      setChildrenAgesError('');
+      setShowAgesDialog(false);
       
       // Scroll to the success message
       setTimeout(() => {
@@ -235,13 +280,6 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Visit Our Office",
-      details: ["Delta Chambers", "P.O.BOX 172-00100", "Nairobi, Kenya"],
-      description: "Come see us for personalized safari planning",
-      clickable: false
-    },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
@@ -400,7 +438,7 @@ const Contact = () => {
       <section id="get-in-touch" className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Get In Touch</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 justify-items-center">
             {contactInfo.map((info, index) => (
               <Card 
                 key={index} 
@@ -462,6 +500,11 @@ const Contact = () => {
                         <input name="phone" />
                         <input name="phoneCountry" />
                         <input name="phoneNumber" />
+                        {/* Group size hidden fields populated on submit */}
+                        <input name="adults" />
+                        <input name="childrenUnder12" />
+                        <input name="childrenUnder12Ages" />
+                        <input name="groupSizeTotal" />
                       </div>
                       
                       <div className="grid md:grid-cols-2 gap-4">
@@ -533,6 +576,104 @@ const Contact = () => {
                         </div>
                       </div>
 
+                      {/* Group Size */}
+                      <div>
+                        <Label>Group Size</Label>
+                        <div className="mt-2 grid gap-4 md:grid-cols-2">
+                          {/* Adults */}
+                          <div className="border rounded-lg p-3">
+                            <div className="flex items-center justify-between">
+                              <span className="font-medium">Adults</span>
+                              <div className="flex items-center gap-2">
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  size="icon"
+                                  onClick={() => setAdults((n) => Math.max(1, n - 1))}
+                                  aria-label="Decrease adults"
+                                >
+                                  <Minus className="h-4 w-4" />
+                                </Button>
+                                <span className="w-8 text-center select-none">{adults}</span>
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  size="icon"
+                                  onClick={() => setAdults((n) => n + 1)}
+                                  aria-label="Increase adults"
+                                >
+                                  <Plus className="h-4 w-4" />
+                                </Button>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Children under 12 */}
+                          <div className="border rounded-lg p-3">
+                            <div className="flex items-center justify-between">
+                              <div>
+                                <div className="font-medium">{`Child < 12`}</div>
+                                <div className="text-xs text-muted-foreground">Ages required</div>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  size="icon"
+                                  onClick={() => {
+                                    setChildrenUnder12((n) => {
+                                      const next = Math.max(0, n - 1);
+                                      setChildrenAges((ages) => ages.slice(0, next));
+                                      return next;
+                                    });
+                                  }}
+                                  aria-label="Decrease children"
+                                >
+                                  <Minus className="h-4 w-4" />
+                                </Button>
+                                <span className="w-8 text-center select-none">{childrenUnder12}</span>
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  size="icon"
+                                  onClick={() => {
+                                    setChildrenUnder12((n) => {
+                                      const next = n + 1;
+                                      // Open dialog to collect ages whenever count increases
+                                      setShowAgesDialog(true);
+                                      // Pre-extend ages with empty as needed
+                                      setChildrenAges((ages) => {
+                                        const copy = [...ages];
+                                        while (copy.length < next) copy.push(NaN as any);
+                                        return copy;
+                                      });
+                                      return next;
+                                    });
+                                  }}
+                                  aria-label="Increase children"
+                                >
+                                  <Plus className="h-4 w-4" />
+                                </Button>
+                              </div>
+                            </div>
+                            {childrenUnder12 > 0 && childrenAges.filter((a) => !isNaN(a as any)).length === childrenUnder12 && (
+                              <div className="mt-2 text-xs text-muted-foreground">
+                                Ages: {childrenAges.join(', ')}
+                              </div>
+                            )}
+                            {childrenAgesError && (
+                              <div className="mt-2 text-xs text-red-600">{childrenAgesError}</div>
+                            )}
+                            {childrenUnder12 > 0 && (
+                              <div className="mt-2">
+                                <Button type="button" variant="ghost" size="sm" onClick={() => setShowAgesDialog(true)}>
+                                  Edit ages
+                                </Button>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+
                       <div>
                         <Label htmlFor="subject">Subject *</Label>
                         <Input
@@ -561,6 +702,72 @@ const Contact = () => {
                         Send Message
                       </Button>
                     </form>
+                    {/* Ages Dialog */}
+                    <Dialog open={showAgesDialog} onOpenChange={setShowAgesDialog}>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Children Ages (under 12)</DialogTitle>
+                        </DialogHeader>
+                        <div className="space-y-4">
+                          {childrenUnder12 === 0 ? (
+                            <div className="text-sm text-muted-foreground">No children added.</div>
+                          ) : (
+                            <div className="space-y-3">
+                              {Array.from({ length: childrenUnder12 }).map((_, idx) => (
+                                <div key={idx} className="grid grid-cols-[1fr,120px] items-center gap-3">
+                                  <Label className="text-sm">Child {idx + 1} Age</Label>
+                                  <Input
+                                    inputMode="numeric"
+                                    placeholder="0-11"
+                                    value={
+                                      Number.isNaN(childrenAges[idx] as any) || childrenAges[idx] === undefined
+                                        ? ''
+                                        : String(childrenAges[idx])
+                                    }
+                                    onChange={(e) => {
+                                      const val = e.target.value.replace(/[^0-9]/g, '');
+                                      const num = val === '' ? NaN : parseInt(val, 10);
+                                      setChildrenAges((prev) => {
+                                        const next = [...prev];
+                                        next[idx] = num as any;
+                                        return next;
+                                      });
+                                    }}
+                                  />
+                                </div>
+                              ))}
+                              {childrenAgesError && (
+                                <div className="text-sm text-red-600">{childrenAgesError}</div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                        <DialogFooter>
+                          <Button
+                            type="button"
+                            onClick={() => {
+                              // Validate before closing
+                              if (childrenUnder12 > 0) {
+                                if (childrenAges.length !== childrenUnder12) {
+                                  setChildrenAgesError('Please provide the age for each child under 12.');
+                                  return;
+                                }
+                                const invalid = childrenAges.some((age) => isNaN(age as any) || age < 0 || age > 11);
+                                if (invalid) {
+                                  setChildrenAgesError('Ages must be between 0 and 11 years.');
+                                  return;
+                                }
+                              }
+                              setChildrenAgesError('');
+                              setShowAgesDialog(false);
+                            }}
+                            variant="luxury"
+                          >
+                            Save Ages
+                          </Button>
+                        </DialogFooter>
+                      </DialogContent>
+                    </Dialog>
                   </CardContent>
                 </>
               ) : (
