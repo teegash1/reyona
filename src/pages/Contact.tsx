@@ -765,6 +765,11 @@ const Contact = () => {
                                     let end = day;
                                     if (end < start) { const tmp = start; start = end; end = tmp; }
                                     setDateRange({ from: start, to: end });
+                                    // Auto-fill duration based on selected range (inclusive)
+                                    const msPerDay = 1000 * 60 * 60 * 24;
+                                    const diff = Math.round((end.setHours(0,0,0,0) as any - (start.setHours(0,0,0,0) as any)) / msPerDay) + 1;
+                                    const days = Math.max(1, diff);
+                                    setDuration(`${days} ${days === 1 ? 'Day' : 'Days'}`);
                                     setOpenCalendar(false);
                                   } else {
                                     setDateRange({ from: day, to: undefined });
@@ -789,12 +794,12 @@ const Contact = () => {
                         </div>
                         <div>
                           <Label>Duration</Label>
-                          <Select onValueChange={(value) => setDuration(value)}>
+                          <Select value={duration} onValueChange={(value) => setDuration(value)}>
                             <SelectTrigger>
                               <SelectValue placeholder="Select duration" />
                             </SelectTrigger>
                             <SelectContent>
-                              {Array.from({ length: 30 }).map((_, i) => {
+                              {Array.from({ length: 60 }).map((_, i) => {
                                 const d = i + 1;
                                 return (
                                   <SelectItem key={d} value={`${d} ${d === 1 ? 'Day' : 'Days'}`}>
