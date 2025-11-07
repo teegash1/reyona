@@ -10,6 +10,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import CountryCodeSelect from '@/components/CountryCodeSelect';
 import { MapPin, Phone, Mail, Clock, MessageCircle, Calendar, Globe, Plus, Minus } from 'lucide-react';
+import { Calendar as DateCalendar } from '@/components/ui/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import {
   Dialog,
   DialogContent,
@@ -40,6 +42,25 @@ const Contact = () => {
   const [childrenAges, setChildrenAges] = useState<number[]>([]);
   const [showAgesDialog, setShowAgesDialog] = useState<boolean>(false);
   const [childrenAgesError, setChildrenAgesError] = useState<string>('');
+  // Travel dates + duration (mirror CustomSafari behavior)
+  const [dateRange, setDateRange] = useState<{ from?: Date; to?: Date }>({});
+  const [openCalendar, setOpenCalendar] = useState(false);
+  const [calendarMonth, setCalendarMonth] = useState<Date>(new Date());
+  const [duration, setDuration] = useState<string>('');
+
+  useEffect(() => {
+    if (openCalendar) {
+      setCalendarMonth((dateRange as any)?.from || new Date());
+    }
+  }, [openCalendar]);
+
+  const formatDate = (d?: Date) =>
+    d ? d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+  const rangeLabel = dateRange.from && dateRange.to
+    ? `${formatDate(dateRange.from)} – ${formatDate(dateRange.to)}`
+    : dateRange.from
+    ? `${formatDate(dateRange.from)} – …`
+    : '';
   
   // Map internal values to human-friendly labels for submission
   const inquiryTypeLabels: Record<string, string> = {
@@ -190,6 +211,11 @@ const Contact = () => {
     if (childrenAgesInput) childrenAgesInput.value = childrenAges.join(', ');
     const groupTotalInput = form.querySelector('input[name="groupSizeTotal"]') as HTMLInputElement | null;
     if (groupTotalInput) groupTotalInput.value = String(adults + childrenUnder12);
+    // Travel preference fields
+    const travelDatesInput = form.querySelector('input[name="preferredTravelDates"]') as HTMLInputElement | null;
+    if (travelDatesInput) travelDatesInput.value = rangeLabel || '';
+    const durationInput = form.querySelector('input[name="duration"]') as HTMLInputElement | null;
+    if (durationInput) durationInput.value = duration;
     
     // Submit the form to Netlify
     const formDataToSubmit = new FormData(form);
@@ -224,6 +250,10 @@ const Contact = () => {
       setChildrenAges([]);
       setChildrenAgesError('');
       setShowAgesDialog(false);
+      // Reset travel prefs
+      setDateRange({});
+      setOpenCalendar(false);
+      setDuration('');
       
       // Scroll to the success message
       setTimeout(() => {
@@ -505,6 +535,9 @@ const Contact = () => {
                         <input name="childrenUnder12" />
                         <input name="childrenUnder12Ages" />
                         <input name="groupSizeTotal" />
+                        {/* Travel preference hidden fields populated on submit */}
+                        <input name="preferredTravelDates" />
+                        <input name="duration" />
                       </div>
                       
                       <div className="grid md:grid-cols-2 gap-4">
@@ -665,8 +698,14 @@ const Contact = () => {
                             )}
                             {childrenUnder12 > 0 && (
                               <div className="mt-2">
-                                <Button type="button" variant="ghost" size="sm" onClick={() => setShowAgesDialog(true)}>
-                                  Edit ages
+                                <Button
+                                  type="button"
+                                  variant="outline"
+                                  size="sm"
+                                  className="border-[#800020] text-[#800020] rounded-md hover:bg-[#800020]/5"
+                                  onClick={() => setShowAgesDialog(true)}
+                                >
+                                  Edit children ages
                                 </Button>
                               </div>
                             )}
@@ -674,32 +713,111 @@ const Contact = () => {
                         </div>
                       </div>
 
+                      {/* Travel Preferences */}
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <Label>Preferred Travel Dates</Label>
+                          <Popover open={openCalendar} onOpenChange={setOpenCalendar}>
+                            <PopoverTrigger asChild>
+                              <button
+                                type="button"
+                                className="w-full h-10 text-left mt-1 px-3 py-2 rounded-md border border-input bg-background text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-kenya-gold"
+                              >
+                                {rangeLabel || 'Select date range'}
+                              </button>
+                            </PopoverTrigger>
+                            <PopoverContent
+                              align="start"
+                              className="p-0 origin-top-left bg-gradient-to-b from-black/90 to-kenya-burgundy/80 text-white border-kenya-burgundy/40"
+                              onKeyDown={(e) => {
+                                if (e.key === 'ArrowRight') {
+                                  setCalendarMonth((m) => new Date(m.getFullYear(), m.getMonth() + 1, 1));
+                                } else if (e.key === 'ArrowLeft') {
+                                  setCalendarMonth((m) => new Date(m.getFullYear(), m.getMonth() - 1, 1));
+                                }
+                              }}
+                            >
+                              <DateCalendar
+                                mode="range"
+                                numberOfMonths={1}
+                                selected={dateRange as any}
+                                disabled={{ before: new Date(new Date().setHours(0,0,0,0)) }}
+                                month={calendarMonth}
+                                onMonthChange={(m:any)=>setCalendarMonth(m)}
+                                onDayClick={(day: Date) => {
+                                  const hasFrom = !!dateRange?.from;
+                                  const hasTo = !!dateRange?.to;
+                                  if (hasFrom && !hasTo) {
+                                    let start = dateRange.from as Date;
+                                    let end = day;
+                                    if (end < start) { const tmp = start; start = end; end = tmp; }
+                                    setDateRange({ from: start, to: end });
+                                    setOpenCalendar(false);
+                                  } else {
+                                    setDateRange({ from: day, to: undefined });
+                                  }
+                                }}
+                                classNames={{
+                                  cell: [
+                                    'h-9 w-9 text-center text-sm p-0 relative',
+                                    '[&:has([aria-selected].day-range-start)]:rounded-l-full',
+                                    '[&:has([aria-selected].day-range-end)]:rounded-r-full',
+                                    '[&:has([aria-selected].day-outside)]:bg-kenya-gold/70',
+                                    'focus-within:relative focus-within:z-20',
+                                  ].join(' '),
+                                  day_selected: 'bg-kenya-burgundy text-white rounded-full',
+                                  day_range_middle: 'aria-selected:bg-kenya-gold/50 aria-selected:text-foreground',
+                                  day_range_start: 'bg-kenya-burgundy text-white rounded-l-full',
+                                  day_range_end: 'bg-kenya-burgundy text-white rounded-r-full',
+                                }}
+                              />
+                            </PopoverContent>
+                          </Popover>
+                        </div>
+                        <div>
+                          <Label>Duration</Label>
+                          <Select onValueChange={(value) => setDuration(value)}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select duration" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {Array.from({ length: 30 }).map((_, i) => {
+                                const d = i + 1;
+                                return (
+                                  <SelectItem key={d} value={`${d} ${d === 1 ? 'Day' : 'Days'}`}>
+                                    {d} {d === 1 ? 'Day' : 'Days'}
+                                  </SelectItem>
+                                );
+                              })}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
+
                       <div>
-                        <Label htmlFor="subject">Subject *</Label>
+                        <Label htmlFor="subject">Occassion</Label>
                         <Input
                           id="subject"
                           name="subject"
                           value={formData.subject}
                           onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
-                          required
                         />
                       </div>
 
                       <div>
-                        <Label htmlFor="message">Message *</Label>
+                        <Label htmlFor="message">Message</Label>
                         <Textarea
                           id="message"
                           name="message"
                           value={formData.message}
                           onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                           rows={6}
-                          placeholder="Tell us about your safari interests, preferred dates, group size, or any questions you have..."
-                          required
+                          placeholder="Tell us about your safari interests, special requests or any questions you have..."
                         />
                       </div>
 
                       <Button type="submit" className="w-full" variant="luxury" size="lg">
-                        Send Message
+                        Submit Form
                       </Button>
                     </form>
                     {/* Ages Dialog */}
@@ -885,7 +1003,7 @@ const Contact = () => {
       {/* FAQ Section */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-kenya-gold">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <Card 
@@ -894,7 +1012,7 @@ const Contact = () => {
                 onClick={() => toggleFaq(index)}
               >
                 <CardContent className="pt-4 pb-4 md:pt-6 md:pb-6 transition-all duration-500">
-                  <h3 className="text-lg font-semibold mb-0 md:mb-3 text-kenya-purple group-hover:text-kenya-gold transition-all duration-300">
+                  <h3 className="text-lg font-semibold mb-0 md:mb-3 text-kenya-gold transition-all duration-300">
                     {faq.question}
                   </h3>
                   <div className="overflow-hidden transition-all duration-500 ease-in-out">

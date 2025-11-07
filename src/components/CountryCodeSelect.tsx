@@ -123,10 +123,10 @@ export default function CountryCodeSelect({ value, onChange, className }: { valu
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <button type="button" className={`flex items-center justify-between border rounded-md px-3 py-2 bg-background w-48 ${className ?? ''}`}>
+        <button type="button" className={`flex items-center justify-between border rounded-md px-3 py-2 bg-background w-48 text-base md:text-sm ${className ?? ''}`}>
           <span className="flex items-center gap-2">
-            <span className="text-lg leading-none">{selected.flag}</span>
-            <span>{selected.code || '+Code'}</span>
+            <span className="leading-none text-base md:text-sm">{selected.flag}</span>
+            <span className="text-base md:text-sm">{selected.code || '+Code'}</span>
           </span>
           <ChevronDown className="w-4 h-4 opacity-60" />
         </button>
