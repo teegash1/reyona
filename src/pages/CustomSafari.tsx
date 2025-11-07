@@ -387,24 +387,26 @@ const CustomSafari = () => {
                 {/* Netlify Forms Hidden Fields */}
                 <input type="hidden" name="form-name" value="custom-safari" />
                 <div className="hidden">
-                  <input name="bot-field" />
-                  <input name="destinations" value={formData.destinations.join(', ')} />
-                  <input name="experiences" value={formData.experiences.join(', ')} />
-                  <input name="budget" value={formData.budget} />
-                  <input name="duration" value={formData.duration} />
-                  <input name="groupSize" value={formData.groupSize} />
+                  <input type="hidden" name="bot-field" />
+                  <input type="hidden" name="destinations" value={formData.destinations.join(', ')} />
+                  <input type="hidden" name="experiences" value={formData.experiences.join(', ')} />
+                  <input type="hidden" name="budget" value={formData.budget} />
+                  <input type="hidden" name="duration" value={formData.duration} />
+                  {/* Human-friendly group size summary */}
+                  <input type="hidden" name="groupSize" value={`${adults + childrenUnder12} people`} />
                   {/* Group size breakdown for clarity */}
-                  <input name="adults" />
-                  <input name="childrenUnder12" />
-                  <input name="childrenUnder12Ages" />
-                  <input name="groupSizeTotal" />
-                  <input name="accommodation" value={formData.accommodation} />
+                  <input type="hidden" name="adults" value={adults} />
+                  <input type="hidden" name="childrenUnder12" value={childrenUnder12} />
+                  <input type="hidden" name="childrenUnder12Ages" value={childrenAges.filter((a)=>!isNaN(a as any)).join(', ')} />
+                  <input type="hidden" name="groupSizeTotal" value={adults + childrenUnder12} />
+                  {/* Accommodation label */}
+                  <input type="hidden" name="accommodation" value={accommodationLabels[formData.accommodation] || formData.accommodation} />
                   {/* Ensure travel dates are included in submission */}
-                  <input name="travelDates" value={formData.travelDates} />
+                  <input type="hidden" name="travelDates" value={formData.travelDates} />
                   {/* Canonical phone value populated on submit */}
-                  <input name="phone" />
-                  <input name="phoneCountry" />
-                  <input name="phoneNumber" />
+                  <input type="hidden" name="phone" />
+                  <input type="hidden" name="phoneCountry" />
+                  <input type="hidden" name="phoneNumber" />
                 </div>
                 {/* Personal Information */}
                 <div className="space-y-4">

@@ -524,20 +524,20 @@ const Contact = () => {
                       {/* Netlify Forms Hidden Fields */}
                       <input type="hidden" name="form-name" value="contact-form" />
                       <div className="hidden">
-                        <input name="bot-field" />
-                        <input name="inquiryType" value={formData.inquiryType} />
+                        <input type="hidden" name="bot-field" />
+                        <input type="hidden" name="inquiryType" value={formData.inquiryType} />
                         {/* Hidden canonical phone fields populated on submit */}
-                        <input name="phone" />
-                        <input name="phoneCountry" />
-                        <input name="phoneNumber" />
-                        {/* Group size hidden fields populated on submit */}
-                        <input name="adults" />
-                        <input name="childrenUnder12" />
-                        <input name="childrenUnder12Ages" />
-                        <input name="groupSizeTotal" />
-                        {/* Travel preference hidden fields populated on submit */}
-                        <input name="preferredTravelDates" />
-                        <input name="duration" />
+                        <input type="hidden" name="phone" />
+                        <input type="hidden" name="phoneCountry" />
+                        <input type="hidden" name="phoneNumber" />
+                        {/* Group size hidden fields populated from state */}
+                        <input type="hidden" name="adults" value={adults} />
+                        <input type="hidden" name="childrenUnder12" value={childrenUnder12} />
+                        <input type="hidden" name="childrenUnder12Ages" value={childrenAges.filter((a)=>!isNaN(a as any)).join(', ')} />
+                        <input type="hidden" name="groupSizeTotal" value={adults + childrenUnder12} />
+                        {/* Travel preference hidden fields populated from state */}
+                        <input type="hidden" name="preferredTravelDates" value={rangeLabel} />
+                        <input type="hidden" name="duration" value={duration} />
                       </div>
                       
                       <div className="grid md:grid-cols-2 gap-4">
