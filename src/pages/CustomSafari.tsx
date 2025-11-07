@@ -12,7 +12,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import CountryCodeSelect from '@/components/CountryCodeSelect';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Users, MapPin, Clock, Star, Phone, Mail, Plus, Minus } from 'lucide-react';
+import { Users, MapPin, Clock, Star, Phone, Mail, Plus, Minus, Calendar as CalendarIcon } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -493,9 +493,10 @@ const CustomSafari = () => {
                         <PopoverTrigger asChild>
                           <button
                             type="button"
-                            className="w-full h-10 text-left mt-1 px-3 py-2 rounded-md border border-input bg-background text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-kenya-gold"
+                            className="w-full h-10 mt-1 px-3 py-2 rounded-md border border-input bg-background text-base md:text-sm focus:outline-none focus:ring-2 focus:ring-kenya-gold flex items-center justify-between"
                           >
-                            {rangeLabel || 'Select date range'}
+                            <span className="text-left">{rangeLabel || 'Select date range'}</span>
+                            <CalendarIcon className="w-4 h-4 opacity-70" />
                           </button>
                         </PopoverTrigger>
                         <PopoverContent
