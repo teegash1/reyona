@@ -42,7 +42,8 @@ const Hero = () => {
   // Include a hero video from public as second slide if present
   const heroVideoSrc = '/herovideo.mp4';
   // Choose slides per viewport (mobile vs desktop)
-  const [slides, setSlides] = useState<Slide[]>(desktopSlides);
+  // Start with a guaranteed valid first slide to avoid any blank frames
+  const [slides, setSlides] = useState<Slide[]>([{ type: 'image', src: heroImage }]);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -110,7 +111,10 @@ const Hero = () => {
         // Default: include
         result.push(slide);
       }
-      if (!cancelled) setSlides(result);
+      if (!cancelled) {
+        setSlides(result.length ? result : [{ type: 'image', src: heroImage }]);
+        setCurrentImageIndex(0);
+      }
     };
 
     resolveSlides();
