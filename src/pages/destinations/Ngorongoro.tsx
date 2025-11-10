@@ -5,10 +5,22 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Camera, Star, Clock, Users, Mountain, Sun, Bird, Compass } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Ngorongoro = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const canonical = `https://reyonasafaris.com${location.pathname}`;
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://reyonasafaris.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Destinations', item: 'https://reyonasafaris.com/destinations' },
+      { '@type': 'ListItem', position: 3, name: 'Ngorongoro Conservation Area', item: canonical }
+    ]
+  };
 
   const quickFacts: { title: string; value: string; icon: LucideIcon; description: string }[] = [
     { title: 'UNESCO Status', value: 'World Heritage Site', icon: Star, description: 'Protects wildlife, landscapes and Maasai culture in a unique multiple‑use area.' },
@@ -39,6 +51,10 @@ const Ngorongoro = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+      </Helmet>
       <Header />
 
       {/* Hero */}

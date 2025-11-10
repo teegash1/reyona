@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Camera, Clock, Users, Waves, TreePalm, Fish, Castle, Sun, Thermometer } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 
 const Zanzibar = () => {
   const navigate = useNavigate();
@@ -110,8 +112,24 @@ const Zanzibar = () => {
 
   
 
+  const location = useLocation();
+  const canonical = `https://reyonasafaris.com${location.pathname}`;
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://reyonasafaris.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Destinations', item: 'https://reyonasafaris.com/destinations' },
+      { '@type': 'ListItem', position: 3, name: 'Zanzibar Archipelago', item: canonical }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Helmet>
+        <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+      </Helmet>
       <Header />
 
       {/* Hero */}

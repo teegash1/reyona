@@ -1,4 +1,5 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -8,6 +9,17 @@ import { MapPin, Camera, Star, Clock, Users, Waves, Umbrella, Fish, Eye, Heart, 
 
 const DianiBeach = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const canonical = `https://reyonasafaris.com${location.pathname}`;
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://reyonasafaris.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Destinations', item: 'https://reyonasafaris.com/destinations' },
+      { '@type': 'ListItem', position: 3, name: 'Diani Beach', item: canonical }
+    ]
+  };
 
   const handleBookSafariClick = (safariType) => {
     // Navigate to contact page with subject parameter and scroll to form
@@ -133,6 +145,10 @@ const DianiBeach = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+      </Helmet>
       <Header />
       
       {/* Hero Section */}

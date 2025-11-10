@@ -5,10 +5,22 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Camera, Star, Clock, Users, Bird, TreePine } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const LakeManyara = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const canonical = `https://reyonasafaris.com${location.pathname}`;
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://reyonasafaris.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Destinations', item: 'https://reyonasafaris.com/destinations' },
+      { '@type': 'ListItem', position: 3, name: 'Lake Manyara National Park', item: canonical }
+    ]
+  };
 
   const facts: { title: string; value: string; icon: LucideIcon; description: string }[] = [
     { title: 'Signature', value: 'Tree‑Climbing Lions', icon: Star, description: 'One of the few places where lions regularly rest in trees.' },
@@ -32,6 +44,10 @@ const LakeManyara = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+      </Helmet>
       <Header />
       {/* Hero */}
       <section className="relative h-[80vh] flex items-center justify-center">

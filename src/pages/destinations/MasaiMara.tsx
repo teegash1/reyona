@@ -1,4 +1,5 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -11,6 +12,17 @@ import heroSafari from '@/assets/hero-safari.jpg';
 
 const MasaiMara = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const canonical = `https://reyonasafaris.com${location.pathname}`;
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://reyonasafaris.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Destinations', item: 'https://reyonasafaris.com/destinations' },
+      { '@type': 'ListItem', position: 3, name: 'Masai Mara National Reserve', item: canonical }
+    ]
+  };
   const [selectedAccommodation, setSelectedAccommodation] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -146,6 +158,10 @@ const MasaiMara = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+      </Helmet>
       <Header />
       
       {/* Hero Section */}
