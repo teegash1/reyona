@@ -89,8 +89,7 @@ const GalleryPage = () => {
             <div className="mx-auto mb-12 max-w-3xl text-center">
               <h2 className="text-3xl font-semibold md:text-4xl">The Heartbeat of the Bush</h2>
               <p className="mt-4 text-base text-muted-foreground md:text-lg">
-                Swipe through cinematic stills and quick safari reels. Hover to feel the dock-style
-                zoom, click to step inside each moment in a crisp lightbox experience.
+                Swipe through cinematic stills and quick safari reels. Click to step inside each moment in a crisp lightbox experience.
               </p>
             </div>
 
