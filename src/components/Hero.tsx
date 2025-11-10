@@ -71,28 +71,8 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    let cancelled = false;
-    if (isMobile) {
-      fetch(heroVideoSrc, { method: 'HEAD' })
-        .then((res) => {
-          if (!cancelled && res.ok) {
-            const withVideo = [...heroSlides];
-            // Insert video as the 3rd item (index 2) on mobile only
-            withVideo.splice(2, 0, { type: 'video', src: heroVideoSrc });
-            setSlides(withVideo);
-          } else if (!cancelled) {
-            setSlides(heroSlides);
-          }
-        })
-        .catch(() => {
-          if (!cancelled) setSlides(heroSlides);
-        });
-    } else {
-      setSlides(heroSlides);
-    }
-    return () => {
-      cancelled = true;
-    };
+    // Always use images-only slides; no video on mobile or desktop
+    setSlides(heroSlides);
   }, [isMobile]);
 
   useEffect(() => {
@@ -177,27 +157,25 @@ const Hero = () => {
           {textVariant === 0 ? (
             <>
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight md:leading-relaxed px-2">
-                Adventure Inspired by
+                Experience the majesty of Africa with Reyona
                 <span className="block text-kenya-gold leading-tight md:leading-relaxed">
-                  the Wild Kenya
+                  
                 </span>
               </h1>
               <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-4xl mx-auto text-gray-200 px-4">
-                Embark on extraordinary journeys through Kenya's magnificent landscapes. Where every moment
-                tells a story of wilderness and wonder.
+                Where every step is a story and every moment is magic
               </p>
             </>
           ) : (
             <>
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight md:leading-relaxed px-2">
-                Craft Your Perfect Safari
+                Feel the pulse of the wild
                 <span className="block text-kenya-gold leading-tight md:leading-relaxed">
-                  From Savannah to Sea
+                  
                 </span>
               </h1>
               <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-4xl mx-auto text-gray-200 px-4">
-                Hand‑crafted adventures across Masai Mara, Amboseli, Samburu and the coast—luxury, wildlife,
-                and culture woven into memories that last.
+                Experience Africa's wonders through Reyona's eyes
               </p>
             </>
           )}
