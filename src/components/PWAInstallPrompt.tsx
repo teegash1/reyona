@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { X, Download, Smartphone, Monitor, Tablet } from 'lucide-react';
+import { X, Download, Smartphone, Monitor, Tablet, Share2, Home } from 'lucide-react';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -12,6 +12,8 @@ const PWAInstallPrompt = () => {
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
   const [deviceType, setDeviceType] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
+  const [isIOS, setIsIOS] = useState(false);
+  const [showIOSHint, setShowIOSHint] = useState(false);
 
   useEffect(() => {
     // Detect device type
@@ -27,6 +29,11 @@ const PWAInstallPrompt = () => {
     };
 
     detectDevice();
+    // Detect iOS Safari
+    const ua = window.navigator.userAgent || '';
+    const iOSLike = /iPad|iPhone|iPod/.test(ua);
+    const isTouchMac = /Macintosh/.test(ua) && 'ontouchend' in document;
+    setIsIOS(iOSLike || isTouchMac);
     window.addEventListener('resize', detectDevice);
 
     // Check if already installed
@@ -60,6 +67,16 @@ const PWAInstallPrompt = () => {
 
     window.addEventListener('appinstalled', handleAppInstalled);
 
+    // If iOS and not installed, show an educational hint after a short delay
+    if ((iOSLike || isTouchMac) && !(window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone)) {
+      const t = setTimeout(() => setShowIOSHint(true), 1500);
+      return () => {
+        window.removeEventListener('resize', detectDevice);
+        window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+        window.removeEventListener('appinstalled', handleAppInstalled);
+        clearTimeout(t);
+      };
+    }
     return () => {
       window.removeEventListener('resize', detectDevice);
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
@@ -85,9 +102,37 @@ const PWAInstallPrompt = () => {
     setShowInstallPrompt(false);
   };
 
-  if (isInstalled || !showInstallPrompt) {
-    return null;
-  }
+  const renderIOSBanner = () => {
+    if (!isIOS || isInstalled || !showIOSHint) return null;
+    return (
+      <div className="fixed bottom-4 left-4 right-4 z-50 bg-background/95 backdrop-blur-md rounded-lg shadow-lg border border-border text-foreground">
+        <div className="flex items-center justify-between p-4">
+          <div className="text-sm">
+            <div className="font-semibold mb-1">Add Reyona Safaris to your Home Screen</div>
+            <div className="text-muted-foreground">Follow these steps in Safari:</div>
+            <div className="flex items-center gap-2 mt-2">
+              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-muted/50 border border-border animate-pulse ring-2 ring-kenya-gold/50">
+                <Share2 className="w-4 h-4" />
+                <span className="text-xs">Share</span>
+              </span>
+              <span className="text-xs text-muted-foreground">then</span>
+              <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-muted/50 border border-border">
+                <Home className="w-4 h-4" />
+                <span className="text-xs">Add to Home Screen</span>
+              </span>
+            </div>
+          </div>
+          <Button size="sm" variant="outline" onClick={() => setShowIOSHint(false)}>
+            <X className="w-4 h-4" />
+          </Button>
+        </div>
+      </div>
+    );
+  };
+
+  if (isInstalled) return null;
+  if (isIOS) return renderIOSBanner();
+  if (!showInstallPrompt) return null;
 
   const getDeviceIcon = () => {
     switch (deviceType) {
