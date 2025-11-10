@@ -52,7 +52,7 @@ const About = () => {
     },
     {
       name: "Tanu Mutanu",
-      role: "Concierge",
+      role: "Tour Consultant",
       experience: "10+ years",
       specialty: "Guest Experience",
       image: "/AATANU.jpeg",
