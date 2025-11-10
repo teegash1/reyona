@@ -84,7 +84,39 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    setSlides(isMobile ? mobileSlides : desktopSlides);
+    let cancelled = false;
+    const candidates = isMobile ? mobileSlides : desktopSlides;
+
+    const resolveSlides = async () => {
+      const result: Slide[] = [];
+      for (const slide of candidates) {
+        if (slide.type === 'image') {
+          // Always keep the imported hero image
+          if (slide.src === heroImage) {
+            result.push(slide);
+            continue;
+          }
+          // For public assets, only include if the file exists
+          if (slide.src.startsWith('/')) {
+            try {
+              const res = await fetch(slide.src, { method: 'HEAD' });
+              if (res.ok) result.push(slide);
+            } catch {
+              // ignore missing
+            }
+            continue;
+          }
+        }
+        // Default: include
+        result.push(slide);
+      }
+      if (!cancelled) setSlides(result);
+    };
+
+    resolveSlides();
+    return () => {
+      cancelled = true;
+    };
   }, [isMobile]);
 
   useEffect(() => {
