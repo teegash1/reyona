@@ -14,18 +14,14 @@ const Hero = () => {
     | { type: 'image'; src: string }
     | { type: 'video'; src: string };
 
-  // Desktop slides: keep first image + AAAAfr 1-4, then desktop-only Herodes images
+  // Desktop slides: keep first image + AAAAfr 1-4, and approved Herodes images only
   const desktopSlides: Slide[] = [
     { type: 'image', src: heroImage },
     { type: 'image', src: '/AAAAfr.jpeg' },
     { type: 'image', src: '/AAAAfr2.jpeg' },
     { type: 'image', src: '/AAAAfr3.jpeg' },
     { type: 'image', src: '/AAAAfr4.jpeg' },
-    // Replace the previous 6th–8th images with these desktop-only variants
-    { type: 'image', src: '/Herodes1.jpeg' },
-    { type: 'image', src: '/Herodes2.jpeg' },
-    { type: 'image', src: '/Herodes3.jpeg' },
-    { type: 'image', src: '/Herodes5.jpeg' },
+    // Only render the approved Herodes images
     { type: 'image', src: '/Herodes7.jpg' },
     { type: 'image', src: '/Herodes8.jpg' },
   ];
