@@ -140,7 +140,7 @@ const Hero = () => {
             isMobile && slide.type === 'image' && typeof (slide as any).src === 'string' &&
             ((slide as any).src.endsWith('/Heromob1.jpeg') || (slide as any).src.endsWith('/Heromob4.jpeg'))
           );
-          const bgPos = mobileNudge ? 'center 35%' : backgroundPosition;
+          const bgPos = mobileNudge ? 'center 1%' : backgroundPosition;
           const isActive = index === currentImageIndex;
           const isNext = index === (currentImageIndex + 1) % slides.length;
 
