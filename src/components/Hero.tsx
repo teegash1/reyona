@@ -14,22 +14,35 @@ const Hero = () => {
     | { type: 'image'; src: string }
     | { type: 'video'; src: string };
 
-  // Base slides: keep only the first picture, then use provided AAAAfr images from public
-  const heroSlides: Slide[] = [
+  // Desktop slides: keep first image + AAAAfr 1-4, then desktop-only Herodes images
+  const desktopSlides: Slide[] = [
     { type: 'image', src: heroImage },
     { type: 'image', src: '/AAAAfr.jpeg' },
     { type: 'image', src: '/AAAAfr2.jpeg' },
     { type: 'image', src: '/AAAAfr3.jpeg' },
     { type: 'image', src: '/AAAAfr4.jpeg' },
-    { type: 'image', src: '/AAAAfr5.jpeg' },
-    { type: 'image', src: '/AAAAfr6.jpeg' },
-    { type: 'image', src: '/AAAAfr7.jpeg' },
+    // Replace the previous 6th–8th images with these desktop-only variants
+    { type: 'image', src: '/Herodes1.jpeg' },
+    { type: 'image', src: '/Herodes2.jpeg' },
+    { type: 'image', src: '/Herodes3.jpeg' },
+    { type: 'image', src: '/Herodes5.jpeg' },
+    { type: 'image', src: '/Herodes7.jpg' },
+    { type: 'image', src: '/Herodes8.jpg' },
+  ];
+
+  // Mobile slides: keep only the first image + mobile-only images
+  const mobileSlides: Slide[] = [
+    { type: 'image', src: heroImage },
+    { type: 'image', src: '/Heromob1.jpeg' },
+    { type: 'image', src: '/Heromob2.jpeg' },
+    { type: 'image', src: '/Heromob3.jpeg' },
+    { type: 'image', src: '/Heromob4.jpeg' },
   ];
 
   // Include a hero video from public as second slide if present
   const heroVideoSrc = '/herovideo.mp4';
-  // We cannot synchronously know if the file exists at build-time; attempt to prefetch and conditionally include (mobile only)
-  const [slides, setSlides] = useState<Slide[]>(heroSlides);
+  // Choose slides per viewport (mobile vs desktop)
+  const [slides, setSlides] = useState<Slide[]>(desktopSlides);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -71,8 +84,7 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
-    // Always use images-only slides; no video on mobile or desktop
-    setSlides(heroSlides);
+    setSlides(isMobile ? mobileSlides : desktopSlides);
   }, [isMobile]);
 
   useEffect(() => {
