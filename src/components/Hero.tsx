@@ -157,10 +157,8 @@ const Hero = () => {
           {textVariant === 0 ? (
             <>
               <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight md:leading-relaxed px-2">
-                Experience the majesty of Africa with Reyona
-                <span className="block text-kenya-gold leading-tight md:leading-relaxed">
-                  
-                </span>
+                <span className="block">Experience the majesty of Africa</span>
+                <span className="block text-kenya-gold leading-tight md:leading-relaxed">with Reyona</span>
               </h1>
               <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-4xl mx-auto text-gray-200 px-4">
                 Where every step is a story and every moment is magic
