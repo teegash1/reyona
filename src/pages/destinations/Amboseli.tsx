@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { faqs as sharedFaqs } from '@/data/faqs';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -19,6 +20,15 @@ const Amboseli = () => {
       { '@type': 'ListItem', position: 2, name: 'Destinations', item: 'https://reyonasafaris.com/destinations' },
       { '@type': 'ListItem', position: 3, name: 'Amboseli National Park', item: canonical }
     ]
+  };
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: sharedFaqs.slice(0, 5).map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
   };
 
   const handleBookSafariClick = (safariType) => {
@@ -148,6 +158,7 @@ const Amboseli = () => {
       <Helmet>
         <link rel="canonical" href={canonical} />
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Header />
       

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Mail, MapPin, ChevronDown, ChevronRight } from 'lucide-react';
 
@@ -76,6 +77,95 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+      {/* Invisible SEO JSON-LD injection for /safaris only */}
+      {location.pathname === '/safaris' && (
+        <Helmet>
+          {/* FAQPage using shared Contact FAQs (top 5) */}
+          <script
+            type="application/ld+json"
+          >{JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'What makes Kenya and Tanzania the best destinations for safari adventures?',
+                acceptedAnswer: { '@type': 'Answer', text: 'Kenya and Tanzania offer unparalleled wildlife safaris with iconic parks like Maasai Mara, Serengeti, Ngorongoro Crater, and Amboseli. Witness the Great Migration, spot the Big Five, and explore diverse ecosystems—all combined with authentic cultural experiences and luxury accommodations.' }
+              },
+              {
+                '@type': 'Question',
+                name: 'When is the best time to visit Kenya and Tanzania for wildlife viewing?',
+                acceptedAnswer: { '@type': 'Answer', text: 'The prime safari season runs from June to October during the dry months when animals gather near waterholes, making game viewing spectacular. For photographers and honeymooners seeking lush scenery, the green season (March to May) offers fewer crowds and blooming landscapes.' }
+              },
+              {
+                '@type': 'Question',
+                name: 'Are Kenya and Tanzania safaris suitable for families with children?',
+                acceptedAnswer: { '@type': 'Answer', text: 'Absolutely! Many safari lodges and tours are family‑friendly, offering educational activities for kids and safe, comfortable accommodations. Family safaris provide a unique opportunity for children to learn about wildlife conservation and experience nature up close.' }
+              },
+              {
+                '@type': 'Question',
+                name: 'What special experiences do you offer for couples and honeymooners?',
+                acceptedAnswer: { '@type': 'Answer', text: 'Couples and honeymooners can enjoy romantic private game drives, luxury tented camps with stunning views, sundowners overlooking the savannah, and exclusive cultural visits. Customized honeymoon safari packages ensure privacy, memorable moments, and unique adventures.' }
+              },
+              {
+                '@type': 'Question',
+                name: 'Can photographers expect good wildlife and landscape opportunities on these safaris?',
+                acceptedAnswer: { '@type': 'Answer', text: 'Yes! Kenya and Tanzania are world‑renowned for spectacular wildlife photography. Our expert guides know the best locations and times to capture lions, elephants, cheetahs, flamingos, and the Great Migration. We also offer tailored photography safaris with extended game drives and specialized vehicles.' }
+              },
+            ],
+          })}</script>
+          {/* TouristTrip + Offer for a few core packages */}
+          <script
+            type="application/ld+json"
+          >{JSON.stringify({
+            '@context': 'https://schema.org',
+            '@graph': [
+              {
+                '@type': 'TouristTrip',
+                name: '6 Days Ultimate Amboseli, Lake Nakuru, Masai Mara Safari',
+                description: 'Experience Kenya\'s best parks with private 4x4, expert guides, and full-board stays.',
+                image: ['https://reyonasafaris.com/AAAAAApk2.jpeg'],
+                itinerary: ['Nairobi', 'Amboseli', 'Lake Nakuru', 'Masai Mara', 'Nairobi'],
+                offers: {
+                  '@type': 'Offer',
+                  price: '2260',
+                  priceCurrency: 'USD',
+                  availability: 'https://schema.org/InStock',
+                  url: 'https://reyonasafaris.com/safaris'
+                }
+              },
+              {
+                '@type': 'TouristTrip',
+                name: '3 Days Private Holiday in Amboseli',
+                description: 'Short private getaway to Amboseli with elephant herds and Kilimanjaro views.',
+                image: ['https://reyonasafaris.com/ambos.jpeg'],
+                itinerary: ['Nairobi', 'Amboseli', 'Nairobi'],
+                offers: {
+                  '@type': 'Offer',
+                  price: '1125',
+                  priceCurrency: 'USD',
+                  availability: 'https://schema.org/InStock',
+                  url: 'https://reyonasafaris.com/safaris'
+                }
+              },
+              {
+                '@type': 'TouristTrip',
+                name: '8 Days Kenya & Tanzania Private Safari',
+                description: 'Cross-border highlights including Serengeti and Masai Mara with private vehicle and guide.',
+                image: ['https://reyonasafaris.com/AAAAAApk3.jpeg'],
+                itinerary: ['Nairobi', 'Masai Mara', 'Serengeti', 'Ngorongoro', 'Arusha'],
+                offers: {
+                  '@type': 'Offer',
+                  price: '4860',
+                  priceCurrency: 'USD',
+                  availability: 'https://schema.org/InStock',
+                  url: 'https://reyonasafaris.com/safaris'
+                }
+              }
+            ]
+          })}</script>
+        </Helmet>
+      )}
       {/* Top Contact Bar */}
       <div className="bg-muted/50 border-b border-border/50">
         <div className="w-full px-4 sm:px-6 lg:px-8 py-2">

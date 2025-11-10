@@ -7,6 +7,7 @@ import { MapPin, Camera, Star, Clock, Users, Mountain, Sun, Bird, Compass } from
 import type { LucideIcon } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { faqs as sharedFaqs } from '@/data/faqs';
 
 const Ngorongoro = () => {
   const navigate = useNavigate();
@@ -20,6 +21,15 @@ const Ngorongoro = () => {
       { '@type': 'ListItem', position: 2, name: 'Destinations', item: 'https://reyonasafaris.com/destinations' },
       { '@type': 'ListItem', position: 3, name: 'Ngorongoro Conservation Area', item: canonical }
     ]
+  };
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: sharedFaqs.slice(0, 5).map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
   };
 
   const quickFacts: { title: string; value: string; icon: LucideIcon; description: string }[] = [
@@ -54,6 +64,7 @@ const Ngorongoro = () => {
       <Helmet>
         <link rel="canonical" href={canonical} />
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Header />
 

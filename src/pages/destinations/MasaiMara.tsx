@@ -1,5 +1,6 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { sharedFaqs } from '@/data/sharedFaqs';
 import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -22,6 +23,15 @@ const MasaiMara = () => {
       { '@type': 'ListItem', position: 2, name: 'Destinations', item: 'https://reyonasafaris.com/destinations' },
       { '@type': 'ListItem', position: 3, name: 'Masai Mara National Reserve', item: canonical }
     ]
+  };
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: sharedFaqs.slice(0, 5).map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
   };
   const [selectedAccommodation, setSelectedAccommodation] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -161,6 +171,7 @@ const MasaiMara = () => {
       <Helmet>
         <link rel="canonical" href={canonical} />
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Header />
       

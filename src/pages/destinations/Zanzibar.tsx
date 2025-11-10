@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Camera, Clock, Users, Waves, TreePalm, Fish, Castle, Sun, Thermometer } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { faqs as sharedFaqs } from '@/data/faqs';
 import { useLocation } from 'react-router-dom';
 
 const Zanzibar = () => {
@@ -124,11 +125,22 @@ const Zanzibar = () => {
     ]
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: sharedFaqs.slice(0, 5).map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Helmet>
         <link rel="canonical" href={canonical} />
         <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Header />
 
