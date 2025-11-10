@@ -136,6 +136,11 @@ const Hero = () => {
       <div className="absolute inset-0">
         {slides.map((slide, index) => {
           const backgroundPosition = 'center center';
+          const mobileNudge = (
+            isMobile && slide.type === 'image' && typeof (slide as any).src === 'string' &&
+            ((slide as any).src.endsWith('/Heromob1.jpeg') || (slide as any).src.endsWith('/Heromob4.jpeg'))
+          );
+          const bgPos = mobileNudge ? 'center 35%' : backgroundPosition;
           const isActive = index === currentImageIndex;
           const isNext = index === (currentImageIndex + 1) % slides.length;
 
@@ -155,7 +160,7 @@ const Hero = () => {
                   className="absolute inset-0 bg-cover bg-no-repeat"
                   style={{
                     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url(${slide.src})`,
-                    backgroundPosition: backgroundPosition,
+                    backgroundPosition: bgPos,
                     backgroundAttachment: 'scroll',
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
