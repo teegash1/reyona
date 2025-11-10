@@ -30,7 +30,6 @@ const Contact = () => {
     phoneCountry: '+254',
     phoneNumber: '',
     subject: '',
-    message: '',
     inquiryType: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -246,7 +245,6 @@ const Contact = () => {
         phoneCountry: '+254',
         phoneNumber: '',
         subject: '',
-        message: '',
         inquiryType: ''
       });
       // Reset group size state
@@ -813,24 +811,14 @@ const Contact = () => {
                       </div>
 
                       <div>
-                        <Label htmlFor="subject">Occassion</Label>
-                        <Input
+                        <Label htmlFor="subject">Occasion</Label>
+                        <Textarea
                           id="subject"
                           name="subject"
                           value={formData.subject}
                           onChange={(e) => setFormData(prev => ({ ...prev, subject: e.target.value }))}
-                        />
-                      </div>
-
-                      <div>
-                        <Label htmlFor="message">Message</Label>
-                        <Textarea
-                          id="message"
-                          name="message"
-                          value={formData.message}
-                          onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                           rows={6}
-                          placeholder="Tell us about your safari interests, special requests or any questions you have..."
+                          placeholder="Tell us about the occasion, preferences, or any special requests..."
                         />
                       </div>
 
