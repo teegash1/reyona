@@ -2,6 +2,7 @@ export type GalleryItem = {
   title: string;
   src: string;
   type: 'image' | 'video';
+  alt?: string;
 };
 import { galleryAuto } from './galleryAuto';
 
@@ -408,4 +409,49 @@ const existingSrc = new Set(baseGalleryItems.map((i) => i.src));
 const autoItems = (galleryAuto as readonly { title: string; src: string; type: 'image' | 'video' }[])
   .filter((i) => !existingSrc.has(i.src));
 
-export const galleryItems: readonly GalleryItem[] = [...baseGalleryItems, ...autoItems] as const;
+// Derive SEO-friendly alt text
+const deriveAlt = (item: { title: string; src: string; type: 'image' | 'video'; alt?: string }): string | undefined => {
+  if (item.type !== 'image') return undefined;
+  if (item.alt) return item.alt;
+  const file = item.src.split('/').pop() || '';
+  // WhatsApp filename pattern: WhatsApp Image YYYY-MM-DD at HH.MM.SS
+  const wa = file.match(/^WhatsApp Image\s+(\d{4}-\d{2}-\d{2})\s+at\s+(\d{2})\.(\d{2})\.(\d{2})/i);
+  if (wa) {
+    const [, d, hh, mm, ss] = wa;
+    return `Safari moment captured on ${d} at ${hh}:${mm}:${ss} — Reyona Safaris photo gallery`;
+  }
+  const name = (item.title || file).replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
+  const lower = name.toLowerCase();
+  const keywordMap: { test: RegExp; alt: string }[] = [
+    { test: /angama/, alt: 'Angama Mara luxury safari lodge — Reyona Safaris' },
+    { test: /balloon|inflating/i, alt: 'Hot air balloon being prepared for a sunrise safari — Reyona Safaris' },
+    { test: /mara|masai/, alt: 'Masai Mara safari scene — Reyona Safaris' },
+    { test: /amboseli/, alt: 'Amboseli elephants with Kilimanjaro backdrop — Reyona Safaris' },
+    { test: /samburu/, alt: 'Samburu safari wildlife — Reyona Safaris' },
+    { test: /tsavo/, alt: 'Tsavo safari with red elephants — Reyona Safaris' },
+    { test: /nakuru/, alt: 'Lake Nakuru flamingos and wildlife — Reyona Safaris' },
+    { test: /naivasha/, alt: 'Lake Naivasha boat safari — Reyona Safaris' },
+    { test: /elementaita/, alt: 'Lake Elementaita birding scene — Reyona Safaris' },
+    { test: /bogoria/, alt: 'Lake Bogoria hot springs and flamingos — Reyona Safaris' },
+    { test: /serengeti/, alt: 'Serengeti safari on the endless plains — Reyona Safaris' },
+    { test: /ngorongoro/, alt: 'Ngorongoro Crater wildlife — Reyona Safaris' },
+    { test: /tarangire/, alt: 'Tarangire baobabs and elephants — Reyona Safaris' },
+    { test: /manyara/, alt: 'Lake Manyara and tree‑climbing lions — Reyona Safaris' },
+    { test: /zanzibar/, alt: 'Zanzibar beaches and Stone Town heritage — Reyona Safaris' },
+    { test: /ol pejeta|olpejeta/, alt: 'Ol Pejeta Conservancy and rhino conservation — Reyona Safaris' },
+    { test: /solio/, alt: 'Solio Conservancy rhino stronghold — Reyona Safaris' },
+    { test: /meru/, alt: 'Meru National Park rivers and palms — Reyona Safaris' },
+  ];
+  for (const k of keywordMap) {
+    if (k.test.test(lower)) return k.alt;
+  }
+  // Fallback: describe using cleaned title
+  return `${name} — Reyona Safaris photo gallery`;
+};
+
+const merged: GalleryItem[] = [...baseGalleryItems, ...autoItems].map((i) => ({
+  ...i,
+  alt: i.type === 'image' ? deriveAlt(i) : undefined,
+}));
+
+export const galleryItems: GalleryItem[] = merged;

@@ -144,7 +144,7 @@ const GalleryPage = () => {
                         {item.type === 'image' ? (
                           <img
                             src={item.src}
-                            alt={item.title}
+                            alt={item.alt ?? item.title}
                             loading="lazy"
                             className="block w-full rounded-3xl object-cover transition-[filter] duration-500"
                             style={{ filter: `saturate(${saturation})` }}
@@ -152,6 +152,7 @@ const GalleryPage = () => {
                         ) : (
                           <video
                             src={item.src}
+                            aria-label={item.title}
                             muted
                             loop
                             autoPlay
@@ -189,12 +190,13 @@ const GalleryPage = () => {
                 {selectedItem.type === 'image' ? (
                   <img
                     src={selectedItem.src}
-                    alt={selectedItem.title}
+                    alt={selectedItem.alt ?? selectedItem.title}
                     className="h-full max-h-[85vh] w-full object-contain"
                   />
                 ) : (
                   <video
                     src={selectedItem.src}
+                    aria-label={selectedItem.title}
                     controls
                     autoPlay
                     playsInline
