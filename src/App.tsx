@@ -3,37 +3,38 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import Safaris from "./pages/Safaris";
-import Experiences from "./pages/Experiences";
-import Gallery from "./pages/Gallery";
-import CustomSafari from "./pages/CustomSafari";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import PopularDestinations from "./pages/PopularDestinations";
-import MasaiMara from "./pages/destinations/MasaiMara";
-import Amboseli from "./pages/destinations/Amboseli";
-import TsavoEast from "./pages/destinations/TsavoEast";
-import TsavoWest from "./pages/destinations/TsavoWest";
-import LakeNakuru from "./pages/destinations/LakeNakuru";
-import Samburu from "./pages/destinations/Samburu";
-import DianiBeach from "./pages/destinations/DianiBeach";
-import Serengeti from "./pages/destinations/Serengeti";
-import Ngorongoro from "./pages/destinations/Ngorongoro";
-import Tarangire from "./pages/destinations/Tarangire";
-import LakeManyara from "./pages/destinations/LakeManyara";
-import Zanzibar from "./pages/destinations/Zanzibar";
-import SaltLickSanctuary from "./pages/destinations/SaltLickSanctuary";
-import OlPejeta from "./pages/destinations/OlPejeta";
-import SolioConservancy from "./pages/destinations/SolioConservancy";
-import MeruNationalPark from "./pages/destinations/MeruNationalPark";
-import LakeElementaita from "./pages/destinations/LakeElementaita";
-import LakeBogoria from "./pages/destinations/LakeBogoria";
-import LakeNaivasha from "./pages/destinations/LakeNaivasha";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
-import CookiePolicy from "./pages/CookiePolicy";
+import { Suspense, lazy } from "react";
+const Index = lazy(() => import("./pages/Index"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Safaris = lazy(() => import("./pages/Safaris"));
+const Experiences = lazy(() => import("./pages/Experiences"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const CustomSafari = lazy(() => import("./pages/CustomSafari"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const PopularDestinations = lazy(() => import("./pages/PopularDestinations"));
+const MasaiMara = lazy(() => import("./pages/destinations/MasaiMara"));
+const Amboseli = lazy(() => import("./pages/destinations/Amboseli"));
+const TsavoEast = lazy(() => import("./pages/destinations/TsavoEast"));
+const TsavoWest = lazy(() => import("./pages/destinations/TsavoWest"));
+const LakeNakuru = lazy(() => import("./pages/destinations/LakeNakuru"));
+const Samburu = lazy(() => import("./pages/destinations/Samburu"));
+const DianiBeach = lazy(() => import("./pages/destinations/DianiBeach"));
+const Serengeti = lazy(() => import("./pages/destinations/Serengeti"));
+const Ngorongoro = lazy(() => import("./pages/destinations/Ngorongoro"));
+const Tarangire = lazy(() => import("./pages/destinations/Tarangire"));
+const LakeManyara = lazy(() => import("./pages/destinations/LakeManyara"));
+const Zanzibar = lazy(() => import("./pages/destinations/Zanzibar"));
+const SaltLickSanctuary = lazy(() => import("./pages/destinations/SaltLickSanctuary"));
+const OlPejeta = lazy(() => import("./pages/destinations/OlPejeta"));
+const SolioConservancy = lazy(() => import("./pages/destinations/SolioConservancy"));
+const MeruNationalPark = lazy(() => import("./pages/destinations/MeruNationalPark"));
+const LakeElementaita = lazy(() => import("./pages/destinations/LakeElementaita"));
+const LakeBogoria = lazy(() => import("./pages/destinations/LakeBogoria"));
+const LakeNaivasha = lazy(() => import("./pages/destinations/LakeNaivasha"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/safaris" element={<Safaris />} />
@@ -79,6 +81,7 @@ const App = () => {
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

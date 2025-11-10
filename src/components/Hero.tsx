@@ -144,6 +144,9 @@ const Hero = () => {
           const isActive = index === currentImageIndex;
           const isNext = index === (currentImageIndex + 1) % slides.length;
 
+          // Optimization: only render active and next slides
+          if (!isActive && !isNext) return null;
+
           return (
             <div
               key={`${slide.type}-${index}`}

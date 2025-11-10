@@ -127,6 +127,8 @@ const SafariPackages = () => {
                 <img 
                   src={pkg.image} 
                   alt={pkg.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4">
